@@ -28,42 +28,53 @@ import {
 
     const [name, setName] = useState('')
     const [nameError, setNameError] = useState('')
+    const [password, setPassword] = useState('')
     const [passwordError, setPasswordError] = useState('')
+    const [title, setTitle] = useState('')
     const [titleError, setTitleError] = useState('')
-    const [middleBody, setMiddleBody] = useState('')
+    const [middleComment, setMiddleComment] = useState('')
+    const [middleBodyError, setMiddleBodyError] = useState('')
 
     function SetNames (event){
         setName(event.target.value)
     } 
 
     function SetPassword (event) {
-        setPasswordError(event.target.value)
+        setPassword(event.target.value)
     }
 
     function TitleName (event) {
-        setTitleError(event.target.value)
+        setTitle(event.target.value)
     }
 
     function BodyParagraph (event) {
-        setMiddleBody(event.target.value)
+        setMiddleComment(event.target.value)
     }
 
     function ErrorMessages (){
         if (name.length === 0) {
             setNameError('이름을 등록해 주세요')
-        } 
+        } else {
+            setNameError('')
+        }
 
-        if (passwordError.length <= 3) {
+        if (password.length <= 3) {
             setPasswordError('비밀번호를 입력해 주세요')
-        } 
+        } else {
+            setPasswordError('')
+        }
 
-        if (titleError === '') {
+        if (title === '') {
             setTitleError('제목을 등록해 주세요')
-        } 
+        } else (
+            setTitleError('')
+        )
 
-        if (middleBody === '') {
-            setMiddleBody('내용을 입력해 주세요')
-        } 
+        if (middleComment === '') {
+            setMiddleBodyError('내용을 입력해 주세요')
+        } else (
+            setMiddleBodyError('')
+        )
     }
 
     return (
@@ -72,29 +83,29 @@ import {
         <WriterWrapper>
           <InputWrapper>
             <Label>작성자</Label>
-            <Writer type="text" placeholder="이름을 적어주세요." onChange={SetNames}/>
+            <Writer type="text" placeholder="이름을 적어주세요." onChange={SetNames} required/>
             <ErrorNotification>{nameError}</ErrorNotification>
           </InputWrapper>
           <InputWrapper>
             <Label>비밀번호</Label>
-            <Password type="password" placeholder='비밀번호를 적어주세요' onChange={SetPassword}/>
+            <Password type="password" placeholder='비밀번호를 적어주세요' onChange={SetPassword} minlength='3' required/>
             <ErrorNotification>{passwordError}</ErrorNotification>
           </InputWrapper>
         </WriterWrapper>
         <InputWrapper>
           <Label>제목</Label>
-          <Subject type="text" placeholder="제목을 작성해주세요." onChange={TitleName}/>
+          <Subject type="text" placeholder="제목을 작성해주세요." onChange={TitleName} required/>
           <ErrorNotification>{titleError}</ErrorNotification>
         </InputWrapper>
         <InputWrapper>
           <Label>내용</Label>
-          <Contents placeholder="내용을 작성해주세요." onChange={BodyParagraph}/>
-          <ErrorNotification>{middleBody}</ErrorNotification>
+          <Contents placeholder="내용을 작성해주세요." onChange={BodyParagraph} required/>
+          <ErrorNotification>{middleBodyError}</ErrorNotification>
         </InputWrapper>
         <InputWrapper>
           <Label>주소</Label>
           <ZipcodeWrapper>
-            <Zipcode placeholder="07250" readOnly />
+            <Zipcode placeholder="07250" readOnly required/>
             <SearchButton>우편번호 검색</SearchButton>
           </ZipcodeWrapper>
           <Address readOnly />
