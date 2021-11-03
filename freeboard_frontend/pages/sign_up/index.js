@@ -13,30 +13,67 @@
 
 
 
+import styled from '@emotion/styled'
 import {Container,Wrapper,Title,InnerWrapper,EmailAddress,
      EmailAddressButton,Password1,Password2,Password1Button,
-     Password2Button,SubmitButton} from '../../styles/sign_up'
+     Password2Button,SubmitButton, InnerWrapper_div,
+     Label,TextArea} from '../../styles/sign_up'
+import {useState} from 'react'
 
 export default function SignUpPage () {
     
+    const [email,setEmail] = useState()
+    const [emailError, setEmailError] = useState()
+    const [authen, setAuthen] = useState()
+    const [authenError, setAuthenError] = useState()
+
+    function SetUpEmail (event) {
+        setEmail(event.target.value)
+    }
+
+    function SetUpPassword (event) {
+        setAuthen(event.target.value)
+    }
+
+    function FormSubmit () {
+        if (email.includes("@") === false) {
+            setEmailError('@ 가 입력되지않았습니다')
+        } else {
+            setEmailError('')
+        }
+
+        if (authen.length <= 8) {
+            setAuthenError('비밀번호를 길게 작성해주세요')
+        } else (
+            setAuthenError("")
+        )
+
+    }
 
     return(
         <Container> 
             <Title>Sign-Up Sheet</Title>
                 <Wrapper>
                     <InnerWrapper>
-                        <div>
-                            <EmailAddress>이메일</EmailAddress>
-                            <EmailAddressButton type='text'/>
-                        </div>
+                            <InnerWrapper_div>
+                                <EmailAddress>이메일</EmailAddress>
+                                <EmailAddressButton type='text' onChange={SetUpEmail}/>
+                                <div>{emailError}</div>
+                            </InnerWrapper_div>
+                        <InnerWrapper_div>
                             <Password1>비밀번호</Password1> 
-                            <Password1Button type='password'/>
-                       
+                            <Password1Button type='password' onChange={SetUpPassword}/>
+                            <div>{authenError}</div>
+                        </InnerWrapper_div>
+                        <InnerWrapper_div>
                             <Password2>비밀번호확인</Password2>
                             <Password2Button type='password'/>
-                      
-                            <SubmitButton>가입하기</SubmitButton>
-                        
+                        </InnerWrapper_div>
+                        <InnerWrapper_div>
+                            <Label>Comment</Label>
+                            <TextArea rows='6' cols='15'/>
+                        </InnerWrapper_div>
+                            <SubmitButton onClick={FormSubmit}>가입하기</SubmitButton>                        
                     </InnerWrapper>
                 </Wrapper>
         </Container>
