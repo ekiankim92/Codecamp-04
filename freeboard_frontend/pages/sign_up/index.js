@@ -22,31 +22,47 @@ import {useState} from 'react'
 
 export default function SignUpPage () {
     
-    const [email,setEmail] = useState()
+    const [email,setEmail] = useState("hello world")
     const [emailError, setEmailError] = useState()
+
     const [authen, setAuthen] = useState()
     const [authenError, setAuthenError] = useState()
 
+    const [message, setMessage] = useState()
+    const [messageError, setMessageError] = useState()
+
+
+
     function SetUpEmail (event) {
         setEmail(event.target.value)
+
+        if (event.target.value !== '') {
+            setEmailError("")
+        }
     }
 
     function SetUpPassword (event) {
         setAuthen(event.target.value)
     }
 
+    function MiddleComment (event) {
+        setMessage(event.target.value)
+    }
+
     function FormSubmit () {
-        if (email.includes("@") === false) {
+        if (email.includes("@") === false || email.length === '') {
             setEmailError('@ 가 입력되지않았습니다')
         } else {
             setEmailError('')
         }
 
-        if (authen.length <= 8) {
+        if (message === '') {
+            setMessageError('내용을 적어주세요')
+        }
+
+        if (authen === '') {
             setAuthenError('비밀번호를 길게 작성해주세요')
-        } else (
-            setAuthenError("")
-        )
+        } 
 
     }
 
@@ -58,7 +74,7 @@ export default function SignUpPage () {
                             <InnerWrapper_div>
                                 <EmailAddress>이메일</EmailAddress>
                                 <EmailAddressButton type='text' onChange={SetUpEmail}/>
-                                <div>{emailError}</div>
+                                <div style = {{color: "black"}}>{emailError}</div>
                             </InnerWrapper_div>
                         <InnerWrapper_div>
                             <Password1>비밀번호</Password1> 
@@ -71,7 +87,8 @@ export default function SignUpPage () {
                         </InnerWrapper_div>
                         <InnerWrapper_div>
                             <Label>Comment</Label>
-                            <TextArea rows='6' cols='15'/>
+                            <TextArea rows='6' cols='15' onChange={MiddleComment}/>
+                            <div style = {{color: "red"}}>{messageError}</div>
                         </InnerWrapper_div>
                             <SubmitButton onClick={FormSubmit}>가입하기</SubmitButton>                        
                     </InnerWrapper>
