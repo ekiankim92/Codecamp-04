@@ -5,3 +5,15 @@ function sum (num) {
     }
     return result
 }
+
+
+
+
+
+
+//break down 
+let count = 0
+for (let i=1; i <= 5; i++) {
+    count = count + i
+    console.log(count, i)
+}

@@ -1,0 +1,20 @@
+function makeOdd (num) {
+    let str = ''
+    for (let i=0; i<=num;i++){
+        if (i % 2 === 1) {
+            str += i; 
+        }
+    }
+    return str;
+}
+
+
+//break down 
+let num = 5 
+let str = ''
+for (let i=0; i <= num; i++) {
+    if (i%2 ===1) {
+        str = str + i
+    }
+    console.log(str)
+}
