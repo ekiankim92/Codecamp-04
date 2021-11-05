@@ -25,6 +25,7 @@ import {
 
   import { useMutation, gql} from "@apollo/client"
   import { useState } from 'react'
+  import { useRouter } from 'next/router'
 
   const CREATE_BOARD =gql`
     mutation createBoard($createBoardInput:CreateBoardInput!){
@@ -39,6 +40,7 @@ import {
 
   export default function BoardsNewPage() {
     const [createBoard] = useMutation(CREATE_BOARD)
+    const router = useRouter()
 
     const [name, setName] = useState('')
     const [nameError, setNameError] = useState('')
@@ -54,7 +56,6 @@ import {
 
     function SetNames (event){
         setName(event.target.value)
-
         if (event.target.value !== "") {
           setNameError("");
         }
@@ -62,7 +63,6 @@ import {
 
     function SetPassword (event) {
         setPassword(event.target.value)
-
         if (event.target.value !== "") {
           setPasswordError("");
         }
@@ -70,7 +70,6 @@ import {
 
     function TitleName (event) {
         setTitle(event.target.value)
-
         if (event.target.value !== "") {
           setTitleError("");
         }
@@ -78,23 +77,22 @@ import {
 
     function BodyParagraph (event) {
         setMiddleComment(event.target.value)
-
         if (event.target.value !== "") {
           setMiddleBodyError("");
         }
     }
 
         async function BackEndPush (){
-
-            if (name.length === 0) {
+          try {
+            
+            if (name === '') {
               setNameError('이름을 등록해 주세요')
-              return
           }
           //  else {
           //   setNameError("")
           // }
   
-          if (password.length <= 3) {
+          if (password === "") {
               setPasswordError('비밀번호를 입력해 주세요')
           } 
   
@@ -105,22 +103,26 @@ import {
           if (middleComment === '') {
               setMiddleBodyError('내용을 입력해 주세요')
           } 
-          
-          const result = await createBoard({
-            variables: {
-              createBoardInput: {
-                writer: name,
-                password: password,
-                title: title,
-                contents: middleComment
+
+          if (name !== "" && password !== "" && title !== "" && middleComment !== "") {
+            const result = await createBoard({
+              variables: {
+                createBoardInput: {
+                  writer: name,
+                  password: password,
+                  title: title,
+                  contents: middleComment
+                }
               }
-            }
-          })
-          console.log(result)
+            })
+            console.log(result)
+            router.push(`/board/${result.data.createBoard._id}`)
+          }
 
-    }
-
-   
+          } catch (error) {
+            console.log(error.message)
+          }
+        }
 
     return (
       <Wrapper>

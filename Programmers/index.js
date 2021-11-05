@@ -80,3 +80,56 @@ if (count >= 5) {
 }
 
 console.log(`의류를 구매한 횟수는 총 ${count}회 금액은 ${price}원이며 둥급은 ${tier}입니다`)
+
+
+
+
+function grade (score) {
+    if (score > 100 || score < 0) {
+        return "잘못된 점수입니다"
+    } else if (score >=90) {
+        return 'A'
+    } else if (score >= 80) {
+        return 'B'
+    } else if (score >= 70) {
+        return 'C'
+    } else if (score >= 60) {
+        return 'D'
+    } else if (score <= 59) {
+        return 'F'
+    }
+}
+
+let count = 0 
+let price = 0
+let tier = ''
+
+const myShopping = [
+    { category: "과일", price: 12000　},
+    { category: "의류", price:10000　 },
+    { category: "의류", price: 20000　},
+    { category: "장난감", price: 9000 },
+    { category: "과일", price: 5000　 },
+    { category: "의류", price: 10000  },
+    { category: "과일", price: 8000　　},
+    { category: "의류", price: 7000　　},
+    { category: "장난감", price: 5000  },
+    { category: "의류", price: 10000　 },
+]
+
+for (let i=0; i < myShopping.length; i++){
+    if (myShopping[i].category === '의류') {
+        count++
+        price += myShopping[i].price 
+    }
+}
+
+if (count >= 5) {
+    tier = 'gold'
+} else if (count >= 3){
+    tier = 'silver'
+} else if (count >= 0) {
+    tier =bronze 
+}
+
+console.log(`의류를 구매한 횟수는 총 ${count} 회 금액은 ${price} 원이며 등급은 ${tier} 입니다`)

@@ -20,15 +20,23 @@ for (let i=0; i< myShopping.length; i++) {
     if (myShopping[i].category === '의류') {
         count++
         price = price + myShopping[i].price
+
+        if (count >= 5) {
+            tier = "Gold";
+        } else if (count >= 3) {
+            tier = "Silver";
+        } else if (count >= 0) {
+            tier = "Bronze";
+        }
     }
 }
 
-if (count >= 5) {
-	tier = "Gold";
-} else if (count >= 3) {
-	tier = "Silver";
-} else if (count >= 0) {
-	tier = "Bronze";
-}
 
 console.log("의류를 구매한 횟수는 총 " + count + "회 금액은 " + money + "원이며 등급은 " + tier+"입니다.")
+
+//break down 
+
+for (let i =0; i < myShopping.length; i++) {
+    console.log((i), myShopping[i])
+}
+
