@@ -1,7 +1,9 @@
-
-import {Wrapper, MyDiv, Textarea} from '../../../styles/board_content'
 import { useRouter } from 'next/router'
 import { useQuery, gql} from '@apollo/client'
+import {Wrapper, MyDiv, Header, Header_Info, 
+    Header_Image, Header_Date, Navigation, List, 
+    Title, Image_Section, Content_Section, Video_Section,
+    Icon_Footer} from '../../../styles/board_content'
 
 
 const FETCH_BOARD = gql`
@@ -25,23 +27,56 @@ export default function PortfolioContent(){
         }
     })
 
+    function changeBackground(event) {
+        event.target.style.background = "red";
+    }
+
+    function changeMouseLeave (event){
+        event.target.style.background= "";
+    }
+
     console.log(data)
 
     return (
         <>
         <Wrapper>
-            <MyDiv>게시글 제목입니다.</MyDiv>
-            <Textarea>
-            </Textarea>
-            <div>작성자: {data?.fetchBoard.writer}</div>
-            <div>제목: {data?.fetchBoard.title}</div>
-            <div>내용: {data?.fetchBoard.contents}</div>
-            <div></div>
-            <img></img>
-            <img></img>
+            <Header>
+                    <Header_Info>
+                        <Header_Image src="/images/user.png"/>
+                        <Header_Info>작성자: {data?.fetchBoard.writer}</Header_Info>
+                        <Header_Date>2021.11.05</Header_Date>
+                    </Header_Info>
+                    <Navigation>
+                        <List href="#title" onMouseEnter={changeBackground} onMouseLeave={changeMouseLeave}>Title</List>
+                        <List href="#content" onMouseEnter={changeBackground} onMouseLeave={changeMouseLeave}>Content</List>
+                        <List href="#image" onMouseEnter={changeBackground} onMouseLeave={changeMouseLeave}>Image</List>
+                        <List href="#video" onMouseEnter={changeBackground} onMouseLeave={changeMouseLeave}>Video</List>
+                        <List href="#footer" onMouseEnter={changeBackground} onMouseLeave={changeMouseLeave}>Footer</List>
+                    </Navigation>
+            </Header>
+            <Title>
+            <MyDiv id="title">제목: {data?.fetchBoard.title}</MyDiv>
+            </Title>
+            <Image_Section>
+                <img id="image" src='https://content.codecademy.com/courses/freelance-1/unit-2/explorer.jpeg'></img>
+            </Image_Section>
+
+            <Content_Section>
+            <div id="content">내용: {data?.fetchBoard.contents}</div>
+            </Content_Section>
+
+            <Video_Section>
+                <video id="video" src="/media/cc0-videos/flower.mp4" controls></video>
+            </Video_Section>
+
+            <Icon_Footer id="footer">
+                <img src="/images/email.png"></img>
+                <img src="/images/phone.png"></img>
+            </Icon_Footer>
+
+
         </Wrapper>
         </>
     )
-
 
 }

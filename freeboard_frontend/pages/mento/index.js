@@ -42,16 +42,16 @@ import {
     const [createBoard] = useMutation(CREATE_BOARD)
     const router = useRouter()
 
-    const [name, setName] = useState('')
-    const [nameError, setNameError] = useState('')
+    const [name           , setName] = useState('')
+    const [nameError      , setNameError] = useState('')
 
-    const [password, setPassword] = useState('')
-    const [passwordError, setPasswordError] = useState('')
+    const [password       , setPassword] = useState('')
+    const [passwordError  , setPasswordError] = useState('')
 
-    const [title, setTitle] = useState('')
-    const [titleError, setTitleError] = useState('')
+    const [title          , setTitle] = useState('')
+    const [titleError     , setTitleError] = useState('')
 
-    const [middleComment, setMiddleComment] = useState('')
+    const [middleComment  ,   setMiddleComment] = useState('')
     const [middleBodyError, setMiddleBodyError] = useState('')
 
     function SetNames (event){
@@ -82,10 +82,18 @@ import {
         }
     }
 
+    function ChangeBackground(event) {
+      event.target.style.background = "yellow";
+    }
+
+    function changeMouseLeave (event){
+      event.target.style.background= "";
+  }
+
         async function BackEndPush (){
           try {
             
-            if (name === '') {
+          if (name === '') {
               setNameError('이름을 등록해 주세요')
           }
           //  else {
@@ -117,8 +125,8 @@ import {
             })
             console.log(result)
             router.push(`/board/${result.data.createBoard._id}`)
+            alert("등록되었습니다")
           }
-
           } catch (error) {
             console.log(error.message)
           }
@@ -185,7 +193,7 @@ import {
           <RadioLabel htmlFor="image">사진</RadioLabel>
         </OptionWrapper>
         <ButtonWrapper>
-          <SubmitButton onClick = {BackEndPush}>등록하기</SubmitButton>
+          <SubmitButton onMouseEnter={ChangeBackground} onMouseLeave={changeMouseLeave} onClick = {BackEndPush}>등록하기</SubmitButton>
         </ButtonWrapper>
       </Wrapper>
     )

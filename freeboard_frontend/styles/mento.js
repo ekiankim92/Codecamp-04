@@ -14,7 +14,10 @@ export const Wrapper = styled.div`
   align-items: center;
   border: none;
   box-shadow: 0px 0px 10px gray;
-`;
+  border-radius: 25px;
+  background-image: url(https://images.unsplash.com/photo-1531685250784-7569952593d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1548&q=80);
+  background-image: no-repeat;
+`
 
 export const Title = styled.div`
   font-family: Arial, Helvetica, sans-serif;
@@ -117,7 +120,7 @@ export const UploadButton = styled.button`
   margin-right: 24px;
   outline: none;
   border: none;
-  cursor: pointer;
+  cursor: grab;
 `;
 
 export const OptionWrapper = styled.div`
