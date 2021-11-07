@@ -19,6 +19,10 @@ import {Container,Wrapper,Title,InnerWrapper,EmailAddress,
      Password2Button,SubmitButton, InnerWrapper_div,
      Label,TextArea} from '../../styles/sign_up'
 import {useState} from 'react'
+import React from "react";
+// import { faCheckSquare, faSpinner } from "@fortawesome/free-solid-svg-icons";
+// import { faSquare } from "@fortawesome/free-regular-svg-icons";
+// export default () => <FontAwesomeIcon icon={faCamera} />;
 
 export default function SignUpPage () {
     
@@ -30,7 +34,6 @@ export default function SignUpPage () {
 
     const [message, setMessage] = useState()
     const [messageError, setMessageError] = useState()
-
 
 
     function SetUpEmail (event) {
@@ -69,6 +72,7 @@ export default function SignUpPage () {
     return(
         <Container> 
             <Title>Sign-Up Sheet</Title>
+            {/* <FontAwesomeIcon icon={faCamera} size="2x" /> */}
                 <Wrapper>
                     <InnerWrapper>
                             <InnerWrapper_div>
