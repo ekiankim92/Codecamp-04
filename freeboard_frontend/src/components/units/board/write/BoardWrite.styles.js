@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   border-radius: 25px;
   background-image: url(https://images.unsplash.com/photo-1531685250784-7569952593d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1548&q=80);
   background-image: no-repeat;
-`
+`;
 
 export const Title = styled.div`
   font-family: Arial, Helvetica, sans-serif;

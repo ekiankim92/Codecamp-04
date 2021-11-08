@@ -1,13 +1,12 @@
 import {Wrapper, MyDiv, Header, Header_Info, 
-    Header_Image, Header_Date, Navigation, List, 
-    Title, Image_Section, Content_Section, Video_Section,
-    Icon_Footer} from './BoardDetail.styles'
+        Header_Image, Header_Date, Navigation, 
+        List, Title, Image_Section, Content_Section, 
+        Video_Section, Icon_Footer} from './BoardDetail.styles'
 
 export default function BoardDetailUI (props) {
 
 return (
-
-<>
+    <>
         <Wrapper>
             <Header>
                     <Header_Info>
@@ -51,5 +50,4 @@ return (
         </Wrapper>
     </>
 )
-
 }
