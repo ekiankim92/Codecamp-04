@@ -1,4 +1,4 @@
-import QuizWrite from '../../../src/components/units/board/write/QuizWrite.container'
+import QuizWrite from '../source/06-01-files/QuizWrite.container'
 
 export default function QuizWritePage() {
      return <QuizWrite/>
