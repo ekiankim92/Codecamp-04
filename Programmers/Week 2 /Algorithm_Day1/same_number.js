@@ -25,3 +25,13 @@ function solution(arr) {
     }
     return result
 }
+
+//break down 
+console.log(arr[i], arr[i + 1])    // arr[i+1] next array number 
+
+function solution (arr) {
+    let answer = [];
+    if (answer[answer.length-1] !== arr[i]) {
+        answer.push(arr[i])
+    }
+}

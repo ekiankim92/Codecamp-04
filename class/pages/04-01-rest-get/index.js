@@ -13,10 +13,10 @@ export default function RestGetPage(){
 
     async function zzz () {
         const result = await axios.get('https://koreanjson.com/posts/1') 
-        console.log(result)
-        // console.log(result.data.title)
+        // console.log(result)
+        console.log(result.data.title)
 
-        // setAaa(result.data.title)
+        setAaa(result.data.title)
 
     }
     

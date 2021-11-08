@@ -13,3 +13,7 @@
 function solution(s) {
     return parseInt(s);
 }
+
+//break dowb 
+
+return s / 1 

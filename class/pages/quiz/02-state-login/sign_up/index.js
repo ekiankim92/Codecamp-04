@@ -17,7 +17,7 @@ import styled from '@emotion/styled'
 import {Container,Wrapper,Title,InnerWrapper,EmailAddress,
      EmailAddressButton,Password1,Password2,Password1Button,
      Password2Button,SubmitButton, InnerWrapper_div,
-     Label,TextArea} from '../../styles/sign_up'
+     Label,TextArea} from '../../../../styles/sign_up'
 import {useState} from 'react'
 import React from "react";
 // import { faCheckSquare, faSpinner } from "@fortawesome/free-solid-svg-icons";
