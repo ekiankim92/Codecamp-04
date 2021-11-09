@@ -2,6 +2,7 @@ import styled from "@emotion/styled"
 
 export const Wrapper = styled.div`
   width: 1200px;
+  height: auto;
   border: 1px solid black;
   margin: 100px;
   padding-top: 80px;
@@ -45,7 +46,7 @@ export const Header_Info = styled.div`
   align-items: center;
   padding-top: 5px;
   border-radius: 60px;
-  background-color: pink; 
+  /* background-color: pink;  */
 `
 
 export const Navigation = styled.nav`
@@ -59,7 +60,7 @@ export const Navigation = styled.nav`
 `
 
 export const List = styled.a`
-  /* color: lime; */
+  color: lime;
   cursor: grab;
 `
 
@@ -91,9 +92,9 @@ export const Image_Section = styled.section`
 
 export const Content_Section = styled.main`
   width: 996px;
-  height: 96px;
+  height: 180px;
   margin-top: 40px;
-  background-color: beige; 
+  /* background-color: beige;  */
 `
 
 export const Video_Section = styled.div`
@@ -109,3 +110,22 @@ export const Icon_Footer = styled.div`
   margin-top: 40px;
   /* background-color: yellow; */
 `
+
+export const Button = styled.button`
+  width: 179px;
+  height: 45px;
+  /* background-color: red; */
+`
+
+export const End_Buttons = styled.div`
+  width: 800px;
+  height: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 24px;
+  margin-left: 300px;
+  margin-top: -100px;
+  /* background-color: black; */
+`
+

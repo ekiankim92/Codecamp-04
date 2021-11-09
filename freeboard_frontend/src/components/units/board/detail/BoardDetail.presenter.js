@@ -1,7 +1,7 @@
 import {Wrapper, MyDiv, Header, Header_Info, 
         Header_Image, Header_Date, Navigation, 
         List, Title, Image_Section, Content_Section, 
-        Video_Section, Icon_Footer} from './BoardDetail.styles'
+        Video_Section, Icon_Footer, Button, End_Buttons} from './BoardDetail.styles'
 
 export default function BoardDetailUI (props) {
 
@@ -28,9 +28,11 @@ return (
                     </Navigation>
                     
             </Header>
+
             <Title>
-            <MyDiv id="title">제목: {props.data?.fetchBoard.title}</MyDiv>
+                <MyDiv id="title">제목: {props.data?.fetchBoard.title}</MyDiv>
             </Title>
+
             <Image_Section>
                 <img id="image" src='https://content.codecademy.com/courses/freelance-1/unit-2/explorer.jpeg'></img>
             </Image_Section>
@@ -48,6 +50,11 @@ return (
                 <img src="/images/phone.png"></img>
             </Icon_Footer>
         </Wrapper>
+        <End_Buttons>
+            <Button onClick={props.ButtonToBoardList}>목록으로</Button>
+            <Button>수정하기</Button>
+            <Button onClick={props.BoardListDeleteButton}>삭제하기</Button>
+        </End_Buttons>
     </>
 )
 }

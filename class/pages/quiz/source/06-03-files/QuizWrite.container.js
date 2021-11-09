@@ -9,8 +9,7 @@ export default function QuizWrite() {
 
 
     return (
-        <QuizWriteUI>
-            router = {router}
-        </QuizWriteUI>
+        <QuizWriteUI router = {router} />
     )
+
 }

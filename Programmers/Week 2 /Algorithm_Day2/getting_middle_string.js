@@ -19,3 +19,21 @@ function solution(s) {
     }
     return result
 }
+
+//break down 
+
+function solution(s) {
+    let result = ''
+    let center = Math.floor(s.length / 2)
+    //소수점을 내려서 없어줘야함 (문자열에 중간을 접근할수있음)
+    console.log(center)
+    let answer = s[center]
+    
+    if (s.length % 2 === 0) {
+        // 짝수일 경우 가운데 2글자를 가져온다 
+        result = s[center -1 ] + answer 
+    }
+    
+    result = s[center]
+    console.log(result)
+}

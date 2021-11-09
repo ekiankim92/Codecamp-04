@@ -28,11 +28,29 @@ export default function ContainerDetailPage(){
     // function changeMouseLeave (event){
     //     event.target.style.background= "";
     // }
+    function ButtonToBoardList () {
+        router.push(`board_list`)
+    }
+
+    function BoardListDeleteButton () {
+        alert("게시글이 삭제되었습니다")
+        router.push(`board_list`)
+    }
+
+    // function backToList(){
+    //     router.push(`/board/list`)
+    // }
+    //     return(
+    //         <BoardNewDetailUI data={data}
+    //         backToList = {backToList}/>
+    //     )
+    
 
     return (
         <BoardDetailUI
             data = {data}
-
+            ButtonToBoardList ={ButtonToBoardList}
+            BoardListDeleteButton = {BoardListDeleteButton}
         />
         
     )

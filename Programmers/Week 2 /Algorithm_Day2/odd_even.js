@@ -20,3 +20,16 @@ function solution(num) {
     }
     return result;
 }
+
+//break down 
+
+if (num % 2 === 0) {
+    answer = 'even'
+    // 짝수 : 나머지 값이 0일 경우 
+}
+
+function solution (num) {
+
+    return num % 2 === 0 ? 'Even' : 'Odd'
+
+}

@@ -16,3 +16,5 @@ function solution(arr) {
     }
     return result / (arr.length)
 }
+
+ß
