@@ -5,17 +5,19 @@ export default function BoardListUI (props) {
     return (
         <S.Outer_Wrapper>
             <S.Inner_Wrapper>
+
                 <S.Header>
                     <div>번호</div>
                     <div>제목</div>
                     <div>작성자</div>
                     <div>날짜</div>
                 </S.Header>
+
                 <S.Best_List>
                     <div>
                         {props.data2?.fetchBoardsOfTheBest.map((el , index) => (
                             <S.Row>
-                                <S.Column><input type= "checkbox"/></S.Column>
+                                {/* <S.Column><input type= "checkbox"/></S.Column> */}
                                 <S.Column>{index + 1}</S.Column>
                                 <S.Column>{el.title}</S.Column>
                                 <S.Column>{el.writer}</S.Column>
@@ -24,12 +26,23 @@ export default function BoardListUI (props) {
                         ))}
                     </div>
                 </S.Best_List>
+
+                <S.SearchSection>
+                    <div>
+                        {/* <img src="/images/word.png"/> */}
+                        <S.Search_Area type ="text" placeholder="제목을 검색해주세요"/>
+                    </div>
+                    <div><S.Search_Data type="text" placeholder="YYYY.MM.DD - YYYY.MM.DD"/></div>
+                    <div><S.Search_Button>검색하기</S.Search_Button></div>
+                </S.SearchSection>
+
                 <S.Header>
                     <div>번호</div>
                     <div>제목</div>
                     <div>작성자</div>
                     <div>날짜</div>
                 </S.Header>
+
                     <S.Lists>
                         {props.data1?.fetchBoards.map((el, index) => (
                         <S.Row key={el._id}>

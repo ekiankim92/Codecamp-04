@@ -25,10 +25,10 @@ const Row = styled.div`
 const Column = styled.div`
   width: 20%;
 `
-
 export default function MapCheckBoxPage(){
   const[deleteBoard] = useMutation(DELETE_BOARD)
   const{ data } = useQuery(FETCH_BOARDS)
+
   async function onClickDelete(event){
     try {
       await deleteBoard({
@@ -39,6 +39,7 @@ export default function MapCheckBoxPage(){
         alert(error.message)
     }
   }
+  
   return (
     <div>
       {data?.fetchBoards.map((el, index) => (

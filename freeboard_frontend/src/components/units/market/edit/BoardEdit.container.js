@@ -1,14 +1,14 @@
   import { useMutation} from "@apollo/client"
   import { useState } from 'react'
   import { useRouter } from 'next/router'
-  import BoardEditUI from './BoardWrite.presenter' 
-  import { CREATE_BOARD, UPDATE_BOARD} from "./BoardWrite.queries"
+  import BoardWriteUI from './BoardWrite.presenter' 
+  import { CREATE_BOARD } from "./BoardWrite.queries"
 
 
-  export default function BoardEdit (props) {
+  export default function BoardWrite(props) {
     const router = useRouter()
     const [createBoard] = useMutation(CREATE_BOARD)
-    const [updateBoard] = useMutation(UPDATE_BOARD)
+    // const [updateBoard] = useMutation(UPDATE_BOARD)
 
     const [name           , setName] = useState('')
     const [nameError      , setNameError] = useState('')
@@ -122,7 +122,7 @@
             console.log(result)
             router.push(`/board/${result.data.createBoard._id}`)
             alert("등록되었습니다")
-            // router.push(`/board/${router.query.content}`)
+
           }
           
           // async function BoardEnroll () {
@@ -139,26 +139,23 @@
           }
         }
 
-        async function BoardEdit (){
-          try{
-            const result = await updateBoard({
-              variables: {
-                UpdateBoardInput: {
-                  title,
-                  contents: middleComment
-                },
-                  password,
-                  boardId: router.query.content
-                }
-              })
-              router.push(`/board/${router.query.content}/edit`)
-          } catch (error){
-            console.log(error.message)
-          }
-        }
+        // async function BoardEdit (){
+        //   const result = await updateBoard({
+        //     variables: {
+        //       UpdateBoardInput: {
+        //         title,
+        //         contents: middleComment
+        //       },
+        //         password,
+        //         boardId: router.query.content
+        //     }
+        //   })
+        //   router.push(`/board/${router.query.content}`)
+        // }
+
 
         return (
-            <BoardEditUI
+            <BoardWriteUI
             SetNames = {SetNames}
             SetPassword = {SetPassword}
             TitleName = {TitleName}
@@ -170,8 +167,8 @@
             middleBodyError = {middleBodyError}
             color =  {color} 
             // BoardEnroll = {BoardEnroll}
-            BoardEdit = {BoardEdit}
-            isEdit = {props.isEdit}
+            // BoardEdit = {BoardEdit}
+            // isEdit = {props.isEdit}
             />
         )
   }

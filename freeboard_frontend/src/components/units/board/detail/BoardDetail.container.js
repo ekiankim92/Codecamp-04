@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import BoardDetailUI from './BoardDetail.presenter'
-import { useState } from 'react'
+// import { useState } from 'react'
 import { FETCH_BOARD } from './BoardDetail.queries'
 import { useQuery } from '@apollo/client'
 
@@ -52,7 +52,7 @@ export default function ContainerDetailPage(){
             ButtonToBoardList ={ButtonToBoardList}
             BoardListDeleteButton = {BoardListDeleteButton}
         />
-        
+   
     )
 
 }

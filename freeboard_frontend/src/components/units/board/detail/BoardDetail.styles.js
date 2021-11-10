@@ -115,6 +115,11 @@ export const Button = styled.button`
   width: 179px;
   height: 45px;
   /* background-color: red; */
+
+  :hover {
+    cursor: pointer; 
+    background-color: lightgray;
+  }
 `
 
 export const End_Buttons = styled.div`

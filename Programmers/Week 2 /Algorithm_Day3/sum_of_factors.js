@@ -24,3 +24,19 @@ function solution(n) {
     }
     return result
 }
+
+//break down 
+function solution (n){
+
+    let answer = 0; 
+    new Array(n)
+        .fill(1)
+        .forEach( (num,i) => {
+            if ( n % (num + i) === 0) {
+                answer += (num + i )
+            }
+        })
+}
+                
+//forEach() 단순하게 for 문으로만 사용하게됨 forEach 안에서는 filter 를 사용하면 안됨 
+

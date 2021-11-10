@@ -18,3 +18,30 @@ function solution(s) {
     }
     return result
 }
+
+//break down 
+function solution(s) {
+    if (s.length !== 4 || s.length !== 6){
+        return false 
+    }
+
+    let answer = true;
+    for (i=0; i < s.length; i++){
+        if (isNaN(s[i] === true))  
+        answer = false
+        break;                              
+    }
+    return answer 
+}
+
+const answer = s.split("")
+                .filter (num => {
+                    // 데이터가 아닌 문자타입만 남긴다 
+                    // NaN 값인 데이터만 남긴다 
+                    return isNaN(num)
+                })
+    return answer.length 
+
+
+ //Number 타입으로 반환했을때 문자열안 경구 true  겂을 판단 // 숫자가 아니다 
+// isNaN 문자열이 숫자가 아닌게 맞다 true 값 숫자일때는 문자값 false 

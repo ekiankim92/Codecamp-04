@@ -20,15 +20,14 @@ import {
     Zipcode,
     ZipcodeWrapper,
     UploadButton,
-    ErrorNotification,
-    MyButton
+    ErrorNotification
   } from "./BoardWrite.styles";
 
-export default function BoardEditUI (props) {
+export default function BoardWriteUI(props) {
     
     return (
         <Wrapper>
-          <Title>게시판  {props.isEdit ? "수정" : "등록"}</Title>
+          <Title>게시판 수정</Title>
           <WriterWrapper>
             <InputWrapper>
               <Label>작성자</Label>
@@ -89,7 +88,6 @@ export default function BoardEditUI (props) {
           <ButtonWrapper>
             {!props.isEdit && <SubmitButton onClick = {props.BackEndPush} color = {props.color}>등록하기</SubmitButton>}
             {props.isEdit && <SubmitButton onClick = {props.BoardEdit} color = {props.color}>수정하기</SubmitButton>}
-            {/* <MyButton color={props.color} onClick={props.isEdit ? props.BackEndPush : props.BoardEdit}>게시물 {props.isEdit ? '수정' : '등록'}하기</MyButton> */}
           </ButtonWrapper>
         </Wrapper>
       )

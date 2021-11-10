@@ -1,9 +1,14 @@
+import router from 'next/router'
 import {Wrapper, MyDiv, Header, Header_Info, 
         Header_Image, Header_Date, Navigation, 
         List, Title, Image_Section, Content_Section, 
         Video_Section, Icon_Footer, Button, End_Buttons} from './BoardDetail.styles'
 
 export default function BoardDetailUI (props) {
+
+    function RouterPush () {
+        router.push(`/board/${router.query.content}/edit`)
+    }
 
 return (
     <>
@@ -52,7 +57,7 @@ return (
         </Wrapper>
         <End_Buttons>
             <Button onClick={props.ButtonToBoardList}>목록으로</Button>
-            <Button>수정하기</Button>
+            <Button onClick={RouterPush}>수정하기</Button>
             <Button onClick={props.BoardListDeleteButton}>삭제하기</Button>
         </End_Buttons>
     </>
