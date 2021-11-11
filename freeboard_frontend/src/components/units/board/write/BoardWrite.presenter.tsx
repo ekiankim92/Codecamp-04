@@ -21,7 +21,6 @@ import {
     ZipcodeWrapper,
     UploadButton,
     ErrorNotification,
-    MyButton
   } from "./BoardWrite.styles";
 
 export default function BoardEditUI (props) {
@@ -32,23 +31,23 @@ export default function BoardEditUI (props) {
           <WriterWrapper>
             <InputWrapper>
               <Label>작성자</Label>
-              <Writer type="text" placeholder="이름을 적어주세요." onChange={props.SetNames} required/>
+              <Writer type="text" placeholder="이름을 적어주세요." onChange={props.SetNames} defaultValue={props.data?.fetchBoard.writer}/>
               <ErrorNotification>{props.nameError}</ErrorNotification>
             </InputWrapper>
             <InputWrapper>
               <Label>비밀번호</Label>
-              <Password type="password" placeholder='비밀번호를 적어주세요' onChange={props.SetPassword} minlength='3' required/>
+              <Password type="password" placeholder='비밀번호를 적어주세요' onChange={props.SetPassword} minlength='3' defaultValue={props.data?.fetchBoard.password}/>
               <ErrorNotification>{props.passwordError}</ErrorNotification>
             </InputWrapper>
           </WriterWrapper>
           <InputWrapper>
             <Label>제목</Label>
-            <Subject type="text" placeholder="제목을 작성해주세요." onChange={props.TitleName} required/>
+            <Subject type="text" placeholder="제목을 작성해주세요." onChange={props.TitleName} defaultValue={props.data?.fetchBoard.title}/>
             <ErrorNotification>{props.titleError}</ErrorNotification>
           </InputWrapper>
           <InputWrapper>
             <Label>내용</Label>
-            <Contents placeholder="내용을 작성해주세요." onChange={props.BodyParagraph} required/>
+            <Contents placeholder="내용을 작성해주세요." onChange={props.BodyParagraph} defaultValue={props.data?.fetchBoard.middleComment}/>
             <ErrorNotification>{props.middleBodyError}</ErrorNotification>
           </InputWrapper>
           <InputWrapper>

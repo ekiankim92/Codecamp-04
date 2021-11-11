@@ -80,6 +80,7 @@
 //       event.target.style.background= "";
 //   }
 
+        // 등록
         async function BackEndPush (){
           try {
             
@@ -138,20 +139,45 @@
             console.log(error.message)
           }
         }
-
+ 
+        // 수정
         async function BoardEdit (){
+
+          const MyVariables = {
+            boardId: router.query.content,
+            updateBoardInput: {
+            },
+            password
+          }
+
+          if (name !== "") {
+            MyVariables.writer = name
+          }
+
+          // if (title !== "") {
+          //   MyVariables.title = title
+          // }
+
+          if (middleComment !=="") {
+            MyVariables.updateBoardInput.contents = middleComment
+          }
+
+          if (title !=="") {
+            MyVariables.updateBoardInput.title = title
+          }
+
           try{
             const result = await updateBoard({
-              variables: {
-                UpdateBoardInput: {
-                  title,
-                  contents: middleComment
-                },
-                  password,
-                  boardId: router.query.content
-                }
+              variables: MyVariables
+                // updateBoardInput: {
+                //   title,
+                //   contents: middleComment
+                // },
+                //   password,
+                //   boardId: router.query.content
+                
               })
-              router.push(`/board/${router.query.content}/edit`)
+              router.push(`/board/${router.query.content}`)
           } catch (error){
             console.log(error.message)
           }
@@ -172,6 +198,7 @@
             // BoardEnroll = {BoardEnroll}
             BoardEdit = {BoardEdit}
             isEdit = {props.isEdit}
+            data = {props.data}
             />
         )
   }
