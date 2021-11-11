@@ -6,8 +6,6 @@ import { CREATE_BOARD, UPDATE_BOARD } from './BoardWrite.queries'
 import { useRouter } from 'next/router'
 import {IPropsBoardWrite, IMyVariables} from './BoardWrite.types'
 
-
-
 export default function BoardWrite (props: IPropsBoardWrite){ 
 
     const router = useRouter()

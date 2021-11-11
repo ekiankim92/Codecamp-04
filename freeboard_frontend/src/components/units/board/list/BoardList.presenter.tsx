@@ -1,6 +1,7 @@
 import * as S from './BoardList.style'
 
-export default function BoardListUI (props) {
+
+export default function BoardListUI (props: IPropsBoardListUI) {
 
     return (
         <S.Outer_Wrapper>
@@ -15,7 +16,7 @@ export default function BoardListUI (props) {
 
                 <S.Best_List>
                     <div>
-                        {props.data2?.fetchBoardsOfTheBest.map((el , index) => (
+                        {props.data2?.fetchBoardsOfTheBest.map((el: any, index: any) => (
                             <S.Row>
                                 {/* <S.Column><input type= "checkbox"/></S.Column> */}
                                 <S.Column>{index + 1}</S.Column>
@@ -44,7 +45,7 @@ export default function BoardListUI (props) {
                 </S.Header>
 
                     <S.Lists>
-                        {props.data1?.fetchBoards.map((el, index) => (
+                        {props.data1?.fetchBoards.map((el , index) => (
                         <S.Row key={el._id}>
                             <S.Column><input type="checkbox"/></S.Column>
                             <S.Column>{index + 1}</S.Column>

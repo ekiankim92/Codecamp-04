@@ -3,8 +3,10 @@ import {Wrapper, MyDiv, Header, Header_Info,
         Header_Image, Header_Date, Navigation, 
         List, Title, Image_Section, Content_Section, 
         Video_Section, Icon_Footer, Button, End_Buttons} from './BoardDetail.styles'
+import {IPropsBoardDetailUI} from './BoardDetail.typescript'
 
-export default function BoardDetailUI (props) {
+
+export default function BoardDetailUI (props: IPropsBoardDetailUI) {
 
     function RouterPush () {
         router.push(`/board/${router.query.content}/edit`)
