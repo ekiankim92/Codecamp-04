@@ -29,21 +29,21 @@ function solution(n) {
 // console.log(typeof n)   number 
 
 
-// n= String(n) OR n = n.string()
-// .toString()
-// 123.toString () -> syntax error
+n= String(n) OR n = n.string()
+.toString()
+123.toString () -> syntax error
 
-// for (let i=0; i < n.length; i++){
-//     console.log(n[i])
-//     result += n[i]   -> this will give out the String of n 
-//     문자열 타입의 n 값을 숫자 타입으로 변환 
-//     result += Number(n[i])
-// }
+for (let i=0; i < n.length; i++){
+    console.log(n[i])
+    result += n[i]   -> this will give out the String of n 
+    문자열 타입의 n 값을 숫자 타입으로 변환 
+    result += Number(n[i])
+}
 
-// function solution(n) {
-//     var answer = 0;
+function solution(n) {
+    var answer = 0;
 
-//     console.log(String(n).split("").forEach(num => { answer += Number(num)}))
+    console.log(String(n).split("").forEach(num => { answer += Number(num)}))
 
-//     return answer;
-// }
+    return answer;
+}
