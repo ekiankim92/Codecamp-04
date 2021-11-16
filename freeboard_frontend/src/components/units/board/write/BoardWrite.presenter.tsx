@@ -1,4 +1,6 @@
 import * as S from "./BoardWrite.styles";
+import DaumPostcode from "react-daum-postcode";
+import { Modal, Button } from "antd";
 
 export default function BoardEditUI(props) {
   return (
@@ -43,17 +45,28 @@ export default function BoardEditUI(props) {
           placeholder="내용을 작성해주세요."
           onChange={props.BodyParagraph}
           defaultValue={props.data?.fetchBoard.middleComment}
-        />
+        ></S.Contents>
         <S.ErrorNotification>{props.middleBodyError}</S.ErrorNotification>
       </S.InputWrapper>
       <S.InputWrapper>
         <S.Label>주소</S.Label>
         <S.ZipcodeWrapper>
-          <S.Zipcode placeholder="07250" readOnly required />
-          <S.SearchButton>우편번호 검색</S.SearchButton>
+          <S.Zipcode>{props.zipcode}</S.Zipcode>
+          <S.SearchButton onClick={props.onToggleModal}>
+            우편번호 검색
+          </S.SearchButton>
         </S.ZipcodeWrapper>
-        <S.Address readOnly />
-        <S.Address />
+        <S.Address_1>{props.address}</S.Address_1>
+        <S.Address_2 />
+        {props.isOpen && (
+          <Modal visible={true}>
+            <DaumPostcode
+              onComplete={props.handleComplete}
+              onOk={props.onToggleModal}
+              onCancel={props.onToggleModal}
+            />
+          </Modal>
+        )}
       </S.InputWrapper>
       <S.InputWrapper>
         <S.Label>유튜브</S.Label>
@@ -92,7 +105,12 @@ export default function BoardEditUI(props) {
             수정하기
           </S.SubmitButton>
         )}
-        {/* <MyButton color={props.color} onClick={props.isEdit ? props.BackEndPush : props.BoardEdit}>게시물 {props.isEdit ? '수정' : '등록'}하기</MyButton> */}
+        {/* <S.MyButton
+          color={props.color}
+          onClick={props.isEdit ? props.BackEndPush : props.BoardEdit}
+        >
+          게시물 {props.isEdit ? "수정" : "등록"}하기
+        </S.MyButton> */}
       </S.ButtonWrapper>
     </S.Wrapper>
   );

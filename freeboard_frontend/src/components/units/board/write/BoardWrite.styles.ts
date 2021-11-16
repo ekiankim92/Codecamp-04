@@ -77,11 +77,13 @@ export const ZipcodeWrapper = styled.div`
   flex-direction: row;
 `;
 
-export const Zipcode = styled.input`
+export const Zipcode = styled.div`
   width: 77px;
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  background-color: white;
+  padding: 16px;
 `;
 
 export const SearchButton = styled.button`
@@ -93,12 +95,23 @@ export const SearchButton = styled.button`
   color: white;
 `;
 
-export const Address = styled.input`
+export const Address_1 = styled.div`
   width: 996px;
   height: 52px;
   margin-top: 16px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  background-color: white;
+  padding: 15px;
+`;
+
+export const Address_2 = styled.input`
+  width: 996px;
+  height: 52px;
+  margin-top: 16px;
+  padding-left: 16px;
+  border: 1px solid #bdbdbd;
+  background-color: white;
 `;
 
 export const Youtube = styled.input`
@@ -167,7 +180,7 @@ export const SubmitButton = styled.button`
   margin-left: 12px;
   margin-right: 12px;
   cursor: pointer;
-  background-color: ${ (props) => props.color === true ? "yellow" : "gray"};
+  background-color: ${(props) => (props.color === true ? "yellow" : "gray")};
 `;
 
 export const ErrorNotification = styled.div`
@@ -175,4 +188,4 @@ export const ErrorNotification = styled.div`
   font-size: 15px;
   margin-top: 4px;
   margin-left: 2px;
-` 
+`;
