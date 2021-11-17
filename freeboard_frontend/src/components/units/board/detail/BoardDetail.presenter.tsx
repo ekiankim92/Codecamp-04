@@ -15,10 +15,10 @@ export default function BoardDetailUI(props) {
           <S.Header_Info>
             <S.Header_Image src="/images/user.png" />
             <S.Header_Info>
-              작성자: {props.queryBoard?.fetchBoard.writer}
+              작성자: {props.data?.fetchBoard.writer}
             </S.Header_Info>
             <S.Header_Date>
-              {props.queryBoard?.fetchBoard.createdAt.split("T")[0]}
+              {props.data?.fetchBoard.createdAt.split("T")[0]}
             </S.Header_Date>
           </S.Header_Info>
           <S.Navigation>
@@ -36,7 +36,8 @@ export default function BoardDetailUI(props) {
         </S.Header>
         <S.Title>
           <S.MyDiv id="title">
-            제목: {props.queryBoard?.fetchBoard.title}
+            제목:
+            {props.data?.fetchBoard.title}
           </S.MyDiv>
         </S.Title>
         <S.Image_Section>
@@ -46,14 +47,14 @@ export default function BoardDetailUI(props) {
           ></img>
         </S.Image_Section>
         <S.Content_Section>
-          <div id="content">내용: {props.queryBoard?.fetchBoard.contents}</div>
+          <div id="content">내용: {props.data?.fetchBoard.contents}</div>
         </S.Content_Section>
         <S.Video_Section id="video">
           {/* <video id="video" controls>
             
           </video> */}
           <ReactPlayer
-            url={props.queryBoard?.fetchBoard.youtubeUrl}
+            url={props.data?.fetchBoard.youtubeUrl}
             width={700}
             height={400}
             controls
@@ -64,11 +65,9 @@ export default function BoardDetailUI(props) {
           <S.NoFace />
           <S.FrownFace onClick={props.DislikeCount} />
           <S.Like_DisLike_Wrapper>
-            <S.Like_Count>
-              {props.queryBoard?.fetchBoard.likeCount}
-            </S.Like_Count>
+            <S.Like_Count>{props.data?.fetchBoard.likeCount}</S.Like_Count>
             <S.Dislike_Count>
-              {props.queryBoard?.fetchBoard.dislikeCount}
+              {props.data?.fetchBoard.dislikeCount}
             </S.Dislike_Count>
           </S.Like_DisLike_Wrapper>
         </S.Icon_Footer>

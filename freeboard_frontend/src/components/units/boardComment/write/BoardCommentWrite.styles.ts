@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Rate } from "antd";
 
 export const Second_Wrapper = styled.div`
   width: 1200px;
@@ -90,4 +91,9 @@ export const Comment_Submit_Button = styled.button`
   color: white;
   background-color: black;
   margin-left: auto;
+  :hover {
+    cursor: pointer;
+  }
 `;
+
+export const Stars = styled(Rate)``;

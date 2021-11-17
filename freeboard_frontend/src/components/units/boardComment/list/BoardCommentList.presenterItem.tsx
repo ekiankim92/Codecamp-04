@@ -1,4 +1,4 @@
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
 // import BoardCommentWrite from "../write/BoardCommentWrite.container";
@@ -7,7 +7,6 @@ import {
   FETCH_BOARD_COMMENTS,
 } from "./BoardCommentList.queries";
 import * as S from "./BoardCommentList.styles";
-import { Rate } from "antd";
 
 export default function BoardCommentListUIItem(props) {
   const router = useRouter();
@@ -38,19 +37,13 @@ export default function BoardCommentListUIItem(props) {
 
   return (
     <S.Comment_Section>
-      <div key={props.el._id}>
+      <div>
         <S.Front_Comment>
           <S.Header_Image src="/images/user.png" />
-          <S.Comment_User key={props.el.id}>{props.el.writer}</S.Comment_User>
-          <S.Rating_Image src="/images/Star.png" />
-          <S.Rating_Image src="/images/Star.png" />
-          <S.Rating_Image src="/images/Star.png" />
-          <S.Rating_Image src="/images/Star.png" />
-          <S.Rating_Image src="/images/Star.png" />
+          <S.Comment_User>{props.el.writer}</S.Comment_User>
+          <S.Stars value={props.el.rating}></S.Stars>
         </S.Front_Comment>
-        <S.Comment_Content key={props.el.id}>
-          {props.el.contents}
-        </S.Comment_Content>
+        <S.Comment_Content>{props.el.contents}</S.Comment_Content>
         <S.Created_At_Date>
           {props.el.createdAt.split("T")[0]}
         </S.Created_At_Date>

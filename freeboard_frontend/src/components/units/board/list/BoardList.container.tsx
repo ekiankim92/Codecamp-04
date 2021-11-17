@@ -10,16 +10,17 @@ import { useRouter } from "next/router";
 
 export default function BoardList() {
   const [deleteBoard] = useMutation(DELETE_BOARD);
-  const { data: data1 } = useQuery(FETCH_BOARDS);
+  const { data } = useQuery(FETCH_BOARDS);
   const { data: data2 } = useQuery(FETCH_BOARDS_OF_THE_BEST);
   const router = useRouter();
 
   function onClickMoveToBoard() {
-    router.push("/mento");
+    router.push(`/mento`);
   }
 
   function onClickMoveToBoardDetail(event) {
-    router.push("/board/${event.target.content}");
+    router.push(`/board/${event.target.id}`);
+    alert("testing");
   }
 
   async function onClickDate(event: ChangeEvent<HTMLInputElement>) {
@@ -36,7 +37,7 @@ export default function BoardList() {
   return (
     <BoardListUI
       onClickDate={onClickDate}
-      data1={data1}
+      data={data}
       data2={data2}
       onClickMoveToBoard={onClickMoveToBoard}
       onClickMoveToBoardDetail={onClickMoveToBoardDetail}

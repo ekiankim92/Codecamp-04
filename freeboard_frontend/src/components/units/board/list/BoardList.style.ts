@@ -90,7 +90,7 @@ export const Create_Board_Button = styled.button`
   height: 50px;
   display: flex;
   align-items: center;
-  padding: 6px;
+  padding: 3px;
 
   :hover {
     background-color: yellow;

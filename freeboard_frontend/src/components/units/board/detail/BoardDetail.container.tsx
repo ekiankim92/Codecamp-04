@@ -21,7 +21,7 @@ export default function ContainerDetailPage() {
   const [dislikeBoard] = useMutation(DISLIKE_BOARD);
 
   //게시글 페이지 조회
-  const { data: queryBoard } = useQuery(FETCH_BOARD, {
+  const { data } = useQuery(FETCH_BOARD, {
     variables: {
       boardId: router.query.content,
     },
@@ -117,7 +117,7 @@ export default function ContainerDetailPage() {
     <>
       <BoardDetailUI
         // YoutubeData={YoutubeData}
-        queryBoard={queryBoard}
+        data={data}
         ButtonToBoardList={ButtonToBoardList}
         BoardListDeleteButton={BoardListDeleteButton}
         LkeCount={LkeCount}

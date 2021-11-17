@@ -15,7 +15,6 @@ export default function BoardListUI(props: IPropsBoardListUI) {
           <div>
             {props.data2?.fetchBoardsOfTheBest.map((el: any, index: any) => (
               <S.Row>
-                {/* <S.Column><input type= "checkbox"/></S.Column> */}
                 <S.Column>{index + 1}</S.Column>
                 <S.Column>{el.title}</S.Column>
                 <S.Column>{el.writer}</S.Column>
@@ -48,7 +47,7 @@ export default function BoardListUI(props: IPropsBoardListUI) {
         </S.Header>
 
         <S.Lists>
-          {props.data1?.fetchBoards.map((el, index) => (
+          {props.data?.fetchBoards.map((el, index) => (
             <S.Row key={el._id}>
               <S.Column>
                 <input type="checkbox" />

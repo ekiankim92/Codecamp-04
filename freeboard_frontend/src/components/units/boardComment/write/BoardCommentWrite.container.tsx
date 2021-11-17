@@ -4,8 +4,8 @@ import { useState } from "react";
 import {
   CREATE_BOARD_COMMENT,
   UPDATE_BOARD_COMMENT,
-  FETCH_BOARD_COMMENTS,
 } from "./BoardCommentWrite.queries";
+import { FETCH_BOARD_COMMENTS } from "../list/BoardCommentList.queries";
 import BoardCommentWriteUI from "./BoardCommentWrite.presenter";
 
 export default function BoardCommentWrite() {
@@ -15,9 +15,6 @@ export default function BoardCommentWrite() {
   const [contents, setContents] = useState("");
   const [password, setPassword] = useState("");
   const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
-
-  //댓글 별 등록
-  const [stars, setStars] = useState(3);
 
   function CommentWriter(event) {
     setWriter(event.target.value);
@@ -57,7 +54,7 @@ export default function BoardCommentWrite() {
               writer,
               password,
               contents,
-              rating: 0,
+              rating,
             },
             boardId: router.query.content,
           },
@@ -76,7 +73,13 @@ export default function BoardCommentWrite() {
     alert("댓글이 등록되었습니다!");
   }
 
-  // //댓글 조회
+  //댓글 별 등록
+  const [rating, setRating] = useState(3);
+  function CountingStars(value) {
+    setRating(value);
+  }
+
+  //댓글 조회
   // const { data } = useQuery(FETCH_BOARD_COMMENTS, {
   //   variables: {
   //     // page: Number(router.query.content),
@@ -116,6 +119,8 @@ export default function BoardCommentWrite() {
       onClickUpdate={onClickUpdate}
       isEdit={isEdit}
       CreateCommentButton={CreateCommentButton}
+      CountingStars={CountingStars}
+      rating={rating}
     />
   );
 }

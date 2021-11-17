@@ -4,7 +4,7 @@ import BoardCommentListUI from "./BoardCommentList.presenter";
 import { FETCH_BOARD_COMMENTS } from "./BoardCommentList.queries";
 
 export default function BoardCommentList() {
-  // //댓글 조회
+  //댓글 조회
   const router = useRouter();
   const { data } = useQuery(FETCH_BOARD_COMMENTS, {
     variables: {
