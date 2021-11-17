@@ -33,7 +33,7 @@ export default function BoardEditUI(props) {
         <S.Label>제목</S.Label>
         <S.Subject
           type="text"
-          placeholder="제목을 작성해주세요."
+          placeholder="제목 작성해주세요."
           onChange={props.TitleName}
           defaultValue={props.data?.fetchBoard.title}
         />
@@ -59,18 +59,21 @@ export default function BoardEditUI(props) {
         <S.Address_1>{props.address}</S.Address_1>
         <S.Address_2 />
         {props.isOpen && (
-          <Modal visible={true}>
-            <DaumPostcode
-              onComplete={props.handleComplete}
-              onOk={props.onToggleModal}
-              onCancel={props.onToggleModal}
-            />
+          <Modal
+            visible={true}
+            onOk={props.onToggleModal}
+            onCancel={props.onToggleModal}
+          >
+            <DaumPostcode onComplete={props.handleComplete} />
           </Modal>
         )}
       </S.InputWrapper>
       <S.InputWrapper>
         <S.Label>유튜브</S.Label>
-        <S.Youtube placeholder="링크를 복사해주세요." />
+        <S.Youtube
+          placeholder="링크를 복사해주세요."
+          onChange={props.YoutubeVideo}
+        />
       </S.InputWrapper>
       <S.ImageWrapper>
         <S.Label>사진첨부</S.Label>

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { faBlackberry } from "@fortawesome/free-brands-svg-icons";
+import { SmileOutlined, MehOutlined, FrownOutlined } from "@ant-design/icons";
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -102,17 +103,39 @@ export const Content_Section = styled.main`
 `;
 
 export const Video_Section = styled.div`
-  width: 486px;
-  height: 240px;
+  width: auto;
+  height: auto;
   margin-top: 120px;
-  /* background-color: navy; */
+  background-color: navy;
 `;
 
 export const Icon_Footer = styled.div`
   width: 996px;
   height: 96px;
   margin-top: 40px;
-  /* background-color: gold; */
+  background-color: gold;
+`;
+
+export const Like_Dislike_Count = styled.div`
+  width: 996px;
+`;
+
+export const SmileyFace = styled(SmileOutlined)`
+  font-size: 80px;
+  color: blue;
+  margin-left: 332px;
+`;
+
+export const FrownFace = styled(FrownOutlined)`
+  font-size: 80px;
+  color: red;
+  margin-left: 50px;
+`;
+
+export const NoFace = styled(MehOutlined)`
+  font-size: 80px;
+  color: yellow;
+  margin-left: 50px;
 `;
 
 export const Button = styled.button`

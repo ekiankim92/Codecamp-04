@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import BoardDetailUI from "./BoardDetail.presenter";
-import { FETCH_BOARD } from "./BoardDetail.queries";
+import { FETCH_BOARD, LIKE_BOARD, DISLIKE_BOARD } from "./BoardDetail.queries";
 import { useQuery, useMutation, gql } from "@apollo/client";
 import { Contents, Password } from "../write/BoardWrite.styles";
 import { useState } from "react";
@@ -15,20 +15,25 @@ const DELETE_BOARD = gql`
 
 //splice, slice 는 데이터를 일일히 가져오기 때문에 runtime error 가 생길수있음
 export default function ContainerDetailPage() {
-  // const createdDate = data?.fetchBoard.createdAt.split("T")[0]
-  // console.log(createdDate)
-
-  //게시글 조회
   const router = useRouter();
+  // 좋아요 싫어요
+  const [likeBoard] = useMutation(LIKE_BOARD);
+  const [dislikeBoard] = useMutation(DISLIKE_BOARD);
+
+  //게시글 페이지 조회
   const { data: queryBoard } = useQuery(FETCH_BOARD, {
     variables: {
       boardId: router.query.content,
     },
   });
 
-  // console.log(queryBoard);
+  // 유툽 조회
+  // const { data: YoutubeData } = useQuery(FETCH_BOARD, {
+  //   variables: {
+  //     boardId: router.query.content,
+  //   },
+  // });
 
-  // console.log(data);
   // function changeBackground(event) {
   //     event.target.style.background = "red";
   // }
@@ -44,7 +49,7 @@ export default function ContainerDetailPage() {
   async function onClickBoardDelete() {
     try {
       await deleteBoard({
-        varaibles: {
+        variables: {
           boardId: router.query.content,
         },
       });
@@ -60,6 +65,46 @@ export default function ContainerDetailPage() {
     router.push(`board_list`);
   }
 
+  //좋아요 올리기
+  async function LkeCount() {
+    try {
+      const result = await likeBoard({
+        variables: {
+          boardId: router.query.content,
+        },
+        refetchQueries: [
+          {
+            query: FETCH_BOARD,
+            variables: { boardId: router.query.content },
+          },
+        ],
+      });
+      console.log(result);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  //싫어요 올리기
+  async function DislikeCount() {
+    try {
+      const result = await dislikeBoard({
+        variables: {
+          boardId: router.query.content,
+        },
+        refetchQueries: [
+          {
+            query: FETCH_BOARD,
+            variables: { boardId: router.query.content },
+          },
+        ],
+      });
+      console.log(result);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
   // function backToList(){
   //     router.push(`/board/list`)
   // }
@@ -71,9 +116,12 @@ export default function ContainerDetailPage() {
   return (
     <>
       <BoardDetailUI
+        // YoutubeData={YoutubeData}
         queryBoard={queryBoard}
         ButtonToBoardList={ButtonToBoardList}
         BoardListDeleteButton={BoardListDeleteButton}
+        LkeCount={LkeCount}
+        DislikeCount={DislikeCount}
         // CreateCommentButton={CreateCommentButton}
         // onClickCommentDelete={onClickCommentDelete}
       />

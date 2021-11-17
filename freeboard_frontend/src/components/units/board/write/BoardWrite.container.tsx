@@ -6,6 +6,9 @@ import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
 
 export default function BoardEdit(props) {
   const router = useRouter();
+
+  const [color, setColor] = useState(false);
+
   const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
 
@@ -21,7 +24,8 @@ export default function BoardEdit(props) {
   const [middleComment, setMiddleComment] = useState("");
   const [middleBodyError, setMiddleBodyError] = useState("");
 
-  const [color, setColor] = useState(false);
+  // youtube
+  const [youtubeUrl, setYoutubeUrl] = useState("");
 
   function SetNames(event) {
     setName(event.target.value);
@@ -101,33 +105,33 @@ export default function BoardEdit(props) {
 
   // 등록
   async function BackEndPush() {
-    try {
-      if (!name) {
-        setNameError("이름을 등록해 주세요");
-      }
+    if (!name) {
+      setNameError("이름을 등록해 주세요");
+    }
 
-      //   if (name === '') {
-      //     setNameError('이름을 등록해 주세요')
-      // }
+    //   if (name === '') {
+    //     setNameError('이름을 등록해 주세요')
+    // }
 
-      //  else {
-      //   setNameError("")
-      // }
+    //  else {
+    //   setNameError("")
+    // }
 
-      if (!password) {
-        setPasswordError("비밀번호를 입력해 주세요");
-      }
+    if (!password) {
+      setPasswordError("비밀번호를 입력해 주세요");
+    }
 
-      if (!title) {
-        setTitleError("제목을 등록해 주세요");
-      }
+    if (!title) {
+      setTitleError("제목을 등록해 주세요");
+    }
 
-      if (!middleComment) {
-        setMiddleBodyError("내용을 입력해 주세요");
-      }
+    if (!middleComment) {
+      setMiddleBodyError("내용을 입력해 주세요");
+    }
 
-      //   if (name !== "" && password !== "" && title !== "" && middleComment !== "") {
-      if (name && password && title && middleComment) {
+    //   if (name !== "" && password !== "" && title !== "" && middleComment !== "") {
+    if (name && password && title && middleComment) {
+      try {
         const result = await createBoard({
           variables: {
             createBoardInput: {
@@ -135,8 +139,9 @@ export default function BoardEdit(props) {
               password: password,
               title: title,
               contents: middleComment,
+              youtubeUrl,
               // boardAddress: {
-              //   zonecode,
+              //   zipcode,
               //   address,
               //   addressDetail,
               // },
@@ -146,10 +151,15 @@ export default function BoardEdit(props) {
         console.log(result);
         router.push(`/board/${result.data.createBoard._id}`);
         alert("등록되었습니다");
+      } catch (error) {
+        console.log(error.message);
       }
-    } catch (error) {
-      console.log(error.message);
     }
+  }
+
+  function YoutubeVideo(event) {
+    setYoutubeUrl(event.target.value);
+    console.log(youtubeUrl);
   }
 
   // 수정
@@ -163,10 +173,6 @@ export default function BoardEdit(props) {
     if (name !== "") {
       MyVariables.writer = name;
     }
-
-    // if (title !== "") {
-    //   MyVariables.title = title
-    // }
 
     if (middleComment !== "") {
       MyVariables.updateBoardInput.contents = middleComment;
@@ -243,6 +249,8 @@ export default function BoardEdit(props) {
       address={address}
       addressDetail={addressDetail}
       isOpen={isOpen}
+      youtubeUrl={youtubeUrl}
+      YoutubeVideo={YoutubeVideo}
     />
   );
 }

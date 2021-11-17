@@ -1,9 +1,10 @@
 import router from "next/router";
 import * as S from "./BoardDetail.styles";
+import ReactPlayer from "react-player/youtube";
 
 import { IPropsBoardDetailUI } from "./BoardDetail.typescript";
 
-export default function BoardDetailUI(props: IPropsBoardDetailUI) {
+export default function BoardDetailUI(props) {
   function RouterPush() {
     router.push(`/board/${router.query.content}/edit`);
   }
@@ -28,7 +29,7 @@ export default function BoardDetailUI(props: IPropsBoardDetailUI) {
             {/* onMouseEnter={changeBackground} onMouseLeave={changeMouseLeave} */}
             <S.List href="#video">Video</S.List>
             {/* onMouseEnter={changeBackground} onMouseLeave={changeMouseLeave} */}
-            <S.List href="#footer">Footer</S.List>
+            <S.List href="#comment">Comment</S.List>
             {/* onMouseEnter={changeBackground} onMouseLeave={changeMouseLeave} */}
           </S.Navigation>
         </S.Header>
@@ -46,12 +47,23 @@ export default function BoardDetailUI(props: IPropsBoardDetailUI) {
         <S.Content_Section>
           <div id="content">내용: {props.queryBoard?.fetchBoard.contents}</div>
         </S.Content_Section>
-        <S.Video_Section>
-          <video id="video" src="/media/cc0-videos/flower.mp4" controls></video>
+        <S.Video_Section id="video">
+          {/* <video id="video" controls>
+            
+          </video> */}
+          <ReactPlayer
+            url={props.queryBoard?.fetchBoard.youtubeUrl}
+            width={700}
+            height={400}
+            controls
+          />
         </S.Video_Section>
-        <S.Icon_Footer id="footer">
-          <img src="/images/email.png"></img>
-          <img src="/images/phone.png"></img>
+        <S.Icon_Footer id="comment">
+          <S.SmileyFace onClick={props.LkeCount} />
+          <S.NoFace />
+          <S.FrownFace onClick={props.DislikeCount} />
+          <div>{props.queryBoard?.fetchBoard.likeCount}</div>
+          <div>{props.queryBoard?.fetchBoard.dislikeCount}</div>
         </S.Icon_Footer>
       </S.Wrapper>
       <S.End_Buttons>
