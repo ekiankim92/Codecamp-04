@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { faBlackberry } from "@fortawesome/free-brands-svg-icons";
-import { SmileOutlined, MehOutlined, FrownOutlined } from "@ant-design/icons";
+import { SmileOutlined, FrownOutlined, MehOutlined } from "@ant-design/icons";
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -113,7 +113,7 @@ export const Icon_Footer = styled.div`
   width: 996px;
   height: 96px;
   margin-top: 40px;
-  background-color: gold;
+  /* background-color: gold; */
 `;
 
 export const Like_Dislike_Count = styled.div`
@@ -124,18 +124,49 @@ export const SmileyFace = styled(SmileOutlined)`
   font-size: 80px;
   color: blue;
   margin-left: 332px;
+  :hover {
+    font-size: 150px;
+  }
 `;
 
 export const FrownFace = styled(FrownOutlined)`
   font-size: 80px;
   color: red;
   margin-left: 50px;
+    :hover {
+    font-size: 150px;
 `;
 
 export const NoFace = styled(MehOutlined)`
   font-size: 80px;
-  color: yellow;
+  color: orange;
   margin-left: 50px;
+`;
+
+export const Like_DisLike_Wrapper = styled.div`
+  height: 100px;
+  /* position: relative; */
+  /* background-color: greenyellow; */
+`;
+
+export const Like_Count = styled.div`
+  width: 80px;
+  height: 80px;
+  font-size: 35px;
+  margin-left: 330px;
+  text-align: center;
+  /* background-color: lightskyblue; */
+`;
+
+export const Dislike_Count = styled.div`
+  width: 80px;
+  height: 80px;
+  font-size: 35px;
+  margin-left: 591px;
+  margin-top: -80px;
+  position: relative;
+  text-align: center;
+  /* background-color: lightslategrey; */
 `;
 
 export const Button = styled.button`

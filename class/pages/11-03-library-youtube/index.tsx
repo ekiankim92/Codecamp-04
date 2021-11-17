@@ -4,7 +4,6 @@ import styled from "@emotion/styled";
 const MyYoutube = styled(ReactPlayer)`
   border: 10px solid yellow;
 `;
-// test
 export default function LibraryYoutubePage() {
   return (
     <MyYoutube

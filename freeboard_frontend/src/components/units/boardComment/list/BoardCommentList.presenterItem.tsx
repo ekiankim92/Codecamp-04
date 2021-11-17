@@ -7,6 +7,7 @@ import {
   FETCH_BOARD_COMMENTS,
 } from "./BoardCommentList.queries";
 import * as S from "./BoardCommentList.styles";
+import { Rate } from "antd";
 
 export default function BoardCommentListUIItem(props) {
   const router = useRouter();

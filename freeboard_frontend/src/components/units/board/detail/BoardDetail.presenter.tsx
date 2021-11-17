@@ -1,7 +1,6 @@
 import router from "next/router";
 import * as S from "./BoardDetail.styles";
 import ReactPlayer from "react-player/youtube";
-
 import { IPropsBoardDetailUI } from "./BoardDetail.typescript";
 
 export default function BoardDetailUI(props) {
@@ -18,7 +17,9 @@ export default function BoardDetailUI(props) {
             <S.Header_Info>
               작성자: {props.queryBoard?.fetchBoard.writer}
             </S.Header_Info>
-            <S.Header_Date>Date</S.Header_Date>
+            <S.Header_Date>
+              {props.queryBoard?.fetchBoard.createdAt.split("T")[0]}
+            </S.Header_Date>
           </S.Header_Info>
           <S.Navigation>
             <S.List href="#title">Title</S.List>
@@ -62,8 +63,14 @@ export default function BoardDetailUI(props) {
           <S.SmileyFace onClick={props.LkeCount} />
           <S.NoFace />
           <S.FrownFace onClick={props.DislikeCount} />
-          <div>{props.queryBoard?.fetchBoard.likeCount}</div>
-          <div>{props.queryBoard?.fetchBoard.dislikeCount}</div>
+          <S.Like_DisLike_Wrapper>
+            <S.Like_Count>
+              {props.queryBoard?.fetchBoard.likeCount}
+            </S.Like_Count>
+            <S.Dislike_Count>
+              {props.queryBoard?.fetchBoard.dislikeCount}
+            </S.Dislike_Count>
+          </S.Like_DisLike_Wrapper>
         </S.Icon_Footer>
       </S.Wrapper>
       <S.End_Buttons>

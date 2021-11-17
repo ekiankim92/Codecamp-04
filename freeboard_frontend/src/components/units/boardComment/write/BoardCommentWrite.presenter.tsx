@@ -1,4 +1,5 @@
 import * as S from "./BoardCommentWrite.styles";
+import { Rate } from "antd";
 
 export default function BoardCommentWriteUI(props) {
   return (

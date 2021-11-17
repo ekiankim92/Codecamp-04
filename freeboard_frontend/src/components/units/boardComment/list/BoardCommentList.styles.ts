@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Rate } from "antd";
 
 export const Second_Wrapper = styled.div`
   width: 1200px;
@@ -84,3 +85,5 @@ export const Header_Image = styled.img`
   width: 45px;
   height: 45px;
 `;
+
+export const Stars = styled(Rate)``;

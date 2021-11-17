@@ -16,6 +16,9 @@ export default function BoardCommentWrite() {
   const [password, setPassword] = useState("");
   const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
 
+  //댓글 별 등록
+  const [stars, setStars] = useState(3);
+
   function CommentWriter(event) {
     setWriter(event.target.value);
   }
