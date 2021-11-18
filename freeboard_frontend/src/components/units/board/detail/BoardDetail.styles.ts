@@ -71,8 +71,8 @@ export const List = styled.a`
 `;
 
 export const MyDiv = styled.div`
-  width: 340px;
-  height: 60px;
+  width: 580px;
+  height: 100px;
   top: 937px;
   left: 462px;
   font-size: 35px;

@@ -1,24 +1,25 @@
 import { useRouter } from "next/router";
 import BoardDetailUI from "./BoardDetail.presenter";
-import { FETCH_BOARD, LIKE_BOARD, DISLIKE_BOARD } from "./BoardDetail.queries";
-import { useQuery, useMutation, gql } from "@apollo/client";
+import {
+  FETCH_BOARD,
+  LIKE_BOARD,
+  DISLIKE_BOARD,
+  DELETE_BOARD,
+} from "./BoardDetail.queries";
+import { useQuery, useMutation } from "@apollo/client";
 import { Contents, Password } from "../write/BoardWrite.styles";
 import { useState } from "react";
-
-const DELETE_BOARD = gql`
-  mutation deleteBoard($boardId: ID!) {
-    deleteBoard(boardId: $boardId) {
-      _id
-    }
-  }
-`;
 
 //splice, slice 는 데이터를 일일히 가져오기 때문에 runtime error 가 생길수있음
 export default function ContainerDetailPage() {
   const router = useRouter();
+
   // 좋아요 싫어요
   const [likeBoard] = useMutation(LIKE_BOARD);
   const [dislikeBoard] = useMutation(DISLIKE_BOARD);
+
+  // 게시글 리스트 삭제
+  const [deleteBoard] = useMutation(DELETE_BOARD);
 
   //게시글 페이지 조회
   const { data } = useQuery(FETCH_BOARD, {
@@ -46,7 +47,7 @@ export default function ContainerDetailPage() {
   }
 
   //게시글 삭제
-  async function onClickBoardDelete() {
+  async function BoardListDeleteButton() {
     try {
       await deleteBoard({
         variables: {
@@ -54,15 +55,10 @@ export default function ContainerDetailPage() {
         },
       });
       alert("게시물이 삭제되었습니다.");
-      router.push("/mento");
+      router.push(`board_list`);
     } catch (error) {
       console.log(error.message);
     }
-  }
-
-  function BoardListDeleteButton() {
-    alert("게시글이 삭제되었습니다");
-    router.push(`board_list`);
   }
 
   //좋아요 올리기
@@ -105,14 +101,6 @@ export default function ContainerDetailPage() {
     }
   }
 
-  // function backToList(){
-  //     router.push(`/board/list`)
-  // }
-  //     return(
-  //         <BoardNewDetailUI data={data}
-  //         backToList = {backToList}/>
-  //     )
-
   return (
     <>
       <BoardDetailUI
@@ -122,6 +110,7 @@ export default function ContainerDetailPage() {
         BoardListDeleteButton={BoardListDeleteButton}
         LkeCount={LkeCount}
         DislikeCount={DislikeCount}
+        // onClickBoardDelete={onClickBoardDelete}
         // CreateCommentButton={CreateCommentButton}
         // onClickCommentDelete={onClickCommentDelete}
       />

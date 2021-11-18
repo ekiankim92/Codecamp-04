@@ -74,7 +74,7 @@ export default function BoardCommentWrite() {
   }
 
   //댓글 별 등록
-  const [rating, setRating] = useState(3);
+  const [rating, setRating] = useState(0);
   function CountingStars(value) {
     setRating(value);
   }

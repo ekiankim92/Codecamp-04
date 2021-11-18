@@ -7,6 +7,7 @@ import {
   FETCH_BOARD_COMMENTS,
 } from "./BoardCommentList.queries";
 import * as S from "./BoardCommentList.styles";
+import { getDate } from "../../../../commons/libraries/utils";
 
 export default function BoardCommentListUIItem(props) {
   const router = useRouter();
@@ -44,9 +45,7 @@ export default function BoardCommentListUIItem(props) {
           <S.Stars value={props.el.rating}></S.Stars>
         </S.Front_Comment>
         <S.Comment_Content>{props.el.contents}</S.Comment_Content>
-        <S.Created_At_Date>
-          {props.el.createdAt.split("T")[0]}
-        </S.Created_At_Date>
+        <S.Created_At_Date>{getDate(props.el.createdAt)}</S.Created_At_Date>
         {/* <S.Comment_Icons src="/images/edit_pen.png" />
             <S.Comment_Icons src="/images/x.png" /> */}
         <S.Comment_Button>

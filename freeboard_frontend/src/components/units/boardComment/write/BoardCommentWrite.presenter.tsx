@@ -18,11 +18,6 @@ export default function BoardCommentWriteUI(props) {
           placeholder="Password"
           onChange={props.CommentPassword}
         />
-        {/* <S.Rating_Image src="/images/Star.png" />
-        <S.Rating_Image src="/images/Star.png" />
-        <S.Rating_Image src="/images/Star.png" />
-        <S.Rating_Image src="/images/Star.png" />
-        <S.Rating_Image src="/images/Star.png" /> */}
         <S.Stars onChange={props.CountingStars} value={props.rating}></S.Stars>
       </S.User_Interface>
       <S.TextArea_Comment_Wrapper>

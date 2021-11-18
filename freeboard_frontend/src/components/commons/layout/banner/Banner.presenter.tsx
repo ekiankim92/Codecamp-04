@@ -17,11 +17,19 @@ export default function BannerUI() {
       <Slider {...settings}>
         <div>
           <h3>1</h3>
-          <img src="https://picjumbo.com/wp-content/uploads/the-golden-gate-bridge-sunset-1080x720.jpg" />
+          <img
+            src="https://picjumbo.com/wp-content/uploads/the-golden-gate-bridge-sunset-1080x720.jpg"
+            width={1500}
+            height={300}
+          />
         </div>
         <div>
           <h3>2</h3>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSZvNT3qiADQNP3BXeweSJociiEDQITeWEVQ&usqp=CAU" />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSZvNT3qiADQNP3BXeweSJociiEDQITeWEVQ&usqp=CAU"
+            width={400}
+            height={300}
+          />
         </div>
         <div>
           <h3>3</h3>
