@@ -1,9 +1,12 @@
+// 보드 상세페이지
+
 import ContainerDetailPage from "../../../src/components/units/board/detail/BoardDetail.container";
 //BoardDetail.container
 import BoardCommentWrite from "../../../src/components/units/boardComment/write/BoardCommentWrite.container";
 //BoardCommentWrite.container
 import BoardCommentList from "../../../src/components/units/boardComment/list/BoardCommentList.container";
 //BoardCommentList.container
+// import { useState } from "react";
 
 export default function ContainerPresenterPage() {
   return (

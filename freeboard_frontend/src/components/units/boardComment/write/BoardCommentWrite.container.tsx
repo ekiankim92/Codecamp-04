@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import {
   CREATE_BOARD_COMMENT,
   UPDATE_BOARD_COMMENT,
@@ -8,13 +8,14 @@ import {
 import { FETCH_BOARD_COMMENTS } from "../list/BoardCommentList.queries";
 import BoardCommentWriteUI from "./BoardCommentWrite.presenter";
 
-export default function BoardCommentWrite() {
+export default function BoardCommentWrite(props) {
   //댓글등록
   const router = useRouter();
   const [writer, setWriter] = useState("");
   const [contents, setContents] = useState("");
   const [password, setPassword] = useState("");
   const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
+  const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENT);
 
   function CommentWriter(event) {
     setWriter(event.target.value);
@@ -29,8 +30,6 @@ export default function BoardCommentWrite() {
   }
 
   async function CreateCommentButton() {
-    // alert("update");
-    // alert(router.query.content);
     if (!writer) {
       alert("작성자가 등록되지 않았습니다");
       return;
@@ -79,35 +78,30 @@ export default function BoardCommentWrite() {
     setRating(value);
   }
 
-  //댓글 조회
-  // const { data } = useQuery(FETCH_BOARD_COMMENTS, {
-  //   variables: {
-  //     // page: Number(router.query.content),
-  //     boardId: router.query.content,
-  //   },
-  // });
-
   //댓글 수정
-  const [isEdit, setIsEdit] = useState(false);
-  async function onClickUpdate(event) {
+  async function onClickUpdate() {
     try {
-      await updateBoardCommentInput({
+      if (!props.el?._id) return;
+      await updateBoardComment({
         variables: {
-          updateBoardCommentInput: { contents },
+          updateBoardCommentInput: {
+            contents,
+            rating,
+          },
           password,
-          boardCommentId: event.target.id,
+          boardCommentId: props.el?._id,
         },
         refetchQueries: [
           {
-            query: UPDATE_BOARD_COMMENT,
+            query: FETCH_BOARD_COMMENTS,
             variables: { boardId: router.query.content },
           },
         ],
       });
+      props.setIsEdit?.(false);
     } catch (error) {
-      console.log(error.message);
+      error instanceof Error && console.log(error.message);
     }
-    setIsEdit(false);
   }
 
   return (
@@ -117,10 +111,12 @@ export default function BoardCommentWrite() {
       CommentContents={CommentContents}
       contents={contents}
       onClickUpdate={onClickUpdate}
-      isEdit={isEdit}
+      isEdit={props.isEdit}
+      // isEdit={true}
       CreateCommentButton={CreateCommentButton}
       CountingStars={CountingStars}
       rating={rating}
+      el={props.el}
     />
   );
 }

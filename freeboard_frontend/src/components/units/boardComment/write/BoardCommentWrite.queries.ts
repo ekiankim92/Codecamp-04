@@ -34,6 +34,11 @@ export const UPDATE_BOARD_COMMENT = gql`
       contents
       rating
       createdAt
+      boardAddress {
+        zipcode
+        address
+        addressDetail
+      }
     }
   }
 `;

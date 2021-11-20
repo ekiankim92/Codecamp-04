@@ -77,7 +77,7 @@ export const ZipcodeWrapper = styled.div`
   flex-direction: row;
 `;
 
-export const Zipcode = styled.div`
+export const Zipcode = styled.input`
   width: 77px;
   height: 52px;
   padding-left: 16px;
@@ -95,7 +95,7 @@ export const SearchButton = styled.button`
   color: white;
 `;
 
-export const Address_1 = styled.div`
+export const Address_1 = styled.input`
   width: 996px;
   height: 52px;
   margin-top: 16px;

@@ -95,27 +95,11 @@ export default function BoardEdit(props) {
     }
   }
 
-  //     function ChangeBackground(event) {
-  //       event.target.style.background = "yellow";
-  //     }
-
-  //     function changeMouseLeave (event){
-  //       event.target.style.background= "";
-  //   }
-
-  // 등록
+  // 게시판 등록
   async function BackEndPush() {
     if (!name) {
       setNameError("이름을 등록해 주세요");
     }
-
-    //   if (name === '') {
-    //     setNameError('이름을 등록해 주세요')
-    // }
-
-    //  else {
-    //   setNameError("")
-    // }
 
     if (!password) {
       setPasswordError("비밀번호를 입력해 주세요");
@@ -136,15 +120,15 @@ export default function BoardEdit(props) {
           variables: {
             createBoardInput: {
               writer: name,
-              password: password,
-              title: title,
+              password,
+              title,
               contents: middleComment,
               youtubeUrl,
-              // boardAddress: {
-              //   zipcode,
-              //   address,
-              //   addressDetail,
-              // },
+              boardAddress: {
+                zipcode,
+                address,
+                addressDetail,
+              },
             },
           },
         });
@@ -162,7 +146,7 @@ export default function BoardEdit(props) {
     console.log(youtubeUrl);
   }
 
-  // 수정
+  // 게시판 수정
   async function BoardEdit() {
     const MyVariables = {
       boardId: router.query.content,
@@ -204,17 +188,17 @@ export default function BoardEdit(props) {
   const [address, setAddress] = useState("");
   const [addressDetail, setAddressDetail] = useState("");
 
-  function ZipecodeInfo(event) {
-    setZipecode(event.target.value);
-  }
+  // function ZipecodeInfo(event) {
+  //   setZipecode(event.target.value);
+  // }
 
-  function AddressInfo(event) {
-    setAddress(event.target.value);
-  }
+  // function AddressInfo(event) {
+  //   setAddress(event.target.value);
+  // }
 
-  function AddressDetail(event) {
-    setAddressDetail(event.target.value);
-  }
+  // function AddressDetail(event) {
+  //   setAddressDetail(event.target.value);
+  // }
 
   const onToggleModal = () => {
     setIsOpen((prev) => !prev);

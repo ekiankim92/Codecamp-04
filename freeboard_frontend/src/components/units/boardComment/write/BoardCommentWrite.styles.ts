@@ -93,6 +93,7 @@ export const Comment_Submit_Button = styled.button`
   margin-left: auto;
   :hover {
     cursor: pointer;
+    color: yellow;
   }
 `;
 

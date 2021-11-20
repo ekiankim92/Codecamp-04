@@ -32,7 +32,6 @@ const HIDDEN_FOOTER = ["/12-02-modal-basic"];
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
-  console.log(router);
 
   const isHiddenHeader = HIDDEN_HEADERS.includes(router.asPath);
   const isHiddenFooter = HIDDEN_FOOTER.includes(router.asPath);

@@ -13,7 +13,7 @@ export default function BoardEditUI(props) {
             type="text"
             placeholder="이름을 적어주세요."
             onChange={props.SetNames}
-            defaultValue={props.data?.fetchBoard.writer}
+            defaultValue={props.data?.fetchBoard.writer || ""}
           />
           <S.ErrorNotification>{props.nameError}</S.ErrorNotification>
         </S.InputWrapper>
@@ -24,7 +24,7 @@ export default function BoardEditUI(props) {
             placeholder="비밀번호를 적어주세요"
             onChange={props.SetPassword}
             minlength="3"
-            defaultValue={props.data?.fetchBoard.password}
+            // defaultValue={props.data?.fetchBoard.password}
           />
           <S.ErrorNotification>{props.passwordError}</S.ErrorNotification>
         </S.InputWrapper>
@@ -44,20 +44,37 @@ export default function BoardEditUI(props) {
         <S.Contents
           placeholder="내용을 작성해주세요."
           onChange={props.BodyParagraph}
-          defaultValue={props.data?.fetchBoard.middleComment}
+          defaultValue={props.data?.fetchBoard.contents}
         ></S.Contents>
         <S.ErrorNotification>{props.middleBodyError}</S.ErrorNotification>
       </S.InputWrapper>
       <S.InputWrapper>
         <S.Label>주소</S.Label>
         <S.ZipcodeWrapper>
-          <S.Zipcode>{props.zipcode}</S.Zipcode>
+          <S.Zipcode
+            placeholder="07250"
+            readOnly
+            value={
+              props.zipcode ||
+              props.data?.fetchBoard.boardAddress?.zipcode ||
+              ""
+            }
+          ></S.Zipcode>
           <S.SearchButton onClick={props.onToggleModal}>
             우편번호 검색
           </S.SearchButton>
         </S.ZipcodeWrapper>
-        <S.Address_1>{props.address}</S.Address_1>
-        <S.Address_2 />
+        <S.Address_1
+          readOnly
+          value={
+            props.address || props.data?.fetchBoard.boardAddress?.address || ""
+          }
+        />
+        <S.Address_2
+          defaultValue={
+            props.data?.fetchBoard.boardAddress?.addressDetail || ""
+          }
+        />
         {props.isOpen && (
           <Modal
             visible={true}
@@ -73,6 +90,7 @@ export default function BoardEditUI(props) {
         <S.Youtube
           placeholder="링크를 복사해주세요."
           onChange={props.YoutubeVideo}
+          defaultValue={props.data?.fetchBoard.youtubeUrl || ""}
         />
       </S.InputWrapper>
       <S.ImageWrapper>
