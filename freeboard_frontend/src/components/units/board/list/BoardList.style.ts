@@ -41,6 +41,7 @@ export const Column = styled.div`
   :hover {
     color: red;
     cursor: pointer;
+
 `;
 
 export const Row = styled.div`
@@ -49,6 +50,7 @@ export const Row = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 `;
 
 // export const Best_List_Header = styled.div`

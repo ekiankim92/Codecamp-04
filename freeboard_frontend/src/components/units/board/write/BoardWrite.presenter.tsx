@@ -16,17 +16,17 @@ export default function BoardEditUI(props) {
             defaultValue={props.data?.fetchBoard.writer || ""}
           />
           <S.ErrorNotification>{props.nameError}</S.ErrorNotification>
-        </S.InputWrapper>
-        <S.InputWrapper>
-          <S.Label>비밀번호</S.Label>
-          <S.Password
-            type="password"
-            placeholder="비밀번호를 적어주세요"
-            onChange={props.SetPassword}
-            minlength="3"
-            // defaultValue={props.data?.fetchBoard.password}
-          />
-          <S.ErrorNotification>{props.passwordError}</S.ErrorNotification>
+          <S.InputWrapper>
+            <S.Label>비밀번호</S.Label>
+            <S.Password
+              type="password"
+              placeholder="비밀번호를 적어주세요"
+              onChange={props.SetPassword}
+              minlength="3"
+              // defaultValue={props.data?.fetchBoard.password}
+            />
+            <S.ErrorNotification>{props.passwordError}</S.ErrorNotification>
+          </S.InputWrapper>
         </S.InputWrapper>
       </S.WriterWrapper>
       <S.InputWrapper>
@@ -48,6 +48,36 @@ export default function BoardEditUI(props) {
         ></S.Contents>
         <S.ErrorNotification>{props.middleBodyError}</S.ErrorNotification>
       </S.InputWrapper>
+      <S.OptionWrapper>
+        <S.Label>메인 컨텐츠 설정</S.Label>
+        <S.RadioButton type="radio" id="youtube" name="radio-button" checked />
+        <S.RadioLabel htmlFor="youtube">유튜브</S.RadioLabel>
+        <S.RadioButton type="radio" id="image" name="radio-button" />
+        <S.RadioLabel htmlFor="image">사진</S.RadioLabel>
+      </S.OptionWrapper>
+      <S.InputWrapper>
+        <S.Label>유튜브</S.Label>
+        <S.Youtube
+          placeholder="링크를 복사해주세요."
+          onChange={props.YoutubeVideo}
+          defaultValue={props.data?.fetchBoard.youtubeUrl || ""}
+        />
+      </S.InputWrapper>
+      <S.ImageWrapper>
+        <S.Label>사진첨부</S.Label>
+        <S.UploadButton>
+          <>+</>
+          <>Upload</>
+        </S.UploadButton>
+        <S.UploadButton>
+          <>+</>
+          <>Upload</>
+        </S.UploadButton>
+        <S.UploadButton>
+          <>+</>
+          <>Upload</>
+        </S.UploadButton>
+      </S.ImageWrapper>
       <S.InputWrapper>
         <S.Label>주소</S.Label>
         <S.ZipcodeWrapper>
@@ -85,36 +115,7 @@ export default function BoardEditUI(props) {
           </Modal>
         )}
       </S.InputWrapper>
-      <S.InputWrapper>
-        <S.Label>유튜브</S.Label>
-        <S.Youtube
-          placeholder="링크를 복사해주세요."
-          onChange={props.YoutubeVideo}
-          defaultValue={props.data?.fetchBoard.youtubeUrl || ""}
-        />
-      </S.InputWrapper>
-      <S.ImageWrapper>
-        <S.Label>사진첨부</S.Label>
-        <S.UploadButton>
-          <>+</>
-          <>Upload</>
-        </S.UploadButton>
-        <S.UploadButton>
-          <>+</>
-          <>Upload</>
-        </S.UploadButton>
-        <S.UploadButton>
-          <>+</>
-          <>Upload</>
-        </S.UploadButton>
-      </S.ImageWrapper>
-      <S.OptionWrapper>
-        <S.Label>메인설정</S.Label>
-        <S.RadioButton type="radio" id="youtube" name="radio-button" checked />
-        <S.RadioLabel htmlFor="youtube">유튜브</S.RadioLabel>
-        <S.RadioButton type="radio" id="image" name="radio-button" />
-        <S.RadioLabel htmlFor="image">사진</S.RadioLabel>
-      </S.OptionWrapper>
+
       <S.ButtonWrapper>
         {!props.isEdit && (
           <S.SubmitButton onClick={props.BackEndPush} color={props.color}>

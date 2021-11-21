@@ -15,8 +15,8 @@ export const Wrapper = styled.div`
   border: none;
   box-shadow: 0px 0px 10px gray;
   border-radius: 25px;
-  background-image: url(https://images.unsplash.com/photo-1531685250784-7569952593d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1548&q=80);
-  background-image: no-repeat;
+  /* background-image: url(https://images.unsplash.com/photo-1531685250784-7569952593d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1548&q=80);
+  background-image: no-repeat; */
 `;
 
 export const Title = styled.div`
@@ -34,14 +34,14 @@ export const WriterWrapper = styled.div`
 `;
 
 export const Writer = styled.input`
-  width: 486px;
+  width: 996px;
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
 `;
 
 export const Password = styled.input`
-  width: 486px;
+  width: 996px;
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
@@ -49,7 +49,7 @@ export const Password = styled.input`
 
 export const Label = styled.div`
   padding-bottom: 16px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
 `;
 
@@ -127,12 +127,12 @@ export const ImageWrapper = styled.div`
 `;
 
 export const UploadButton = styled.button`
-  width: 78px;
-  height: 78px;
-  background-color: #bdbdbd;
+  width: 120px;
+  height: 120px;
+  background-color: white;
   margin-right: 24px;
   outline: none;
-  border: none;
+  border: 1px dashed gray;
   cursor: grab;
 `;
 
@@ -149,6 +149,7 @@ export const RadioLabel = styled.label`
   margin-left: 8px;
   margin-right: 20px;
   font-weight: 500;
+  font-size: 14px;
   cursor: pointer;
 `;
 
@@ -172,15 +173,17 @@ export const CancelButton = styled.button`
 `;
 
 export const SubmitButton = styled.button`
-  width: 179px;
-  height: 52px;
+  width: 180px;
+  height: 60px;
   border: none;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   margin-left: 12px;
   margin-right: 12px;
+  color: white;
   cursor: pointer;
-  background-color: ${(props) => (props.color === true ? "yellow" : "gray")};
+  background-color: ${(props) =>
+    props.color === true ? "black" : "lightgray"};
 `;
 
 export const ErrorNotification = styled.div`
