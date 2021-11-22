@@ -4,4 +4,6 @@ export const Sidebar = styled.div`
   width: 200px;
   height: 700px;
   background-color: aqua;
+  position: sticky;
+  top: 0;
 `;

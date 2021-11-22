@@ -2,7 +2,7 @@ import { ReactChild } from "react";
 import styled from "@emotion/styled";
 import Header from "./header/Header.container";
 import Banner from "./banner/Banner.container";
-import Navigation from "./navigation/Navigation.container";
+// import Navigation from "./navigation/Navigation.container";
 import Footer from "./footer/Footer.container";
 import { useRouter } from "next/router";
 import Sidebar from "./sidebar/Sidebar.container";
@@ -35,7 +35,7 @@ export default function Layout(props: ILayoutProps) {
     <Wrapper>
       {!isHiddenHeader && <Header />}
       <Banner />
-      <Navigation />
+      {/* <Navigation /> */}
       <BodyWrapper>
         <Sidebar>sidebar!</Sidebar>
         <Body>{props.children}</Body>

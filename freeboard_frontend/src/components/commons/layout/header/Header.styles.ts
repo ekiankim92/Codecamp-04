@@ -5,6 +5,7 @@ export const Header = styled.div`
   height: 80px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 16px;
   background-color: beige;
   position: fixed;
@@ -62,4 +63,10 @@ export const MyPage = styled.div`
     cursor: pointer;
     color: gray;
   }
+`;
+
+export const Header_Anchor = styled.a`
+  font-size: 25px;
+  padding: 15px;
+  font-weight: bold;
 `;
