@@ -158,6 +158,8 @@ export default function BoardEdit(props) {
       MyVariables.writer = name;
     }
 
+    // if (name) MyVariables.updateBoardInput.writer = name
+
     if (middleComment !== "") {
       MyVariables.updateBoardInput.contents = middleComment;
     }

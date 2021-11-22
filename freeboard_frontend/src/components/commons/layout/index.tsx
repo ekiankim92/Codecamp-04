@@ -5,6 +5,7 @@ import Banner from "./banner/Banner.container";
 import Navigation from "./navigation/Navigation.container";
 import Footer from "./footer/Footer.container";
 import { useRouter } from "next/router";
+import Sidebar from "./sidebar/Sidebar.container";
 
 const Wrapper = styled.div``;
 
@@ -12,12 +13,6 @@ const Body = styled.div``;
 
 const BodyWrapper = styled.div`
   display: flex;
-`;
-
-const Sidebar = styled.div`
-  width: 200px;
-  height: 700px;
-  background-color: blue;
 `;
 
 interface ILayoutProps {

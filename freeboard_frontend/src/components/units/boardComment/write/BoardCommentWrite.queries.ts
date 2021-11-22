@@ -34,14 +34,15 @@ export const UPDATE_BOARD_COMMENT = gql`
       contents
       rating
       createdAt
-      boardAddress {
-        zipcode
-        address
-        addressDetail
-      }
     }
   }
 `;
+
+// boardAddress {
+//   zipcode
+//   address
+//   addressDetail
+// }
 
 // export const FETCH_BOARD_COMMENTS = gql`
 //   query fetchBoardComments($page: Int, $boardId: ID!) {

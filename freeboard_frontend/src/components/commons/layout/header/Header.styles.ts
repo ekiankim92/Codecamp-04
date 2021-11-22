@@ -1,17 +1,30 @@
 import styled from "@emotion/styled";
 
 export const Header = styled.div`
+  width: 100%;
   height: 80px;
   display: flex;
   justify-content: space-between;
   padding: 16px;
-  /* background-color: orange; */
+  background-color: beige;
+  position: fixed;
+  z-index: 1;
+  border-bottom: 1px solid lightgray;
 `;
 
 export const Logo = styled.div`
   font-size: 20px;
-  width: 130px;
-  background-color: crimson;
+  font-style: oblique;
+  width: 330px;
+  /* height: 130px; */
+  /* background-color: crimson; */
+`;
+
+export const Logo_Img = styled.img`
+  margin-left: 14px;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export const Header_RoutingPage = styled.div`
@@ -22,10 +35,10 @@ export const Header_RoutingPage = styled.div`
 
 export const UsedMarket = styled.div`
   margin-right: 20px;
-  color: gray;
+  color: black;
   :hover {
     cursor: pointer;
-    color: black;
+    color: gray;
   }
 `;
 
@@ -33,10 +46,10 @@ export const FreeBoard = styled.div`
   margin-right: 20px;
   border-left: 1px solid lightgray;
   padding-left: 14px;
-  color: gray;
+  color: black;
   :hover {
     cursor: pointer;
-    color: black;
+    color: gray;
   }
 `;
 
@@ -44,9 +57,9 @@ export const MyPage = styled.div`
   margin-right: 20px;
   border-left: 1px solid lightgray;
   padding-left: 14px;
-  color: gray;
+  color: black;
   :hover {
     cursor: pointer;
-    color: black;
+    color: gray;
   }
 `;

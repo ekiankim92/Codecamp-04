@@ -81,7 +81,9 @@ export default function BoardCommentWrite(props) {
   //댓글 수정
   async function onClickUpdate() {
     try {
-      // if (!props.el?._id) return;
+      alert(props.el?._id);
+      alert(contents);
+      alert(rating);
       await updateBoardComment({
         variables: {
           updateBoardCommentInput: {

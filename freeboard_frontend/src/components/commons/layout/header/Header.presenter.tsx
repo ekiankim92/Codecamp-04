@@ -4,7 +4,10 @@ export default function HeaderUI() {
   return (
     <>
       <S.Header>
-        <S.Logo></S.Logo>
+        <S.Logo>
+          Woof Woof!
+          <S.Logo_Img src="images/pawn.png" />
+        </S.Logo>
         <S.Header_RoutingPage>
           <S.UsedMarket>중고거래</S.UsedMarket>
           <S.FreeBoard>게시판</S.FreeBoard>

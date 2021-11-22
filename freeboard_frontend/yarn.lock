@@ -1497,6 +1497,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-slick@^0.23.7":
+  version "0.23.7"
+  resolved "https://registry.yarnpkg.com/@types/react-slick/-/react-slick-0.23.7.tgz#2ef4f42dd0e9be5633502c3563572c7d7584a368"
+  integrity sha512-v5/puo5Ix+ZeWNo2wqzfEP5CaTtEMU3qByESGt3brp98mIyKhssNaB2hgGrshu+lHAXkV1ku78Tea6FtztyXug==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-transition-group@^4.2.0", "@types/react-transition-group@^4.4.4":
   version "4.4.4"
   resolved "https://registry.npmjs.org/@types/react-transition-group/-/react-transition-group-4.4.4.tgz"
@@ -5799,7 +5806,7 @@ react-daum-postcode@^3.0.0:
     prop-types "^15.7.2"
     react "^17.0.2"
 
-react-dom@17.0.2:
+react-dom@17.0.2, react-dom@^17.0.2:
   version "17.0.2"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
@@ -5812,6 +5819,21 @@ react-fast-compare@^3.0.1:
   version "3.2.0"
   resolved "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.0.tgz"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
+
+react-focus-bounder@^1.1.1:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/react-focus-bounder/-/react-focus-bounder-1.1.4.tgz#8615191dcd2ee0db4a35a86c458f6e4ae93c197a"
+  integrity sha512-J6ccFESf3YRxcazpJ6N51gtPAQZ+Y0Y51vM7JYXHu/dLUP01m2grUi51g4Z73+snF4yK/Hv9eI2M7alblt4bfg==
+
+react-hamburger-drawer@^21.11.17:
+  version "21.11.17"
+  resolved "https://registry.yarnpkg.com/react-hamburger-drawer/-/react-hamburger-drawer-21.11.17.tgz#66a3dc4553ad999ef5cdfc5d2479736af80139c5"
+  integrity sha512-gZSlHQ1bRmqc0jHMiqR0uH1iS2KzBxaAR3IyFweatdelgxWoQjhExAco7mPeYOhpz9Vplxo97kEROLwFxd6fgg==
+  dependencies:
+    prop-types "^15.7.2"
+    react "^17.0.2"
+    react-dom "^17.0.2"
+    react-focus-bounder "^1.1.1"
 
 react-infinite-scroller@^1.2.4:
   version "1.2.4"
@@ -5848,7 +5870,7 @@ react-refresh@0.8.3:
 
 react-slick@^0.28.1:
   version "0.28.1"
-  resolved "https://registry.npmjs.org/react-slick/-/react-slick-0.28.1.tgz"
+  resolved "https://registry.yarnpkg.com/react-slick/-/react-slick-0.28.1.tgz#12c18d991b59432df9c3757ba540a227b3fb85b9"
   integrity sha512-JwRQXoWGJRbUTE7eZI1rGIHaXX/4YuwX6gn7ulfvUZ4vFDVQAA25HcsHSYaUiRCduTr6rskyIuyPMpuG6bbluw==
   dependencies:
     classnames "^2.2.5"
@@ -6241,7 +6263,7 @@ slice-ansi@^4.0.0:
 
 slick-carousel@^1.8.1:
   version "1.8.1"
-  resolved "https://registry.npmjs.org/slick-carousel/-/slick-carousel-1.8.1.tgz"
+  resolved "https://registry.yarnpkg.com/slick-carousel/-/slick-carousel-1.8.1.tgz#a4bfb29014887bb66ce528b90bd0cda262cc8f8d"
   integrity sha512-XB9Ftrf2EEKfzoQXt3Nitrt/IPbT+f1fgqBdoxO3W/+JYvtEOW6EgxnWfr9GH6nmULv7Y2tPmEX3koxThVmebA==
 
 snake-case@^3.0.4:
