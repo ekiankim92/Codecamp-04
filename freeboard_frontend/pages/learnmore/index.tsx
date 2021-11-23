@@ -14,15 +14,15 @@ export default function LearnMorePage() {
     fetchDog();
   }, []);
 
-  //   useEffect(() => {
-  //     async function fetchDogInfo() {
-  //       const result = await axios.get(
-  //         "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/all"
-  //       );
-  //       console.log(result);
-  //     }
-  //     fetchDogInfo();
-  //   }, []);
+  // useEffect(() => {
+  //   async function fetchDogInfo() {
+  //     const result = await axios.get(
+  //       "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/all"
+  //     );
+  //     console.log(result);
+  //   }
+  //   fetchDogInfo();
+  // }, []);
 
   //   useEffect(() => {
   //     async function fetchServiceDog() {

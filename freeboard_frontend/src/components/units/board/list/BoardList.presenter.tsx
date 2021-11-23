@@ -1,5 +1,6 @@
 import * as S from "./BoardList.style";
 import { getDate } from "../../../../../src/commons/libraries/utils";
+import PaginationsPage01 from "../../../commons/paginations/01/Paginations01.container";
 
 export default function BoardListUI(props: IPropsBoardListUI) {
   return (
@@ -66,7 +67,7 @@ export default function BoardListUI(props: IPropsBoardListUI) {
           ))}
         </S.Lists>
       </S.Inner_Wrapper>
-      <div>
+      {/* <div>
         <span onClick={props.onClickPrevPage}>Previous</span>
         {new Array(10).fill(1).map(
           (_, index) =>
@@ -82,7 +83,14 @@ export default function BoardListUI(props: IPropsBoardListUI) {
             )
         )}
         <span onClick={props.onClickNextPage}>Next Page</span>
-      </div>
+      </div> */}
+      <PaginationsPage01
+        refetch={props.refetch}
+        count={props.count}
+        startPage={props.startPage}
+        setStartPage={props.setStartPage}
+      />
+
       <S.Create_Board_Button onClick={props.onClickMoveToBoard}>
         <img src="/images/edit_pen.png" />
         게시물 등록하기

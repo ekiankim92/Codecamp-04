@@ -17,6 +17,10 @@ export default function BoardList() {
   const [deleteBoard] = useMutation(DELETE_BOARD);
   const { data: data2 } = useQuery(FETCH_BOARDS_OF_THE_BEST);
   const router = useRouter();
+  const [startPage, setStartPage] = useState(1);
+  const { data, refetch } = useQuery(FETCH_BOARDS, {
+    variables: { page: startPage },
+  });
 
   function onClickMoveToBoard() {
     router.push(`/mento`);
@@ -46,34 +50,29 @@ export default function BoardList() {
 
   //Pagination
   const { data: dataBoardsCount } = useQuery(FETCH_BOARDS_COUNT);
-  const lastPage = dataBoardsCount
-    ? Math.ceil(dataBoardsCount.fetchBoardsCount / 10)
-    : 0;
-  const [startPage, setStartPage] = useState(1);
+  // const lastPage = dataBoardsCount
+  //   ? Math.ceil(dataBoardsCount.fetchBoardsCount / 10)
+  //   : 0;
 
-  function onClickPage(event) {
-    if (event.target.id) refetch({ page: Number(event.target.id) });
-  }
+  // function onClickPage(event) {
+  //   if (event.target.id) refetch({ page: Number(event.target.id) });
+  // }
 
-  function onClickPrevPage() {
-    if (startPage <= 1) {
-      return;
-    }
-    setStartPage((prev) => prev - 10);
-  }
+  // function onClickPrevPage() {
+  //   if (startPage <= 1) {
+  //     return;
+  //   }
+  //   setStartPage((prev) => prev - 10);
+  // }
 
-  function onClickNextPage() {
-    if (startPage + 10 > lastPage) {
-      return;
-    }
-    setStartPage((prev) => prev + 10);
-  }
-  console.log(startPage);
-  console.log(lastPage);
-
-  const { data, refetch } = useQuery(FETCH_BOARDS, {
-    variables: { page: startPage },
-  });
+  // function onClickNextPage() {
+  //   if (startPage + 10 > lastPage) {
+  //     return;
+  //   }
+  //   setStartPage((prev) => prev + 10);
+  // }
+  // console.log(startPage);
+  // console.log(lastPage);
 
   return (
     <BoardListUI
@@ -83,12 +82,15 @@ export default function BoardList() {
       onClickMoveToBoard={onClickMoveToBoard}
       onClickMoveToBoardDetail={onClickMoveToBoardDetail}
       onClickMoveToBestDetail={onClickMoveToBestDetail}
-      onClickPage={onClickPage}
-      onClickPrevPage={onClickPrevPage}
-      onClickNextPage={onClickNextPage}
+      // onClickPage={onClickPage}
+      // onClickPrevPage={onClickPrevPage}
+      // onClickNextPage={onClickNextPage}
       dataBoardsCount={dataBoardsCount}
-      lastPage={lastPage}
+      // lastPage={lastPage}
       startPage={startPage}
+      refetch={refetch}
+      count={dataBoardsCount?.fetchBoardsCount}
+      setStartPage={setStartPage}
     />
   );
 }
