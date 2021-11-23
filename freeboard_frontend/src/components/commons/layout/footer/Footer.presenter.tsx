@@ -23,14 +23,14 @@ export default function FooterUI() {
           <Footer_Images2 src="/images/instagram.png" />
           <Footer_Images3 src="/images/twitter.png" />
           <Footer_Comment>
-            Please don't forget vist us and to subscribe!
+            Please don't forget to vist us and to subscribe!
           </Footer_Comment>
         </div>
         <Footer_Address>
           <div>서울, 구로구, 구로동, 디지털로 300 패스트파이브 구로점</div>
           <Footer_Name>EunKuk Ian Kim</Footer_Name>
           <Footer_Email>eunkukkim1992@gmail.com</Footer_Email>
-          <Footer_Phone>010-2732-9260</Footer_Phone>
+          <Footer_Phone>010-2732-****</Footer_Phone>
         </Footer_Address>
         <Inqueries>
           <Notice>공지사항</Notice>
