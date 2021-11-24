@@ -6,14 +6,13 @@ export default function LearnMorePage() {
   //   const [dogInfo, setDogInfo] = useState("");
   const [serviceDog, setServiceDog] = useState("");
 
-  //this
-  // useEffect(() => {
-  //   async function fetchDog() {
-  //     const result = await axios.get("https://dog.ceo/api/breeds/image/random");
-  //     setDogUrl(result.data.message);
-  //   }
-  //   fetchDog();
-  // }, []);
+  useEffect(() => {
+    async function fetchDog() {
+      const result = await axios.get("https://dog.ceo/api/breeds/image/random");
+      setDogUrl(result.data.message);
+    }
+    fetchDog();
+  }, []);
 
   // useEffect(() => {
   //   async function fetchDogInfo() {
@@ -35,17 +34,16 @@ export default function LearnMorePage() {
   //     fetchServiceDog();
   //   }, []);
 
-  //this
-  // useEffect(() => {
-  //   async function DogBreed() {
-  //     const result = await axios.get(
-  //       "https://api.thedogapi.com/v1/images/search"
-  //     );
-  //     setServiceDog(result.data[0].url);
-  //     console.log(result);
-  //   }
-  //   DogBreed();
-  // }, []);
+  useEffect(() => {
+    async function DogBreed() {
+      const result = await axios.get(
+        "https://api.thedogapi.com/v1/images/search"
+      );
+      setServiceDog(result.data[0].url);
+      console.log(result);
+    }
+    DogBreed();
+  }, []);
 
   const [doggies, setDoggies] = useState("");
   const [breeds, setBreeds] = useState("");

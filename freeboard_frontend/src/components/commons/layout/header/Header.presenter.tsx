@@ -19,7 +19,16 @@ export default function HeaderUI() {
           rel="noopener noreferrer"
           // href="http://www.taobao.com/"
         >
-          Layout
+          Walk Your Dog
+        </a>
+      </Menu.Item>
+      <Menu.Item>
+        <a
+          target="_self"
+          rel="noopener noreferrer"
+          // href="http://localhost:3000/learnmore"
+        >
+          Tips & Goods
         </a>
       </Menu.Item>
       <Menu.Item>
