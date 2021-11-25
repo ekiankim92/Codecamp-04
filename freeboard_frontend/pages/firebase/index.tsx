@@ -63,7 +63,7 @@ export default function FirebasePage() {
     const board = collection(getFirestore(firebaseApp), "board");
     const result = await getDocs(board);
     setMyData(result.docs.map((el) => el.data()));
-    setDeleteData(result.docs.map((el) => el.id));
+
     // console.log(boardId);
     // console.log(boardId[0]);
     // console.log(boardId[1]);

@@ -1,8 +1,8 @@
 import { useMutation } from "@apollo/client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/router";
 import BoardEditUI from "./BoardWrite.presenter";
-import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
+import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./BoardWrite.queries";
 
 export default function BoardEdit(props) {
   const router = useRouter();
@@ -11,7 +11,9 @@ export default function BoardEdit(props) {
 
   const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
+  const [uploadFile] = useMutation(UPLOAD_FILE);
 
+  //게시물 내용
   const [name, setName] = useState("");
   const [nameError, setNameError] = useState("");
 
@@ -26,6 +28,14 @@ export default function BoardEdit(props) {
 
   // youtube
   const [youtubeUrl, setYoutubeUrl] = useState("");
+
+  // uploading picture
+  const [images, setImages] = useState([]);
+  const fileRef = useRef(null);
+
+  function onClickMyImages() {
+    fileRef.current?.click();
+  }
 
   function SetNames(event) {
     setName(event.target.value);
@@ -124,6 +134,7 @@ export default function BoardEdit(props) {
               title,
               contents: middleComment,
               youtubeUrl,
+              images,
               boardAddress: {
                 zipcode,
                 address,
@@ -214,6 +225,33 @@ export default function BoardEdit(props) {
     setIsOpen((prev) => !prev);
   };
 
+  //사진 등록
+  async function onChangeFile(event) {
+    const myFile = event.target.files?.[0];
+
+    if (!myFile?.size) {
+      alert("파일이 없습니다");
+      return;
+    }
+
+    if (myFile.size > 5 * 1024 * 1024) {
+      alert("파일 용량이 너무 큽니다");
+      return;
+    }
+
+    if (!myFile.type.includes("jpeg") && !myFile.type.includes("png")) {
+      alert("jpeg 또는 png 업로드 가능합니다");
+      return;
+    }
+
+    const result = await uploadFile({
+      variables: {
+        file: myFile,
+      },
+    });
+    setImages([result.data.uploadFile.url]);
+  }
+
   return (
     <BoardEditUI
       SetNames={SetNames}
@@ -237,6 +275,10 @@ export default function BoardEdit(props) {
       isOpen={isOpen}
       youtubeUrl={youtubeUrl}
       YoutubeVideo={YoutubeVideo}
+      onChangeFile={onChangeFile}
+      onClickMyImages={onClickMyImages}
+      images={images}
+      fileRef={fileRef}
     />
   );
 }

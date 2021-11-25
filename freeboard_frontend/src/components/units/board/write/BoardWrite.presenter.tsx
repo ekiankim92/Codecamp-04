@@ -65,11 +65,28 @@ export default function BoardEditUI(props) {
       </S.InputWrapper>
       <S.ImageWrapper>
         <S.Label>사진첨부</S.Label>
+        {props.images[0] ? (
+          <img
+            style={{ width: "120px", height: "120px" }}
+            src={`https://storage.googleapis.com/${props.images[0]}`}
+          />
+        ) : (
+          <S.UploadButton
+            onChange={props.onChangeFile}
+            onClick={props.onClickMyImages}
+          >
+            <>+</>
+            <>Upload</>
+          </S.UploadButton>
+        )}
+        <input
+          ref={props.fileRef}
+          style={{ display: "none" }}
+          type="file"
+          onChange={props.onChangeFile}
+        />
         <S.UploadButton>
-          <>+</>
-          <>Upload</>
-        </S.UploadButton>
-        <S.UploadButton>
+          <input type="file" style={{ display: "none" }} />
           <>+</>
           <>Upload</>
         </S.UploadButton>

@@ -11,6 +11,7 @@ export const FETCH_BOARD = gql`
       youtubeUrl
       likeCount
       dislikeCount
+      images
       boardAddress {
         zipcode
         address
@@ -35,5 +36,14 @@ export const DISLIKE_BOARD = gql`
 export const DELETE_BOARD = gql`
   mutation deleteBoard($boardId: ID!) {
     deleteBoard(boardId: $boardId)
+  }
+`;
+
+export const UPLOAD_FILE = gql`
+  mutation uploadFile($file: Upload!) {
+    uploadFile(file: $file) {
+      _id
+      url
+    }
   }
 `;

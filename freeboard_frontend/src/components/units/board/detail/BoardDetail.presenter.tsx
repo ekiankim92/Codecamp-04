@@ -43,7 +43,8 @@ export default function BoardDetailUI(props) {
         <S.Image_Section>
           <img
             id="image"
-            src="https://content.codecademy.com/courses/freelance-1/unit-2/explorer.jpeg"
+            src={`https://storage.googleapis.com/${props.data?.fetchBoard.images[0]}`}
+            style={{ width: "250px", height: "250px" }}
           ></img>
         </S.Image_Section>
         <S.Content_Section>

@@ -5,10 +5,11 @@ import {
   LIKE_BOARD,
   DISLIKE_BOARD,
   DELETE_BOARD,
+  UPLOAD_FILE,
 } from "./BoardDetail.queries";
 import { useQuery, useMutation } from "@apollo/client";
 import { Contents, Password } from "../write/BoardWrite.styles";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 //splice, slice 는 데이터를 일일히 가져오기 때문에 runtime error 가 생길수있음
 export default function ContainerDetailPage() {
@@ -20,6 +21,7 @@ export default function ContainerDetailPage() {
 
   // 게시글 리스트 삭제
   const [deleteBoard] = useMutation(DELETE_BOARD);
+  const [uploadFile] = useMutation(UPLOAD_FILE);
 
   //게시글 페이지 조회
   const { data } = useQuery(FETCH_BOARD, {
@@ -100,6 +102,17 @@ export default function ContainerDetailPage() {
       console.log(error.message);
     }
   }
+
+  // 사진 조회
+  // async function onChangeFile(event) {
+  //   const myFile = event.target.files?.[0];
+  //   const result = await uploadFile({
+  //     variables: {
+  //       file: myFile,
+  //     },
+  //   });
+  //   console.log(result);
+  // }
 
   return (
     <>

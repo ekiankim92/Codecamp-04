@@ -1,11 +1,17 @@
 // import "../styles/globals.css";
 // 글로벌로 쓰면 이제 이 스타일은 필요가 없음
 import { Global } from "@emotion/react";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import {
+  ApolloClient,
+  ApolloProvider,
+  InMemoryCache,
+  ApolloLink,
+} from "@apollo/client";
 import "antd/dist/antd.css";
 import { AppProps } from "next/dist/shared/lib/router/router";
 import Layout from "../src/components/commons/layout";
 import { globalStyles } from "../src/commons/styles/globalStyles";
+import { createUploadLink } from "apollo-upload-client";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -26,13 +32,17 @@ const firebaseConfig = {
 export const firebaseAPP = initializeApp(firebaseConfig);
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const client = new ApolloClient({
+  const uploadLink = createUploadLink({
     uri: "http://backend04.codebootcamp.co.kr/graphql",
+  });
+
+  const client = new ApolloClient({
+    link: ApolloLink.from([uploadLink as unknown as ApolloLink]),
     cache: new InMemoryCache(),
   });
 
   // http://backend04.codebootcamp.co.kr/graphql
-  //'http://example.codebootcamp.co.kr/graphql'
+  // 'http://example.codebootcamp.co.kr/graphql'
 
   return (
     <ApolloProvider client={client}>
