@@ -10,17 +10,39 @@ import {
 import { useRouter } from "next/router";
 import {
   IQuery,
+  IQueryFetchBoardArgs,
   IQueryFetchBoardsArgs,
 } from "../../../../commons/types/generated/types";
 
 export default function BoardList() {
+  // Delete board
   const [deleteBoard] = useMutation(DELETE_BOARD);
+  // Fetch best comment
   const { data: data2 } = useQuery(FETCH_BOARDS_OF_THE_BEST);
   const router = useRouter();
+  // Pagination
+  const { data: dataBoardsCount, refetch: refetchBoardsCount } =
+    useQuery(FETCH_BOARDS_COUNT);
+  // Pagination startPage
   const [startPage, setStartPage] = useState(1);
-  const { data, refetch } = useQuery(FETCH_BOARDS, {
+  const { data, refetch } = useQuery<
+    Pick<IQuery, "fetchBoards">,
+    IQueryFetchBoardArgs
+  >(FETCH_BOARDS, {
     variables: { page: startPage },
   });
+  // Search Keyword
+  // const [search, setSearch] = useState("");
+  const [keyword, setMyKeyword] = useState("");
+
+  function onChangeSearch(value) {
+    setMyKeyword(value);
+    console.log(value);
+  }
+
+  // function onClickSearch() {
+  //   props.refetch({ search });
+  // }
 
   function onClickMoveToBoard() {
     router.push(`/mento`);
@@ -48,32 +70,6 @@ export default function BoardList() {
     }
   }
 
-  //Pagination
-  const { data: dataBoardsCount } = useQuery(FETCH_BOARDS_COUNT);
-  // const lastPage = dataBoardsCount
-  //   ? Math.ceil(dataBoardsCount.fetchBoardsCount / 10)
-  //   : 0;
-
-  // function onClickPage(event) {
-  //   if (event.target.id) refetch({ page: Number(event.target.id) });
-  // }
-
-  // function onClickPrevPage() {
-  //   if (startPage <= 1) {
-  //     return;
-  //   }
-  //   setStartPage((prev) => prev - 10);
-  // }
-
-  // function onClickNextPage() {
-  //   if (startPage + 10 > lastPage) {
-  //     return;
-  //   }
-  //   setStartPage((prev) => prev + 10);
-  // }
-  // console.log(startPage);
-  // console.log(lastPage);
-
   return (
     <BoardListUI
       onClickDate={onClickDate}
@@ -91,6 +87,9 @@ export default function BoardList() {
       refetch={refetch}
       count={dataBoardsCount?.fetchBoardsCount}
       setStartPage={setStartPage}
+      keyword={keyword}
+      onChangeSearch={onChangeSearch}
+      refetchBoardsCount={refetchBoardsCount}
     />
   );
 }

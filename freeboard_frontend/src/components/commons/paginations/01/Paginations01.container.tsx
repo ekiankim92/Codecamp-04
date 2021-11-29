@@ -27,8 +27,8 @@ export default function PaginationsPage01(props) {
     setActivedPage(props.startPage + 10);
     props.setStartPage((prev) => prev + 10);
   }
-  console.log(props.startPage);
-  console.log(lastPage);
+  // console.log(props.startPage);
+  // console.log(lastPage);
 
   return (
     <>

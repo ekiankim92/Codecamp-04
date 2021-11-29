@@ -14,19 +14,21 @@ import "slick-carousel/slick/slick-theme.css";
 
 export const Carousel_Wrapper = styled.div`
   width: 100%;
-  height: 500px;
+  height: 900px;
   overflow: hidden;
+  border-bottom: 2px solid lightgray;
 `;
 
 export const Carousel1 = styled(Carousel)`
   width: 100%;
   height: 100%;
   margin-top: 20px;
+  /* display: flex; */
 `;
 
 export const Carousel2 = styled(Carousel)`
-  /* width: 100%;
-  height: 100%; */
+  width: 100%;
+  height: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: beige;
@@ -34,7 +36,7 @@ export const Carousel2 = styled(Carousel)`
 
 export const Card_Wrapper = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 `;
 
@@ -44,6 +46,12 @@ export const Card_Header = styled.div`
   margin-left: 20px;
   font-size: 24px;
   font-weight: bold;
+`;
+
+export const Fire_Emoji = styled.img`
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
 `;
 
 export const Card_One = styled.div`
@@ -92,7 +100,7 @@ export const Card_Four = styled.div`
 
 export const Img_Wrapper = styled.div`
   width: 100%;
-  height: 500px;
+  height: 900px;
 `;
 
 export const Img = styled.img`
@@ -147,30 +155,27 @@ export const Bottom_Slider = styled(Slider)`
   width: 100%;
   height: 100%;
   margin-top: 20px;
-  display: flex;
-  align-items: center;
+  margin-left: 170px;
+  /* display: flex; */
+  /* align-items: center; */
 `;
 
-export const Bottom_Slider_Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+export const Bottom_Slider_Wrapper = styled.div``;
 
 export const Slider_Image1 = styled.img`
-  width: auto;
-  height: auto;
+  width: 400px;
+  height: 400px;
   object-fit: fill;
 `;
 
 export const Slider_Image2 = styled.img`
-  width: auto;
-  height: auto;
+  width: 400px;
+  height: 400px;
   object-fit: fill;
 `;
 
 export const Slider_Image3 = styled.img`
-  width: auto;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   object-fit: fill;
 `;

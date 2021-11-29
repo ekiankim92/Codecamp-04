@@ -1,6 +1,8 @@
 import * as S from "./BoardList.style";
 import { getDate } from "../../../../../src/commons/libraries/utils";
 import PaginationsPage01 from "../../../commons/paginations/01/Paginations01.container";
+import Search01 from "../../../commons/keyword-search/01/search01.container";
+import { v4 as uuid4 } from "uuid";
 
 export default function BoardListUI(props: IPropsBoardListUI) {
   return (
@@ -27,20 +29,11 @@ export default function BoardListUI(props: IPropsBoardListUI) {
             ))}
           </div>
         </S.Best_List>
-
-        <S.SearchSection>
-          <div>
-            {/* <img src="/images/word.png"/> */}
-            <S.Search_Area type="text" placeholder="제목을 검색해주세요" />
-          </div>
-          <div>
-            <S.Search_Data type="text" placeholder="YYYY.MM.DD - YYYY.MM.DD" />
-          </div>
-          <div>
-            <S.Search_Button>검색하기</S.Search_Button>
-          </div>
-        </S.SearchSection>
-
+        <Search01
+          refetch={props.refetch}
+          refetchBoardsCount={props.refetchBoardsCount}
+          onChangeSearch={props.onChangeSearch}
+        />
         <S.Header>
           <div>번호</div>
           <div>제목</div>
@@ -54,7 +47,14 @@ export default function BoardListUI(props: IPropsBoardListUI) {
               <S.Column>{/* <input type="checkbox" /> */}</S.Column>
               <S.Column>{index + 1}</S.Column>
               <S.Column onClick={props.onClickMoveToBoardDetail} id={el._id}>
-                {el.title}
+                {el.title
+                  .replaceAll(props.keyword, `@#$${props.keyword}@#$`)
+                  .split("@#$")
+                  .map((el) => (
+                    <S.SearchBar key={uuid4()} isMatched={props.keyword === el}>
+                      {el}
+                    </S.SearchBar>
+                  ))}
               </S.Column>
               <S.Column>{el.writer}</S.Column>
               <S.Column>{getDate(el.createdAt)}</S.Column>

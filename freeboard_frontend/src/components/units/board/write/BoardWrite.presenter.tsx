@@ -132,7 +132,6 @@ export default function BoardEditUI(props) {
           </Modal>
         )}
       </S.InputWrapper>
-
       <S.ButtonWrapper>
         {!props.isEdit && (
           <S.SubmitButton onClick={props.BackEndPush} color={props.color}>

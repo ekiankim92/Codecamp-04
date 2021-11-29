@@ -4,7 +4,7 @@ export const Footer = styled.div`
   display: absolute;
   z-index: 1;
   height: 200px;
-  background-color: beige;
+  background-color: ivory;
 `;
 
 export const Footer_Images1 = styled.img`
