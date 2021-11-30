@@ -14,6 +14,7 @@ import { createUploadLink } from "apollo-upload-client";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { createContext, useState } from "react";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -30,9 +31,20 @@ const firebaseConfig = {
 // Initialize Firebase
 export const firebaseApp = initializeApp(firebaseConfig);
 
+export const GlobalConText = createContext(null);
 function MyApp({ Component, pageProps }: AppProps) {
+  const [myAccessToken, setMyAccessToken] = useState("");
+  const [myUserInfo, setMyUserInfo] = useState("");
+  const myValue = {
+    accessToken: myAccessToken,
+    setAccessToken: setMyAccessToken,
+    userInfo: myUserInfo,
+    setUserInfo: setMyUserInfo,
+  };
+
   const uploadLink = createUploadLink({
     uri: "http://backend04.codebootcamp.co.kr/graphql",
+    headers: { authorization: `Bearer ${myAccessToken}` },
   });
 
   const client = new ApolloClient({
@@ -41,12 +53,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
 
   return (
-    <ApolloProvider client={client}>
-      <Global styles={globalStyles} />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ApolloProvider>
+    <GlobalConText.Provider value={myValue}>
+      <ApolloProvider client={client}>
+        <Global styles={globalStyles} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ApolloProvider>
+    </GlobalConText.Provider>
   );
 }
 

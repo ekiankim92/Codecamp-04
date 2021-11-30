@@ -1,7 +1,17 @@
 import * as S from "./Header.styles";
 import { Breadcrumb, Menu } from "antd";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import { useState } from "react";
 
 export default function HeaderUI() {
+  // Open Modal
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => setOpen(false);
+
   const menu = (
     <Menu>
       <Menu.Item>
@@ -55,9 +65,31 @@ export default function HeaderUI() {
           </Breadcrumb.Item>
         </Breadcrumb>
         <S.Header_RoutingPage>
-          <S.UsedMarket>중고거래</S.UsedMarket>
-          <S.FreeBoard>게시판</S.FreeBoard>
-          <S.MyPage>마이페이지</S.MyPage>
+          <S.UsedMarket>Product</S.UsedMarket>
+          <S.FreeBoard>Boards</S.FreeBoard>
+          <S.MyPage>My Page</S.MyPage>
+          <S.Create_Account>Create Account</S.Create_Account>
+          <div>
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={S.style}>
+                <S.Wrapper>
+                  <S.Log_In_Info>
+                    <S.Email_Log placeholder="Your login or e-mail" />
+                    <S.Password_Log placeholder="Password" />
+                    <S.Sign_Log>Sign In </S.Sign_Log>
+                    <S.Register_Log>Register</S.Register_Log>
+                  </S.Log_In_Info>
+                  <S.Log_In_Picture></S.Log_In_Picture>
+                </S.Wrapper>
+              </Box>
+            </Modal>
+          </div>
+          <S.Sign_In onClick={handleOpen}>Sign in</S.Sign_In>
         </S.Header_RoutingPage>
       </S.Header>
     </>

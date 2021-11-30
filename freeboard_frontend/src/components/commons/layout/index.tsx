@@ -25,22 +25,25 @@ const HIDDEN_HEADERS = ["/12-05-modal-address-state-prev"];
 const HIDDEN_FOOTER = ["/12-02-modal-basic"];
 //  배열이니까 여러개가 있을수 있음
 
+const HIDDEN_REGISTER = ["/registration"];
+
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
 
   const isHiddenHeader = HIDDEN_HEADERS.includes(router.asPath);
   const isHiddenFooter = HIDDEN_FOOTER.includes(router.asPath);
+  const isHiddenRegister = HIDDEN_REGISTER.includes(router.asPath);
 
   return (
     <Wrapper>
       {!isHiddenHeader && <Header />}
-      <Banner />
+      {!isHiddenRegister && <Banner />}
       {/* <Navigation /> */}
       <BodyWrapper>
-        <Sidebar>sidebar!</Sidebar>
+        {!isHiddenRegister && <Sidebar>sidebar!</Sidebar>}
         <Body>{props.children}</Body>
       </BodyWrapper>
-      {!isHiddenFooter && <Footer />}
+      {!isHiddenFooter && !isHiddenRegister && <Footer />}
     </Wrapper>
   );
 }

@@ -70,3 +70,96 @@ export const Header_Anchor = styled.a`
   padding: 15px;
   font-weight: bold;
 `;
+
+export const Create_Account = styled.div`
+  margin-right: 20px;
+  border-left: 1px solid lightgray;
+  padding-left: 14px;
+  color: black;
+  :hover {
+    cursor: pointer;
+    color: gray;
+  }
+`;
+
+export const Sign_In = styled.div`
+  margin-right: 20px;
+  border-left: 1px solid lightgray;
+  padding-left: 14px;
+  color: black;
+  :hover {
+    cursor: pointer;
+    color: gray;
+  }
+`;
+
+export const Wrapper = styled.div`
+  width: 1200px;
+  height: 800px;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 16px;
+  background-color: #eeee;
+`;
+
+export const Log_In_Info = styled.div`
+  width: 600px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Email_Log = styled.input`
+  width: 384px;
+  height: 64px;
+  margin-top: 200px;
+`;
+
+export const Password_Log = styled.input`
+  width: 384px;
+  height: 64px;
+  margin-top: 30px;
+`;
+
+export const Sign_Log = styled.button`
+  width: 300px;
+  height: 64px;
+  margin-top: 30px;
+  :hover {
+    cursor: pointer;
+    background-color: lightgray;
+  }
+`;
+
+export const Register_Log = styled.button`
+  width: 300px;
+  height: 64px;
+  margin-top: 30px;
+  :hover {
+    cursor: pointer;
+    background-color: lightgray;
+  }
+`;
+
+export const Log_In_Picture = styled.div`
+  width: 600px;
+  height: 800px;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIIt3Ov961p3AmrxLYJy61L6pa-PWT94eRzg&usqp=CAU");
+  background-repeat: round;
+  background-size: 100%;
+  background-position: 100%;
+  opacity: 0.5;
+`;
+
+export const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 1300,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 5,
+};
