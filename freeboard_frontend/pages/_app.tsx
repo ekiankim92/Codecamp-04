@@ -14,7 +14,13 @@ import { createUploadLink } from "apollo-upload-client";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { createContext, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -28,10 +34,17 @@ const firebaseConfig = {
   appId: "1:745190356742:web:cae8e849fe90f474b6d087",
 };
 
+interface IGlobalConText {
+  accessToken?: string;
+  setAccessToken?: Dispatch<SetStateAction<string>>;
+}
+
 // Initialize Firebase
 export const firebaseApp = initializeApp(firebaseConfig);
 
-export const GlobalConText = createContext(null);
+// Access Token
+export const GlobalConText = createContext<IGlobalConText>({});
+
 function MyApp({ Component, pageProps }: AppProps) {
   const [myAccessToken, setMyAccessToken] = useState("");
   const [myUserInfo, setMyUserInfo] = useState("");
@@ -41,6 +54,20 @@ function MyApp({ Component, pageProps }: AppProps) {
     userInfo: myUserInfo,
     setUserInfo: setMyUserInfo,
   };
+
+  // 1. 위에 쓰이는 윈도우가 서버임
+  // if (typeof window !== "undefined") {
+  // }
+
+  // 2. 현재 브라우저 이면
+  // if (process.browser)
+
+  // 3 번 방법
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken") || "";
+    if (accessToken) setMyAccessToken(accessToken);
+  }, []);
 
   const uploadLink = createUploadLink({
     uri: "http://backend04.codebootcamp.co.kr/graphql",

@@ -4,7 +4,9 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useState } from "react";
 
-export default function HeaderUI() {
+interface IPropsHeaderUI {}
+
+export default function HeaderUI(props) {
   // Open Modal
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
@@ -68,8 +70,10 @@ export default function HeaderUI() {
           <S.UsedMarket>Product</S.UsedMarket>
           <S.FreeBoard>Boards</S.FreeBoard>
           <S.MyPage>My Page</S.MyPage>
-          <S.Create_Account>Create Account</S.Create_Account>
-          <div>
+          {/* <S.Sign_Log onClick={props.onClickLogin}>Log In</S.Sign_Log> */}
+          {/* <S.Create_Account>Create Account</S.Create_Account> */}
+          <S.Sign_In onClick={handleOpen}>Log In</S.Sign_In>
+          {/* <div>
             <Modal
               open={open}
               onClose={handleClose}
@@ -79,17 +83,35 @@ export default function HeaderUI() {
               <Box sx={S.style}>
                 <S.Wrapper>
                   <S.Log_In_Info>
-                    <S.Email_Log placeholder="Your login or e-mail" />
-                    <S.Password_Log placeholder="Password" />
-                    <S.Sign_Log>Sign In </S.Sign_Log>
-                    <S.Register_Log>Register</S.Register_Log>
+                    <S.Login_Logo>
+                      Woof Woof!
+                      <S.Logo_Img src="images/pawn.png" />
+                    </S.Login_Logo>
+                    <S.Email_Log
+                      type="text"
+                      name="email"
+                      placeholder="Your login or e-mail"
+                      onChange={props.onChangeInputs}
+                    />
+                    <S.Password_Log
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      onChange={props.onChangeInputs}
+                    />
+                    <S.Sign_Log onClick={props.onClickLogin}>Log In</S.Sign_Log>
+                    <S.Register_Log onClick={props.onClickRegister}>
+                      Register
+                    </S.Register_Log>
+                    {props.data && <div>Welcome!</div>}
+                    <div>{props.data?.fetchUserLoggedIn.name}</div>
                   </S.Log_In_Info>
                   <S.Log_In_Picture></S.Log_In_Picture>
                 </S.Wrapper>
               </Box>
             </Modal>
-          </div>
-          <S.Sign_In onClick={handleOpen}>Sign in</S.Sign_In>
+          </div> */}
+          {/* <S.Sign_In onClick={handleOpen}>Log In</S.Sign_In> */}
         </S.Header_RoutingPage>
       </S.Header>
     </>

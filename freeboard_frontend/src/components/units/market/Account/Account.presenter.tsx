@@ -1,6 +1,8 @@
+import { inputAdornmentClasses } from "@mui/material";
 import * as S from "./Account.styles";
+import { IPropsAccountPageUI } from "./Account.types";
 
-export default function AccountPageUI(props) {
+export default function AccountPageUI(props: IPropsAccountPageUI) {
   return (
     <>
       <S.Wrapper>
@@ -14,24 +16,12 @@ export default function AccountPageUI(props) {
               name="name"
               onChange={props.onChangeInput}
             />
+            <S.Error_Message>{props.nameError}</S.Error_Message>
           </div>
-          <div>{props.inputsError}</div>
           <div>
-            Last Name:
-            <S.Last_Name
-              type="text"
-              placeholder="Enter Your Last Name"
-              name="name"
-              onChange={props.onChangeInput}
-            />
-          </div>
-          <div></div>
-          <div>
-            Username:{" "}
+            Username:
             <S.UserName type="text" placeholder="Enter Your User Name" />
-            <button>Check Availability</button>
           </div>
-          <div></div>
           <div>
             Password:
             <S.Password
@@ -40,8 +30,8 @@ export default function AccountPageUI(props) {
               name="password"
               onChange={props.onChangeInput}
             />
+            <S.Error_Message>{props.passwordError}</S.Error_Message>
           </div>
-          <div></div>
           <div>
             Confirm Password:
             <S.Password_Confirm
@@ -53,16 +43,15 @@ export default function AccountPageUI(props) {
           </div>
           <div></div>
           <div>
-            Email:{" "}
+            Email:
             <S.Email
               type="text"
               placeholder="Enter Your Email"
               name="email"
               onChange={props.onChangeInput}
             />
-            <button>Check Availability</button>
+            <S.Error_Message>{props.emailError}</S.Error_Message>
           </div>
-          <div></div>
         </S.Inner_Wrapper>
         <S.Submit_Button onClick={props.onClickSubmit}>Submit</S.Submit_Button>
       </S.Wrapper>

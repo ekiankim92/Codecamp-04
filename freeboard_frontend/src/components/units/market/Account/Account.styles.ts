@@ -27,39 +27,68 @@ export const Inner_Wrapper = styled.div`
   justify-content: space-evenly;
   align-items: center;
   background-color: white;
+  border-radius: 15px;
 `;
 
 export const First_Name = styled.input`
   width: 332px;
   height: 44px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
 
 export const Last_Name = styled.input`
   width: 332px;
   height: 44px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
 
 export const UserName = styled.input`
   width: 332px;
   height: 44px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
 
 export const Password = styled.input`
   width: 332px;
   height: 44px;
+  margin-top: 60px;
+  margin-bottom: 20px;
 `;
 
 export const Password_Confirm = styled.input`
   width: 332px;
   height: 44px;
+  margin-right: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
 
 export const Email = styled.input`
   width: 332px;
   height: 44px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
 `;
 
 export const Submit_Button = styled.button`
   width: 100px;
   height: 60px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  :hover {
+    cursor: pointer;
+    background-color: lightgray;
+  }
+`;
+
+export const Error_Message = styled.div`
+  color: red;
+  font-size: 15px;
+  margin-left: 140px;
 `;
