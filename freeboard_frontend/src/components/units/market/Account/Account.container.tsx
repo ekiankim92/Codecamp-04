@@ -23,6 +23,7 @@ export default function AccountPage() {
   const [nameError, setNameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
 
   function onChangeInput(event: ChangeEvent<HTMLInputElement>) {
     setInputs({
@@ -32,6 +33,10 @@ export default function AccountPage() {
     if (inputs.name) setNameError("");
     if (inputs.password) setPasswordError("");
     if (inputs.email) setEmailError("");
+  }
+
+  function PasswordValidation(event) {
+    setPasswordConfirm(event.target.value);
   }
 
   // function onChangeName(event) {
@@ -75,8 +80,9 @@ export default function AccountPage() {
   // };
 
   const onClickSubmit = async () => {
-    if (!inputs.name) {
+    if (!inputs.name || inputs.name.length <= 2) {
       setNameError("Please Enter Your Name");
+      return;
     }
 
     // if (!inputs.email) {
@@ -85,37 +91,48 @@ export default function AccountPage() {
 
     if (!/\w+@\w+\.\w+/.test(inputs.email)) {
       setEmailError("Please Enter Your Email Correctly");
+      return;
     }
 
-    if (!inputs.password) {
-      setPasswordError("Please Enter Your Password");
+    // if (!inputs.password || inputs.password.length <= 2) {
+    //   setPasswordError("Please Enter Your Password");
+    // }
+
+    // if (inputs.password !== passwordConfirm) {
+    //   setPasswordConfirm("Password Does Not Match");
+    // }
+
+    if (inputs.password !== passwordConfirm) {
+      return alert("비밀번호가 다릅니다");
     }
 
-    if (inputs.name && inputs.email && inputs.password) {
-      try {
-        const result = await createUser({
-          variables: {
-            createUserInput: {
-              ...inputs,
-            },
+    // if (inputs.name && inputs.email && inputs.password) {
+    try {
+      const result = await createUser({
+        variables: {
+          createUserInput: {
+            ...inputs,
           },
-        });
-        console.log(result);
-        alert("Registration Successful");
-        router.push("../../../../../login");
-      } catch (error) {
-        console.log(error.message);
-      }
+        },
+      });
+      console.log(result);
+      alert("Registration Successful");
+      router.push("../../../../../login");
+    } catch (error: any) {
+      console.log(error.message);
     }
+    // }
   };
 
   return (
     <AccountPageUI
       onClickSubmit={onClickSubmit}
       onChangeInput={onChangeInput}
+      PasswordValidation={PasswordValidation}
       nameError={nameError}
       passwordError={passwordError}
       emailError={emailError}
+      passwordConfirm={passwordConfirm}
       // onChangeName={onChangeName}
       // onChangeError={onChangeError}
       // nameError={inputsError.nameError}

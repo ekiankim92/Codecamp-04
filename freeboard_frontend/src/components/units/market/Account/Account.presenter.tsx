@@ -36,8 +36,8 @@ export default function AccountPageUI(props: IPropsAccountPageUI) {
             <S.Password_Confirm
               type="password"
               placeholder="Confirm Your Password"
-              name="password"
-              onChange={props.onChangeInput}
+              name="confirmPassword"
+              onChange={props.PasswordValidation}
             />
           </div>
           <div></div>
