@@ -1,4 +1,3 @@
-import { inputAdornmentClasses } from "@mui/material";
 import * as S from "./Account.styles";
 import { IPropsAccountPageUI } from "./Account.types";
 

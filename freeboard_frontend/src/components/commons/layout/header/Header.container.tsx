@@ -1,19 +1,19 @@
 import HeaderUI from "./Header.presenter";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { LOGIN_USER, FETCH_USER_LOGGED_IN } from "./Header.queries";
-import { useRouter } from "next/router";
-import { useMutation, useQuery } from "@apollo/client";
-import {
-  IMutation,
-  IMutationLoginUserArgs,
-  IQuery,
-} from "../../../../commons/types/generated/types";
-import { ChangeEvent, useContext } from "react";
-import { GlobalConText } from "../../../../../pages/_app";
-import { useState } from "react";
-import { withAuth } from "../../../../../src/components/commons/hocs/withAuth";
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// import { LOGIN_USER, FETCH_USER_LOGGED_IN } from "./Header.queries";
+// import { useRouter } from "next/router";
+// import { useMutation, useQuery } from "@apollo/client";
+// import {
+//   IMutation,
+//   IMutationLoginUserArgs,
+//   IQuery,
+// } from "../../../../commons/types/generated/types";
+// import { ChangeEvent, useContext } from "react";
+// import { GlobalConText } from "../../../../../pages/_app";
+// import { useState } from "react";
+// import { withAuth } from "../../../../../src/components/commons/hocs/withAuth";
 
 export default function Header() {
   // const router = useRouter();

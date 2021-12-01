@@ -27,23 +27,31 @@ const HIDDEN_FOOTER = ["/12-02-modal-basic"];
 
 const HIDDEN_REGISTER = ["/registration"];
 
+const HIDDEN_LOGIN = ["/login"];
+
+const HIDDEN_OPENAPI = ["/learnmore"];
+
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
 
   const isHiddenHeader = HIDDEN_HEADERS.includes(router.asPath);
   const isHiddenFooter = HIDDEN_FOOTER.includes(router.asPath);
   const isHiddenRegister = HIDDEN_REGISTER.includes(router.asPath);
+  const isHiddenLogin = HIDDEN_LOGIN.includes(router.asPath);
+  const isHiddenOpenApi = HIDDEN_OPENAPI.includes(router.asPath);
 
   return (
     <Wrapper>
       {!isHiddenHeader && <Header />}
-      {!isHiddenRegister && <Banner />}
+      {!isHiddenRegister && !isHiddenLogin && !isHiddenOpenApi && <Banner />}
       {/* <Navigation /> */}
       <BodyWrapper>
-        {!isHiddenRegister && <Sidebar>sidebar!</Sidebar>}
+        {!isHiddenRegister && !isHiddenLogin && !isHiddenOpenApi && (
+          <Sidebar>sidebar!</Sidebar>
+        )}
         <Body>{props.children}</Body>
       </BodyWrapper>
-      {!isHiddenFooter && !isHiddenRegister && <Footer />}
+      {!isHiddenFooter && <Footer />}
     </Wrapper>
   );
 }

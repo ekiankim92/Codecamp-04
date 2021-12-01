@@ -90,5 +90,5 @@ export const Submit_Button = styled.button`
 export const Error_Message = styled.div`
   color: red;
   font-size: 15px;
-  margin-left: 140px;
+  margin-left: 80px;
 `;

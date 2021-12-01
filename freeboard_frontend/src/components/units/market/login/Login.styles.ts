@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   justify-content: space-around;
   border-radius: 16px;
   background-color: #eeee;
+  margin: 150px;
 `;
 
 export const Log_In_Info = styled.div`

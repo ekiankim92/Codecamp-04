@@ -70,48 +70,7 @@ export default function HeaderUI(props) {
           <S.UsedMarket>Product</S.UsedMarket>
           <S.FreeBoard>Boards</S.FreeBoard>
           <S.MyPage>My Page</S.MyPage>
-          {/* <S.Sign_Log onClick={props.onClickLogin}>Log In</S.Sign_Log> */}
-          {/* <S.Create_Account>Create Account</S.Create_Account> */}
           <S.Sign_In onClick={handleOpen}>Log In</S.Sign_In>
-          {/* <div>
-            <Modal
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
-            >
-              <Box sx={S.style}>
-                <S.Wrapper>
-                  <S.Log_In_Info>
-                    <S.Login_Logo>
-                      Woof Woof!
-                      <S.Logo_Img src="images/pawn.png" />
-                    </S.Login_Logo>
-                    <S.Email_Log
-                      type="text"
-                      name="email"
-                      placeholder="Your login or e-mail"
-                      onChange={props.onChangeInputs}
-                    />
-                    <S.Password_Log
-                      type="password"
-                      name="password"
-                      placeholder="Password"
-                      onChange={props.onChangeInputs}
-                    />
-                    <S.Sign_Log onClick={props.onClickLogin}>Log In</S.Sign_Log>
-                    <S.Register_Log onClick={props.onClickRegister}>
-                      Register
-                    </S.Register_Log>
-                    {props.data && <div>Welcome!</div>}
-                    <div>{props.data?.fetchUserLoggedIn.name}</div>
-                  </S.Log_In_Info>
-                  <S.Log_In_Picture></S.Log_In_Picture>
-                </S.Wrapper>
-              </Box>
-            </Modal>
-          </div> */}
-          {/* <S.Sign_In onClick={handleOpen}>Log In</S.Sign_In> */}
         </S.Header_RoutingPage>
       </S.Header>
     </>

@@ -59,7 +59,7 @@ export default function LogInPage() {
 
   //Router to New Registration
   const onClickRegister = () => {
-    router.push("../../../../../registration/");
+    router.push("../../../../../login");
   };
 
   return (

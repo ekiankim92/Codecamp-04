@@ -2,6 +2,7 @@ import AccountPageUI from "./Account.presenter";
 import { CREATE_USER } from "./Account.queries";
 import { ChangeEvent, useState } from "react";
 import { useMutation } from "@apollo/client";
+import router from "next/router";
 
 export default function AccountPage() {
   // 회원가입
@@ -101,6 +102,7 @@ export default function AccountPage() {
         });
         console.log(result);
         alert("Registration Successful");
+        router.push("../../../../../login");
       } catch (error) {
         console.log(error.message);
       }
