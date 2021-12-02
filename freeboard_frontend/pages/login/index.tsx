@@ -1,5 +1,5 @@
-import LogInPage from "../../src/components/units/market/login/Login.container";
+import LogIn from "../../src/components/units/market/login/Login.container";
 
-export default function LogIn() {
-  return <LogInPage />;
+export default function LogInPage() {
+  return <LogIn />;
 }

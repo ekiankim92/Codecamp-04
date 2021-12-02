@@ -1,5 +1,5 @@
-import AccountPage from "../../src/components/units/market/Account/Account.container";
+import Account from "../../src/components/units/market/Account/Account.container";
 
-export default function Registration() {
-  return <AccountPage />;
+export default function RegistrationPage() {
+  return <Account />;
 }

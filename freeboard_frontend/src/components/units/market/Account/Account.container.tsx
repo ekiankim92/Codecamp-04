@@ -4,7 +4,7 @@ import { ChangeEvent, useState } from "react";
 import { useMutation } from "@apollo/client";
 import router from "next/router";
 
-export default function AccountPage() {
+export default function Account() {
   // 회원가입
   const [createUser] = useMutation(CREATE_USER);
 
@@ -20,9 +20,10 @@ export default function AccountPage() {
   //   emailError: "",
   // });
 
-  const [nameError, setNameError] = useState("");
+  const [nameError, setNameError] = useState<string>("");
   const [passwordError, setPasswordError] = useState("");
   const [emailError, setEmailError] = useState("");
+  // password confirm
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
   function onChangeInput(event: ChangeEvent<HTMLInputElement>) {
@@ -35,7 +36,7 @@ export default function AccountPage() {
     if (inputs.email) setEmailError("");
   }
 
-  function PasswordValidation(event) {
+  function PasswordValidation(event: ChangeEvent<HTMLInputElement>) {
     setPasswordConfirm(event.target.value);
   }
 
@@ -82,7 +83,6 @@ export default function AccountPage() {
   const onClickSubmit = async () => {
     if (!inputs.name || inputs.name.length <= 2) {
       setNameError("Please Enter Your Name");
-      return;
     }
 
     // if (!inputs.email) {
@@ -91,19 +91,18 @@ export default function AccountPage() {
 
     if (!/\w+@\w+\.\w+/.test(inputs.email)) {
       setEmailError("Please Enter Your Email Correctly");
-      return;
     }
 
-    // if (!inputs.password || inputs.password.length <= 2) {
-    //   setPasswordError("Please Enter Your Password");
-    // }
+    if (!inputs.password || inputs.password.length <= 2) {
+      setPasswordError("Please Enter Your Password");
+    }
 
     // if (inputs.password !== passwordConfirm) {
     //   setPasswordConfirm("Password Does Not Match");
     // }
 
     if (inputs.password !== passwordConfirm) {
-      return alert("비밀번호가 다릅니다");
+      alert("비밀번호가 다릅니다");
     }
 
     // if (inputs.name && inputs.email && inputs.password) {

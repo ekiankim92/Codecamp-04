@@ -13,9 +13,8 @@ import {
 import { ChangeEvent, useContext } from "react";
 import { GlobalConText } from "../../../../../pages/_app";
 import { useState } from "react";
-import { withAuth } from "../../../../../src/components/commons/hocs/withAuth";
 
-export default function LogInPage() {
+export default function LogIn() {
   const router = useRouter();
 
   // Gloal Acceess Token
@@ -59,7 +58,7 @@ export default function LogInPage() {
 
   //Router to New Registration
   const onClickRegister = () => {
-    router.push("../../../../../login");
+    router.push("../../../../../registration");
   };
 
   return (

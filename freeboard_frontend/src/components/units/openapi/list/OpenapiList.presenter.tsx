@@ -1,6 +1,7 @@
 import * as S from "./OpenapiList.styles";
+import { IPropsOpenAPIPageUI } from "./OpenapiList.types";
 
-export default function OpenAPIPageUI(props) {
+export default function OpenAPIPageUI(props: IPropsOpenAPIPageUI) {
   return (
     <>
       <S.Wrapper>

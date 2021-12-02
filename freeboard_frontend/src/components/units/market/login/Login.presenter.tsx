@@ -3,8 +3,9 @@ import { Breadcrumb, Menu } from "antd";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useState } from "react";
+import { IPropsLogInUI } from "./Login.types";
 
-export default function LogInUI(props) {
+export default function LogInUI(props: IPropsLogInUI) {
   return (
     <div>
       {/* <Modal

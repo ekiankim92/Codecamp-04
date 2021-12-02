@@ -1,5 +1,3 @@
-import { IQuery } from "../../../../commons/types/generated/types";
-
 export interface IPropsAccountPageUI {
   onChangeInput: () => void;
   onChangeName: () => void;
