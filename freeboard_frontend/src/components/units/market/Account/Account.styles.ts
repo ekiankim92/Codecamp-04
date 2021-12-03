@@ -5,10 +5,11 @@ export const Wrapper = styled.div`
   /* height: 1847px; */
   border: 1px solid black;
   margin: 150px;
-  padding-top: 80px;
+  /* padding-top: 80px;
   padding-bottom: 100px;
   padding-left: 102px;
-  padding-right: 102px;
+  padding-right: 102px; */
+  padding: 80px 102px 100px 102px;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -11,4 +11,9 @@ export const globalStyles = css`
     font-family: "myFont";
     src: url("/fonts/scifibit.ttf");
   }
+
+  @font-face {
+    font-family: "Fuzzy Bubbles";
+    src: url("/fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap");
+  }
 `;
