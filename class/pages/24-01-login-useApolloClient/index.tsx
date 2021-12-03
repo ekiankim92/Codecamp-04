@@ -1,5 +1,5 @@
 import { ChangeEvent, useContext, useState } from "react";
-import { gql, useMutation } from "@apollo/client";
+import { gql, useApolloClient, useMutation } from "@apollo/client";
 import {
   IMutation,
   IMutationLoginUserArgs,
@@ -15,8 +15,18 @@ const LOGIN_USER = gql`
   }
 `;
 
+const FETCH_USER_LOGGED_IN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      email
+      name
+      picture
+    }
+  }
+`;
+
 export default function LoginPage() {
-  const { setAccessToken } = useContext(GlobalContext);
+  const { setAccessToken, setUserInfo } = useContext(GlobalContext);
   const router = useRouter();
 
   //   const [myEmail, setMyEmail] = useState("");
@@ -32,6 +42,8 @@ export default function LoginPage() {
     Pick<IMutation, "loginUser">,
     IMutationLoginUserArgs
   >(LOGIN_USER);
+
+  const client = useApolloClient();
 
   //   const onChangeMyEmail = (event: ChangeEvent<HTMLInputElement>) => {
   //     setMyEmail(event.target.value);
@@ -53,16 +65,29 @@ export default function LoginPage() {
         ...myinputs,
       },
     });
+    const accessToken = result.data?.loginUser.accessToken || "";
     localStorage.setItem(
       "accessToken",
-      result.data?.loginUser.accessToken || ""
+      // result.data?.loginUser.accessToken || ""
+      accessToken
     );
-    setAccessToken?.(result.data?.loginUser.accessToken || "");
+    setAccessToken?.(accessToken);
 
     // 이메일과 비번으로 요청을 하고
     // accessToken 을 저장해주면서 userInfo 도 같이 저장
     // fetchUserLoggedIn 을 요청함. 사용자에 유저정보를 받아올수있음
     // const result = axios.get("koreanjson.com/posts/1")     axios 는 이러는 방식으로 원하는 곳에서 useQuery 필요 // function 안에서 요청이 가능함
+
+    const resultUserInfo = await client.query({
+      query: FETCH_USER_LOGGED_IN,
+      context: {
+        headers: {
+          authorization: `Bearer ${accessToken}`,
+        },
+      },
+    });
+    setUserInfo(resultUserInfo.data.fetchUserLoggedIn);
+
     // const result = fetchUserLoggedIn()
     // setUserInfo(result.data?.fetchUserLoggedIn)
     // 두개를 동시에 넣을수있음
@@ -75,7 +100,7 @@ export default function LoginPage() {
     // 여기서 setAccessToken 필요! (글로벌 스테이트에)
 
     // 로그인 성공된 페이지로 이동시키기
-    router.push("/23-05-login-success");
+    router.push("/24-02-login-success");
   };
 
   return (

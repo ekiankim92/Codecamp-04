@@ -21,15 +21,12 @@ interface ILayoutProps {
 
 //  배열에 주소를 넣어서 해당하는것만 안보여주게끔
 const HIDDEN_HEADERS = ["/12-05-modal-address-state-prev"];
-
 const HIDDEN_FOOTER = ["/12-02-modal-basic"];
 //  배열이니까 여러개가 있을수 있음
-
 const HIDDEN_REGISTER = ["/registration"];
-
 const HIDDEN_LOGIN = ["/login"];
-
 const HIDDEN_OPENAPI = ["/learnmore"];
+const HIDDEN_PRODUCT_POST = ["/market"];
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
@@ -39,16 +36,21 @@ export default function Layout(props: ILayoutProps) {
   const isHiddenRegister = HIDDEN_REGISTER.includes(router.asPath);
   const isHiddenLogin = HIDDEN_LOGIN.includes(router.asPath);
   const isHiddenOpenApi = HIDDEN_OPENAPI.includes(router.asPath);
+  const isHiddenProductPost = HIDDEN_PRODUCT_POST.includes(router.asPath);
 
   return (
     <Wrapper>
       {!isHiddenHeader && <Header />}
-      {!isHiddenRegister && !isHiddenLogin && !isHiddenOpenApi && <Banner />}
+      {!isHiddenRegister &&
+        !isHiddenLogin &&
+        !isHiddenOpenApi &&
+        !isHiddenProductPost && <Banner />}
       {/* <Navigation /> */}
       <BodyWrapper>
-        {!isHiddenRegister && !isHiddenLogin && !isHiddenOpenApi && (
-          <Sidebar>sidebar!</Sidebar>
-        )}
+        {!isHiddenRegister &&
+          !isHiddenLogin &&
+          !isHiddenOpenApi &&
+          !isHiddenProductPost && <Sidebar>sidebar!</Sidebar>}
         <Body>{props.children}</Body>
       </BodyWrapper>
       {!isHiddenFooter && <Footer />}

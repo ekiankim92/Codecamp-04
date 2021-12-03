@@ -38,6 +38,12 @@ const firebaseConfig = {
 interface IGlobalConText {
   accessToken?: string;
   setAccessToken?: Dispatch<SetStateAction<string>>;
+  userInfo?: {
+    name?: string;
+    email?: string;
+    picture?: string;
+  };
+  setUserInfo?: Dispatch<SetStateAction<{}>>;
 }
 
 // Initialize Firebase
@@ -48,7 +54,7 @@ export const GlobalContext = createContext<IGlobalConText>({});
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [myAccessToken, setMyAccessToken] = useState("");
-  const [myUserInfo, setMyUserInfo] = useState("");
+  const [myUserInfo, setMyUserInfo] = useState({});
   const myValue = {
     accessToken: myAccessToken,
     setAccessToken: setMyAccessToken,
