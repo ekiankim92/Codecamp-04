@@ -4,7 +4,7 @@ export interface FormValues {
   contents: string | number;
   price: number;
   tags: string[];
-  // images: strings[]:
+  images: string[];
 }
 
 export interface IMyButtonsProps {

@@ -27,7 +27,7 @@ const HIDDEN_REGISTER = ["/registration"];
 const HIDDEN_LOGIN = ["/login"];
 const HIDDEN_OPENAPI = ["/learnmore"];
 const HIDDEN_PRODUCT_POST = ["/market"];
-const HIDDEN_PRODUCT_DETAIL = ["/market/marketId"];
+const HIDDEN_PRODUCT_DETAIL = ["/market/[marketId]"];
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();

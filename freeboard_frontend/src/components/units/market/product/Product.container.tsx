@@ -4,7 +4,6 @@ import { useState, useRef } from "react";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import { UPLOAD_FILE, CREATE_USED_ITEM } from "./Product.queries";
-import { Contents } from "../../board/write/BoardWrite.styles";
 
 export default function Product() {
   const router = useRouter();
@@ -52,13 +51,14 @@ export default function Product() {
           name: data.name,
           remarks: data.remarks,
           contents: data.contents,
-          price: data.price,
+          price: Number(data.price),
           tags: [data.tags],
           images: [images],
         },
       },
     });
     console.log(result);
+    router.push(`/market/${result.data.createUseditem._id}`);
   }
 
   return (

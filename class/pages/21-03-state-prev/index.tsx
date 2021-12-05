@@ -19,6 +19,14 @@ export default function StatePrevPage() {
     setCount((wgwgwgwgwgwgw) => wgwgwgwgwgwgw + 1);
   }
 
+  // const onClickCount = () => {
+  //   setCount(count + 4);
+  // };
+
+  // const onClickCount = () => {
+  //   setCount((prev) => prev + 1);
+  // };
+
   return (
     <>
       <div>현재 카운트: {count}</div>
