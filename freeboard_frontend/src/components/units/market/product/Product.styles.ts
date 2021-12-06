@@ -40,8 +40,8 @@ export const UploadButton = styled.button`
 export const Image_Wrapper = styled.div`
   width: 900px;
   height: 200px;
+  margin: 25px;
   display: flex;
-  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   /* background-color: crimson; */

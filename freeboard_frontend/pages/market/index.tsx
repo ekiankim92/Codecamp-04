@@ -1,5 +1,5 @@
-import Product from "../../src/components/units/market/product/Product.container";
+import MarketList from "../../src/components/units/market/list/MarketList.container";
 
 export default function MarketPage() {
-  return <Product />;
+  return <MarketList />;
 }

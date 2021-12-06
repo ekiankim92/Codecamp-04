@@ -1,14 +1,17 @@
 import { useRouter } from "next/router";
 import ProductDetailUI from "./ProductDetail.presenter";
-import { FETCH_USED_ITEM } from "./ProductDetail.queries";
-import { useApolloClient, useQuery } from "@apollo/client";
+import { FETCH_USED_ITEM, DELETE_USED_ITEM } from "./ProductDetail.queries";
+import { useApolloClient, useMutation, useQuery } from "@apollo/client";
 import {
   IQuery,
   IQueryFetchUseditemArgs,
 } from "../../../../commons/types/generated/types";
 
-export default function ProductDetail(props) {
+export default function ProductDetail() {
   const router = useRouter();
+
+  // deleting product posting
+  const [deleteUseditem] = useMutation(DELETE_USED_ITEM);
 
   const client = useApolloClient();
 
@@ -27,5 +30,38 @@ export default function ProductDetail(props) {
   console.log(data?.fetchUseditem.tags);
   console.log(data?.fetchUseditem.remarks);
 
-  return <ProductDetailUI data={data} />;
+  // deleting product posting
+  const onClickDeleteProduct = async () => {
+    try {
+      const result = await deleteUseditem({
+        variables: {
+          useditemId: String(router.query.marketId),
+        },
+      });
+      alert("Product has been deleted");
+      router.push("/productsubmit");
+      console.log(result);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  //routing to edit page
+  const onClickMoveToEdit = () => {
+    router.push(`/market/${router.query.marketId}/edit`);
+  };
+
+  //routing to product page
+  const onClickMoveToProduct = () => {
+    router.push("/productsubmit");
+  };
+
+  return (
+    <ProductDetailUI
+      data={data}
+      onClickMoveToEdit={onClickMoveToEdit}
+      onClickMoveToProduct={onClickMoveToProduct}
+      onClickDeleteProduct={onClickDeleteProduct}
+    />
+  );
 }

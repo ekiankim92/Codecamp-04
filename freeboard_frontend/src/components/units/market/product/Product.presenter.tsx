@@ -2,52 +2,78 @@ import * as S from "./Product.styles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 import { schema } from "./Product.validations";
+import { useContext } from "react";
+import { MyContext } from "../../../../../pages/market/[marketId]/edit";
 
 export default function ProductUI(props) {
   const { handleSubmit, register, formState } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
   });
+  const { isEdit } = useContext(MyContext);
 
   return (
     <>
-      <form onSubmit={handleSubmit(props.onClickSubmit)}>
+      <form
+        onSubmit={handleSubmit(
+          isEdit ? props.onClickProductUpdate : props.onClickSubmit
+        )}
+      >
         <S.Wrapper>
-          <S.Header>Product Posting</S.Header>
+          <S.Header>{isEdit ? "Product Edit" : "Product Posting"}</S.Header>
+          {/* <S.Header>Product Posting</S.Header> */}
           <S.Product_Label>Product</S.Product_Label>
           <S.Product_Name
             type="text"
             placeholder="Please Enter the Product's Name"
             {...register("name")}
+            defaultValue={props.data?.fetchUseditem.name}
           />
-          <input
-            type="file"
-            onClick={props.onClickMyImages}
-            onChange={props.onUploadFile}
-          />
+
           <S.Image_Wrapper>
-            <S.UploadButton
-              onClick={props.onClickMyImages}
-              onChange={props.onUploadFile}
-            >
-              <input
-                type="file"
-                style={{ display: "none" }}
-                onChange={props.onUploadFile}
+            {props.images[0] ? (
+              <img src={`https://storage.googleapis.com/${props.images[0]}`} />
+            ) : (
+              <S.UploadButton
+                onClick={props.onClickMyImages}
+                defaultValue={props.data?.fetchUseditem.images}
+              ></S.UploadButton>
+            )}
+
+            {/* {props.images[0] ? (
+              <img
+                style={{ width: "120px", height: "120px" }}
+                src={`https://storage.googleapis.com/${props.images[0]}`}
               />
-            </S.UploadButton>
-            <S.UploadButton>
+            ) : (
+              <S.UploadButton
+                onChange={props.onChangeFile}
+                onClick={props.onClickMyImages}
+              >
+                <>+</>
+                <>Upload</>
+              </S.UploadButton>
+            )} */}
+
+            <input
+              type="file"
+              style={{ display: "none" }}
+              onChange={props.onUploadFile}
+              ref={props.fileRef}
+            />
+            {/* <S.UploadButton>
               <input type="file" style={{ display: "none" }} />
             </S.UploadButton>
             <S.UploadButton>
               <input type="file" style={{ display: "none" }} />
-            </S.UploadButton>
+            </S.UploadButton> */}
           </S.Image_Wrapper>
           <label>Price</label>
           <input
             type="text"
             placeholder="Selling Price"
             {...register("price")}
+            defaultValue={props.data?.fetchUseditem.price}
           />
           <label>Product Description</label>
           <textarea
@@ -55,9 +81,14 @@ export default function ProductUI(props) {
             rows="5"
             cols="50"
             {...register("contents")}
+            defaultValue={props.data?.fetchUseditem.contents}
           />
           <label>Tags</label>
-          <input placeholder="Enter Your Tag" {...register("tags")} />
+          <input
+            placeholder="Enter Your Tag"
+            {...register("tags")}
+            defaultValue={props.data?.fetchUseditem.tags}
+          />
           <div>
             Map
             <img
@@ -74,8 +105,14 @@ export default function ProductUI(props) {
             <div>Longitude</div>
           </div>
           <label>Remark</label>
-          <input placeholder="Remarks" type="text" {...register("remarks")} />
-          <button>Submit</button>
+          <input
+            placeholder="Remarks"
+            type="text"
+            {...register("remarks")}
+            defaultValue={props.data?.fetchUseditem.remarks}
+          />
+          <button>{isEdit ? "Edit" : "Submit"}</button>
+          {/* <button>Submit</button> */}
         </S.Wrapper>
       </form>
     </>

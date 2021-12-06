@@ -14,12 +14,6 @@ export default function Account() {
     name: "",
   });
 
-  // const [inputsError, setInputsError] = useState({
-  //   nameError: "",
-  //   passwordError: "",
-  //   emailError: "",
-  // });
-
   const [nameError, setNameError] = useState<string>("");
   const [passwordError, setPasswordError] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -40,54 +34,10 @@ export default function Account() {
     setPasswordConfirm(event.target.value);
   }
 
-  // function onChangeName(event) {
-  //   setInputs(event.target.value);
-  //   if (!event.target.value) {
-  //     setNameError("");
-  //   }
-  // }
-
-  // function onChangeError(event: ChangeEvent<HTMLInputElement>) {
-  //   setInputsError({
-  //     ...inputsError,
-  //     [event.target.name]: event.target.value,
-  //   });
-  //   console.log(inputsError);
-  // }
-
-  // const onClickSubmit = async () => {
-  //   if (!inputs.name && !inputs.email && !inputs.password) {
-  //     setInputsError({
-  //       ...inputsError,
-  //       nameError: "이름을 입력해주세요",
-  //       passwordError: "비밀번호를 입력해주세요",
-  //       emailError: "이메일 입력해주세요",
-  //     });
-  //     console.log(inputsError.nameError);
-  //   }
-  //   try {
-  //     const result = await createUser({
-  //       variables: {
-  //         createUserInput: {
-  //           ...inputs,
-  //         },
-  //       },
-  //     });
-  //     console.log(result);
-  //     alert("Registration Successful");
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // };
-
   const onClickSubmit = async () => {
     if (!inputs.name || inputs.name.length <= 2) {
       setNameError("Please Enter Your Name");
     }
-
-    // if (!inputs.email) {
-    //   setEmailError("Please Enter Your Email");
-    // }
 
     if (!/\w+@\w+\.\w+/.test(inputs.email)) {
       setEmailError("Please Enter Your Email Correctly");
@@ -97,12 +47,8 @@ export default function Account() {
       setPasswordError("Please Enter Your Password");
     }
 
-    // if (inputs.password !== passwordConfirm) {
-    //   setPasswordConfirm("Password Does Not Match");
-    // }
-
     if (inputs.password !== passwordConfirm) {
-      alert("비밀번호가 다릅니다");
+      alert("Please Confirm Your Password");
     }
 
     // if (inputs.name && inputs.email && inputs.password) {
@@ -132,11 +78,6 @@ export default function Account() {
       passwordError={passwordError}
       emailError={emailError}
       passwordConfirm={passwordConfirm}
-      // onChangeName={onChangeName}
-      // onChangeError={onChangeError}
-      // nameError={inputsError.nameError}
-      // passwordError={inputsError.passwordError}
-      // emailError={inputsError.emailError}
     />
   );
 }

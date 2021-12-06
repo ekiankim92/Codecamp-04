@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   margin: 150px;
   padding: 80px 102px 100px 102px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   border: none;
   box-shadow: 0px 0px 10px gray;
@@ -49,8 +50,8 @@ export const Images3 = styled.div`
 `;
 
 export const Info_Wrapper = styled.div`
-  width: 550px;
-  height: 650px;
+  /* width: 550px;
+  height: 650px; */
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -101,8 +102,8 @@ export const Detail_Remarks = styled.div`
 `;
 
 export const Section_Wrapper = styled.div`
-  width: 1200px;
-  height: 700px;
+  width: 450px;
+  /* height: 700px; */
   border: 1px solid black;
   margin-left: 150px;
   display: flex;
@@ -112,4 +113,9 @@ export const Section_Wrapper = styled.div`
   box-shadow: 0px 0px 10px gray;
   border-radius: 25px;
   background-color: beige;
+`;
+
+export const Outter_Wrapper = styled.div`
+  display: flex;
+  margin: 10px;
 `;
