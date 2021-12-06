@@ -15,15 +15,30 @@ export default function MarketListUI(props) {
         hasMore={true}
         useWindow={false}
       >
-        {props.data?.fetchUseditems.map((el, index) => (
+        <S.Outter_Wrapper>
+          {props.data?.fetchUseditems.map((el, index) => (
+            <div key={el._id}>
+              <S.Wrapper>
+                <span>{index + 1}</span>
+                <span>{el.name}</span>
+                <span>{el.contents}</span>
+                <span>{el.price}</span>
+                <img src={`https://storage.googleapis.com/${el.images[0]}`} />
+              </S.Wrapper>
+            </div>
+          ))}
+        </S.Outter_Wrapper>
+        {/* {props.data?.fetchUseditems.map((el, index) => (
           <div key={el._id}>
-            <span>{index + 1}</span>
-            <span>{el.name}</span>
-            <span>{el.contents}</span>
-            <span>{el.price}</span>
-            <img src={`https://storage.googleapis.com/${el.images[0]}`} />
+            <S.Wrapper>
+              <span>{index + 1}</span>
+              <span>{el.name}</span>
+              <span>{el.contents}</span>
+              <span>{el.price}</span>
+              <img src={`https://storage.googleapis.com/${el.images[0]}`} />
+            </S.Wrapper>
           </div>
-        ))}
+        ))} */}
       </InfiniteScroll>
     </div>
   );
