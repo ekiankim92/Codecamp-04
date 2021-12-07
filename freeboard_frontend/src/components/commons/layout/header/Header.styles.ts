@@ -37,6 +37,8 @@ export const Header_RoutingPage = styled.div`
 export const UsedMarket = styled.div`
   margin-right: 20px;
   color: black;
+  /* border: none;
+  background-color: white; */
   :hover {
     cursor: pointer;
     color: gray;
@@ -44,6 +46,17 @@ export const UsedMarket = styled.div`
 `;
 
 export const FreeBoard = styled.div`
+  margin-right: 20px;
+  border-left: 1px solid lightgray;
+  padding-left: 14px;
+  color: black;
+  :hover {
+    cursor: pointer;
+    color: gray;
+  }
+`;
+
+export const MyCart = styled.div`
   margin-right: 20px;
   border-left: 1px solid lightgray;
   padding-left: 14px;

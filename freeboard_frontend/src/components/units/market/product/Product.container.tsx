@@ -51,7 +51,6 @@ export default function Product(props) {
       alert("jpeg 또는 png 업로드 가능합니다");
       return;
     }
-    <validation />;
 
     const result = await uploadFile({
       variables: {

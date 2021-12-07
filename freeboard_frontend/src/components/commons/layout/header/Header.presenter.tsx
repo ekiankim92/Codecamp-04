@@ -67,7 +67,8 @@ export default function HeaderUI(props) {
           </Breadcrumb.Item>
         </Breadcrumb>
         <S.Header_RoutingPage>
-          <S.UsedMarket>Product</S.UsedMarket>
+          <S.UsedMarket>Products</S.UsedMarket>
+          <S.MyCart>My Cart</S.MyCart>
           <S.FreeBoard>Boards</S.FreeBoard>
           <S.MyPage>My Page</S.MyPage>
           {/* <S.Sign_In onClick={handleOpen}>Log In</S.Sign_In> */}

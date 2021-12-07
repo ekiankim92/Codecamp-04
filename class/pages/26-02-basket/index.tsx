@@ -1,5 +1,4 @@
 import { useQuery, gql } from "@apollo/client";
-import router from "next/router";
 import {
   IBoard,
   IQuery,

@@ -1,4 +1,5 @@
 import * as S from "./ProductDetail.styles";
+import DOMPurify from "dompurify";
 
 export default function ProductDetailUI(props) {
   return (
@@ -24,9 +25,19 @@ export default function ProductDetailUI(props) {
             <S.Detail_Price>
               Price: {props.data?.fetchUseditem.price} USD
             </S.Detail_Price>
-            <S.Detail_Contents>
-              Contents: {props.data?.fetchUseditem.contents}
-            </S.Detail_Contents>
+            {process.browser ? (
+              <S.Detail_Contents
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(
+                    String(props.data?.fetchUseditem.contents)
+                  ),
+                }}
+              >
+                {/* Contents: {props.data?.fetchUseditem.contents} */}
+              </S.Detail_Contents>
+            ) : (
+              <div></div>
+            )}
             <S.Detail_tags>Tag: {props.data?.fetchUseditem.tags}</S.Detail_tags>
             <S.Detail_Remarks>
               Remarks: {props.data?.fetchUseditem.remarks}

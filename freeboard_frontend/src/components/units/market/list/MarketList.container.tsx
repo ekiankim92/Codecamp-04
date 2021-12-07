@@ -2,9 +2,11 @@ import { useQuery } from "@apollo/client";
 import {
   IQuery,
   IQueryFetchUseditemsArgs,
+  IBoard,
 } from "../../../../commons/types/generated/types";
 import MarketListUI from "./MarketList.presenter";
 import { FETCH_USED_ITEMS } from "./MarketList.queries";
+import Modal from "antd";
 
 export default function MarketList() {
   // fetching used items by 10
@@ -14,6 +16,7 @@ export default function MarketList() {
   >(FETCH_USED_ITEMS);
   console.log(data);
 
+  // infinite scroll for market list
   function onLoadMore() {
     if (!data) return;
 
@@ -32,5 +35,35 @@ export default function MarketList() {
     });
   }
 
-  return <MarketListUI data={data} loadMore={onLoadMore} />;
+  // basket on local storage
+  const onClickBasket = (el: IBoard) => () => {
+    console.log(el);
+
+    // getting the object in "basket"
+    const baskets = JSON.parse(localStorage.getItem("basket") || "[]");
+
+    // checks if you have already placed in the basket
+    let isExists = false;
+    baskets.forEach((basketEl: IBoard) => {
+      if (el._id === basketEl._id) isExists = true;
+    });
+    if (isExists) {
+      alert("You Have Already Placed In The Basket");
+      return;
+    }
+
+    // rest parameter to pick what we can see. newEl is the new parameter's name
+    const { __typename, ...newEl } = el;
+    baskets.push(newEl);
+
+    localStorage.setItem("basket", JSON.stringify(baskets));
+  };
+
+  return (
+    <MarketListUI
+      data={data}
+      loadMore={onLoadMore}
+      onClickBasket={onClickBasket}
+    />
+  );
 }

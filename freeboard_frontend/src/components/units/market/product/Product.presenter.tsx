@@ -4,13 +4,25 @@ import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 import { schema } from "./Product.validations";
 import { useContext } from "react";
 import { MyContext } from "../../../../../pages/market/[marketId]/edit";
+import "react-quill/dist/quill.snow.css";
+import dynamic from "next/dynamic";
 
 export default function ProductUI(props) {
-  const { handleSubmit, register, formState } = useForm({
+  // useForm product submit
+  const { handleSubmit, register, setValue, trigger, formState } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
   });
   const { isEdit } = useContext(MyContext);
+
+  // React Quill textarea
+  const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+
+  const handleChange = (value: string) => {
+    console.log(value);
+    setValue("contents", value === "<p><br></p>" ? "" : value);
+    trigger("contents");
+  };
 
   return (
     <>
@@ -76,11 +88,8 @@ export default function ProductUI(props) {
             defaultValue={props.data?.fetchUseditem.price}
           />
           <label>Product Description</label>
-          <textarea
-            placeholder="Elaborate Your Product"
-            rows="5"
-            cols="50"
-            {...register("contents")}
+          <ReactQuill
+            onChange={handleChange}
             defaultValue={props.data?.fetchUseditem.contents}
           />
           <label>Tags</label>
