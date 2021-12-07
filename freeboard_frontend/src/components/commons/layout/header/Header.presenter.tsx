@@ -57,18 +57,24 @@ export default function HeaderUI(props) {
   return (
     <>
       <S.Header>
-        <S.Logo>
-          Woof Woof!
-          <S.Logo_Img src="images/pawn.png" />
-        </S.Logo>
+        {props.data ? (
+          <S.testing>Welcome! {props.data?.fetchUserLoggedIn.name}</S.testing>
+        ) : (
+          <S.Logo>
+            Woof Woof!
+            <S.Logo_Img src="images/pawn.png" />
+          </S.Logo>
+        )}
         <Breadcrumb>
           <Breadcrumb.Item overlay={menu}>
             <S.Header_Anchor href="">General</S.Header_Anchor>
           </Breadcrumb.Item>
         </Breadcrumb>
         <S.Header_RoutingPage>
-          <S.UsedMarket>Products</S.UsedMarket>
-          <S.MyCart>My Cart</S.MyCart>
+          <S.UsedMarket onClick={props.onClickProductList}>
+            Products
+          </S.UsedMarket>
+          <S.MyCart onClick={props.onClickCartPage}>My Cart</S.MyCart>
           <S.FreeBoard>Boards</S.FreeBoard>
           <S.MyPage>My Page</S.MyPage>
           {/* <S.Sign_In onClick={handleOpen}>Log In</S.Sign_In> */}

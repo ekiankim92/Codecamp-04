@@ -28,6 +28,8 @@ const HIDDEN_LOGIN = ["/login"];
 const HIDDEN_OPENAPI = ["/learnmore"];
 const HIDDEN_PRODUCT_POST = ["/productsubmit"];
 const HIDDEN_PRODUCT_DETAIL = [`/market/$[marketId]`];
+const HIDDEN_BASKET = ["/market/basket"];
+const HIDDEN_MARKET_LIST = ["/market"];
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
@@ -40,6 +42,8 @@ export default function Layout(props: ILayoutProps) {
   const isHiddenOpenApi = HIDDEN_OPENAPI.includes(router.asPath);
   const isHiddenProductPost = HIDDEN_PRODUCT_POST.includes(router.asPath);
   const isHiddenProductDetail = HIDDEN_PRODUCT_DETAIL.includes(router.asPath);
+  const isHiddenBasket = HIDDEN_BASKET.includes(router.asPath);
+  const isHiddenMarketList = HIDDEN_MARKET_LIST.includes(router.asPath);
 
   return (
     <Wrapper>
@@ -48,17 +52,21 @@ export default function Layout(props: ILayoutProps) {
         !isHiddenLogin &&
         !isHiddenOpenApi &&
         !isHiddenProductPost &&
-        !isHiddenProductDetail && <Banner />}
+        !isHiddenProductDetail &&
+        !isHiddenBasket &&
+        !isHiddenMarketList && <Banner />}
       {/* <Navigation /> */}
       <BodyWrapper>
         {!isHiddenRegister &&
           !isHiddenLogin &&
           !isHiddenOpenApi &&
           !isHiddenProductPost &&
-          !isHiddenProductDetail && <Sidebar>sidebar!</Sidebar>}
+          !isHiddenProductDetail &&
+          !isHiddenBasket &&
+          !isHiddenMarketList && <Sidebar />}
         <Body>{props.children}</Body>
       </BodyWrapper>
-      {!isHiddenFooter && <Footer />}
+      {!isHiddenFooter && !isHiddenMarketList && <Footer />}
     </Wrapper>
   );
 }

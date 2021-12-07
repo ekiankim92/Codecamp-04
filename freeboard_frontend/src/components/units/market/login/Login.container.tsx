@@ -48,17 +48,32 @@ export default function LogIn() {
         ...myInputs,
       },
     });
+    // log in with the token
     localStorage.setItem(
       "accessToken",
       result.data?.loginUser.accessToken || ""
     );
     setAccessToken?.(result.data?.loginUser.accessToken || "");
     router.push("/learnmore");
+
+    // when logging in, if there's an item ? basket : market list
+    const baskets = JSON.parse(localStorage.getItem("basket") || "[]");
+    if (baskets.length) {
+      const result = confirm(
+        "There Is Already An Item In Your Cart. Would You Like To Move To That Page?"
+      );
+      if (result) {
+        return router.push("/market/basket");
+      }
+      // else if (!result) {
+      //   router.push("/market");
+      // }
+    }
   };
 
   //Router to New Registration
   const onClickRegister = () => {
-    router.push("../../../../../registration");
+    router.push("/registration");
   };
 
   return (

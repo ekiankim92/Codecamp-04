@@ -6,7 +6,6 @@ import {
 } from "../../../../commons/types/generated/types";
 import MarketListUI from "./MarketList.presenter";
 import { FETCH_USED_ITEMS } from "./MarketList.queries";
-import Modal from "antd";
 
 export default function MarketList() {
   // fetching used items by 10
@@ -39,7 +38,7 @@ export default function MarketList() {
   const onClickBasket = (el: IBoard) => () => {
     console.log(el);
 
-    // getting the object in "basket"
+    // taking out from the local storage
     const baskets = JSON.parse(localStorage.getItem("basket") || "[]");
 
     // checks if you have already placed in the basket
@@ -50,12 +49,15 @@ export default function MarketList() {
     if (isExists) {
       alert("You Have Already Placed In The Basket");
       return;
+    } else if (!isExists) {
+      alert("You Have Added An Item To The Cart");
     }
 
     // rest parameter to pick what we can see. newEl is the new parameter's name
     const { __typename, ...newEl } = el;
     baskets.push(newEl);
 
+    // placing into the local storage
     localStorage.setItem("basket", JSON.stringify(baskets));
   };
 

@@ -11,6 +11,8 @@ export const Wrapper = styled.div`
   justify-content: space-around; */
   width: 400px;
   height: 400px;
+  margin: 100px;
+  /* padding: 80px 102px 100px 102px; */
   border: 2px solid black;
   background-color: yellowgreen;
   overflow: scroll;

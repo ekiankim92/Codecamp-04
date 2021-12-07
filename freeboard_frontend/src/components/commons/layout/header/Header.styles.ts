@@ -13,6 +13,10 @@ export const Header = styled.div`
   border-bottom: 1px solid lightgray;
 `;
 
+export const testing = styled.div`
+  font-size: 20px; ;
+`;
+
 export const Logo = styled.div`
   font-size: 20px;
   font-style: oblique;
