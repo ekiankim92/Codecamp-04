@@ -51,16 +51,16 @@ export default function ProductDetail() {
     router.push(`/market/${router.query.marketId}/edit`);
   };
 
-  //routing to product page
-  const onClickMoveToProduct = () => {
-    router.push("/productsubmit");
+  //routing to market list page
+  const onClickMoveToMarketList = () => {
+    router.push("/market");
   };
 
   return (
     <ProductDetailUI
       data={data}
       onClickMoveToEdit={onClickMoveToEdit}
-      onClickMoveToProduct={onClickMoveToProduct}
+      onClickMoveToMarketList={onClickMoveToMarketList}
       onClickDeleteProduct={onClickDeleteProduct}
     />
   );

@@ -1,5 +1,5 @@
 import * as S from "./ProductDetail.styles";
-import DOMPurify from "dompurify";
+import Dompurify from "dompurify";
 
 export default function ProductDetailUI(props) {
   return (
@@ -28,7 +28,7 @@ export default function ProductDetailUI(props) {
             {process.browser ? (
               <S.Detail_Contents
                 dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(
+                  __html: Dompurify.sanitize(
                     String(props.data?.fetchUseditem.contents)
                   ),
                 }}
@@ -50,7 +50,7 @@ export default function ProductDetailUI(props) {
           </S.Section_Wrapper>
         </S.Outter_Wrapper>
         <div>
-          <button onClick={props.onClickMoveToProduct}>List</button>
+          <button onClick={props.onClickMoveToMarketList}>List</button>
           <button onClick={props.onClickMoveToEdit}>Edit</button>
           <button onClick={props.onClickDeleteProduct}>Delete</button>
         </div>
