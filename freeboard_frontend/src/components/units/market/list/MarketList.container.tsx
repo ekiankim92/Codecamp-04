@@ -1,11 +1,15 @@
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
+import { result } from "lodash";
 import {
   IQuery,
   IQueryFetchUseditemsArgs,
   IBoard,
 } from "../../../../commons/types/generated/types";
 import MarketListUI from "./MarketList.presenter";
-import { FETCH_USED_ITEMS } from "./MarketList.queries";
+import {
+  FETCH_USED_ITEMS,
+  CREATE_POINT_TRANSACTION_OF_BUYING_AND_SELLING,
+} from "./MarketList.queries";
 
 export default function MarketList() {
   // fetching used items by 10
@@ -14,6 +18,11 @@ export default function MarketList() {
     IQueryFetchUseditemsArgs
   >(FETCH_USED_ITEMS);
   console.log(data);
+
+  // purchase with the points
+  const [createPointTransactionOfBuyingAndSelling] = useMutation(
+    CREATE_POINT_TRANSACTION_OF_BUYING_AND_SELLING
+  );
 
   // infinite scroll for market list
   function onLoadMore() {
@@ -33,6 +42,17 @@ export default function MarketList() {
       },
     });
   }
+
+  // Once clicked, the data will be send to purchase
+  const onClickPurchase = (id) => async () => {
+    const result = await createPointTransactionOfBuyingAndSelling({
+      variables: {
+        useritemId: id,
+      },
+    });
+    console.log(result);
+    alert("Purchase Complete");
+  };
 
   // basket on local storage
   const onClickBasket = (el: IBoard) => () => {
@@ -66,6 +86,7 @@ export default function MarketList() {
       data={data}
       loadMore={onLoadMore}
       onClickBasket={onClickBasket}
+      onClickPurchase={onClickPurchase}
     />
   );
 }

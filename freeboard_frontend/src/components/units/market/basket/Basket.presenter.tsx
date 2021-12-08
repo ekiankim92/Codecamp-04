@@ -17,7 +17,7 @@ export default function BasketUI(props) {
               <div>{el.contents}</div>
               <div>{el.seller.name}</div>
               <img src={`https://storage.googleapis.com/${el.images[0]}`} />
-              <button onClick={props.onClickDelete(el)}>Delete</button>
+              <button onClick={props.onClickDelete(el._id)}>Delete</button>
             </S.Wrapper>
           </div>
         ))}

@@ -54,7 +54,7 @@ export default function LogIn() {
       result.data?.loginUser.accessToken || ""
     );
     setAccessToken?.(result.data?.loginUser.accessToken || "");
-    router.push("/learnmore");
+    // router.push("/learnmore");
 
     // when logging in, if there's an item ? basket : market list
     const baskets = JSON.parse(localStorage.getItem("basket") || "[]");
@@ -64,10 +64,9 @@ export default function LogIn() {
       );
       if (result) {
         return router.push("/market/basket");
+      } else if (!result) {
+        router.push("/market");
       }
-      // else if (!result) {
-      //   router.push("/market");
-      // }
     }
   };
 
