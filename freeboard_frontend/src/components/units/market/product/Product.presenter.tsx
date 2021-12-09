@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { MyContext } from "../../../../../pages/market/[marketId]/edit";
 import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
+import KakaoMap from "../../../commons/kakaomap/map.container";
 
 export default function ProductUI(props) {
   // useForm product submit
@@ -91,6 +92,7 @@ export default function ProductUI(props) {
           <ReactQuill
             onChange={handleChange}
             defaultValue={props.data?.fetchUseditem.contents}
+            // setValue={props.data?.fetchUseditem.contents}
           />
           <label>Tags</label>
           <input
@@ -100,17 +102,14 @@ export default function ProductUI(props) {
           />
           <div>
             Map
-            <img
-              src="https://medelbou.files.wordpress.com/2012/02/map-12.png?w=640"
-              width={450}
-              height={450}
-            />
+            <KakaoMap />
             <span>Address1</span>
             <span>Address2</span>
           </div>
           <div>
             <div>GPS</div>
-            <div>Latitude</div>
+            {/* <div>Latitude</div> */}
+            {/* <div>{}</div> */}
             <div>Longitude</div>
           </div>
           <label>Remark</label>

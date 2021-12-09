@@ -1,7 +1,7 @@
 import ProductUI from "./Product.presenter";
 import { FormValues } from "./Product.types";
 import { useState, useRef, useEffect } from "react";
-import router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { useMutation, useQuery } from "@apollo/client";
 import {
   UPLOAD_FILE,

@@ -1,5 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { result } from "lodash";
+import router from "next/router";
 import {
   IQuery,
   IQueryFetchUseditemsArgs,
@@ -49,6 +50,7 @@ export default function MarketList() {
       variables: {
         useritemId: id,
       },
+      refetchQueries: [{ query: FETCH_USED_ITEMS }],
     });
     console.log(result);
     alert("Purchase Complete");
@@ -81,12 +83,18 @@ export default function MarketList() {
     localStorage.setItem("basket", JSON.stringify(baskets));
   };
 
+  // once click an item, it will show the details
+  const onClickDetail = (id) => (event) => {
+    router.push(`/market/${id}`);
+  };
+
   return (
     <MarketListUI
       data={data}
       loadMore={onLoadMore}
       onClickBasket={onClickBasket}
       onClickPurchase={onClickPurchase}
+      onClickDetail={onClickDetail}
     />
   );
 }

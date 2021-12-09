@@ -1,5 +1,6 @@
 import * as S from "./ProductDetail.styles";
 import Dompurify from "dompurify";
+import KakaoMap from "../../../commons/kakaomap/map.container";
 
 export default function ProductDetailUI(props) {
   return (
@@ -45,6 +46,7 @@ export default function ProductDetailUI(props) {
           </S.Info_Wrapper>
           <S.Section_Wrapper>
             <div>Maps</div>
+            <KakaoMap />
             <div>Address 1</div>
             <div>Address 2</div>
           </S.Section_Wrapper>
