@@ -1,5 +1,4 @@
 import LogInUI from "./Login.presenter";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { LOGIN_USER, FETCH_USER_LOGGED_IN } from "./Login.queries";
@@ -49,10 +48,12 @@ export default function LogIn() {
       },
     });
     // log in with the token
-    localStorage.setItem(
-      "accessToken",
-      result.data?.loginUser.accessToken || ""
-    );
+    // localStorage.setItem(
+    //   "accessToken",
+    //   result.data?.loginUser.accessToken || ""
+    // );
+
+    localStorage.setItem("refreshToken,", "true");
     setAccessToken?.(result.data?.loginUser.accessToken || "");
     // router.push("/learnmore");
 
