@@ -4,7 +4,7 @@ import PaginationsPage01 from "../../../commons/paginations/01/Paginations01.con
 import Search01 from "../../../commons/keyword-search/01/search01.container";
 import { v4 as uuid4 } from "uuid";
 
-export default function BoardListUI(props: IPropsBoardListUI) {
+export default function BoardListUI(props) {
   return (
     <S.Outer_Wrapper>
       <S.Inner_Wrapper>
@@ -40,17 +40,16 @@ export default function BoardListUI(props: IPropsBoardListUI) {
           <div>작성자</div>
           <div>날짜</div>
         </S.Header>
-
         <S.Lists>
           {props.data?.fetchBoards.map((el, index) => (
-            <S.Row key={el._id} id={el._id}>
+            <S.Row key={el._id}>
               <S.Column>{/* <input type="checkbox" /> */}</S.Column>
               <S.Column>{index + 1}</S.Column>
               <S.Column onClick={props.onClickMoveToBoardDetail} id={el._id}>
                 {el.title
-                  .replaceAll(props.keyword, `@#$${props.keyword}@#$`)
-                  .split("@#$")
-                  .map((el) => (
+                  .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
+                  .split("@#$%")
+                  .map((el: any) => (
                     <S.SearchBar key={uuid4()} isMatched={props.keyword === el}>
                       {el}
                     </S.SearchBar>
@@ -67,30 +66,12 @@ export default function BoardListUI(props: IPropsBoardListUI) {
           ))}
         </S.Lists>
       </S.Inner_Wrapper>
-      {/* <div>
-        <span onClick={props.onClickPrevPage}>Previous</span>
-        {new Array(10).fill(1).map(
-          (_, index) =>
-            props.startPage + index <= props.lastPage && (
-              <span
-                key={props.startPage + index}
-                onClick={props.onClickPage}
-                id={props.startPage + index}
-                style={{ margin: "10px", cursor: "pointer" }}
-              >
-                {props.startPage + index}
-              </span>
-            )
-        )}
-        <span onClick={props.onClickNextPage}>Next Page</span>
-      </div> */}
       <PaginationsPage01
         refetch={props.refetch}
         count={props.count}
         startPage={props.startPage}
         setStartPage={props.setStartPage}
       />
-
       <S.Create_Board_Button onClick={props.onClickMoveToBoard}>
         <img src="/images/edit_pen.png" />
         게시물 등록하기

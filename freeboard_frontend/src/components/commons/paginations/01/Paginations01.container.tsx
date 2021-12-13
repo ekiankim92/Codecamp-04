@@ -9,7 +9,7 @@ export default function PaginationsPage01(props) {
     if (!event.target.id) return;
     const activedPage = Number(event.target.id);
     setActivedPage(activedPage);
-    props.refetch({ page: Number(event.target.id) });
+    props.refetch({ page: activedPage });
   }
 
   function onClickPrevPage() {
@@ -27,8 +27,6 @@ export default function PaginationsPage01(props) {
     setActivedPage(props.startPage + 10);
     props.setStartPage((prev) => prev + 10);
   }
-  // console.log(props.startPage);
-  // console.log(lastPage);
 
   return (
     <>

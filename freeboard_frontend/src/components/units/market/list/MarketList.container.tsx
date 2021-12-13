@@ -1,5 +1,4 @@
 import { useMutation, useQuery } from "@apollo/client";
-import { result } from "lodash";
 import router from "next/router";
 import {
   IQuery,

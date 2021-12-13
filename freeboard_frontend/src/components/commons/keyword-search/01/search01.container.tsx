@@ -16,12 +16,7 @@ export default function Search01(props: ISearch01Props) {
 
   return (
     <>
-      <SearchUI
-        // data={props.data}
-        // onChangeSearch={onChangeSearch}
-        // onClickSearch={onClickSearch}
-        onChangeSearchbar={onChangeSearchbar}
-      />
+      <SearchUI onChangeSearchbar={onChangeSearchbar} />
     </>
   );
 }

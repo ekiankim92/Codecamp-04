@@ -98,7 +98,7 @@ export default function Product(props) {
       });
       console.log(result);
       router.push(`/market/${result.data.updateUseditem._id}`);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error.message);
     }
   };

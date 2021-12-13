@@ -1,21 +1,26 @@
 import { useRouter } from "next/router";
 import ProductDetailUI from "./ProductDetail.presenter";
-import { FETCH_USED_ITEM, DELETE_USED_ITEM } from "./ProductDetail.queries";
+import {
+  FETCH_USED_ITEM,
+  DELETE_USED_ITEM,
+  CREATE_USED_ITEM_QUESTION,
+} from "./ProductDetail.queries";
 import { useApolloClient, useMutation, useQuery } from "@apollo/client";
 import {
   IQuery,
   IQueryFetchUseditemArgs,
 } from "../../../../commons/types/generated/types";
+import { FormValues } from "./ProductDetail.types";
 
 export default function ProductDetail() {
   const router = useRouter();
 
-  // deleting product posting
   const [deleteUseditem] = useMutation(DELETE_USED_ITEM);
+
+  const [createUseditemQuestion] = useMutation(CREATE_USED_ITEM_QUESTION);
 
   const client = useApolloClient();
 
-  // fetching one used item
   const { data } = useQuery<
     Pick<IQuery, "fetchUseditem">,
     IQueryFetchUseditemArgs
@@ -30,7 +35,6 @@ export default function ProductDetail() {
   console.log(data?.fetchUseditem.tags);
   console.log(data?.fetchUseditem.remarks);
 
-  // deleting product posting
   const onClickDeleteProduct = async () => {
     try {
       const result = await deleteUseditem({
@@ -46,14 +50,29 @@ export default function ProductDetail() {
     }
   };
 
-  //routing to edit page
   const onClickMoveToEdit = () => {
     router.push(`/market/${router.query.marketId}/edit`);
   };
 
-  //routing to market list page
   const onClickMoveToMarketList = () => {
     router.push("/market");
+  };
+
+  const onClickWriteQuestion = async (data: FormValues) => {
+    try {
+      const result = await createUseditemQuestion({
+        variables: {
+          createUseditemQuestionInput: {
+            contents: data.contents,
+          },
+          useditemId: router.query.marketId,
+        },
+      });
+      console.log(result.data?.createUseditemQuestion.contents);
+      console.log(data);
+    } catch (error: any) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -62,6 +81,7 @@ export default function ProductDetail() {
       onClickMoveToEdit={onClickMoveToEdit}
       onClickMoveToMarketList={onClickMoveToMarketList}
       onClickDeleteProduct={onClickDeleteProduct}
+      onClickWriteQuestion={onClickWriteQuestion}
     />
   );
 }

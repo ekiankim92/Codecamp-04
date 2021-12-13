@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@apollo/client";
-import { ChangeEvent, useState, MouseEvent } from "react";
+import { useState } from "react";
 import BoardListUI from "./BoardList.presenter";
 import {
   FETCH_BOARDS,
@@ -10,7 +10,6 @@ import {
 import { useRouter } from "next/router";
 import {
   IQuery,
-  IQueryFetchBoardArgs,
   IQueryFetchBoardsArgs,
 } from "../../../../commons/types/generated/types";
 
@@ -27,12 +26,12 @@ export default function BoardList() {
   const [startPage, setStartPage] = useState(1);
   const { data, refetch } = useQuery<
     Pick<IQuery, "fetchBoards">,
-    IQueryFetchBoardArgs
+    IQueryFetchBoardsArgs
   >(FETCH_BOARDS, {
     variables: { page: startPage },
   });
+
   // Search Keyword
-  // const [search, setSearch] = useState("");
   const [keyword, setMyKeyword] = useState("");
 
   function onChangeSearch(value) {
@@ -40,16 +39,11 @@ export default function BoardList() {
     console.log(value);
   }
 
-  // function onClickSearch() {
-  //   props.refetch({ search });
-  // }
-
   function onClickMoveToBoard() {
     router.push(`/mento`);
   }
 
   function onClickMoveToBoardDetail(event) {
-    // alert(event.target.id);
     router.push(`/board/${event.target.id}`);
   }
 

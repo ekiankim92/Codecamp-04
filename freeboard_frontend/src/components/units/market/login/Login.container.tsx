@@ -53,7 +53,7 @@ export default function LogIn() {
     //   result.data?.loginUser.accessToken || ""
     // );
 
-    localStorage.setItem("refreshToken,", "true");
+    localStorage.setItem("refreshToken", "true");
     setAccessToken?.(result.data?.loginUser.accessToken || "");
     // router.push("/learnmore");
 

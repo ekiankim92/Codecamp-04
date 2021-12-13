@@ -13,9 +13,9 @@ export default function SearchUI(props) {
       <div>
         <S.Search_Data type="text" placeholder="YYYY.MM.DD - YYYY.MM.DD" />
       </div>
-      <div>
+      {/* <div>
         <S.Search_Button>검색하기</S.Search_Button>
-      </div>
+      </div> */}
     </S.SearchSection>
   );
 }

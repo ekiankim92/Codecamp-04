@@ -30,6 +30,7 @@ const HIDDEN_PRODUCT_POST = ["/productsubmit"];
 const HIDDEN_PRODUCT_DETAIL = [`/market/$[marketId]`];
 const HIDDEN_BASKET = ["/market/basket"];
 const HIDDEN_MARKET_LIST = ["/market"];
+const HIDDEN_MYPAGE = ["/market/mypage"];
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
@@ -44,6 +45,7 @@ export default function Layout(props: ILayoutProps) {
   const isHiddenProductDetail = HIDDEN_PRODUCT_DETAIL.includes(router.asPath);
   const isHiddenBasket = HIDDEN_BASKET.includes(router.asPath);
   const isHiddenMarketList = HIDDEN_MARKET_LIST.includes(router.asPath);
+  const isHiddenMyPage = HIDDEN_MYPAGE.includes(router.asPath);
 
   return (
     <Wrapper>
@@ -54,7 +56,8 @@ export default function Layout(props: ILayoutProps) {
         !isHiddenProductPost &&
         !isHiddenProductDetail &&
         !isHiddenBasket &&
-        !isHiddenMarketList && <Banner />}
+        !isHiddenMarketList &&
+        !isHiddenMyPage && <Banner />}
       {/* <Navigation /> */}
       <BodyWrapper>
         {!isHiddenRegister &&
@@ -63,7 +66,8 @@ export default function Layout(props: ILayoutProps) {
           !isHiddenProductPost &&
           !isHiddenProductDetail &&
           !isHiddenBasket &&
-          !isHiddenMarketList && <Sidebar />}
+          !isHiddenMarketList &&
+          !isHiddenMyPage && <Sidebar />}
         <Body>{props.children}</Body>
       </BodyWrapper>
       {!isHiddenFooter && !isHiddenMarketList && <Footer />}

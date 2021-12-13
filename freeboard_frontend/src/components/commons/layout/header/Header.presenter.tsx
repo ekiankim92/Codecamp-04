@@ -79,6 +79,7 @@ export default function HeaderUI(props) {
           <S.MyPage>My Page</S.MyPage>
           {/* <S.Sign_In onClick={handleOpen}>Log In</S.Sign_In> */}
           <S.Sign_In onClick={props.onClickLoginPage}>Log In</S.Sign_In>
+          <div onClick={props.onClickLogout}>Log Out</div>
         </S.Header_RoutingPage>
       </S.Header>
     </>

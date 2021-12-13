@@ -1,8 +1,13 @@
 import * as S from "./ProductDetail.styles";
 import Dompurify from "dompurify";
 import KakaoMap from "../../../commons/kakaomap/map.container";
+import { useForm } from "react-hook-form";
 
 export default function ProductDetailUI(props) {
+  const { register, handleSubmit } = useForm({
+    mode: "onChange",
+  });
+
   return (
     <>
       <S.Wrapper>
@@ -57,6 +62,17 @@ export default function ProductDetailUI(props) {
           <button onClick={props.onClickDeleteProduct}>Delete</button>
         </div>
       </S.Wrapper>
+      <form onSubmit={handleSubmit(props.onClickWriteQuestion)}>
+        <div>
+          <div>what a world</div>
+          <input
+            type="text"
+            placeholder="Anything related to personal information may be deleted and the responsibilies lies upon the writer"
+            {...register("contents")}
+          />
+          <button>Make Inquiry</button>
+        </div>
+      </form>
     </>
   );
 }

@@ -7,7 +7,7 @@ export const withAuth = (Component) => (props) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (!localStorage.getItem("accessToken")) {
+    if (!localStorage.getItem("refreshToken")) {
       alert("Please log in first");
       router.push("/registration");
     }

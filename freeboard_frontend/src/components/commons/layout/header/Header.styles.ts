@@ -181,7 +181,3 @@ export const style = {
   boxShadow: 24,
   p: 5,
 };
-
-// export const Login_Logo = styled.div`
-//   margin-top: 150px;
-// `;
