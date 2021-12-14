@@ -19,13 +19,3 @@ export const DELETE_USED_ITEM = gql`
     deleteUseditem(useditemId: $useditemId)
   }
 `;
-
-// prettier-ignore
-export const CREATE_USED_ITEM_QUESTION = gql`
-  mutation createUseditemQuestion($createUseditemQuestionInput: CreateUseditemQuestionInput!, $useditemId: ID!) {
-    createUseditemQuestion(createUseditemQuestionInput: $createUseditemQuestionInput, useditemId: $useditemId) {
-      _id
-      contents
-    }
-  }
-`;

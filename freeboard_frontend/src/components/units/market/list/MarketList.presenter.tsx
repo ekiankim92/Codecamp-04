@@ -12,7 +12,7 @@ export default function MarketListUI(props) {
     <div>
       <InfiniteScroll
         pageStart={0}
-        loadMore={props.loadMore}
+        loadMore={props.onLoadMore}
         hasMore={true}
         useWindow={false}
       >

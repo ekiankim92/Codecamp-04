@@ -9,8 +9,9 @@ import * as S from "./BoardCommentList.styles";
 import { getDate } from "../../../../commons/libraries/utils";
 import { Modal } from "antd";
 import BoardCommentWrite from "../write/BoardCommentWrite.container";
+import { Iprops2 } from "./BoardCommentList.types";
 
-export default function BoardCommentListUIItem(props) {
+export default function BoardCommentListUIItem(props: Iprops2) {
   const router = useRouter();
   //True for edit false for submit
   const [isEdit, setIsEdit] = useState(false);
@@ -57,11 +58,13 @@ export default function BoardCommentListUIItem(props) {
           <div>
             <S.Front_Comment>
               <S.Header_Image src="/images/user.png" />
-              <S.Comment_User>{props.el.writer}</S.Comment_User>
-              <S.Stars value={props.el.rating}></S.Stars>
+              <S.Comment_User>{props.el?.writer}</S.Comment_User>
+              <S.Stars value={props.el?.rating}></S.Stars>
             </S.Front_Comment>
-            <S.Comment_Content>{props.el.contents}</S.Comment_Content>
-            <S.Created_At_Date>{getDate(props.el.createdAt)}</S.Created_At_Date>
+            <S.Comment_Content>{props.el?.contents}</S.Comment_Content>
+            <S.Created_At_Date>
+              {getDate(props.el?.createdAt)}
+            </S.Created_At_Date>
             {/* <S.Comment_Icons src="/images/edit_pen.png" />
             <S.Comment_Icons src="/images/x.png" /> */}
             <S.Comment_Button>

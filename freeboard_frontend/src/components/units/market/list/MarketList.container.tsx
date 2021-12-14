@@ -90,7 +90,7 @@ export default function MarketList() {
   return (
     <MarketListUI
       data={data}
-      loadMore={onLoadMore}
+      onLoadMore={onLoadMore}
       onClickBasket={onClickBasket}
       onClickPurchase={onClickPurchase}
       onClickDetail={onClickDetail}
