@@ -1,6 +1,7 @@
 import * as S from "./Mypage.styles";
 import Reload from "../reload/reload.container";
 import { v4 as uuid4 } from "uuid";
+import PaginationsPage01 from "../../../commons/paginations/01/Paginations01.container";
 
 export default function MyPageUI(props) {
   return (
@@ -57,6 +58,12 @@ export default function MyPageUI(props) {
           </div>
         ))}
       </div>
+      <PaginationsPage01
+        refetch={props.refetch}
+        startPage={props.startPage}
+        setStartPage={props.setStartPage}
+        count={props.count}
+      />
     </>
   );
 }

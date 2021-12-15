@@ -3,6 +3,7 @@ import MyPageUI from "./Mypage.presenter";
 import {
   RESET_USER_PASSWORD,
   FETCH_USED_ITEMS_IPICKED,
+  FETCH_USED_ITEMS_COUNT,
 } from "./Mypage.queries";
 import { useState } from "react";
 import { Modal } from "antd";
@@ -16,10 +17,21 @@ export default function MyPage() {
 
   const [password, setPassword] = useState("");
 
-  const { data } = useQuery<
+  const [startPage, setStartPage] = useState(1);
+
+  const { data, refetch } = useQuery<
     Pick<IQuery, "fetchUseditemsIPicked">,
     IQueryFetchUseditemsIPickedArgs
-  >(FETCH_USED_ITEMS_IPICKED, { variables: { search: "" } });
+  >(FETCH_USED_ITEMS_IPICKED, {
+    variables: {
+      search: "",
+      page: startPage,
+    },
+  });
+
+  const { data: dataFetchCountIPicked } = useQuery<
+    Pick<IQuery, "fetchUseditemsCountIPicked">
+  >(FETCH_USED_ITEMS_COUNT);
 
   const onChangePassword = (event) => {
     setPassword(event.target.value);
@@ -52,6 +64,10 @@ export default function MyPage() {
         data={data}
         onChangePassword={onChangePassword}
         onClickChangePassword={onClickChangePassword}
+        refetch={refetch}
+        startPage={startPage}
+        setStartPage={setStartPage}
+        count={dataFetchCountIPicked?.fetchUseditemsCountIPicked}
       />
       ;
     </>

@@ -48,9 +48,15 @@ export default function MarketQuestionListUIItem(props) {
         useditemQuestionId: id,
       },
       update(cache, { data }) {
+        const deleteId = data?.deleteUseditemQuestion;
         cache.modify({
           fields: {
-            fetchUseditemQuestions: prev,
+            fetchUseditemQuestions: (prev, { readField }) => {
+              const newFetchItemQuestions = prev.filter(
+                (el) => readField("_id", el) !== deleteId
+              );
+              return [...newFetchItemQuestions];
+            },
           },
         });
       },
@@ -61,7 +67,7 @@ export default function MarketQuestionListUIItem(props) {
     <>
       <div>{props.el.contents}</div>
       <button>Edit</button>
-      <button onClick={onClickQuestionDelete}>Delete</button>
+      <button onClick={onClickQuestionDelete(props.el._id)}>Delete</button>
     </>
   );
 }

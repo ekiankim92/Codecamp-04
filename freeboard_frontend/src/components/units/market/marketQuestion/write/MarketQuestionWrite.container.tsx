@@ -24,10 +24,10 @@ export default function MarketQuestionWrite(props) {
     IMutationCreateUseditemQuestionArgs
   >(CREATE_USED_ITEM_QUESTION);
 
-  const [updateUseditemQuestion] = useMutation<
-    Pick<IMutation, "updateUseditemQuestion">,
-    IMutationUpdateUseditemQuestionArgs
-  >(UPDATE_USED_ITEM_QUESTION);
+  // const [updateUseditemQuestion] = useMutation<
+  //   Pick<IMutation, "updateUseditemQuestion">,
+  //   IMutationUpdateUseditemQuestionArgs
+  // >(UPDATE_USED_ITEM_QUESTION);
 
   const onClickWriteQuestion = async (data: FormValues) => {
     try {
@@ -56,34 +56,34 @@ export default function MarketQuestionWrite(props) {
     myContents(event.target.value);
   };
 
-  const onClickQuestionUpdate = async () => {
-    alert("testing");
-    if (!contents) {
-      alert("Please Edit Your Contents");
-      return;
-    }
-    try {
-      const result = await updateUseditemQuestion({
-        variables: {
-          updateUseditemQuestionInput: {
-            contents,
-          },
-          useditemQuestionId: props.el?._id,
-        },
-        refetchQueries: [
-          {
-            query: FETCH_USED_ITEM_QUESTIONS,
-            variables: {
-              useditemQuestionId: router.query.marketId,
-            },
-          },
-        ],
-      });
-      console.log(result);
-    } catch (error) {
-      console.log(error.messagae);
-    }
-  };
+  // const onClickQuestionUpdate = async () => {
+  //   alert("testing");
+  //   if (!contents) {
+  //     alert("Please Edit Your Contents");
+  //     return;
+  //   }
+  //   try {
+  //     const result = await updateUseditemQuestion({
+  //       variables: {
+  //         updateUseditemQuestionInput: {
+  //           contents,
+  //         },
+  //         useditemQuestionId: props.el?._id,
+  //       },
+  //       refetchQueries: [
+  //         {
+  //           query: FETCH_USED_ITEM_QUESTIONS,
+  //           variables: {
+  //             useditemQuestionId: router.query.marketId,
+  //           },
+  //         },
+  //       ],
+  //     });
+  //     console.log(result);
+  //   } catch (error) {
+  //     console.log(error.messagae);
+  //   }
+  // };
 
   return (
     <MarketQuestionWriteUI
