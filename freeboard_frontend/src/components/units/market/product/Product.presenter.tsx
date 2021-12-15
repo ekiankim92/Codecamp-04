@@ -52,7 +52,6 @@ export default function ProductUI(props) {
                 defaultValue={props.data?.fetchUseditem.images}
               ></S.UploadButton>
             )}
-
             {/* {props.images[0] ? (
               <img
                 style={{ width: "120px", height: "120px" }}

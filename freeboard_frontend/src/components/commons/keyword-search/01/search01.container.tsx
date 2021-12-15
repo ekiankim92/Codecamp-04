@@ -6,7 +6,9 @@ import { ChangeEvent } from "react";
 export default function Search01(props: ISearch01Props) {
   const getDebounce = _.debounce((data) => {
     props.refetch({ search: data });
-    props.refetchBoardsCount({ search: data });
+    {
+      props.refetchBoardsCount && props.refetchBoardsCount({ search: data });
+    }
     props.onChangeSearch(data);
   }, 1000);
 

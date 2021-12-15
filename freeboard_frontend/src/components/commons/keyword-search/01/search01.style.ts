@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
 
 export const SearchSection = styled.div`
-  width: auto;
-  height: auto;
+  width: 1000px;
   display: flex;
   justify-content: space-around;
   /* background-color: aqua; */

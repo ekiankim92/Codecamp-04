@@ -26,3 +26,9 @@ export const Cart_Image = styled.button`
     cursor: pointer;
   }
 `;
+
+export const Search_Wrapper = styled.div`
+  margin: 100px;
+  width: 300px;
+  background-color: green;
+`;

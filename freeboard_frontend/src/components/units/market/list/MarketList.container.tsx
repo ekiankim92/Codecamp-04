@@ -1,28 +1,45 @@
 import { useMutation, useQuery } from "@apollo/client";
 import router from "next/router";
+import { useState } from "react";
 import {
   IQuery,
   IQueryFetchUseditemsArgs,
   IBoard,
+  IMutation,
+  IMutationToggleUseditemPickArgs,
 } from "../../../../commons/types/generated/types";
 import MarketListUI from "./MarketList.presenter";
 import {
   FETCH_USED_ITEMS,
   CREATE_POINT_TRANSACTION_OF_BUYING_AND_SELLING,
+  TOGGLE_USED_ITEM_PICK,
 } from "./MarketList.queries";
 
 export default function MarketList() {
+  // keyword search
+  const [keyword, setKeyword] = useState("");
+
   // fetching used items by 10
-  const { data, fetchMore } = useQuery<
+  const { data, fetchMore, refetch } = useQuery<
     Pick<IQuery, "fetchUseditems">,
     IQueryFetchUseditemsArgs
-  >(FETCH_USED_ITEMS);
+  >(FETCH_USED_ITEMS, {
+    variables: {
+      search: keyword,
+    },
+  });
   console.log(data);
 
   // purchase with the points
   const [createPointTransactionOfBuyingAndSelling] = useMutation(
     CREATE_POINT_TRANSACTION_OF_BUYING_AND_SELLING
   );
+
+  // wish list 찜하기
+  const [toggleUseditemPick] = useMutation<
+    Pick<IMutation, "toggleUseditemPick">,
+    IMutationToggleUseditemPickArgs
+  >(TOGGLE_USED_ITEM_PICK);
 
   // infinite scroll for market list
   function onLoadMore() {
@@ -87,6 +104,21 @@ export default function MarketList() {
     router.push(`/market/${id}`);
   };
 
+  // toggle picked item
+  const onClickTogglePick = (id) => async () => {
+    const result = await toggleUseditemPick({
+      variables: {
+        useditemId: id,
+      },
+      refetchQueries: [{ query: FETCH_USED_ITEMS }],
+    });
+    console.log(result);
+  };
+
+  const onChangeSearch = (value) => {
+    setKeyword(value);
+  };
+
   return (
     <MarketListUI
       data={data}
@@ -94,6 +126,10 @@ export default function MarketList() {
       onClickBasket={onClickBasket}
       onClickPurchase={onClickPurchase}
       onClickDetail={onClickDetail}
+      onClickTogglePick={onClickTogglePick}
+      refetch={refetch}
+      onChangeSearch={onChangeSearch}
+      keyword={keyword}
     />
   );
 }

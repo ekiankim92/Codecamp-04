@@ -2,6 +2,7 @@ import MarketQuestionWriteUI from "./MarketQuestionWrite.presenter";
 import { FormValues } from "./MarketQuestionWrite.types";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
+import { useState } from "react";
 import {
   CREATE_USED_ITEM_QUESTION,
   UPDATE_USED_ITEM_QUESTION,
@@ -15,6 +16,8 @@ import {
 
 export default function MarketQuestionWrite(props) {
   const router = useRouter();
+
+  const [contents, myContents] = useState("");
 
   const [createUseditemQuestion] = useMutation<
     Pick<IMutation, "createUseditemQuestion">,
@@ -49,15 +52,32 @@ export default function MarketQuestionWrite(props) {
     }
   };
 
-  const onClickQuestionUpdate = async (data: FormValues) => {
+  const onChangeContent = (event) => {
+    myContents(event.target.value);
+  };
+
+  const onClickQuestionUpdate = async () => {
+    alert("testing");
+    if (!contents) {
+      alert("Please Edit Your Contents");
+      return;
+    }
     try {
       const result = await updateUseditemQuestion({
         variables: {
           updateUseditemQuestionInput: {
-            contents: data.contents,
+            contents,
           },
           useditemQuestionId: props.el?._id,
         },
+        refetchQueries: [
+          {
+            query: FETCH_USED_ITEM_QUESTIONS,
+            variables: {
+              useditemQuestionId: router.query.marketId,
+            },
+          },
+        ],
       });
       console.log(result);
     } catch (error) {
@@ -68,7 +88,10 @@ export default function MarketQuestionWrite(props) {
   return (
     <MarketQuestionWriteUI
       onClickWriteQuestion={onClickWriteQuestion}
-      onClickQuestionUpdate={onClickQuestionUpdate}
+      // onClickQuestionUpdate={onClickQuestionUpdate}
+      onChangeContent={onChangeContent}
+      // contents={contents}
+      el={props.el}
     />
   );
 }

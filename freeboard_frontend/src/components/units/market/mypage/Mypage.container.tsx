@@ -1,9 +1,59 @@
+import { useMutation, useQuery } from "@apollo/client";
 import MyPageUI from "./Mypage.presenter";
+import {
+  RESET_USER_PASSWORD,
+  FETCH_USED_ITEMS_IPICKED,
+} from "./Mypage.queries";
+import { useState } from "react";
+import { Modal } from "antd";
+import {
+  IQuery,
+  IQueryFetchUseditemsIPickedArgs,
+} from "../../../../commons/types/generated/types";
 
-export default function MyPage(props) {
+export default function MyPage() {
+  const [resetUserPassword] = useMutation(RESET_USER_PASSWORD);
+
+  const [password, setPassword] = useState("");
+
+  const { data } = useQuery<
+    Pick<IQuery, "fetchUseditemsIPicked">,
+    IQueryFetchUseditemsIPickedArgs
+  >(FETCH_USED_ITEMS_IPICKED, { variables: { search: "" } });
+
+  const onChangePassword = (event) => {
+    setPassword(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const onClickChangePassword = async () => {
+    if (!password || password.length <= 2) {
+      alert("Please Enter Your Changed Password");
+      return;
+    }
+    try {
+      const result = await resetUserPassword({
+        variables: {
+          password,
+        },
+      });
+      console.log(result);
+      Modal.success({
+        content: "Successfully Changed password",
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <>
-      <MyPageUI data={props.data} />;
+      <MyPageUI
+        data={data}
+        onChangePassword={onChangePassword}
+        onClickChangePassword={onClickChangePassword}
+      />
+      ;
     </>
   );
 }
