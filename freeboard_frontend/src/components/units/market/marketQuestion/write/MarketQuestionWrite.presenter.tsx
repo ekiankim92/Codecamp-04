@@ -26,8 +26,10 @@ export default function MarketQuestionWriteUI(props) {
               onChange={props.onChangeContent}
               maxLength={100}
             />
-            {/* <div>{props.contents.length}/100</div> */}
-            <button>{isEdit ? "Edit" : "Inquiry"}</button>
+            <div>{props.contents.length}/100</div>
+            <button disabled={props.isSubmitting}>
+              {isEdit ? "Edit" : "Inquiry"}
+            </button>
             <button type="reset">Clear</button>
           </S.Wrapper>
         </form>

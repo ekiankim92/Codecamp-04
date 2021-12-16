@@ -19,6 +19,8 @@ export default function MarketQuestionWrite(props) {
 
   const [contents, myContents] = useState("");
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [createUseditemQuestion] = useMutation<
     Pick<IMutation, "createUseditemQuestion">,
     IMutationCreateUseditemQuestionArgs
@@ -30,6 +32,7 @@ export default function MarketQuestionWrite(props) {
   // >(UPDATE_USED_ITEM_QUESTION);
 
   const onClickWriteQuestion = async (data: FormValues) => {
+    setIsSubmitting(true);
     try {
       const result = await createUseditemQuestion({
         variables: {
@@ -45,6 +48,7 @@ export default function MarketQuestionWrite(props) {
           },
         ],
       });
+      setIsSubmitting(false);
       console.log(result.data?.createUseditemQuestion.contents);
       console.log(data);
     } catch (error: any) {
@@ -90,8 +94,9 @@ export default function MarketQuestionWrite(props) {
       onClickWriteQuestion={onClickWriteQuestion}
       // onClickQuestionUpdate={onClickQuestionUpdate}
       onChangeContent={onChangeContent}
-      // contents={contents}
+      contents={contents}
       el={props.el}
+      isSubmitting={isSubmitting}
     />
   );
 }

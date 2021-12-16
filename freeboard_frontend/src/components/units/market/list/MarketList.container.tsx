@@ -105,12 +105,39 @@ export default function MarketList() {
   };
 
   // toggle picked item
+  // const onClickTogglePick = (id) => async () => {
+  //   const result = await toggleUseditemPick({
+  //     variables: {
+  //       useditemId: id,
+  //     },
+  //     refetchQueries: [{ query: FETCH_USED_ITEMS }],
+  //   });
+  //   console.log(result);
+  // };
+
   const onClickTogglePick = (id) => async () => {
     const result = await toggleUseditemPick({
       variables: {
         useditemId: id,
       },
-      refetchQueries: [{ query: FETCH_USED_ITEMS }],
+      optimisticResponse: {
+        toggleUseditemPick: (data?.fetchUseditems.pickedCount || 0) + 1,
+      },
+      update(cache, { data }) {
+        cache.writeQuery({
+          query: FETCH_USED_ITEMS,
+          variables: {
+            useditemId: id,
+          },
+          data: {
+            fetchUseditems: {
+              _id: id,
+              __typename: "Useditem",
+              pickedCount: data?.toggleUseditemPick,
+            },
+          },
+        });
+      },
     });
     console.log(result);
   };

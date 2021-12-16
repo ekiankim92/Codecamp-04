@@ -1,6 +1,6 @@
 import ProductUI from "./Product.presenter";
 import { FormValues } from "./Product.types";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/router";
 import { useMutation, useQuery } from "@apollo/client";
 import {
@@ -10,7 +10,9 @@ import {
 } from "./Product.queries";
 import { FETCH_USED_ITEM } from "../detail/ProductDetail.queries";
 
-export default function Product(props) {
+export default function Product() {
+  const [hashtag, setHashtag] = useState<String[]>([]);
+
   const router = useRouter();
 
   // uploading picture
@@ -63,6 +65,7 @@ export default function Product(props) {
 
   // product posting
   async function onClickSubmit(data: FormValues) {
+    alert("testing");
     console.log(data);
     const result = await createUseditem({
       variables: {
@@ -71,7 +74,7 @@ export default function Product(props) {
           remarks: data.remarks,
           contents: data.contents,
           price: Number(data.price),
-          tags: [data.tags],
+          tags: hashtag,
           images,
         },
       },
@@ -82,6 +85,7 @@ export default function Product(props) {
 
   //update product posting
   const onClickProductUpdate = async (data: FormValues) => {
+    alert("testing");
     try {
       const result = await updateUseditem({
         variables: {
@@ -90,7 +94,7 @@ export default function Product(props) {
             remarks: data.remarks,
             contents: data.contents,
             price: Number(data.price),
-            tags: [data.tags],
+            tags: hashtag,
             images,
           },
           useditemId: router.query.marketId,
@@ -112,6 +116,8 @@ export default function Product(props) {
       onUploadFile={onUploadFile}
       onClickMyImages={onClickMyImages}
       onClickProductUpdate={onClickProductUpdate}
+      hashtag={hashtag}
+      setHashtag={setHashtag}
     />
   );
 }

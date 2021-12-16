@@ -5,5 +5,5 @@ export const schema = yup.object().shape({
   remarks: yup.string().required("Please Enter the remarks"),
   contents: yup.string().required("Please Enter the contents"),
   price: yup.number().required("Please Enter the Price"),
-  tags: yup.string().required("Please Enter the Tags"),
+  // tags: yup.string().required("Please Enter the Tags"),
 });

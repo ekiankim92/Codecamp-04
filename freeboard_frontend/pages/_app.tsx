@@ -1,4 +1,5 @@
 // import "../styles/globals.css";
+import * as Sentry from "@sentry/nextjs";
 import {
   ApolloClient,
   ApolloProvider,
@@ -49,6 +50,11 @@ interface IGlobalConText {
 
 // Initialize Firebase
 export const firebaseApp = initializeApp(firebaseConfig);
+
+// Sentry set up
+Sentry.init({
+  dsn: "https://ac592df11efb44e28577c17c4aca7eff@o1091875.ingest.sentry.io/6109515",
+});
 
 // Access Token
 export const GlobalConText = createContext<IGlobalConText>({});

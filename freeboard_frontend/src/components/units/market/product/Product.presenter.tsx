@@ -7,6 +7,7 @@ import { MyContext } from "../../../../../pages/market/[marketId]/edit";
 import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
 import KakaoMap from "../../../commons/kakaomap/map.container";
+import Hashtag from "../../../commons/hashtag/hashtag";
 
 export default function ProductUI(props) {
   // useForm product submit
@@ -93,10 +94,15 @@ export default function ProductUI(props) {
             defaultValue={props.data?.fetchUseditem.contents}
             // setValue={props.data?.fetchUseditem.contents}
           />
-          <label>Tags</label>
-          <input
+          {/* <label>Tags</label> */}
+          {/* <input
             placeholder="Enter Your Tag"
             {...register("tags")}
+            defaultValue={props.data?.fetchUseditem.tags}
+          /> */}
+          <Hashtag
+            hashtag={props.hashtag}
+            setHashtag={props.setHashtag}
             defaultValue={props.data?.fetchUseditem.tags}
           />
           <div>
@@ -119,7 +125,6 @@ export default function ProductUI(props) {
             defaultValue={props.data?.fetchUseditem.remarks}
           />
           <button>{isEdit ? "Edit" : "Submit"}</button>
-          {/* <button>Submit</button> */}
         </S.Wrapper>
       </form>
     </>

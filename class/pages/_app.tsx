@@ -1,5 +1,6 @@
 // import "../styles/globals.css";
 // 글로벌로 쓰면 이제 이 스타일은 필요가 없음
+import * as Sentry from "@sentry/nextjs";
 import { Global } from "@emotion/react";
 import {
   ApolloClient,
@@ -51,6 +52,11 @@ interface IGlobalConText {
 
 // Initialize Firebase
 export const firebaseAPP = initializeApp(firebaseConfig);
+
+// Sentry set up
+Sentry.init({
+  dsn: "https://ac592df11efb44e28577c17c4aca7eff@o1091875.ingest.sentry.io/6109515",
+});
 
 // Access Token
 export const GlobalContext = createContext<IGlobalConText>({});
