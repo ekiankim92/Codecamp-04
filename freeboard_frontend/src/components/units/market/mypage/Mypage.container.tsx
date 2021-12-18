@@ -4,6 +4,7 @@ import {
   RESET_USER_PASSWORD,
   FETCH_USED_ITEMS_IPICKED,
   FETCH_USED_ITEMS_COUNT,
+  FETCH_USER_LOGGED_IN,
 } from "./Mypage.queries";
 import { useState } from "react";
 import { Modal } from "antd";
@@ -11,6 +12,7 @@ import {
   IQuery,
   IQueryFetchUseditemsIPickedArgs,
 } from "../../../../commons/types/generated/types";
+import router from "next/router";
 
 export default function MyPage() {
   const [resetUserPassword] = useMutation(RESET_USER_PASSWORD);
@@ -32,6 +34,8 @@ export default function MyPage() {
   const { data: dataFetchCountIPicked } = useQuery<
     Pick<IQuery, "fetchUseditemsCountIPicked">
   >(FETCH_USED_ITEMS_COUNT);
+
+  const { data: userLoggedIn } = useQuery(FETCH_USER_LOGGED_IN);
 
   const onChangePassword = (event) => {
     setPassword(event.target.value);
@@ -58,6 +62,10 @@ export default function MyPage() {
     }
   };
 
+  const onClickMoveToMyOrder = () => {
+    router.push("/market/myorder");
+  };
+
   return (
     <>
       <MyPageUI
@@ -68,8 +76,9 @@ export default function MyPage() {
         startPage={startPage}
         setStartPage={setStartPage}
         count={dataFetchCountIPicked?.fetchUseditemsCountIPicked}
+        onClickMoveToMyOrder={onClickMoveToMyOrder}
+        userLoggedIn={userLoggedIn}
       />
-      ;
     </>
   );
 }

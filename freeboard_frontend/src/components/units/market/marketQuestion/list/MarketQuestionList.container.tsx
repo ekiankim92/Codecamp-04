@@ -7,7 +7,7 @@ import {
   IQueryFetchUseditemQuestionsArgs,
 } from "../../../../../commons/types/generated/types";
 
-export default function MarketQuestionList() {
+export default function MarketQuestionList(props) {
   const router = useRouter();
 
   const { data } = useQuery<

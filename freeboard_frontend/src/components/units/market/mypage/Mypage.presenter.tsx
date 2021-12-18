@@ -9,8 +9,13 @@ export default function MyPageUI(props) {
       <S.Wrapper>
         <div>
           <S.Header>My Page</S.Header>
-          <S.Header>Name</S.Header>
-          <S.Header>Point Amount:</S.Header>
+          <S.Header>
+            Name: {props.userLoggedIn?.fetchUserLoggedIn.name}
+          </S.Header>
+          <S.Header>
+            Point Amount:{" "}
+            {props.userLoggedIn?.fetchUserLoggedIn.userPoint.amount} points
+          </S.Header>
           <div>
             <img src="/market_images/profile.png" />
           </div>
@@ -34,7 +39,9 @@ export default function MyPageUI(props) {
           <span>
             <img src="/market_images/order.png" />
           </span>
-          <S.Your_Order_Info>Your Orders</S.Your_Order_Info>
+          <S.Your_Order_Info onClick={props.onClickMoveToMyOrder}>
+            Your Orders
+          </S.Your_Order_Info>
         </S.Your_Order>
         <S.Archived_Order>
           <span>
@@ -44,9 +51,9 @@ export default function MyPageUI(props) {
         </S.Archived_Order>
       </S.Wrapper>
       =========================================
-      <div>
+      {/* <div>
         <Reload />
-      </div>
+      </div> */}
       =========================================
       <div>
         {props.data?.fetchUseditemsIPicked.map((el, index) => (

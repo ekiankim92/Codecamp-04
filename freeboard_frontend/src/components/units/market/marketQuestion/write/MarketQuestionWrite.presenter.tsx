@@ -1,21 +1,19 @@
 import * as S from "./MarketQuestionWrite.styles";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
-import { MyContext } from "../../../../../../pages/market/[marketId]/edit";
 
 export default function MarketQuestionWriteUI(props) {
   const { register, handleSubmit } = useForm({
     mode: "onChange",
   });
 
-  const { isEdit } = useContext(MyContext);
-
   return (
     <>
       <div>
         <form
           onSubmit={handleSubmit(
-            isEdit ? props.onClickQuestionUpdate : props.onClickWriteQuestion
+            props.isEdit
+              ? props.onClickQuestionUpdate
+              : props.onClickWriteQuestion
           )}
         >
           <S.Wrapper>
@@ -25,11 +23,19 @@ export default function MarketQuestionWriteUI(props) {
               {...register("contents")}
               onChange={props.onChangeContent}
               maxLength={100}
+              defaultValue={props.el?.contents}
             />
             <div>{props.contents.length}/100</div>
             <button disabled={props.isSubmitting}>
-              {isEdit ? "Edit" : "Inquiry"}
+              {props.isEdit ? "Edit" : "Inquiry"}
             </button>
+            {!props.isEdit && (
+              <input
+                type="button"
+                value="Reply"
+                onClick={props.onClickTesting}
+              />
+            )}
             <button type="reset">Clear</button>
           </S.Wrapper>
         </form>

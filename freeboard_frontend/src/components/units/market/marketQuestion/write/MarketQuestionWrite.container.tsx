@@ -13,6 +13,7 @@ import {
   IMutationCreateUseditemQuestionArgs,
   IMutationUpdateUseditemQuestionArgs,
 } from "../../../../../commons/types/generated/types";
+import { Modal } from "react-bootstrap";
 
 export default function MarketQuestionWrite(props) {
   const router = useRouter();
@@ -26,13 +27,17 @@ export default function MarketQuestionWrite(props) {
     IMutationCreateUseditemQuestionArgs
   >(CREATE_USED_ITEM_QUESTION);
 
-  // const [updateUseditemQuestion] = useMutation<
-  //   Pick<IMutation, "updateUseditemQuestion">,
-  //   IMutationUpdateUseditemQuestionArgs
-  // >(UPDATE_USED_ITEM_QUESTION);
+  const [updateUseditemQuestion] = useMutation<
+    Pick<IMutation, "updateUseditemQuestion">,
+    IMutationUpdateUseditemQuestionArgs
+  >(UPDATE_USED_ITEM_QUESTION);
 
   const onClickWriteQuestion = async (data: FormValues) => {
     setIsSubmitting(true);
+    if (!data.contents) {
+      alert("Please Enter Your Inquiry");
+      return;
+    }
     try {
       const result = await createUseditemQuestion({
         variables: {
@@ -51,8 +56,8 @@ export default function MarketQuestionWrite(props) {
       setIsSubmitting(false);
       console.log(result.data?.createUseditemQuestion.contents);
       console.log(data);
-    } catch (error: any) {
-      console.log(error.message);
+    } catch (error) {
+      if (error instanceof Error) console.log(error.message);
     }
   };
 
@@ -60,43 +65,50 @@ export default function MarketQuestionWrite(props) {
     myContents(event.target.value);
   };
 
-  // const onClickQuestionUpdate = async () => {
-  //   alert("testing");
-  //   if (!contents) {
-  //     alert("Please Edit Your Contents");
-  //     return;
-  //   }
-  //   try {
-  //     const result = await updateUseditemQuestion({
-  //       variables: {
-  //         updateUseditemQuestionInput: {
-  //           contents,
-  //         },
-  //         useditemQuestionId: props.el?._id,
-  //       },
-  //       refetchQueries: [
-  //         {
-  //           query: FETCH_USED_ITEM_QUESTIONS,
-  //           variables: {
-  //             useditemQuestionId: router.query.marketId,
-  //           },
-  //         },
-  //       ],
-  //     });
-  //     console.log(result);
-  //   } catch (error) {
-  //     console.log(error.messagae);
-  //   }
-  // };
+  const onClickQuestionUpdate = async () => {
+    if (!contents) {
+      alert("Please Edit Your Contents");
+      return;
+    }
+    try {
+      if (!props.el?._id) return;
+      const result = await updateUseditemQuestion({
+        variables: {
+          updateUseditemQuestionInput: {
+            contents,
+          },
+          useditemQuestionId: props.el?._id,
+        },
+        refetchQueries: [
+          {
+            query: FETCH_USED_ITEM_QUESTIONS,
+            variables: {
+              useditemQuestionId: router.query.marketId,
+            },
+          },
+        ],
+      });
+      props.setIsEdit?.(false);
+      console.log(result);
+    } catch (error) {
+      if (error instanceof Error) console.log(error.message);
+    }
+  };
+
+  const onClickTesting = () => {
+    alert("testing");
+  };
 
   return (
     <MarketQuestionWriteUI
       onClickWriteQuestion={onClickWriteQuestion}
-      // onClickQuestionUpdate={onClickQuestionUpdate}
+      onClickQuestionUpdate={onClickQuestionUpdate}
       onChangeContent={onChangeContent}
       contents={contents}
       el={props.el}
       isSubmitting={isSubmitting}
+      isEdit={props.isEdit}
+      onClickTesting={onClickTesting}
     />
   );
 }

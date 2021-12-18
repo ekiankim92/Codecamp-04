@@ -2,19 +2,19 @@ import {
   FETCH_USED_ITEM_QUESTIONS,
   DELETE_USED_ITEM_QUESTION,
 } from "./MarketQuestionList.queries";
-import { useContext } from "react";
-import { MyContext } from "../../../../../../pages/market/[marketId]/edit";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import {
   IMutation,
   IMutationDeleteUseditemQuestionArgs,
 } from "../../../../../commons/types/generated/types";
+import MarketQuestionWrite from "../write/MarketQuestionWrite.container";
+import { useState } from "react";
 
 export default function MarketQuestionListUIItem(props) {
   const router = useRouter();
 
-  const { isEdit } = useContext(MyContext);
+  const [isEdit, setIsEdit] = useState(false);
 
   const [deleteUseditemQuestion] = useMutation<
     Pick<IMutation, "deleteUseditemQuestion">,
@@ -63,11 +63,26 @@ export default function MarketQuestionListUIItem(props) {
     });
   };
 
+  const onClickQuestionUpdate = () => {
+    setIsEdit(true);
+  };
+
   return (
     <>
-      <div>{props.el.contents}</div>
-      <button>Edit</button>
-      <button onClick={onClickQuestionDelete(props.el._id)}>Delete</button>
+      {!isEdit && (
+        <div>
+          <div>{props.el.contents}</div>
+          <button onClick={onClickQuestionUpdate}>Edit</button>
+          <button onClick={onClickQuestionDelete(props.el._id)}>Delete</button>
+        </div>
+      )}
+      {isEdit && (
+        <MarketQuestionWrite
+          isEdit={true}
+          setIsEdit={setIsEdit}
+          el={props.el}
+        />
+      )}
     </>
   );
 }
