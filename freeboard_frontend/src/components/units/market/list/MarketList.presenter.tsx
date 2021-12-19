@@ -53,7 +53,10 @@ export default function MarketListUI(props) {
                     <div></div>
                   )}
                   <span>Price: ${el.price}</span> <br />
-                  <span>Seller Name: {el.seller.name}</span> <br />
+                  <span onClick={props.onClickItemsViewed}>
+                    Seller Name: {el.seller.name}
+                  </span>{" "}
+                  <br />
                   <img
                     onClick={props.onClickDetail(el._id)}
                     src={`https://storage.googleapis.com/${el.images[0]}`}

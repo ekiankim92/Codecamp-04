@@ -99,6 +99,19 @@ export default function MarketList() {
     localStorage.setItem("basket", JSON.stringify(baskets));
   };
 
+  const onClickItemsViewed = async (el) => {
+    console.log(el);
+    alert("testing");
+    const itemsViwed = await JSON.parse(localStorage.getItem("items") || "[]");
+    // let isExists = false;
+    // itemsViwed.forEach((itemsEl) => {
+    //   if (el._id === itemsEl._id) isExists = true;
+    // });
+    const { __typename, ...newEl } = el;
+    itemsViwed.push(newEl);
+    localStorage.setItem("items", JSON.stringify(itemsViwed));
+  };
+
   // once click an item, it will show the details
   const onClickDetail = (id) => (event) => {
     router.push(`/market/${id}`);
@@ -151,6 +164,7 @@ export default function MarketList() {
       data={data}
       onLoadMore={onLoadMore}
       onClickBasket={onClickBasket}
+      onClickItemsViewed={onClickItemsViewed}
       onClickPurchase={onClickPurchase}
       onClickDetail={onClickDetail}
       onClickTogglePick={onClickTogglePick}

@@ -65,6 +65,7 @@ export default function ImageUploadPreviewSubmitPage() {
       },
     });
     console.log(result2.data?.createBoard._id);
+    console.log(result2);
   };
 
   return (

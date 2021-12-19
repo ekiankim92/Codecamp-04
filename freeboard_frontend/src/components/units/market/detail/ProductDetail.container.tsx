@@ -12,7 +12,7 @@ export default function ProductDetail() {
 
   const [deleteUseditem] = useMutation(DELETE_USED_ITEM);
 
-  const client = useApolloClient();
+  // const client = useApolloClient();
 
   const { data } = useQuery<
     Pick<IQuery, "fetchUseditem">,

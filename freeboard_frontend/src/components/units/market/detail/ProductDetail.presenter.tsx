@@ -1,6 +1,7 @@
 import * as S from "./ProductDetail.styles";
 import KakaoMap from "../../../commons/kakaomap/map.container";
 import Dompurify from "dompurify";
+import { v4 as uuidv4 } from "uuid";
 
 export default function ProductDetailUI(props) {
   return (
@@ -12,12 +13,35 @@ export default function ProductDetailUI(props) {
         <S.Outter_Wrapper>
           <S.Image_Wrapper>
             <S.Images1>
+              {/* {props.data?.fetchUseditem.images
+                ?.filter((el) => el)
+                .map((el) => (
+                  <img
+                    key={uuidv4()}
+                    src={`https://storage.googleapis.com/${el}`}
+                  />
+                ))} */}
               <img
                 src={`https://storage.googleapis.com/${props.data?.fetchUseditem.images[0]}`}
               />
+              {/* <div>====================</div>
+              <img
+                src={`https://storage.googleapis.com/${props.data?.fetchUseditem.images[0]}`}
+              />
+              <div>====================</div> */}
             </S.Images1>
-            <S.Images2>Image 2</S.Images2>
-            <S.Images3>Image 3</S.Images3>
+            <S.Images2>
+              Image 2:{" "}
+              <img
+                src={`https://storage.googleapis.com/${props.data?.fetchUseditem.images[1]}`}
+              />
+            </S.Images2>
+            <S.Images3>
+              Image 3:{" "}
+              <img
+                src={`https://storage.googleapis.com/${props.data?.fetchUseditem.images[2]}`}
+              />
+            </S.Images3>
           </S.Image_Wrapper>
           <S.Info_Wrapper>
             <S.Detail_Name>

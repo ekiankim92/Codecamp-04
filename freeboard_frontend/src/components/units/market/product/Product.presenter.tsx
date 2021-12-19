@@ -10,6 +10,8 @@ import KakaoMap from "../../../commons/kakaomap/map.container";
 import Hashtag from "../../../commons/hashtag/hashtag";
 import DaumPostcode from "react-daum-postcode";
 import { Modal } from "antd";
+import Uploads01 from "../../../commons/uploads/01/Uploads01.container";
+import { v4 as uuidv4 } from "uuid";
 
 export default function ProductUI(props) {
   // useForm product submit
@@ -47,6 +49,18 @@ export default function ProductUI(props) {
           />
           <div>Error Message</div>
           <S.Image_Wrapper>
+            {props.images.map((el, index) => (
+              <div>
+                <Uploads01
+                  key={uuidv4()}
+                  index={index}
+                  fileUrl={el}
+                  defaultFileUrl={props.data?.fetchUseditem.images[index]}
+                  onChangeFileUrls={props.onChangeFileUrls}
+                />
+              </div>
+            ))}
+            {/* <div>=======================</div>
             {props.images[0] ? (
               <img src={`https://storage.googleapis.com/${props.images[0]}`} />
             ) : (
@@ -55,6 +69,7 @@ export default function ProductUI(props) {
                 defaultValue={props.data?.fetchUseditem.images}
               ></S.UploadButton>
             )}
+              <div>=======================</div> */}
             {/* {props.images[0] ? (
               <img
                 style={{ width: "120px", height: "120px" }}
@@ -69,13 +84,14 @@ export default function ProductUI(props) {
                 <>Upload</>
               </S.UploadButton>
             )} */}
-
+            {/* <div>=======================</div>
             <input
               type="file"
               style={{ display: "none" }}
               onChange={props.onUploadFile}
               ref={props.fileRef}
             />
+              <div>=======================</div> */}
             {/* <S.UploadButton>
               <input type="file" style={{ display: "none" }} />
             </S.UploadButton>
