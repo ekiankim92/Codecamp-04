@@ -15,6 +15,10 @@ export default function Product() {
 
   const router = useRouter();
 
+  const [addressOpen, setAddressOpen] = useState(false);
+  const [zipcode, setZipcode] = useState("");
+  const [address, setAddress] = useState("");
+
   // uploading picture
   const [uploadFile] = useMutation(UPLOAD_FILE);
   // posting product
@@ -65,8 +69,6 @@ export default function Product() {
 
   // product posting
   async function onClickSubmit(data: FormValues) {
-    alert("testing");
-    console.log(data);
     const result = await createUseditem({
       variables: {
         createUseditemInput: {
@@ -76,16 +78,21 @@ export default function Product() {
           price: Number(data.price),
           tags: hashtag,
           images,
+          useditemAddress: {
+            zipcode: data.zipcode,
+            address: data.address,
+            addressDetail: data.addressDetail,
+          },
         },
       },
     });
+    console.log(data);
     console.log(result);
     router.push(`/market/${result.data.createUseditem._id}`);
   }
 
   //update product posting
   const onClickProductUpdate = async (data: FormValues) => {
-    alert("testing");
     try {
       const result = await updateUseditem({
         variables: {
@@ -96,6 +103,11 @@ export default function Product() {
             price: Number(data.price),
             tags: hashtag,
             images,
+            useditemAddress: {
+              zipcode: data.zipcode,
+              address: data.address,
+              addressDetail: data.addressDetail,
+            },
           },
           useditemId: router.query.marketId,
         },
@@ -105,6 +117,20 @@ export default function Product() {
     } catch (error: any) {
       console.log(error.message);
     }
+  };
+
+  const onToggleModal = () => {
+    setAddressOpen((prev) => !prev);
+  };
+
+  const onClickSearchAddress = () => {
+    setAddressOpen((prev) => !prev);
+  };
+
+  const onCompleteAddressSearch = (data) => {
+    setZipcode(data.zipcode);
+    setAddress(data.address);
+    setAddressOpen((prev) => !prev);
   };
 
   return (
@@ -118,6 +144,12 @@ export default function Product() {
       onClickProductUpdate={onClickProductUpdate}
       hashtag={hashtag}
       setHashtag={setHashtag}
+      onClickSearchAddress={onClickSearchAddress}
+      onCompleteAddressSearch={onCompleteAddressSearch}
+      onToggleModal={onToggleModal}
+      addressOpen={addressOpen}
+      zipcode={zipcode}
+      address={address}
     />
   );
 }

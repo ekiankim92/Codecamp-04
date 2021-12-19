@@ -47,8 +47,18 @@ export default function ProductDetailUI(props) {
           <S.Section_Wrapper>
             <div>Maps</div>
             <KakaoMap />
-            <div>Address 1</div>
-            <div>Address 2</div>
+            <div>
+              <div>
+                Zipcode: {props.data?.fetchUseditem.useditemAddress.zipcode}
+              </div>
+              <div>
+                Address: {props.data?.fetchUseditem.useditemAddress.address}
+              </div>
+              <div>
+                Address Detail:{" "}
+                {props.data?.fetchUseditem.useditemAddress.addressDetail}
+              </div>
+            </div>
           </S.Section_Wrapper>
         </S.Outter_Wrapper>
         <div>

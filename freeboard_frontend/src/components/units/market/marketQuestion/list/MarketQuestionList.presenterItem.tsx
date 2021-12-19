@@ -73,6 +73,7 @@ export default function MarketQuestionListUIItem(props) {
         <div>
           <div>{props.el.contents}</div>
           <button onClick={onClickQuestionUpdate}>Edit</button>
+          {/* <button onClick={onClickQuestionDelete}>Delete</button> */}
           <button onClick={onClickQuestionDelete(props.el._id)}>Delete</button>
         </div>
       )}

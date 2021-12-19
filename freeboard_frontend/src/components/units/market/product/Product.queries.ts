@@ -44,6 +44,12 @@ export const UPDATE_USED_ITEM = gql`
       price
       tags
       images
+      useditemAddress {
+        _id
+        zipcode
+        address
+        addressDetail
+      }
     }
   }
 `;

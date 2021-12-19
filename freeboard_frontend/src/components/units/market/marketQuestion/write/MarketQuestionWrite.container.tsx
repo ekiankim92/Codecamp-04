@@ -56,6 +56,7 @@ export default function MarketQuestionWrite(props) {
       setIsSubmitting(false);
       console.log(result.data?.createUseditemQuestion.contents);
       console.log(data);
+      router.reload(`/market/${router.query.marketId}/edit`);
     } catch (error) {
       if (error instanceof Error) console.log(error.message);
     }
