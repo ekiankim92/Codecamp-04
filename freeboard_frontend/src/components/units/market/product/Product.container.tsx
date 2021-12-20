@@ -29,11 +29,6 @@ export default function Product(props) {
   // setting image
   const [images, setImages] = useState(["", "", ""]);
   // image preview
-  // const fileRef = useRef(null);
-
-  // const onClickMyImages = () => {
-  //   fileRef.current?.click();
-  // };
 
   // edit default data
   const { data } = useQuery(FETCH_USED_ITEM, {
@@ -104,8 +99,8 @@ export default function Product(props) {
             tags: hashtag,
             images,
             useditemAddress: {
-              zipcode: data.zipcode,
-              address: data.address,
+              zipcode,
+              address,
               addressDetail: data.addressDetail,
             },
           },

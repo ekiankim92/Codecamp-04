@@ -70,7 +70,9 @@ export default function ProductDetailUI(props) {
           </S.Info_Wrapper>
           <S.Section_Wrapper>
             <div>Maps</div>
-            <KakaoMap />
+            <KakaoMap
+              address={props.data?.fetchUseditem.useditemAddress.address}
+            />
             <div>
               <div>
                 Zipcode: {props.data?.fetchUseditem.useditemAddress.zipcode}

@@ -55,7 +55,7 @@ export default function ProductUI(props) {
                   key={uuidv4()}
                   index={index}
                   fileUrl={el}
-                  defaultFileUrl={props.data?.fetchUseditem.images[index]}
+                  defaultFileUrl={props.data?.fetchUseditem.images?.[index]}
                   onChangeFileUrls={props.onChangeFileUrls}
                 />
               </div>
@@ -128,7 +128,10 @@ export default function ProductUI(props) {
           />
           <div>
             Map
-            <KakaoMap />
+            <KakaoMap
+              address={props.address}
+              defaultValue={props.data?.fetchUseditem.useditemAddress?.address}
+            />
             <div>
               <label>Seach Address</label>
               <button onClick={props.onClickSearchAddress}>Search</button>
@@ -154,6 +157,7 @@ export default function ProductUI(props) {
                   props.zipcode ||
                   props.data?.fetchUseditem.useditemAddress.zipcode
                 }
+                readOnly
               />
             </div>
             <div>
@@ -166,6 +170,7 @@ export default function ProductUI(props) {
                   props.address ||
                   props.data?.fetchUseditem.useditemAddress.address
                 }
+                readOnly
               />
             </div>
             <div>
@@ -189,7 +194,11 @@ export default function ProductUI(props) {
             {...register("remarks")}
             defaultValue={props.data?.fetchUseditem.remarks}
           />
-          <button>{isEdit ? "Edit" : "Submit"}</button>
+          <button
+            onClick={isEdit ? props.onClickProductUpdate : props.onClickSubmit}
+          >
+            {isEdit ? "Edit" : "Submit"}
+          </button>
         </S.Wrapper>
       </form>
     </>

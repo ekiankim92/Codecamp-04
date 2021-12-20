@@ -43,24 +43,29 @@ export default function MarketQuestionListUIItem(props) {
   // };
 
   const onClickQuestionDelete = (id) => () => {
-    deleteUseditemQuestion({
-      variables: {
-        useditemQuestionId: id,
-      },
-      update(cache, { data }) {
-        const deleteId = data?.deleteUseditemQuestion;
-        cache.modify({
-          fields: {
-            fetchUseditemQuestions: (prev, { readField }) => {
-              const newFetchItemQuestions = prev.filter(
-                (el) => readField("_id", el) !== deleteId
-              );
-              return [...newFetchItemQuestions];
+    alert("testing");
+    try {
+      deleteUseditemQuestion({
+        variables: {
+          useditemQuestionId: id,
+        },
+        update(cache, { data }) {
+          const deleteId = data?.deleteUseditemQuestion;
+          cache.modify({
+            fields: {
+              fetchUseditemQuestions: (prev, { readField }) => {
+                const newFetchItemQuestions = prev.filter(
+                  (el) => readField("_id", el) !== deleteId
+                );
+                return [...newFetchItemQuestions];
+              },
             },
-          },
-        });
-      },
-    });
+          });
+        },
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   const onClickQuestionUpdate = () => {
@@ -71,10 +76,9 @@ export default function MarketQuestionListUIItem(props) {
     <>
       {!isEdit && (
         <div>
-          {/* <div>{props.el.contents}</div> */}
+          <div>{props.el?.contents}</div>
           <button onClick={onClickQuestionUpdate}>Edit</button>
-          {/* <button onClick={onClickQuestionDelete}>Delete</button> */}
-          {/* <button onClick={onClickQuestionDelete(props.el._id)}>Delete</button> */}
+          <button onClick={onClickQuestionDelete(props.el?._id)}>Delete</button>
         </div>
       )}
       {isEdit && (

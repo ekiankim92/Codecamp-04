@@ -25,7 +25,7 @@ export default function MarketQuestionWriteUI(props) {
               maxLength={100}
               defaultValue={props.el?.contents}
             />
-            {/* <div>{props.contents.length}/100</div> */}
+            <div>{props.contents?.length}/100</div>
             <button disabled={props.isSubmitting}>
               {props.isEdit ? "Edit" : "Inquiry"}
             </button>
