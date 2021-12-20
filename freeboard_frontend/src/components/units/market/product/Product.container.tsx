@@ -79,8 +79,8 @@ export default function Product(props) {
           tags: hashtag,
           images,
           useditemAddress: {
-            zipcode: data.zipcode,
-            address: data.address,
+            zipcode,
+            address,
             addressDetail: data.addressDetail,
           },
         },
@@ -128,9 +128,10 @@ export default function Product(props) {
   };
 
   const onCompleteAddressSearch = (data) => {
-    setZipcode(data.zipcode);
+    setZipcode(data.zonecode);
     setAddress(data.address);
     setAddressOpen((prev) => !prev);
+    console.log(data);
   };
 
   const onChangeFileUrls = (fileUrl: string, index: number) => {
