@@ -7,10 +7,10 @@ export default function MarketsPage(props) {
   return (
     <>
       <Head>
-        <meta property="og:title" content={props.fetchUsedItem.name} />
+        <meta property="og:title" content={props.fetchUseditem.name} />
         {/* <meta property="og:url" content="http://sookheewoof.shop" /> */}
-        <meta property="og:image" content={props.fetchUsedItem.images[0]} />
-        <meta property="og:description" content={props.fetchUsedItem.remarks} />
+        <meta property="og:image" content={props.fetchUseditem.images[0]} />
+        <meta property="og:description" content={props.fetchUseditem.remarks} />
       </Head>
       <div>안녕하세요! 상품페이지입니다!</div>
     </>
@@ -46,10 +46,10 @@ export const getServerSideProps = async (context) => {
     // this props is mandatory
     props: {
       // this is just a name we create
-      fetchUsedItem: {
-        name: result.fetchUsedItem.name,
-        remarks: result.fetchUsedItem.remarks,
-        images: result.fetchUsedItem.images[0],
+      fetchUseditem: {
+        name: result.fetchUseditem.name,
+        remarks: result.fetchUseditem.remarks,
+        images: result.fetchUseditem.images[0],
       },
     },
   };
