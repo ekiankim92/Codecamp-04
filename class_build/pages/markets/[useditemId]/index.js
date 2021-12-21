@@ -11,7 +11,7 @@ export default function MarketsPage(props) {
         {/* <meta property="og:url" content="http://sookheewoof.shop" /> */}
         <meta
           property="og:image"
-          content={`https://storage.googleapis.com/${props.fetchUseditem.images[0]}`}
+          content={`https://storage.googleapis.com/${props.fetchUseditem.images}`}
         />
         <meta property="og:description" content={props.fetchUseditem.remarks} />
       </Head>
