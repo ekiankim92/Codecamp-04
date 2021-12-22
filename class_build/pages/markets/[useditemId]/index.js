@@ -52,7 +52,7 @@ export const getServerSideProps = async (context) => {
       fetchUseditem: {
         name: result.fetchUseditem.name,
         remarks: result.fetchUseditem.remarks,
-        images: result.fetchUseditem.images[0],
+        images: result.fetchUseditem?.images[0],
       },
     },
   };

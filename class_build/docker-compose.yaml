@@ -1,0 +1,11 @@
+version: "3.3"
+
+services:
+  class_build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+# 4000 is what is displayed in the website. where is direced to
+# 3000 is what is set up as the port. where is directed from
