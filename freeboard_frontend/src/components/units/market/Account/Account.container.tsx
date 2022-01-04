@@ -3,10 +3,17 @@ import { CREATE_USER } from "./Account.queries";
 import { ChangeEvent, useState } from "react";
 import { useMutation } from "@apollo/client";
 import router from "next/router";
+import {
+  IMutation,
+  IMutationCreateUserArgs,
+} from "../../../../commons/types/generated/types";
 
 export default function Account() {
   // 회원가입
-  const [createUser] = useMutation(CREATE_USER);
+  const [createUser] = useMutation<
+    Pick<IMutation, "createUser">,
+    IMutationCreateUserArgs
+  >(CREATE_USER);
 
   const [inputs, setInputs] = useState({
     email: "",
@@ -15,10 +22,10 @@ export default function Account() {
   });
 
   const [nameError, setNameError] = useState<string>("");
-  const [passwordError, setPasswordError] = useState("");
-  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState<string>("");
+  const [emailError, setEmailError] = useState<string>("");
   // password confirm
-  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState<string>("");
 
   function onChangeInput(event: ChangeEvent<HTMLInputElement>) {
     setInputs({

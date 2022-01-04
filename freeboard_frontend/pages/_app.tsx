@@ -60,7 +60,7 @@ Sentry.init({
 export const GlobalConText = createContext<IGlobalConText>({});
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [myAccessToken, setMyAccessToken] = useState("");
+  const [myAccessToken, setMyAccessToken] = useState<string>("");
   const [myUserInfo, setMyUserInfo] = useState({});
   const myValue = {
     accessToken: myAccessToken,
