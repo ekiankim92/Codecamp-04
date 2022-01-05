@@ -14,20 +14,20 @@ export default function BoardEdit(props) {
   const [uploadFile] = useMutation(UPLOAD_FILE);
 
   //게시물 내용
-  const [name, setName] = useState("");
-  const [nameError, setNameError] = useState("");
+  const [name, setName] = useState<string>("");
+  const [nameError, setNameError] = useState<string>("");
 
-  const [password, setPassword] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+  const [password, setPassword] = useState<string>("");
+  const [passwordError, setPasswordError] = useState<string>("");
 
-  const [title, setTitle] = useState("");
-  const [titleError, setTitleError] = useState("");
+  const [title, setTitle] = useState<string>("");
+  const [titleError, setTitleError] = useState<string>("");
 
-  const [middleComment, setMiddleComment] = useState("");
-  const [middleBodyError, setMiddleBodyError] = useState("");
+  const [middleComment, setMiddleComment] = useState<string>("");
+  const [middleBodyError, setMiddleBodyError] = useState<string>("");
 
   // youtube
-  const [youtubeUrl, setYoutubeUrl] = useState("");
+  const [youtubeUrl, setYoutubeUrl] = useState<string>("");
 
   // uploading picture
   const [images, setImages] = useState([]);
