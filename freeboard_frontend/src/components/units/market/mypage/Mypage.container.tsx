@@ -58,7 +58,7 @@ export default function MyPage() {
         content: "Successfully Changed password",
       });
     } catch (error) {
-      console.log(error.message);
+      if (error instanceof Error) console.log(error.message);
     }
   };
 

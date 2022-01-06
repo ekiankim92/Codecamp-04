@@ -12,12 +12,13 @@ import { FETCH_USED_ITEM } from "../detail/ProductDetail.queries";
 import {
   IMutation,
   IMutationCreateUseditemArgs,
+  IMutationUpdateUseditemArgs,
 } from "../../../../commons/types/generated/types";
 
 export default function Product(props) {
   const router = useRouter();
 
-  const [hashtag, setHashtag] = useState<String[]>([]);
+  const [hashtag, setHashtag] = useState<string[] | []>([]);
 
   const [addressOpen, setAddressOpen] = useState(false);
   const [zipcode, setZipcode] = useState<string>("");
@@ -25,13 +26,18 @@ export default function Product(props) {
 
   // uploading picture
   // const [uploadFile] = useMutation(UPLOAD_FILE);
+
   // posting product
   const [createUseditem] = useMutation<
     Pick<IMutation, "createUseditem">,
     IMutationCreateUseditemArgs
   >(CREATE_USED_ITEM);
+
   // updating product
-  const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
+  const [updateUseditem] = useMutation<
+    Pick<IMutation, "updateUseditem">,
+    IMutationUpdateUseditemArgs
+  >(UPDATE_USED_ITEM);
 
   // setting image
   const [images, setImages] = useState(["", "", ""]);
@@ -90,7 +96,7 @@ export default function Product(props) {
     });
     console.log(data);
     console.log(result);
-    router.push(`/market/${result.data.createUseditem._id}`);
+    router.push(`/market/${result.data?.createUseditem._id}`);
   }
 
   //update product posting
@@ -111,13 +117,13 @@ export default function Product(props) {
               addressDetail: data.addressDetail,
             },
           },
-          useditemId: router.query.marketId,
+          useditemId: String(router.query.marketId),
         },
       });
       console.log(result);
-      router.push(`/market/${result.data.updateUseditem._id}`);
+      router.push(`/market/${result.data?.updateUseditem._id}`);
     } catch (error: any) {
-      console.log(error.message);
+      if (error instanceof Error) console.log(error.message);
     }
   };
 
