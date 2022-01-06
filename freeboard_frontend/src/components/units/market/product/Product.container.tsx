@@ -9,6 +9,10 @@ import {
   UPDATE_USED_ITEM,
 } from "./Product.queries";
 import { FETCH_USED_ITEM } from "../detail/ProductDetail.queries";
+import {
+  IMutation,
+  IMutationCreateUseditemArgs,
+} from "../../../../commons/types/generated/types";
 
 export default function Product(props) {
   const router = useRouter();
@@ -16,13 +20,16 @@ export default function Product(props) {
   const [hashtag, setHashtag] = useState<String[]>([]);
 
   const [addressOpen, setAddressOpen] = useState(false);
-  const [zipcode, setZipcode] = useState("");
-  const [address, setAddress] = useState("");
+  const [zipcode, setZipcode] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
 
   // uploading picture
   // const [uploadFile] = useMutation(UPLOAD_FILE);
   // posting product
-  const [createUseditem] = useMutation(CREATE_USED_ITEM);
+  const [createUseditem] = useMutation<
+    Pick<IMutation, "createUseditem">,
+    IMutationCreateUseditemArgs
+  >(CREATE_USED_ITEM);
   // updating product
   const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
 

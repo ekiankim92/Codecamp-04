@@ -17,7 +17,7 @@ import router from "next/router";
 export default function MyPage() {
   const [resetUserPassword] = useMutation(RESET_USER_PASSWORD);
 
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState<string>("");
 
   const [startPage, setStartPage] = useState(1);
 
