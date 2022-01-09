@@ -3,6 +3,8 @@ import ProductDetailUI from "./ProductDetail.presenter";
 import { FETCH_USED_ITEM, DELETE_USED_ITEM } from "./ProductDetail.queries";
 import { useApolloClient, useMutation, useQuery } from "@apollo/client";
 import {
+  IMutation,
+  IMutationDeleteUseditemArgs,
   IQuery,
   IQueryFetchUseditemArgs,
 } from "../../../../commons/types/generated/types";
@@ -10,7 +12,10 @@ import {
 export default function ProductDetail(props) {
   const router = useRouter();
 
-  const [deleteUseditem] = useMutation(DELETE_USED_ITEM);
+  const [deleteUseditem] = useMutation<
+    Pick<IMutation, "deleteUseditem">,
+    IMutationDeleteUseditemArgs
+  >(DELETE_USED_ITEM);
 
   // const client = useApolloClient();
 
@@ -39,7 +44,7 @@ export default function ProductDetail(props) {
       router.push("/productsubmit");
       console.log(result);
     } catch (error) {
-      console.log(error.message);
+      if (error instanceof Error) console.log(error.message);
     }
   };
 

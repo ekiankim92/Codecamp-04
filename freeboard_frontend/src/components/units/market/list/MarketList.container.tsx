@@ -7,6 +7,7 @@ import {
   IBoard,
   IMutation,
   IMutationToggleUseditemPickArgs,
+  IMutationCreatePointTransactionOfBuyingAndSellingArgs,
 } from "../../../../commons/types/generated/types";
 import MarketListUI from "./MarketList.presenter";
 import {
@@ -17,7 +18,7 @@ import {
 
 export default function MarketList() {
   // keyword search
-  const [keyword, setKeyword] = useState("");
+  const [keyword, setKeyword] = useState<string>("");
 
   // fetching used items by 10
   const { data, fetchMore, refetch } = useQuery<
@@ -31,9 +32,10 @@ export default function MarketList() {
   console.log(data);
 
   // purchase with the points
-  const [createPointTransactionOfBuyingAndSelling] = useMutation(
-    CREATE_POINT_TRANSACTION_OF_BUYING_AND_SELLING
-  );
+  const [createPointTransactionOfBuyingAndSelling] = useMutation<
+    Pick<IMutation, "createPointTransactionOfBuyingAndSelling">,
+    IMutationCreatePointTransactionOfBuyingAndSellingArgs
+  >(CREATE_POINT_TRANSACTION_OF_BUYING_AND_SELLING);
 
   // wish list 찜하기
   const [toggleUseditemPick] = useMutation<
