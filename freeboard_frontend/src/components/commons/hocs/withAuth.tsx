@@ -1,17 +1,19 @@
 //page for log in confirmation
 
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { ComponentType, useEffect } from "react";
 
-export const withAuth = (Component) => (props) => {
-  const router = useRouter();
+export const withAuth =
+  <P extends {}>(Component: ComponentType<P>) =>
+  (props: P) => {
+    const router = useRouter();
 
-  useEffect(() => {
-    if (!localStorage.getItem("refreshToken")) {
-      alert("Please log in first");
-      router.push("/registration");
-    }
-  }, []);
+    useEffect(() => {
+      if (!localStorage.getItem("refreshToken")) {
+        alert("Please log in first");
+        router.push("/registration");
+      }
+    }, []);
 
-  return <Component {...props} />;
-};
+    return <Component {...props} />;
+  };

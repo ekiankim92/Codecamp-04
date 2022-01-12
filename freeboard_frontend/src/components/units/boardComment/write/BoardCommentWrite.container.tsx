@@ -7,15 +7,26 @@ import {
 } from "./BoardCommentWrite.queries";
 import { FETCH_BOARD_COMMENTS } from "../list/BoardCommentList.queries";
 import BoardCommentWriteUI from "./BoardCommentWrite.presenter";
+import {
+  IMutation,
+  IMutationCreateBoardCommentArgs,
+  IMutationUpdateBoardCommentArgs,
+} from "../../../../commons/types/generated/types";
 
 export default function BoardCommentWrite(props) {
   //댓글등록
   const router = useRouter();
-  const [writer, setWriter] = useState("");
-  const [contents, setContents] = useState("");
-  const [password, setPassword] = useState("");
-  const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
-  const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENT);
+  const [writer, setWriter] = useState<string>("");
+  const [contents, setContents] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [createBoardComment] = useMutation<
+    Pick<IMutation, "createBoardComment">,
+    IMutationCreateBoardCommentArgs
+  >(CREATE_BOARD_COMMENT);
+  const [updateBoardComment] = useMutation<
+    Pick<IMutation, "updateBoardComment">,
+    IMutationUpdateBoardCommentArgs
+  >(UPDATE_BOARD_COMMENT);
 
   function CommentWriter(event) {
     setWriter(event.target.value);
@@ -55,7 +66,7 @@ export default function BoardCommentWrite(props) {
               contents,
               rating,
             },
-            boardId: router.query.content,
+            boardId: String(router.query.content),
           },
           refetchQueries: [
             {
@@ -66,7 +77,7 @@ export default function BoardCommentWrite(props) {
         });
         console.log(result);
       } catch (error) {
-        console.log(error.message);
+        if (error instanceof Error) console.log(error.message);
       }
     }
     alert("댓글이 등록되었습니다!");
