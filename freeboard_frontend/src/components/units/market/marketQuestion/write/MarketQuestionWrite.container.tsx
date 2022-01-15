@@ -2,7 +2,7 @@ import MarketQuestionWriteUI from "./MarketQuestionWrite.presenter";
 import { FormValues } from "./MarketQuestionWrite.types";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import {
   CREATE_USED_ITEM_QUESTION,
   UPDATE_USED_ITEM_QUESTION,
@@ -18,7 +18,7 @@ import { Modal } from "react-bootstrap";
 export default function MarketQuestionWrite(props) {
   const router = useRouter();
 
-  const [contents, myContents] = useState("");
+  const [contents, myContents] = useState<string>("");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -62,7 +62,7 @@ export default function MarketQuestionWrite(props) {
     }
   };
 
-  const onChangeContent = (event) => {
+  const onChangeContent = (event: ChangeEvent<HTMLInputElement>) => {
     myContents(event.target.value);
   };
 

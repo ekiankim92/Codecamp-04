@@ -23,7 +23,7 @@ export default function Reload() {
   const [amount, setAmount] = useState(0);
 
   // when onChaning the amount of points, that amout will be charged
-  function onChangeAmount(event) {
+  function onChangeAmount(event: any) {
     setAmount(event.target.value);
   }
 
