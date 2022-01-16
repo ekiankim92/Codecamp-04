@@ -3,9 +3,16 @@ import { UPLOAD_FILE } from "./Uploads01.queries";
 import ImageValidation from "./Uploads01.validation";
 import { useRef } from "react";
 import Uploads01UI from "./Uploads01.presenter";
+import {
+  IMutation,
+  IMutationUploadFileArgs,
+} from "../../../../commons/types/generated/types";
 
 export default function Uploads01(props) {
-  const [uploadFile] = useMutation(UPLOAD_FILE);
+  const [uploadFile] = useMutation<
+    Pick<IMutation, "uploadFile">,
+    IMutationUploadFileArgs
+  >(UPLOAD_FILE);
   const fileRef = useRef<HTMLInputElement>(null);
 
   const onClickUploadImages = () => {
@@ -23,7 +30,7 @@ export default function Uploads01(props) {
       });
       props.onChangeFileUrls(result.data?.uploadFile.url, props.index);
     } catch (error) {
-      console.log(error.message);
+      if (error instanceof Error) console.log(error.message);
     }
     // setImages([result.data.uploadFile.url]);
     // console.log(result);
