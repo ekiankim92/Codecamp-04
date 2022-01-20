@@ -9,13 +9,18 @@ import {
 } from "./BoardList.queries";
 import { useRouter } from "next/router";
 import {
+  IMutation,
+  IMutationDeleteBoardArgs,
   IQuery,
   IQueryFetchBoardsArgs,
 } from "../../../../commons/types/generated/types";
 
 export default function BoardList() {
   // Delete board
-  const [deleteBoard] = useMutation(DELETE_BOARD);
+  const [deleteBoard] = useMutation<
+    Pick<IMutation, "deleteBoard">,
+    IMutationDeleteBoardArgs
+  >(DELETE_BOARD);
   // Fetch best comment
   const { data: data2 } = useQuery(FETCH_BOARDS_OF_THE_BEST);
   const router = useRouter();
@@ -59,8 +64,8 @@ export default function BoardList() {
         variables: { boardId: event.currentTarget.id },
         refetchQueries: [{ query: FETCH_BOARDS }],
       });
-    } catch (error: any) {
-      console.log(error.message);
+    } catch (error) {
+      if (error instanceof Error) console.log(error.message);
     }
   }
 
