@@ -3,15 +3,32 @@ import { useState, useRef } from "react";
 import { useRouter } from "next/router";
 import BoardEditUI from "./BoardWrite.presenter";
 import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./BoardWrite.queries";
+import {
+  IMutation,
+  IMutationCreateBoardArgs,
+  IMutationUpdateBoardArgs,
+  IMutationUploadFileArgs,
+} from "../../../../commons/types/generated/types";
 
 export default function BoardEdit(props) {
   const router = useRouter();
 
-  const [color, setColor] = useState(false);
+  const [color, setColor] = useState<boolean>(false);
 
-  const [createBoard] = useMutation(CREATE_BOARD);
-  const [updateBoard] = useMutation(UPDATE_BOARD);
-  const [uploadFile] = useMutation(UPLOAD_FILE);
+  const [createBoard] = useMutation<
+    Pick<IMutation, "createBoard">,
+    IMutationCreateBoardArgs
+  >(CREATE_BOARD);
+
+  const [updateBoard] = useMutation<
+    Pick<IMutation, "updateBoard">,
+    IMutationUpdateBoardArgs
+  >(UPDATE_BOARD);
+
+  const [uploadFile] = useMutation<
+    Pick<IMutation, "uploadFile">,
+    IMutationUploadFileArgs
+  >(UPLOAD_FILE);
 
   //게시물 내용
   const [name, setName] = useState<string>("");
@@ -144,10 +161,10 @@ export default function BoardEdit(props) {
           },
         });
         console.log(result);
-        router.push(`/board/${result.data.createBoard._id}`);
+        router.push(`/board/${result.data?.createBoard._id}`);
         alert("등록되었습니다");
       } catch (error) {
-        console.log(error.message);
+        if (error instanceof Error) console.log(error.message);
       }
     }
   }
@@ -189,9 +206,10 @@ export default function BoardEdit(props) {
         //   password,
         //   boardId: router.query.content
       });
+      console.log(result);
       router.push(`/board/${router.query.content}`);
     } catch (error) {
-      console.log(error.message);
+      if (error instanceof Error) console.log(error.message);
     }
   }
 
@@ -217,7 +235,7 @@ export default function BoardEdit(props) {
     setIsOpen((prev) => !prev);
   };
 
-  const handleComplete = (data) => {
+  const handleComplete = (data: any) => {
     console.log(data);
     setZipecode(data.zonecode);
     setAddress(data.address);
