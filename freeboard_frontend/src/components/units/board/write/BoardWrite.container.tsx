@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client";
-import { useState, useRef } from "react";
+import { useState, useRef, ChangeEvent } from "react";
 import { useRouter } from "next/router";
 import BoardEditUI from "./BoardWrite.presenter";
 import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./BoardWrite.queries";
@@ -54,7 +54,7 @@ export default function BoardEdit(props) {
     fileRef.current?.click();
   }
 
-  function SetNames(event) {
+  function SetNames(event: ChangeEvent<HTMLInputElement>) {
     setName(event.target.value);
     if (event.target.value !== " ") {
       setNameError("");
@@ -71,7 +71,7 @@ export default function BoardEdit(props) {
     }
   }
 
-  function SetPassword(event) {
+  function SetPassword(event: ChangeEvent<HTMLInputElement>) {
     setPassword(event.target.value);
     if (event.target.value !== "") {
       setPasswordError("");
@@ -88,7 +88,7 @@ export default function BoardEdit(props) {
     }
   }
 
-  function TitleName(event) {
+  function TitleName(event: ChangeEvent<HTMLInputElement>) {
     setTitle(event.target.value);
     if (event.target.value !== "") {
       setTitleError("");
@@ -105,7 +105,7 @@ export default function BoardEdit(props) {
     }
   }
 
-  function BodyParagraph(event) {
+  function BodyParagraph(event: ChangeEvent<HTMLInputElement>) {
     setMiddleComment(event.target.value);
     if (event.target.value !== "") {
       setMiddleBodyError("");
@@ -169,7 +169,7 @@ export default function BoardEdit(props) {
     }
   }
 
-  function YoutubeVideo(event) {
+  function YoutubeVideo(event: ChangeEvent<HTMLInputElement>) {
     setYoutubeUrl(event.target.value);
     console.log(youtubeUrl);
   }
