@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { MouseEvent, useState } from "react";
+import { ChangeEvent, MouseEvent, useState } from "react";
 import {
   CREATE_BOARD_COMMENT,
   UPDATE_BOARD_COMMENT,
@@ -28,15 +28,15 @@ export default function BoardCommentWrite(props) {
     IMutationUpdateBoardCommentArgs
   >(UPDATE_BOARD_COMMENT);
 
-  function CommentWriter(event) {
+  function CommentWriter(event: ChangeEvent<HTMLInputElement>) {
     setWriter(event.target.value);
   }
 
-  function CommentPassword(event) {
+  function CommentPassword(event: ChangeEvent<HTMLInputElement>) {
     setPassword(event.target.value);
   }
 
-  function CommentContents(event) {
+  function CommentContents(event: ChangeEvent<HTMLInputElement>) {
     setContents(event.target.value);
   }
 
@@ -84,7 +84,7 @@ export default function BoardCommentWrite(props) {
   }
 
   //댓글 별 등록
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState<number>(0);
   function CountingStars(value) {
     setRating(value);
   }

@@ -20,7 +20,7 @@ export default function MarketQuestionWrite(props) {
 
   const [contents, myContents] = useState<string>("");
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const [createUseditemQuestion] = useMutation<
     Pick<IMutation, "createUseditemQuestion">,
