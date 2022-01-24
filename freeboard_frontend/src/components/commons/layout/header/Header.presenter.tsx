@@ -57,7 +57,7 @@ export default function HeaderUI(props) {
   return (
     <>
       <S.Header>
-        {props.data ? (
+        {props.data?.fetchUserLoggedIn ? (
           <S.testing>Welcome! {props.data?.fetchUserLoggedIn.name}</S.testing>
         ) : (
           <S.Logo>

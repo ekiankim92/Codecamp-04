@@ -5,11 +5,11 @@ export default function FooterUI() {
     <>
       <S.Footer>
         <S.Footer_Wrapper>
-          <S.Footer_Images1 src="market_images/visa.png" />
-          <S.Footer_Images2 src="market_images/american-express.png" />
-          <S.Footer_Images3 src="market_images/apple-pay.png" />
-          <S.Footer_Images4 src="market_images/discover.png" />
-          <S.Footer_Images5 src="market_images/paypal.png" />
+          <S.Footer_Images1 src="market_images/visa.png" alt="" />
+          <S.Footer_Images2 src="market_images/american-express.png" alt="" />
+          <S.Footer_Images3 src="market_images/apple-pay.png" alt="" />
+          <S.Footer_Images4 src="market_images/discover.png" alt="" />
+          <S.Footer_Images5 src="market_images/paypal.png" alt="" />
         </S.Footer_Wrapper>
         <S.Footer_Comment>
           Please don't forget to vist us and to subscribe!
@@ -24,9 +24,9 @@ export default function FooterUI() {
           <S.Footer_Icon3 src="/images/twitter.png" />
         </S.Footer_Address>
         <S.Inqueries>
-          <S.Notice>공지사항</S.Notice>
-          <S.One_To_Chat>1:1 문의</S.One_To_Chat>
-          <S.Frequent_Asked>자주 묻는 질문</S.Frequent_Asked>
+          <S.Notice>Notifications</S.Notice>
+          <S.One_To_Chat>1:1 Inquiry</S.One_To_Chat>
+          <S.Frequent_Asked>Frequently Asked Questions</S.Frequent_Asked>
         </S.Inqueries>
       </S.Footer>
     </>

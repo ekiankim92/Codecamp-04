@@ -2,7 +2,6 @@ import { ReactChild } from "react";
 import styled from "@emotion/styled";
 import Header from "./header/Header.container";
 import Banner from "./banner/Banner.container";
-// import Navigation from "./navigation/Navigation.container";
 import Footer from "./footer/Footer.container";
 import { useRouter } from "next/router";
 import Sidebar from "./sidebar/Sidebar.container";
@@ -22,7 +21,6 @@ interface ILayoutProps {
 //  배열에 주소를 넣어서 해당하는것만 안보여주게끔
 const HIDDEN_HEADERS = ["/12-05-modal-address-state-prev"];
 const HIDDEN_FOOTER = ["/12-02-modal-basic"];
-//  배열이니까 여러개가 있을수 있음
 const HIDDEN_REGISTER = ["/registration"];
 const HIDDEN_LOGIN = ["/login"];
 const HIDDEN_OPENAPI = ["/learnmore"];
@@ -31,6 +29,7 @@ const HIDDEN_PRODUCT_DETAIL = [`/market/$[marketId]`];
 const HIDDEN_BASKET = ["/market/basket"];
 const HIDDEN_MARKET_LIST = ["/market"];
 const HIDDEN_MYPAGE = ["/market/mypage"];
+const HIDDEN_MYCART = ["/market/basket"];
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
@@ -46,6 +45,7 @@ export default function Layout(props: ILayoutProps) {
   const isHiddenBasket = HIDDEN_BASKET.includes(router.asPath);
   const isHiddenMarketList = HIDDEN_MARKET_LIST.includes(router.asPath);
   const isHiddenMyPage = HIDDEN_MYPAGE.includes(router.asPath);
+  const isHiddenMyCart = HIDDEN_MYCART.includes(router.asPath);
 
   return (
     <Wrapper>
@@ -70,7 +70,7 @@ export default function Layout(props: ILayoutProps) {
           !isHiddenMyPage && <Sidebar />}
         <Body>{props.children}</Body>
       </BodyWrapper>
-      {!isHiddenFooter && !isHiddenMarketList && <Footer />}
+      {!isHiddenFooter && !isHiddenMarketList && !isHiddenMyCart && <Footer />}
     </Wrapper>
   );
 }

@@ -1,9 +1,12 @@
+import { ChangeEvent } from "react";
+
 export interface IPropsAccountPageUI {
-  onChangeInput: () => void;
-  onChangeName: () => void;
+  onChangeInput: (event: ChangeEvent<HTMLInputElement>) => void;
   onClickSubmit: () => void;
-  PasswordValidation: () => void;
+  PasswordValidation: (event: ChangeEvent<HTMLInputElement>) => void;
   nameError: string;
-  passwordError: string | number;
-  emailError: string | number;
+  passwordError: string;
+  emailError: string;
+  passwordConfirm: string;
+  passwordConfirmError: string;
 }

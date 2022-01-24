@@ -1,6 +1,7 @@
 import * as S from "./Product.styles";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
+// import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
+// import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./Product.validations";
 import { useContext } from "react";
 import { MyContext } from "../../../../../pages/market/[marketId]/edit";
@@ -17,7 +18,7 @@ export default function ProductUI(props) {
   // useForm product submit
   const { handleSubmit, register, setValue, trigger, formState } = useForm({
     mode: "onChange",
-    resolver: yupResolver(schema),
+    // resolver: yupResolver(schema),
   });
   const { isEdit } = useContext(MyContext);
 

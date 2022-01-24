@@ -9,7 +9,6 @@ import {
 } from "../../../../commons/types/generated/types";
 
 export default function Account() {
-  // 회원가입
   const [createUser] = useMutation<
     Pick<IMutation, "createUser">,
     IMutationCreateUserArgs
@@ -20,12 +19,11 @@ export default function Account() {
     password: "",
     name: "",
   });
-
   const [nameError, setNameError] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
   const [emailError, setEmailError] = useState<string>("");
-  // password confirm
   const [passwordConfirm, setPasswordConfirm] = useState<string>("");
+  const [passwordConfirmError, setPasswordConfirmError] = useState<string>("");
 
   function onChangeInput(event: ChangeEvent<HTMLInputElement>) {
     setInputs({
@@ -44,36 +42,46 @@ export default function Account() {
   const onClickSubmit = async () => {
     if (!inputs.name || inputs.name.length <= 2) {
       setNameError("Please Enter Your Name");
+      return;
     }
 
     if (!/\w+@\w+\.\w+/.test(inputs.email)) {
       setEmailError("Please Enter Your Email Correctly");
+      return;
     }
 
     if (!inputs.password || inputs.password.length <= 2) {
       setPasswordError("Please Enter Your Password");
+      return;
     }
 
     if (inputs.password !== passwordConfirm) {
-      alert("Please Confirm Your Password");
+      setPasswordConfirmError("Your Password Does Not Match");
+      return;
     }
 
-    // if (inputs.name && inputs.email && inputs.password) {
-    try {
-      const result = await createUser({
-        variables: {
-          createUserInput: {
-            ...inputs,
+    if (
+      inputs.name &&
+      inputs.email &&
+      inputs.password &&
+      inputs.password === passwordConfirm
+    ) {
+      try {
+        const result = await createUser({
+          variables: {
+            createUserInput: {
+              ...inputs,
+            },
           },
-        },
-      });
-      console.log(result);
-      alert("Registration Successful");
-      router.push("../../../../../login");
-    } catch (error: any) {
-      console.log(error.message);
+        });
+        console.log(result);
+        alert("Registration Successful");
+        router.push("../../../../../login");
+      } catch (error) {
+        if (error instanceof Error)
+          console.log("Register error:", error.message);
+      }
     }
-    // }
   };
 
   return (
@@ -85,6 +93,7 @@ export default function Account() {
       passwordError={passwordError}
       emailError={emailError}
       passwordConfirm={passwordConfirm}
+      passwordConfirmError={passwordConfirmError}
     />
   );
 }

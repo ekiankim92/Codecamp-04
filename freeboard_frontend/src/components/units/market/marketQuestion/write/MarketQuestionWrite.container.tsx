@@ -14,8 +14,9 @@ import {
   IMutationUpdateUseditemQuestionArgs,
 } from "../../../../../commons/types/generated/types";
 import { Modal } from "react-bootstrap";
+import { withAuth } from "../../../../commons/hocs/withAuth";
 
-export default function MarketQuestionWrite(props) {
+const MarketQuestionWrite = (props) => {
   const router = useRouter();
 
   const [contents, myContents] = useState<string>("");
@@ -56,7 +57,7 @@ export default function MarketQuestionWrite(props) {
       setIsSubmitting(false);
       console.log(result.data?.createUseditemQuestion.contents);
       console.log(data);
-      router.reload(`/market/${router.query.marketId}/edit`);
+      // router.reload(`/market/${router.query.marketId}/edit`);
     } catch (error) {
       if (error instanceof Error) console.log(error.message);
     }
@@ -112,4 +113,5 @@ export default function MarketQuestionWrite(props) {
       onClickTesting={onClickTesting}
     />
   );
-}
+};
+export default withAuth(MarketQuestionWrite);
