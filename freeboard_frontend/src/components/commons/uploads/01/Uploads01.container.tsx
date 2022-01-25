@@ -9,11 +9,8 @@ import {
 } from "../../../../commons/types/generated/types";
 
 export default function Uploads01(props) {
-  const [uploadFile] = useMutation<
-    Pick<IMutation, "uploadFile">,
-    IMutationUploadFileArgs
-  >(UPLOAD_FILE);
   const fileRef = useRef<HTMLInputElement>(null);
+  const [uploadFile] = useMutation(UPLOAD_FILE);
 
   const onClickUploadImages = () => {
     fileRef.current?.click();
@@ -21,7 +18,7 @@ export default function Uploads01(props) {
 
   const onUploadFile = async (event) => {
     const file = ImageValidation(event.target.files?.[0]);
-
+    if (!file) return;
     try {
       const result = await uploadFile({
         variables: {
@@ -30,10 +27,9 @@ export default function Uploads01(props) {
       });
       props.onChangeFileUrls(result.data?.uploadFile.url, props.index);
     } catch (error) {
-      if (error instanceof Error) console.log(error.message);
+      if (error instanceof Error)
+        console.log("UploadImageError:", error.message);
     }
-    // setImages([result.data.uploadFile.url]);
-    // console.log(result);
   };
 
   return (

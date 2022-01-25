@@ -11,7 +11,6 @@ export const CREATE_USED_ITEM = gql`
       tags
       images
       useditemAddress {
-        _id
         zipcode
         address
         addressDetail
@@ -19,14 +18,6 @@ export const CREATE_USED_ITEM = gql`
     }
   }
 `;
-
-// export const UPLOAD_FILE = gql`
-//   mutation uploadFile($file: Upload!) {
-//     uploadFile(file: $file) {
-//       url
-//     }
-//   }
-// `;
 
 export const UPDATE_USED_ITEM = gql`
   mutation updateUseditem(
@@ -45,7 +36,6 @@ export const UPDATE_USED_ITEM = gql`
       tags
       images
       useditemAddress {
-        _id
         zipcode
         address
         addressDetail

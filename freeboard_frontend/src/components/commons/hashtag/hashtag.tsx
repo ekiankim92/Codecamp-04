@@ -1,8 +1,14 @@
-import { ChangeEvent } from "react";
+import { MouseEvent, SyntheticEvent } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-export default function Hashtag(props) {
-  const onKeyUp = (event) => {
+interface IPropsHashtag {
+  setHashtag: (arg0: string[]) => void;
+  hashtag: string[] | [];
+  defaultValue: string;
+}
+
+export default function Hashtag(props: IPropsHashtag) {
+  const onKeyUp = (event: any) => {
     if (event.keyCode === 32 && event.target.value !== "") {
       props.setHashtag([...props.hashtag, `#${event.target.value}`]);
       event.target.value = "";
@@ -17,8 +23,18 @@ export default function Hashtag(props) {
     <>
       <div>
         <div>
-          <label>Tags</label>
-          <input type="text" onKeyUp={onKeyUp} />
+          <input
+            type="text"
+            onKeyUp={onKeyUp}
+            placeholder="Press Spacebar for Hashtags"
+            style={{
+              width: "350px",
+              height: "52px",
+              margin: "5px",
+              padding: "15px",
+              borderRadius: "16px",
+            }}
+          />
           <div>
             {props.hashtag.map((el, index) => (
               <div key={uuidv4()} onClick={onClickDelete(index)}>

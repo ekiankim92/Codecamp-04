@@ -1,7 +1,8 @@
+import * as S from "./Uploads01.styles";
+
 export default function Uploads01UI(props) {
   return (
     <>
-      <div>Hello World</div>
       {props.fileUrl || props.defaultFileUrl ? (
         <img
           onClick={props.onClickUploadImages}
@@ -17,12 +18,7 @@ export default function Uploads01UI(props) {
           <>Upload</>
         </button>
       )}
-      <input
-        type="file"
-        ref={props.fileRef}
-        onChange={props.onUploadFile}
-        style={{ display: "none" }}
-      />
+      <input type="file" ref={props.fileRef} onChange={props.onUploadFile} />
     </>
   );
 }
