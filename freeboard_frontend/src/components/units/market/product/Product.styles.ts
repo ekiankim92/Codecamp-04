@@ -38,28 +38,16 @@ export const Product_Name = styled.input`
   border-radius: 16px;
 `;
 
-export const UploadButton = styled.button`
-  width: 180px;
-  height: 180px;
-  background-color: white;
-  margin-right: 24px;
-  outline: none;
-  border: 1px dashed gray;
-  cursor: grab;
-  border-radius: 40px;
-  background-image: url("/market_images/image.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-`;
-
 export const Image_Wrapper = styled.div`
   width: 900px;
   height: 200px;
   margin: 25px;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
-  background-color: yellow;
+`;
+
+export const Inner_Image = styled.div`
+  margin-left: 30px;
 `;
 
 export const Price_Wrapper = styled.div`
@@ -107,7 +95,8 @@ export const Tag_Label = styled.label`
 
 export const Map_Wrapper = styled.div`
   display: flex;
-  background-color: lightblue;
+  align-items: center;
+  border: 1px solid lightgray;
 `;
 
 export const Map_Title = styled.div`
@@ -122,6 +111,58 @@ export const Map_Title = styled.div`
 export const Address_Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+`;
+
+export const Address_Header = styled.label`
+  font-size: 15px;
+`;
+
+export const Address_Button = styled.button`
+  width: 150px;
+  height: 30px;
+  margin: 5px;
+  border-radius: 5px;
+  :hover {
+    cursor: pointer;
+    background-color: white;
+  }
+`;
+
+export const Zipcode_Label = styled.label`
+  font-size: 15px;
+`;
+
+export const Zipcode = styled.input`
+  width: 250px;
+  height: 30px;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 5px;
+`;
+
+export const Address_Label = styled.label`
+  font-size: 15px;
+`;
+
+export const Address = styled.input`
+  width: 250px;
+  height: 30px;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 5px;
+`;
+
+export const Detail_Label = styled.label`
+  font-size: 15px;
+`;
+
+export const Detail_Address = styled.input`
+  width: 250px;
+  height: 30px;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 5px;
 `;
 
 export const Remark_Wrapper = styled.div`
@@ -161,4 +202,9 @@ export const Submit_Button = styled.button`
     background-color: black;
     color: white;
   }
+`;
+
+export const Error_Message = styled.div`
+  font-size: 15px;
+  color: red;
 `;

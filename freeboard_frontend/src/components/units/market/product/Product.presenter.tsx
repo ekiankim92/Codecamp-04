@@ -9,11 +9,12 @@ import dynamic from "next/dynamic";
 import KakaoMap from "../../../commons/kakaomap/map.container";
 import Hashtag from "../../../commons/hashtag/hashtag";
 import DaumPostcode from "react-daum-postcode";
-import { Modal, Upload } from "antd";
+import { Modal } from "antd";
 import Uploads01 from "../../../commons/uploads/01/Uploads01.container";
 import { v4 as uuidv4 } from "uuid";
+import { IPropsProductUI } from "./Product.types";
 
-export default function ProductUI(props) {
+export default function ProductUI(props: IPropsProductUI) {
   const { handleSubmit, register, setValue, trigger, getValues, formState } =
     useForm({
       mode: "onChange",
@@ -49,10 +50,10 @@ export default function ProductUI(props) {
             {...register("name")}
             defaultValue={props.data?.fetchUseditem.name}
           />
-          <div>{formState.errors.name?.message}</div>
+          <S.Error_Message>{formState.errors.name?.message}</S.Error_Message>
           <S.Image_Wrapper>
             {props.images.map((el: any, index: any) => (
-              <div>
+              <S.Inner_Image>
                 <Uploads01
                   key={uuidv4()}
                   index={index}
@@ -60,7 +61,7 @@ export default function ProductUI(props) {
                   defaultFileUrl={props.data?.fetchUseditem.images?.[index]}
                   onChangeFileUrls={props.onChangeFileUrls}
                 />
-              </div>
+              </S.Inner_Image>
             ))}
           </S.Image_Wrapper>
           <div>{formState.errors.images?.message}</div>
@@ -81,7 +82,12 @@ export default function ProductUI(props) {
             onChange={handleChange}
             defaultValue={props.data?.fetchUseditem.contents}
             // setValue={props.data?.fetchUseditem.contents}
-            // style={{ width: "450px", height: "10em", margin: "5px" }}
+            style={{
+              width: "450px",
+              height: "10em",
+              margin: "5px",
+              backgroundColor: "white",
+            }}
             // value={
             //   getValues("contents") || props.data?.fetchUseditem.contents || ""
             // }
@@ -102,8 +108,10 @@ export default function ProductUI(props) {
               defaultValue={props.data?.fetchUseditem.useditemAddress?.address}
             />
             <S.Address_Wrapper>
-              <label>Seach Address:</label>
-              <button onClick={props.onClickSearchAddress}>Search</button>
+              <S.Address_Header>Seach Address:</S.Address_Header>
+              <S.Address_Button onClick={props.onClickSearchAddress}>
+                Search
+              </S.Address_Button>
               {props.addressOpen && (
                 <Modal
                   visible={true}
@@ -113,37 +121,36 @@ export default function ProductUI(props) {
                   <DaumPostcode onComplete={props.onCompleteAddressSearch} />
                 </Modal>
               )}
-              <label>Zipcode:</label>
-              <input
+              <S.Zipcode_Label>Zipcode:</S.Zipcode_Label>
+              <S.Zipcode
                 type="text"
                 placeholder="91105"
                 {...register("zipcode")}
                 value={
                   props.zipcode ||
-                  props.data?.fetchUseditem.useditemAddress.zipcode
+                  props.data?.fetchUseditem.useditemAddress?.zipcode
                 }
                 readOnly
               />
-              <label>Addres:</label>
-              <input
+              <S.Address_Label>Addres:</S.Address_Label>
+              <S.Address
                 type="text"
                 placeholder="Address"
                 {...register("address")}
                 value={
                   props.address ||
-                  props.data?.fetchUseditem.useditemAddress.address
+                  props.data?.fetchUseditem.useditemAddress?.address
                 }
                 readOnly
               />
-              <label>AddressDetail:</label>
-              <input
+              <S.Detail_Label>AddressDetail:</S.Detail_Label>
+              <S.Detail_Address
                 type="text"
                 placeholder="Address Detail"
                 {...register("addressDetail")}
               />
             </S.Address_Wrapper>
           </S.Map_Wrapper>
-          =============================== ===============================
           <S.Remark_Wrapper>
             <S.Remark_Label>Remark:</S.Remark_Label>
           </S.Remark_Wrapper>

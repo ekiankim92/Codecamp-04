@@ -29,8 +29,8 @@ export const Image_Wrapper = styled.div`
 
 export const Image = styled.img`
   width: 250px;
-  height: 250px;
   padding: 8px;
+  object-fit: scale-down;
 `;
 
 export const Seller_Name = styled.div`

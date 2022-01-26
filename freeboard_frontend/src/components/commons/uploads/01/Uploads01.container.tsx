@@ -1,14 +1,11 @@
 import { useMutation } from "@apollo/client";
 import { UPLOAD_FILE } from "./Uploads01.queries";
 import ImageValidation from "./Uploads01.validation";
-import { useRef } from "react";
+import { ChangeEvent, useRef } from "react";
 import Uploads01UI from "./Uploads01.presenter";
-import {
-  IMutation,
-  IMutationUploadFileArgs,
-} from "../../../../commons/types/generated/types";
+import { IPropsUploads01 } from "./Uploads01.types";
 
-export default function Uploads01(props) {
+export default function Uploads01(props: IPropsUploads01) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [uploadFile] = useMutation(UPLOAD_FILE);
 
@@ -16,7 +13,7 @@ export default function Uploads01(props) {
     fileRef.current?.click();
   };
 
-  const onUploadFile = async (event) => {
+  const onUploadFile = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = ImageValidation(event.target.files?.[0]);
     if (!file) return;
     try {

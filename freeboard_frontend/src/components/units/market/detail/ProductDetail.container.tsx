@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import ProductDetailUI from "./ProductDetail.presenter";
 import { FETCH_USED_ITEM, DELETE_USED_ITEM } from "./ProductDetail.queries";
-import { useApolloClient, useMutation, useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import {
   IMutation,
   IMutationDeleteUseditemArgs,
@@ -17,8 +17,6 @@ export default function ProductDetail(props) {
     IMutationDeleteUseditemArgs
   >(DELETE_USED_ITEM);
 
-  // const client = useApolloClient();
-
   const { data } = useQuery<
     Pick<IQuery, "fetchUseditem">,
     IQueryFetchUseditemArgs
@@ -27,11 +25,6 @@ export default function ProductDetail(props) {
       useditemId: String(router.query.marketId),
     },
   });
-  console.log(data?.fetchUseditem.name);
-  console.log(data?.fetchUseditem.price);
-  console.log(data?.fetchUseditem.contents);
-  console.log(data?.fetchUseditem.tags);
-  console.log(data?.fetchUseditem.remarks);
 
   const onClickDeleteProduct = async () => {
     try {

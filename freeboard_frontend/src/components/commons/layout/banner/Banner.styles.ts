@@ -59,10 +59,6 @@ export const Card_One = styled.div`
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8%;
   background: #ffffff;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-  border: 1px solid lightgray;
-  border-radius: 4px;
 `;
 
 export const Card_Two = styled.div`
@@ -70,10 +66,6 @@ export const Card_Two = styled.div`
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8%;
   background: #ffffff;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-  border: 1px solid lightgray;
-  border-radius: 4px;
 `;
 
 export const Card_Three = styled.div`
@@ -81,10 +73,6 @@ export const Card_Three = styled.div`
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8%;
   background: #ffffff;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-  border: 1px solid lightgray;
-  border-radius: 4px;
 `;
 
 export const Card_Four = styled.div`
@@ -92,10 +80,6 @@ export const Card_Four = styled.div`
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8%;
   background: #ffffff;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-  border: 1px solid lightgray;
-  border-radius: 4px;
 `;
 
 export const Img_Wrapper = styled.div`
@@ -153,29 +137,28 @@ export const Bottom_Carousel_Image2_Wrapper = styled.div`
 
 export const Bottom_Slider = styled(Slider)`
   width: 100%;
-  height: 100%;
   margin-top: 20px;
-  margin-left: 170px;
-  /* display: flex; */
-  /* align-items: center; */
 `;
 
 export const Bottom_Slider_Wrapper = styled.div``;
 
 export const Slider_Image1 = styled.img`
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   object-fit: fill;
+  border-right: 1px solid lightgray;
 `;
 
 export const Slider_Image2 = styled.img`
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   object-fit: fill;
+  border-right: 1px solid lightgray;
 `;
 
 export const Slider_Image3 = styled.img`
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   object-fit: fill;
+  border-right: 1px solid lightgray;
 `;

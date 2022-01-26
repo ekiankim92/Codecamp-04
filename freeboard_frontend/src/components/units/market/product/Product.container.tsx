@@ -9,10 +9,12 @@ import {
   IMutation,
   IMutationCreateUseditemArgs,
   IMutationUpdateUseditemArgs,
+  IQuery,
 } from "../../../../commons/types/generated/types";
 import { withAuth } from "../../../commons/hocs/withAuth";
+import { IPropsProduct } from "./Product.types";
 
-const Product = (props) => {
+const Product = (props: IPropsProduct) => {
   const router = useRouter();
 
   const [hashtag, setHashtag] = useState<string[] | []>([]);
@@ -35,7 +37,7 @@ const Product = (props) => {
   >(UPDATE_USED_ITEM);
 
   // edit default data
-  const { data } = useQuery(FETCH_USED_ITEM, {
+  const { data } = useQuery<Pick<IQuery, "fetchUseditem">>(FETCH_USED_ITEM, {
     variables: {
       useditemId: router.query.marketId,
     },
@@ -106,7 +108,7 @@ const Product = (props) => {
     setAddressOpen((prev) => !prev);
   };
 
-  const onCompleteAddressSearch = (data) => {
+  const onCompleteAddressSearch = (data: any) => {
     setZipcode(data.zonecode);
     setAddress(data.address);
     setAddressOpen((prev) => !prev);

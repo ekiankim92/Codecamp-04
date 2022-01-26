@@ -1,10 +1,10 @@
-import { MouseEvent, SyntheticEvent } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { Maybe } from "../../../commons/types/generated/types";
 
 interface IPropsHashtag {
   setHashtag: (arg0: string[]) => void;
   hashtag: string[] | [];
-  defaultValue: string;
+  defaultValue: Maybe<string[]> | undefined;
 }
 
 export default function Hashtag(props: IPropsHashtag) {

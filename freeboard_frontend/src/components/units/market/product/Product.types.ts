@@ -1,3 +1,6 @@
+import { Address } from "react-daum-postcode/lib/loadPostcode";
+import { IMutation, IQuery } from "../../../../commons/types/generated/types";
+
 export interface FormValues {
   name: string;
   remarks: string;
@@ -12,4 +15,26 @@ export interface FormValues {
 
 export interface IMyButtonsProps {
   isValid: boolean;
+}
+
+export interface IPropsProduct {
+  data?: any;
+  createUseditem?: Pick<IMutation, "createUseditem">;
+  updateUseditem?: Pick<IMutation, "updateUseditem">;
+}
+
+export interface IPropsProductUI {
+  images: string[];
+  hashtag: string[];
+  setHashtag: (arg0: string[]) => void;
+  address: string;
+  addressOpen: boolean;
+  zipcode: string;
+  data?: Pick<IQuery, "fetchUseditem">;
+  onClickSubmit: (data: FormValues) => void;
+  onClickProductUpdate: (data: FormValues) => void;
+  onChangeFileUrls: (fileUrl: string, index: number) => void;
+  onClickSearchAddress: () => void;
+  onToggleModal: () => void;
+  onCompleteAddressSearch: (data: any) => void;
 }

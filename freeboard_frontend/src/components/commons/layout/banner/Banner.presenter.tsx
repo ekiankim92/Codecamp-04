@@ -99,15 +99,9 @@ export default function BannerUI() {
       </S.Carousel2> */}
       <S.Bottom_Slider_Wrapper>
         <S.Bottom_Slider {...settings}>
-          <div>
-            <S.Slider_Image1 src="https://howlpotdesign.wisacdn.com/_data/product/adcde0b3003e592d1482bd0ed9c8d965.jpg" />
-          </div>
-          <div>
-            <S.Slider_Image2 src="https://howlpotdesign.wisacdn.com/_data/product/c83acdcc5ae8230b0e761ef2859a49d4.jpg" />
-          </div>
-          <div>
-            <S.Slider_Image3 src="https://howlpotdesign.wisacdn.com/_data/product/7f86eb73982feb4a2fd42ccf4aded4ea.jpg" />
-          </div>
+          <S.Slider_Image1 src="https://howlpotdesign.wisacdn.com/_data/product/adcde0b3003e592d1482bd0ed9c8d965.jpg" />
+          <S.Slider_Image2 src="https://howlpotdesign.wisacdn.com/_data/product/c83acdcc5ae8230b0e761ef2859a49d4.jpg" />
+          <S.Slider_Image3 src="https://howlpotdesign.wisacdn.com/_data/product/7f86eb73982feb4a2fd42ccf4aded4ea.jpg" />
         </S.Bottom_Slider>
       </S.Bottom_Slider_Wrapper>
     </>

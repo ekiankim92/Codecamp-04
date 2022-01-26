@@ -2,8 +2,13 @@ import * as S from "./ProductDetail.styles";
 import KakaoMap from "../../../commons/kakaomap/map.container";
 import Dompurify from "dompurify";
 import { v4 as uuidv4 } from "uuid";
+import { ChangeEvent } from "react";
 
 export default function ProductDetailUI(props) {
+  const onError = (event: ChangeEvent<HTMLImageElement>) => {
+    event.target.src = "/market_images/image.png";
+  };
+
   return (
     <>
       <S.Wrapper>
@@ -13,33 +18,21 @@ export default function ProductDetailUI(props) {
         <S.Outter_Wrapper>
           <S.Image_Wrapper>
             <S.Images1>
-              {/* {props.data?.fetchUseditem.images
-                ?.filter((el) => el)
-                .map((el) => (
-                  <img
-                    key={uuidv4()}
-                    src={`https://storage.googleapis.com/${el}`}
-                  />
-                ))} */}
-              <img
+              <S.Image
                 src={`https://storage.googleapis.com/${props.data?.fetchUseditem.images[0]}`}
+                onError={onError}
               />
-              {/* <div>====================</div>
-              <img
-                src={`https://storage.googleapis.com/${props.data?.fetchUseditem.images[0]}`}
-              />
-              <div>====================</div> */}
             </S.Images1>
             <S.Images2>
-              Image 2:{" "}
-              <img
+              <S.Image
                 src={`https://storage.googleapis.com/${props.data?.fetchUseditem.images[1]}`}
+                onError={onError}
               />
             </S.Images2>
             <S.Images3>
-              Image 3:{" "}
-              <img
+              <S.Image
                 src={`https://storage.googleapis.com/${props.data?.fetchUseditem.images[2]}`}
+                onError={onError}
               />
             </S.Images3>
           </S.Image_Wrapper>
@@ -69,29 +62,29 @@ export default function ProductDetailUI(props) {
             </S.Detail_Remarks>
           </S.Info_Wrapper>
           <S.Section_Wrapper>
-            <div>Maps</div>
+            <S.Map_Label>Map</S.Map_Label>
             <KakaoMap
               address={props.data?.fetchUseditem.useditemAddress.address}
             />
             <div>
-              <div>
+              <S.Zipcode>
                 Zipcode: {props.data?.fetchUseditem.useditemAddress.zipcode}
-              </div>
-              <div>
+              </S.Zipcode>
+              <S.Address>
                 Address: {props.data?.fetchUseditem.useditemAddress.address}
-              </div>
-              <div>
+              </S.Address>
+              <S.Address_Detail>
                 Address Detail:{" "}
                 {props.data?.fetchUseditem.useditemAddress.addressDetail}
-              </div>
+              </S.Address_Detail>
             </div>
           </S.Section_Wrapper>
         </S.Outter_Wrapper>
-        <div>
-          <button onClick={props.onClickMoveToMarketList}>List</button>
-          <button onClick={props.onClickMoveToEdit}>Edit</button>
-          <button onClick={props.onClickDeleteProduct}>Delete</button>
-        </div>
+        <S.Button_Wrapper>
+          <S.Button onClick={props.onClickMoveToMarketList}>List</S.Button>
+          <S.Button onClick={props.onClickMoveToEdit}>Edit</S.Button>
+          <S.Button onClick={props.onClickDeleteProduct}>Delete</S.Button>
+        </S.Button_Wrapper>
       </S.Wrapper>
     </>
   );
