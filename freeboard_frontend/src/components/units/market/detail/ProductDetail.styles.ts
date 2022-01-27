@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   width: 1200px;
   border: 1px solid black;
-  margin: 100px;
+  margin: 100px 100px 60px 100px;
   padding: 80px 102px 100px 102px;
   display: flex;
   flex-direction: column;
@@ -60,7 +60,6 @@ export const Info_Wrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* background-color: lightblue; */
 `;
 
 export const Detail_Name = styled.div`

@@ -1,11 +1,13 @@
 import * as S from "./MarketQuestionWrite.styles";
 import { useForm } from "react-hook-form";
+import { IPropsMarketQuestionWriteUI } from "./MarketQuestionWrite.types";
 
-export default function MarketQuestionWriteUI(props) {
+export default function MarketQuestionWriteUI(
+  props: IPropsMarketQuestionWriteUI
+) {
   const { register, handleSubmit } = useForm({
     mode: "onChange",
   });
-
   return (
     <>
       <div>
@@ -16,8 +18,14 @@ export default function MarketQuestionWriteUI(props) {
               : props.onClickWriteQuestion
           )}
         >
+          {!props.isEdit && (
+            <S.CommentWrapper>
+              <img src="/market_images/comment.png" />
+              <S.Header>Leave Your Comments Here:</S.Header>
+            </S.CommentWrapper>
+          )}
           <S.Wrapper>
-            <S.Question_Input
+            <S.QuestionInput
               type="text"
               placeholder="Anything related to personal information may be deleted and the responsibilies lies upon the writer"
               {...register("contents")}
@@ -25,13 +33,17 @@ export default function MarketQuestionWriteUI(props) {
               maxLength={100}
               defaultValue={props.el?.contents}
             />
-            <div>{props.contents?.length}/100</div>
-            <button disabled={props.isSubmitting}>
-              {props.isEdit ? "Edit" : "Inquiry"}
-            </button>
-            <input type="button" value="Reply" onClick={props.onClickTesting} />
-            <button type="reset">Clear</button>
           </S.Wrapper>
+          <S.BottomWrapper>
+            <S.ButtonWrapper>
+              {props.contents && (
+                <S.WordCount>{props.contents?.length}/100</S.WordCount>
+              )}
+              <S.Button disabled={props.isSubmitting}>
+                {props.isEdit ? "Edit" : "Comment"}
+              </S.Button>
+            </S.ButtonWrapper>
+          </S.BottomWrapper>
         </form>
       </div>
     </>

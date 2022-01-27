@@ -1,3 +1,4 @@
+import * as S from "./MarketQuestionList.styles";
 import {
   FETCH_USED_ITEM_QUESTIONS,
   DELETE_USED_ITEM_QUESTION,
@@ -79,6 +80,11 @@ export default function MarketQuestionListUIItem(props) {
           <div>{props.el?.contents}</div>
           <button onClick={onClickQuestionUpdate}>Edit</button>
           <button onClick={onClickQuestionDelete(props.el?._id)}>Delete</button>
+          <S.ButtonInput
+            type="button"
+            value="Reply"
+            onClick={props.onClickTesting}
+          />
         </div>
       )}
       {isEdit && (

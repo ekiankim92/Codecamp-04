@@ -13,10 +13,10 @@ import {
   IMutationCreateUseditemQuestionArgs,
   IMutationUpdateUseditemQuestionArgs,
 } from "../../../../../commons/types/generated/types";
-import { Modal } from "react-bootstrap";
 import { withAuth } from "../../../../commons/hocs/withAuth";
+import { IPropsMarketQuestionWrite } from "./MarketQuestionWrite.types";
 
-const MarketQuestionWrite = (props) => {
+const MarketQuestionWrite = (props: IPropsMarketQuestionWrite) => {
   const router = useRouter();
 
   const [contents, myContents] = useState<string>("");
@@ -32,6 +32,10 @@ const MarketQuestionWrite = (props) => {
     Pick<IMutation, "updateUseditemQuestion">,
     IMutationUpdateUseditemQuestionArgs
   >(UPDATE_USED_ITEM_QUESTION);
+
+  const onChangeContent = (event: ChangeEvent<HTMLInputElement>) => {
+    myContents(event.target.value);
+  };
 
   const onClickWriteQuestion = async (data: FormValues) => {
     setIsSubmitting(true);
@@ -57,14 +61,9 @@ const MarketQuestionWrite = (props) => {
       setIsSubmitting(false);
       console.log(result.data?.createUseditemQuestion.contents);
       console.log(data);
-      // router.reload(`/market/${router.query.marketId}/edit`);
     } catch (error) {
       if (error instanceof Error) console.log(error.message);
     }
-  };
-
-  const onChangeContent = (event: ChangeEvent<HTMLInputElement>) => {
-    myContents(event.target.value);
   };
 
   const onClickQuestionUpdate = async () => {
@@ -97,10 +96,6 @@ const MarketQuestionWrite = (props) => {
     }
   };
 
-  const onClickTesting = () => {
-    alert("testing");
-  };
-
   return (
     <MarketQuestionWriteUI
       onClickWriteQuestion={onClickWriteQuestion}
@@ -110,7 +105,6 @@ const MarketQuestionWrite = (props) => {
       el={props.el}
       isSubmitting={isSubmitting}
       isEdit={props.isEdit}
-      onClickTesting={onClickTesting}
     />
   );
 };

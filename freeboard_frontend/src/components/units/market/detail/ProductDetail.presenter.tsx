@@ -1,10 +1,10 @@
 import * as S from "./ProductDetail.styles";
 import KakaoMap from "../../../commons/kakaomap/map.container";
 import Dompurify from "dompurify";
-import { v4 as uuidv4 } from "uuid";
 import { ChangeEvent } from "react";
+import { IPropsProductDetailUI } from "./ProductDetail.types";
 
-export default function ProductDetailUI(props) {
+export default function ProductDetailUI(props: IPropsProductDetailUI) {
   const onError = (event: ChangeEvent<HTMLImageElement>) => {
     event.target.src = "/market_images/image.png";
   };
@@ -19,19 +19,19 @@ export default function ProductDetailUI(props) {
           <S.Image_Wrapper>
             <S.Images1>
               <S.Image
-                src={`https://storage.googleapis.com/${props.data?.fetchUseditem.images[0]}`}
+                src={`https://storage.googleapis.com/${props.data?.fetchUseditem?.images?.[0]}`}
                 onError={onError}
               />
             </S.Images1>
             <S.Images2>
               <S.Image
-                src={`https://storage.googleapis.com/${props.data?.fetchUseditem.images[1]}`}
+                src={`https://storage.googleapis.com/${props.data?.fetchUseditem?.images?.[1]}`}
                 onError={onError}
               />
             </S.Images2>
             <S.Images3>
               <S.Image
-                src={`https://storage.googleapis.com/${props.data?.fetchUseditem.images[2]}`}
+                src={`https://storage.googleapis.com/${props.data?.fetchUseditem?.images?.[2]}`}
                 onError={onError}
               />
             </S.Images3>
@@ -64,18 +64,18 @@ export default function ProductDetailUI(props) {
           <S.Section_Wrapper>
             <S.Map_Label>Map</S.Map_Label>
             <KakaoMap
-              address={props.data?.fetchUseditem.useditemAddress.address}
+              address={props.data?.fetchUseditem.useditemAddress?.address}
             />
             <div>
               <S.Zipcode>
-                Zipcode: {props.data?.fetchUseditem.useditemAddress.zipcode}
+                Zipcode: {props.data?.fetchUseditem.useditemAddress?.zipcode}
               </S.Zipcode>
               <S.Address>
-                Address: {props.data?.fetchUseditem.useditemAddress.address}
+                Address: {props.data?.fetchUseditem.useditemAddress?.address}
               </S.Address>
               <S.Address_Detail>
                 Address Detail:{" "}
-                {props.data?.fetchUseditem.useditemAddress.addressDetail}
+                {props.data?.fetchUseditem.useditemAddress?.addressDetail}
               </S.Address_Detail>
             </div>
           </S.Section_Wrapper>

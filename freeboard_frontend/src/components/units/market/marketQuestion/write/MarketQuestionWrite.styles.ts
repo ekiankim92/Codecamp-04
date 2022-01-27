@@ -1,15 +1,53 @@
 import styled from "@emotion/styled";
 
-export const Wrapper = styled.div`
-  width: 1200px;
-  height: 200px;
-  padding-left: 122px;
-  padding-right: 102px;
-  /* background-color: yellow; */
+export const CommentWrapper = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
 `;
 
-export const Question_Input = styled.input`
+export const Header = styled.div`
+  font-size: 30px;
+  font-family: italic;
+  margin-left: 15px;
+`;
+
+export const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const WordCount = styled.div`
+  margin-right: 10px;
+  font-size: 15px;
+  display: inline-block;
+`;
+
+export const QuestionInput = styled.input`
   width: 1000px;
   height: 150px;
-  padding-left: 10px;
+  padding: 15px;
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 1000px;
+  text-align: end;
+`;
+
+export const BottomWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const Button = styled.button`
+  width: 100px;
+  height: 40px;
+  :hover {
+    cursor: pointer;
+    background-color: ivory;
+  }
 `;
