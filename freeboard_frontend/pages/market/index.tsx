@@ -3,7 +3,7 @@ import MarketList from "../../src/components/units/market/list/MarketList.contai
 export default function MarketPage() {
   return (
     <>
-      <MarketList />;
+      <MarketList />
     </>
   );
 }

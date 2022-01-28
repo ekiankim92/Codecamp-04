@@ -19,13 +19,11 @@ export default function LogIn() {
   // Gloal Acceess Token
   const { setAccessToken } = useContext(GlobalConText);
 
-  // Log in
   const [loginUser] = useMutation<
     Pick<IMutation, "loginUser">,
     IMutationLoginUserArgs
   >(LOGIN_USER);
 
-  // Access Token 조회
   const { data } =
     useQuery<Pick<IQuery, "fetchUserLoggedIn">>(FETCH_USER_LOGGED_IN);
 
@@ -55,9 +53,7 @@ export default function LogIn() {
 
     localStorage.setItem("refreshToken", "true");
     setAccessToken?.(result.data?.loginUser.accessToken || "");
-    // router.push("/learnmore");
 
-    // when logging in, if there's an item ? basket : market list
     const baskets = JSON.parse(localStorage.getItem("basket") || "[]");
     if (baskets.length) {
       const result = confirm(
@@ -71,7 +67,6 @@ export default function LogIn() {
     }
   };
 
-  //Router to New Registration
   const onClickRegister = () => {
     router.push("/registration");
   };

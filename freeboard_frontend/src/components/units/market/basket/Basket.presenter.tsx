@@ -2,8 +2,13 @@ import * as S from "./Basket.styles";
 import { v4 as uuidv4 } from "uuid";
 import DOMPurify from "dompurify";
 import { IPropsBasketUI } from "./Basket.types";
+import { ChangeEvent } from "react";
 
 export default function BasketUI(props: IPropsBasketUI) {
+  const onError = (event: ChangeEvent<HTMLImageElement>) => {
+    event.target.src = "/market_images/image.png";
+  };
+
   return (
     <>
       <S.Cart_Title>
@@ -16,6 +21,7 @@ export default function BasketUI(props: IPropsBasketUI) {
               <S.Image_Wrapper>
                 <S.Image
                   src={`https://storage.googleapis.com/${el.images[0]}`}
+                  onError={onError}
                 />
               </S.Image_Wrapper>
               <S.Seller_Name>Selle's Name: {el.seller.name}</S.Seller_Name>

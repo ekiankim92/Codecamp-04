@@ -1,5 +1,4 @@
 import * as S from "./Mypage.styles";
-import Reload from "../reload/reload.container";
 import { v4 as uuid4 } from "uuid";
 import PaginationsPage01 from "../../../commons/paginations/01/Paginations01.container";
 
@@ -13,19 +12,19 @@ export default function MyPageUI(props) {
             Name: {props.userLoggedIn?.fetchUserLoggedIn.name}
           </S.Header>
           <S.Header>
-            Point Amount:{" "}
+            Point Amount:
             {props.userLoggedIn?.fetchUserLoggedIn.userPoint.amount} points
           </S.Header>
           <div>
             <img src="/market_images/profile.png" />
           </div>
         </div>
-        <S.Login_Security>
+        <S.LoginSecurity>
           <span>
             <img src="/market_images/padlock.png" />
           </span>
-          <S.Login_Security_Info>Login & Security</S.Login_Security_Info>
-        </S.Login_Security>
+          <S.LoginSecurityInfo>Login & Security</S.LoginSecurityInfo>
+        </S.LoginSecurity>
         ========================================
         <div>
           <label>현재 비밀번호:</label>
@@ -35,20 +34,24 @@ export default function MyPageUI(props) {
           <button onClick={props.onClickChangePassword}>비번 바꾸기</button>
         </div>
         =========================================
-        <S.Your_Order>
+        <S.YourOrder onClick={props.onClickMoveToMyOrder}>
           <span>
             <img src="/market_images/order.png" />
           </span>
-          <S.Your_Order_Info onClick={props.onClickMoveToMyOrder}>
-            Your Orders
-          </S.Your_Order_Info>
-        </S.Your_Order>
-        <S.Archived_Order>
+          <S.YourOrderInfo>Your Orders</S.YourOrderInfo>
+        </S.YourOrder>
+        <S.ArchivedOrder>
           <span>
             <img src="/market_images/archive.png" />
           </span>
-          <S.Archived_Order_Info>Archived Orders</S.Archived_Order_Info>
-        </S.Archived_Order>
+          <S.ArchivedOrderInfo>Archived Orders</S.ArchivedOrderInfo>
+        </S.ArchivedOrder>
+        <S.Reload onClick={props.onClickMoveToReload}>
+          <span>
+            <img src="/market_images/refresh.png" />
+          </span>
+          <S.ReloadInfo>Reload Points</S.ReloadInfo>
+        </S.Reload>
       </S.Wrapper>
       =========================================
       {/* <div>

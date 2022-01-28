@@ -13,12 +13,12 @@ export const Wrapper = styled.div`
 `;
 
 export const Header = styled.div`
-  font-size: 45px;
+  font-size: 30px;
   text-decoration: underline;
   padding: 15px;
 `;
 
-export const Login_Security = styled.div`
+export const LoginSecurity = styled.div`
   width: 350px;
   height: 150px;
   display: flex;
@@ -27,18 +27,17 @@ export const Login_Security = styled.div`
   border-radius: 16px;
   :hover {
     cursor: pointer;
-    background-color: lightgray;
+    background-color: ivory;
   }
   padding: 35px;
-  /* background-color: yellow; */
 `;
 
-export const Login_Security_Info = styled.span`
+export const LoginSecurityInfo = styled.span`
   font-size: 25px;
   padding: 15px;
 `;
 
-export const Your_Order = styled.div`
+export const YourOrder = styled.div`
   width: 350px;
   height: 150px;
   display: flex;
@@ -47,18 +46,17 @@ export const Your_Order = styled.div`
   border-radius: 16px;
   :hover {
     cursor: pointer;
-    background-color: lightgray;
+    background-color: ivory;
   }
   padding: 35px;
-  /* background-color: bisque; */
 `;
 
-export const Your_Order_Info = styled.span`
+export const YourOrderInfo = styled.span`
   font-size: 25px;
   padding: 18px;
 `;
 
-export const Archived_Order = styled.div`
+export const ArchivedOrder = styled.div`
   width: 350px;
   height: 150px;
   display: flex;
@@ -67,13 +65,31 @@ export const Archived_Order = styled.div`
   border-radius: 16px;
   :hover {
     cursor: pointer;
-    background-color: lightgray;
+    background-color: ivory;
   }
   padding: 35px;
-  /* background-color: lavender; */
 `;
 
-export const Archived_Order_Info = styled.span`
+export const ArchivedOrderInfo = styled.span`
+  font-size: 25px;
+  padding: 18px;
+`;
+
+export const Reload = styled.div`
+  width: 350px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  border: 2px solid lightgray;
+  border-radius: 16px;
+  :hover {
+    cursor: pointer;
+    background-color: ivory;
+  }
+  padding: 35px;
+`;
+
+export const ReloadInfo = styled.span`
   font-size: 25px;
   padding: 18px;
 `;

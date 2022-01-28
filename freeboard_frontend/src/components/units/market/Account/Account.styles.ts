@@ -116,13 +116,14 @@ export const Password_Confirm = styled.input`
 `;
 
 export const Submit_Button = styled.button`
-  width: 100px;
+  width: 130px;
   height: 60px;
   margin-top: 20px;
   margin-bottom: 20px;
+  border-radius: 16px;
   :hover {
     cursor: pointer;
-    background-color: lightgray;
+    background-color: ivory;
   }
 `;
 

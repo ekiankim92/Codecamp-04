@@ -1,7 +1,8 @@
-import * as S from "./reload.style";
+import * as S from "./Reload.style";
 import Head from "next/head";
+import { IPropsReloadUI } from "./Reload.types";
 
-export default function ReloadUI(props) {
+export default function ReloadUI(props: IPropsReloadUI) {
   return (
     <>
       <Head>
@@ -14,12 +15,23 @@ export default function ReloadUI(props) {
           src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"
         ></script>
       </Head>
-      <div>Reload</div>
-      Amount: <input type="text" />
-      <button onClick={props.onClickPayment}>Reload Amount</button>
-      <div>Amount: {props.data?.fetchUserLoggedIn.userPoint.amount}</div>
-      <label>Points</label>
-      <input type="text" onChange={props.onChangeAmount} />
+      <S.Wrapper>
+        <S.HeaderWrapper>
+          <S.Header>Reload Points</S.Header>
+        </S.HeaderWrapper>
+        <S.PointWrapper>
+          Current Points: {props.data?.fetchUserLoggedIn.userPoint?.amount}
+        </S.PointWrapper>
+        <S.DescriptionWrapper>
+          <S.Description>Points You Wished to Exchange:</S.Description>
+          <div>
+            <S.PointInput type="text" onChange={props.onChangeAmount} />
+          </div>
+        </S.DescriptionWrapper>
+        <div>
+          <S.SubmitButton onClick={props.onClickPayment}>Reload</S.SubmitButton>
+        </div>
+      </S.Wrapper>
     </>
   );
 }

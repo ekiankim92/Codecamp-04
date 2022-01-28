@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   margin: 150px;
 `;
 
-export const Log_In_Info = styled.div`
+export const LoginInfo = styled.div`
   width: 600px;
   height: 800px;
   display: flex;
@@ -18,56 +18,62 @@ export const Log_In_Info = styled.div`
   align-items: center;
 `;
 
-export const Login_Logo = styled.div`
+export const LoginLogo = styled.div`
   margin-top: 150px;
 `;
 
-export const Logo_Img = styled.img`
+export const LogoImg = styled.img`
   margin-left: 14px;
   :hover {
     cursor: pointer;
   }
 `;
 
-export const Email_Log = styled.input`
+export const EmailLog = styled.input`
   width: 384px;
   height: 64px;
   margin-top: 70px;
+  border-radius: 16px;
+  padding: 10px;
 `;
 
-export const Password_Log = styled.input`
+export const PasswordLog = styled.input`
   width: 384px;
   height: 64px;
   margin-top: 30px;
+  border-radius: 16px;
+  padding: 10px;
 `;
 
-export const Sign_Log = styled.button`
+export const SignButton = styled.button`
   width: 300px;
   height: 64px;
   margin-top: 30px;
+  border-radius: 16px;
   :hover {
     cursor: pointer;
-    background-color: lightgray;
+    background-color: ivory;
   }
 `;
 
-export const Register_Log = styled.button`
+export const RegisterButton = styled.button`
   width: 300px;
   height: 64px;
   margin-top: 30px;
+  border-radius: 16px;
   :hover {
     cursor: pointer;
-    background-color: lightgray;
+    background-color: ivory;
   }
 `;
 
-export const Log_In_Picture = styled.div`
+export const LoginPicture = styled.div`
   width: 600px;
   height: 800px;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIIt3Ov961p3AmrxLYJy61L6pa-PWT94eRzg&usqp=CAU");
-  background-repeat: round;
-  background-size: 100%;
-  background-position: 100%;
-  opacity: 0.5;
-  border-radius: 10px;
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
 `;

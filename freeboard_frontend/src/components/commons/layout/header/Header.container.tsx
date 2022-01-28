@@ -28,6 +28,7 @@ export default function Header() {
     console.log(result);
     alert("You Have Logged Out");
     router.push("/");
+    router.reload();
   };
 
   return (

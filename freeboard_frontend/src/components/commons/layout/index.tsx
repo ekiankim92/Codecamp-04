@@ -29,6 +29,7 @@ const HIDDEN_BASKET = ["/market/basket"];
 const HIDDEN_MARKET_LIST = ["/market"];
 const HIDDEN_MYPAGE = ["/market/mypage"];
 const HIDDEN_MYCART = ["/market/basket"];
+const HIDDEN_RELOADPAGE = ["/market/reloadpage"];
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
@@ -44,6 +45,7 @@ export default function Layout(props: ILayoutProps) {
   const isHiddenMarketList = HIDDEN_MARKET_LIST.includes(router.asPath);
   const isHiddenMyPage = HIDDEN_MYPAGE.includes(router.asPath);
   const isHiddenMyCart = HIDDEN_MYCART.includes(router.asPath);
+  const isHiddenReloadPage = HIDDEN_RELOADPAGE.includes(router.asPath);
 
   return (
     <Wrapper>
@@ -54,7 +56,8 @@ export default function Layout(props: ILayoutProps) {
         !isHiddenProductPost &&
         !isHiddenBasket &&
         !isHiddenMarketList &&
-        !isHiddenMyPage && <Banner />}
+        !isHiddenMyPage &&
+        !isHiddenReloadPage && <Banner />}
       {/* <Navigation /> */}
       <BodyWrapper>
         {/* {!isHiddenRegister &&

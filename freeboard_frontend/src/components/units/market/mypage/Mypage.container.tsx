@@ -6,7 +6,7 @@ import {
   FETCH_USED_ITEMS_COUNT,
   FETCH_USER_LOGGED_IN,
 } from "./Mypage.queries";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Modal } from "antd";
 import {
   IQuery,
@@ -19,7 +19,7 @@ export default function MyPage() {
 
   const [password, setPassword] = useState<string>("");
 
-  const [startPage, setStartPage] = useState(1);
+  const [startPage, setStartPage] = useState<number>(1);
 
   const { data, refetch } = useQuery<
     Pick<IQuery, "fetchUseditemsIPicked">,
@@ -37,9 +37,8 @@ export default function MyPage() {
 
   const { data: userLoggedIn } = useQuery(FETCH_USER_LOGGED_IN);
 
-  const onChangePassword = (event) => {
+  const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
-    console.log(event.target.value);
   };
 
   const onClickChangePassword = async () => {
@@ -66,6 +65,10 @@ export default function MyPage() {
     router.push("/market/myorder");
   };
 
+  const onClickMoveToReload = () => {
+    router.push("/market/reloadpage");
+  };
+
   return (
     <>
       <MyPageUI
@@ -73,10 +76,11 @@ export default function MyPage() {
         onChangePassword={onChangePassword}
         onClickChangePassword={onClickChangePassword}
         refetch={refetch}
-        startPage={startPage}
         setStartPage={setStartPage}
-        count={dataFetchCountIPicked?.fetchUseditemsCountIPicked}
         onClickMoveToMyOrder={onClickMoveToMyOrder}
+        onClickMoveToReload={onClickMoveToReload}
+        startPage={startPage}
+        count={dataFetchCountIPicked?.fetchUseditemsCountIPicked}
         userLoggedIn={userLoggedIn}
       />
     </>

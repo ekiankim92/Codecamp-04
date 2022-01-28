@@ -1,48 +1,36 @@
 import * as S from "./Login.styles";
-import { Breadcrumb, Menu } from "antd";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
 import { IPropsLogInUI } from "./Login.types";
 
 export default function LogInUI(props: IPropsLogInUI) {
   return (
-    <div>
-      {/* <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={S.style}> */}
+    <>
       <S.Wrapper>
-        <S.Log_In_Info>
-          <S.Login_Logo>
+        <S.LoginInfo>
+          <S.LoginLogo>
             Woof Woof!
-            <S.Logo_Img src="images/pawn.png" />
-          </S.Login_Logo>
-          <S.Email_Log
+            <S.LogoImg src="images/pawn.png" />
+          </S.LoginLogo>
+          <S.EmailLog
             type="text"
             name="email"
             placeholder="Your login or e-mail"
             onChange={props.onChangeInputs}
           />
-          <S.Password_Log
+          <S.PasswordLog
             type="password"
             name="password"
             placeholder="Password"
             onChange={props.onChangeInputs}
           />
-          <S.Sign_Log onClick={props.onClickLogin}>Log In</S.Sign_Log>
-          <S.Register_Log onClick={props.onClickRegister}>
+          <S.SignButton onClick={props.onClickLogin}>Log In</S.SignButton>
+          <S.RegisterButton onClick={props.onClickRegister}>
             Register
-          </S.Register_Log>
-          {props.data && <div>Welcome!</div>}
-          <div>{props.data?.fetchUserLoggedIn.name}</div>
-        </S.Log_In_Info>
-        <S.Log_In_Picture></S.Log_In_Picture>
+          </S.RegisterButton>
+        </S.LoginInfo>
+        <S.LoginPicture>
+          <S.Image src="/market_images/logscreen.png" />
+        </S.LoginPicture>
       </S.Wrapper>
-      {/* </Box>
-      </Modal> */}
-    </div>
+    </>
   );
 }

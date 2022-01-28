@@ -9,6 +9,7 @@ import {
   IMutationToggleUseditemPickArgs,
   IMutationCreatePointTransactionOfBuyingAndSellingArgs,
 } from "../../../../commons/types/generated/types";
+import { withAuth } from "../../../commons/hocs/withAuth";
 import MarketListUI from "./MarketList.presenter";
 import {
   FETCH_USED_ITEMS,
@@ -16,7 +17,7 @@ import {
   TOGGLE_USED_ITEM_PICK,
 } from "./MarketList.queries";
 
-export default function MarketList() {
+const MarketList = () => {
   // keyword search
   const [keyword, setKeyword] = useState<string>("");
 
@@ -175,4 +176,5 @@ export default function MarketList() {
       keyword={keyword}
     />
   );
-}
+};
+export default withAuth(MarketList);

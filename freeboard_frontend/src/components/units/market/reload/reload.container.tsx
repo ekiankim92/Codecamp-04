@@ -3,28 +3,41 @@ import {
   IMutation,
   IMutationCreatePointTransactionOfLoadingArgs,
   IQuery,
+  IQueryFetchUseditemArgs,
 } from "../../../../commons/types/generated/types";
-import ReloadUI from "./reload.presenter";
-import { RELOAD_POINT, FETCH_USER_LOGGED_IN } from "./reload.queries";
-import { useState } from "react";
+import ReloadUI from "./Reload.presenter";
+import {
+  RELOAD_POINT,
+  FETCH_USER_LOGGED_IN,
+  FETCH_USED_ITEM,
+} from "./Reload.queries";
+import { ChangeEvent, useState } from "react";
+import { withAuth } from "../../../commons/hocs/withAuth";
 
-export default function Reload() {
-  // exchanging cash with the points
+declare const window: Window &
+  typeof globalThis & {
+    IMP: any;
+  };
+
+const Reload = () => {
   const [createPointTransactionOfLoading] = useMutation<
     Pick<IMutation, "createPointTransactionOfLoading">,
     IMutationCreatePointTransactionOfLoadingArgs
   >(RELOAD_POINT);
 
-  // fetching my data that was exchanged with cash
   const { data } =
     useQuery<Pick<IQuery, "fetchUserLoggedIn">>(FETCH_USER_LOGGED_IN);
 
-  // state for storing userPoint
-  const [amount, setAmount] = useState(0);
+  const { data: buyerData } = useQuery<
+    Pick<IQuery, "fetchUseditem">,
+    IQueryFetchUseditemArgs
+  >(FETCH_USED_ITEM);
 
-  // when onChaning the amount of points, that amout will be charged
-  function onChangeAmount(event: any) {
-    setAmount(event.target.value);
+  const [amount, setAmount] = useState<number>(0);
+
+  // when onChange the amount of points, that amout will be charged
+  function onChangeAmount(event: ChangeEvent<HTMLInputElement>) {
+    setAmount(Number(event.target.value));
   }
 
   const onClickPayment = () => {
@@ -35,16 +48,16 @@ export default function Reload() {
         // param
         pg: "html5_inicis",
         pay_method: "card",
-        name: "마우스",
+        name: "Point Charge",
         amount,
-        buyer_email: "gildong@gmail.com",
-        buyer_name: "홍길동",
+        buyer_email: data?.fetchUserLoggedIn.email,
+        buyer_name: data?.fetchUserLoggedIn.name,
         buyer_tel: "010-4242-4242",
-        buyer_addr: "서울특별시 강남구 신사동",
-        buyer_postcode: "01181",
+        buyer_addr: buyerData?.fetchUseditem.useditemAddress?.address,
+        buyer_postcode: buyerData?.fetchUseditem.useditemAddress?.zipcode,
         m_redirect_url: "", // 모바일 결제후 리다이렉트 주소
       },
-      (rsp) => {
+      (rsp: any) => {
         if (rsp.success) {
           console.log(rsp);
 
@@ -67,4 +80,5 @@ export default function Reload() {
       onChangeAmount={onChangeAmount}
     />
   );
-}
+};
+export default withAuth(Reload);
