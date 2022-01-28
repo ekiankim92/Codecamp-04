@@ -8,6 +8,7 @@ export default function MarketQuestionWriteUI(
   const { register, handleSubmit } = useForm({
     mode: "onChange",
   });
+
   return (
     <>
       <div>

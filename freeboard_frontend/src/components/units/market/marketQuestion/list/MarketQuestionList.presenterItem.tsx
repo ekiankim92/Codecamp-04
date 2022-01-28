@@ -1,50 +1,28 @@
 import * as S from "./MarketQuestionList.styles";
-import {
-  FETCH_USED_ITEM_QUESTIONS,
-  DELETE_USED_ITEM_QUESTION,
-} from "./MarketQuestionList.queries";
+import { DELETE_USED_ITEM_QUESTION } from "./MarketQuestionList.queries";
 import { useMutation } from "@apollo/client";
-import { useRouter } from "next/router";
 import {
   IMutation,
   IMutationDeleteUseditemQuestionArgs,
 } from "../../../../../commons/types/generated/types";
 import MarketQuestionWrite from "../write/MarketQuestionWrite.container";
 import { useState } from "react";
+import { IPropsMarketQuestionListUIItem } from "./MarketQuestionList.types";
+import { getDate } from "../../../../../commons/libraries/utils";
+import { Modal } from "antd";
 
-export default function MarketQuestionListUIItem(props) {
-  const router = useRouter();
-
-  const [isEdit, setIsEdit] = useState(false);
+export default function MarketQuestionListUIItem(
+  props: IPropsMarketQuestionListUIItem
+) {
+  const [isEdit, setIsEdit] = useState<boolean>(false);
 
   const [deleteUseditemQuestion] = useMutation<
     Pick<IMutation, "deleteUseditemQuestion">,
     IMutationDeleteUseditemQuestionArgs
   >(DELETE_USED_ITEM_QUESTION);
 
-  // const onClickQuestionDelete = async () => {
-  //   try {
-  //     const result = await deleteUseditemQuestion({
-  //       variables: {
-  //         useditemQuestionId: props.el?._id,
-  //       },
-  //       refetchQueries: [
-  //         {
-  //           query: FETCH_USED_ITEM_QUESTIONS,
-  //           variables: {
-  //             useditemId: String(router.query.marketId),
-  //           },
-  //         },
-  //       ],
-  //     });
-  //     console.log(result);
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // };
-
-  const onClickQuestionDelete = (id) => () => {
-    alert("testing");
+  const onClickQuestionDelete = (id: string) => () => {
+    Modal.success({ content: "Comment Deleted" });
     try {
       deleteUseditemQuestion({
         variables: {
@@ -56,7 +34,7 @@ export default function MarketQuestionListUIItem(props) {
             fields: {
               fetchUseditemQuestions: (prev, { readField }) => {
                 const newFetchItemQuestions = prev.filter(
-                  (el) => readField("_id", el) !== deleteId
+                  (el: any) => readField("_id", el) !== deleteId
                 );
                 return [...newFetchItemQuestions];
               },
@@ -65,7 +43,7 @@ export default function MarketQuestionListUIItem(props) {
         },
       });
     } catch (error) {
-      if (error instanceof Error) console.log(error.message);
+      if (error instanceof Error) console.log("Comment Delete:", error.message);
     }
   };
 
@@ -74,26 +52,38 @@ export default function MarketQuestionListUIItem(props) {
   };
 
   return (
-    <>
-      {!isEdit && (
-        <div>
-          <div>{props.el?.contents}</div>
-          <button onClick={onClickQuestionUpdate}>Edit</button>
-          <button onClick={onClickQuestionDelete(props.el?._id)}>Delete</button>
-          <S.ButtonInput
-            type="button"
-            value="Reply"
-            onClick={props.onClickTesting}
-          />
-        </div>
-      )}
-      {isEdit && (
-        <MarketQuestionWrite
-          isEdit={true}
-          setIsEdit={setIsEdit}
-          el={props.el}
-        />
-      )}
-    </>
+    <S.OuterWrapper>
+      <S.Wrapper>
+        <S.InnerWrapper>
+          {!isEdit && (
+            <div>
+              <S.UserInfoWrapper>
+                <S.UserName>
+                  {props.userData?.fetchUserLoggedIn.name}
+                </S.UserName>
+                <S.UserDate>
+                  {getDate(props.userData?.fetchUserLoggedIn.createdAt)}
+                </S.UserDate>
+              </S.UserInfoWrapper>
+              <S.ContentWrapper>
+                <S.Content>{props.el?.contents}</S.Content>
+              </S.ContentWrapper>
+              <S.Button onClick={onClickQuestionUpdate}>Edit</S.Button>
+              <S.Button onClick={onClickQuestionDelete(props.el?._id)}>
+                Delete
+              </S.Button>
+              <S.ButtonInput type="button" value="Reply" />
+            </div>
+          )}
+          {isEdit && (
+            <MarketQuestionWrite
+              isEdit={true}
+              setIsEdit={setIsEdit}
+              el={props.el}
+            />
+          )}
+        </S.InnerWrapper>
+      </S.Wrapper>
+    </S.OuterWrapper>
   );
 }

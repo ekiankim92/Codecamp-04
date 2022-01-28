@@ -31,16 +31,17 @@ export const QuestionInput = styled.input`
   width: 1000px;
   height: 150px;
   padding: 15px;
-`;
-
-export const ButtonWrapper = styled.div`
-  width: 1000px;
-  text-align: end;
+  border-radius: 10px;
 `;
 
 export const BottomWrapper = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 1000px;
+  text-align: end;
 `;
 
 export const Button = styled.button`
