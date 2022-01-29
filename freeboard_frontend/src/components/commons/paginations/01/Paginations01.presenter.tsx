@@ -18,7 +18,7 @@ export default function Paginations01UI(props: IPaginations01UIProps) {
             </span>
           )
       )}
-      <span onClick={props.onClickNextPage}>Next Page</span>
+      <span onClick={props.onClickNextPage}>Next</span>
     </div>
   );
 }

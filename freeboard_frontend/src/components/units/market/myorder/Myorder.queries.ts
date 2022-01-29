@@ -3,10 +3,9 @@ import { gql } from "@apollo/client";
 export const FETCH_ITEMS_I_SOLD = gql`
   query fetchUseditemsISold($search: String, $page: Int) {
     fetchUseditemsISold(search: $search, page: $page) {
-      _id
       name
-      contents
       price
+      images
       createdAt
       seller {
         name
@@ -24,10 +23,9 @@ export const FETCH_ITEMS_SOLD_COUNT = gql`
 export const FETCH_ITEMS_I_BOUGHT = gql`
   query fetchUseditemsIBought($search: String, $page: Int) {
     fetchUseditemsIBought(search: $search, page: $page) {
-      _id
       name
-      contents
       price
+      images
       createdAt
       seller {
         name

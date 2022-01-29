@@ -14,7 +14,9 @@ import {
 } from "../../../../commons/types/generated/types";
 
 export default function MyOrder() {
-  const [startPage, setStartPage] = useState(1);
+  const [startPage, setStartPage] = useState<number>(1);
+  const [itemsSold, setItemsSold] = useState(false);
+  const [itemsBought, setItemsBought] = useState(false);
 
   const { data, refetch } = useQuery<
     Pick<IQuery, "fetchUseditemsISold">,
@@ -38,6 +40,14 @@ export default function MyOrder() {
     Pick<IQuery, "fetchUseditemsCountIBought">
   >(FETCH_ITEMS_BOUGHT_COUNT);
 
+  const onClickItemsBought = () => {
+    setItemsBought((prev) => !prev);
+  };
+
+  const onClickItemsSold = () => {
+    setItemsSold((prev) => !prev);
+  };
+
   return (
     <MyOrderUI
       data={data}
@@ -48,6 +58,10 @@ export default function MyOrder() {
       count={dataSoldCount?.fetchUseditemsCountISold}
       dataItemsBought={dataItemsBought}
       count2={dataBoughtCount?.fetchUseditemsCountIBought}
+      onClickItemsBought={onClickItemsBought}
+      onClickItemsSold={onClickItemsSold}
+      itemsSold={itemsSold}
+      itemsBought={itemsBought}
     />
   );
 }

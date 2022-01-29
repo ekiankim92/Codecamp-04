@@ -4,7 +4,7 @@ import Header from "./header/Header.container";
 import Banner from "./banner/Banner.container";
 import Footer from "./footer/Footer.container";
 import { useRouter } from "next/router";
-import Sidebar from "./sidebar/Sidebar.container";
+// import Sidebar from "./sidebar/Sidebar.container";
 
 const Wrapper = styled.div``;
 
@@ -30,6 +30,7 @@ const HIDDEN_MARKET_LIST = ["/market"];
 const HIDDEN_MYPAGE = ["/market/mypage"];
 const HIDDEN_MYCART = ["/market/basket"];
 const HIDDEN_RELOADPAGE = ["/market/reloadpage"];
+const HIDDEN_MYORDER = ["/market/myorder"];
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
@@ -46,6 +47,7 @@ export default function Layout(props: ILayoutProps) {
   const isHiddenMyPage = HIDDEN_MYPAGE.includes(router.asPath);
   const isHiddenMyCart = HIDDEN_MYCART.includes(router.asPath);
   const isHiddenReloadPage = HIDDEN_RELOADPAGE.includes(router.asPath);
+  const isHiddenMyOrder = HIDDEN_MYORDER.includes(router.asPath);
 
   return (
     <Wrapper>
@@ -57,7 +59,8 @@ export default function Layout(props: ILayoutProps) {
         !isHiddenBasket &&
         !isHiddenMarketList &&
         !isHiddenMyPage &&
-        !isHiddenReloadPage && <Banner />}
+        !isHiddenReloadPage &&
+        !isHiddenMyOrder && <Banner />}
       {/* <Navigation /> */}
       <BodyWrapper>
         {/* {!isHiddenRegister &&
