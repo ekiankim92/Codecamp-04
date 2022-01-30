@@ -52,7 +52,7 @@ export default function ProductUI(props: IPropsProductUI) {
           />
           <S.Error_Message>{formState.errors.name?.message}</S.Error_Message>
           <S.Image_Wrapper>
-            {props.images.map((el: any, index: any) => (
+            {props.images.map((el: any, index: number) => (
               <S.Inner_Image>
                 <Uploads01
                   key={uuidv4()}

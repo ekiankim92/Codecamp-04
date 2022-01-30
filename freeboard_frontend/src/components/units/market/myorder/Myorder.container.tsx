@@ -12,8 +12,9 @@ import {
   IQueryFetchUseditemsIBoughtArgs,
   IQueryFetchUseditemsISoldArgs,
 } from "../../../../commons/types/generated/types";
+import { withAuth } from "../../../commons/hocs/withAuth";
 
-export default function MyOrder() {
+const MyOrder = () => {
   const [startPage, setStartPage] = useState<number>(1);
   const [itemsSold, setItemsSold] = useState(false);
   const [itemsBought, setItemsBought] = useState(false);
@@ -42,10 +43,12 @@ export default function MyOrder() {
 
   const onClickItemsBought = () => {
     setItemsBought((prev) => !prev);
+    setItemsSold(false);
   };
 
   const onClickItemsSold = () => {
     setItemsSold((prev) => !prev);
+    setItemsBought(false);
   };
 
   return (
@@ -64,4 +67,5 @@ export default function MyOrder() {
       itemsBought={itemsBought}
     />
   );
-}
+};
+export default withAuth(MyOrder);
