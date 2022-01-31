@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 1000px;
-  height: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +15,6 @@ export const NavigationWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   margin: 20px 0px 20px 0px;
-  background-color: beige;
 `;
 
 export const ItemsBought = styled.h1`
@@ -33,6 +31,13 @@ export const ItemsSold = styled.h1`
   }
 `;
 
+export const ItemsIPicked = styled.h1`
+  border-bottom: 2px solid black;
+  :hover {
+    cursor: pointer;
+  }
+`;
+
 export const HeaderWrapper = styled.div`
   width: 900px;
   display: flex;
@@ -40,7 +45,6 @@ export const HeaderWrapper = styled.div`
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
   margin-bottom: 15px;
-  background-color: khaki;
 `;
 
 export const NumberWrapper = styled.div`
@@ -124,5 +128,5 @@ export const BoughtImages = styled.img`
 `;
 
 export const PaginationWrapper = styled.div`
-  margin-top: 20px;
+  margin: 20px 0px 30px 0px;
 `;

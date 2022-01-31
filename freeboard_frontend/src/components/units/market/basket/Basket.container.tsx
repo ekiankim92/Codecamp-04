@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { IBoard } from "../../../../commons/types/generated/types";
 import BasketUI from "./Basket.presenter";
-import { withAuth } from "../../../commons/hocs/withAuth";
 
 const Basket = () => {
   const [basketItems, setBasketItems] = useState<IBoard[]>([]);
@@ -21,4 +20,4 @@ const Basket = () => {
 
   return <BasketUI basketItems={basketItems} onClickDelete={onClickDelete} />;
 };
-export default withAuth(Basket);
+export default Basket;

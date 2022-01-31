@@ -17,6 +17,9 @@ export default function MyOrderUI(props: IPropsMyOrderUI) {
           Items Bought
         </S.ItemsBought>
         <S.ItemsSold onClick={props.onClickItemsSold}>Items Sold</S.ItemsSold>
+        <S.ItemsIPicked onClick={props.onClickItemsIPicked}>
+          Items I Picked
+        </S.ItemsIPicked>
       </S.NavigationWrapper>
       {props.itemsSold && (
         <>
@@ -115,7 +118,59 @@ export default function MyOrderUI(props: IPropsMyOrderUI) {
               refetchBoughtItems={props.refetchBoughtItems}
               startPage={props.startPage}
               setStartPage={props.setStartPage}
-              count2={props.count}
+              count={props.count2}
+            />
+          </S.PaginationWrapper>
+        </>
+      )}
+      {props.itemsIPicked && (
+        <>
+          <div>
+            <S.HeaderWrapper>
+              <S.NumberWrapper>
+                <S.HeaderInfo>Number</S.HeaderInfo>
+              </S.NumberWrapper>
+              <S.ProductWrapper>
+                <S.HeaderInfoProduct>Product Name</S.HeaderInfoProduct>
+              </S.ProductWrapper>
+              <S.PriceWrapper>
+                <S.HeaderInfo>Price</S.HeaderInfo>
+              </S.PriceWrapper>
+              <S.DateWrapper>
+                <S.HeaderInfo>Date</S.HeaderInfo>
+              </S.DateWrapper>
+            </S.HeaderWrapper>
+            {props.dataItemsPicked?.fetchUseditemsIPicked.map(
+              (el: any, index: number) => (
+                <S.InfoWrapper key={uuidv4()}>
+                  <S.NumberInfo>
+                    <span>{index + 1}</span>
+                  </S.NumberInfo>
+                  <S.ProductInfo>
+                    <span>{el.name}</span>
+                    <span>
+                      <S.SoldImages
+                        src={`https://storage.googleapis.com/${el.images?.[0]}`}
+                        onError={onError}
+                      />
+                    </span>
+                  </S.ProductInfo>
+                  <S.PriceInfo>
+                    <span>{el.price}</span>
+                  </S.PriceInfo>
+                  <S.DateInfo>
+                    <span>{getDate(el.createdAt)}</span>
+                  </S.DateInfo>
+                </S.InfoWrapper>
+              )
+            )}
+          </div>
+          <S.PaginationWrapper>
+            <PaginationsPage01
+              refetchItemsPicked={props.refetchItemsPicked}
+              startPage={props.startPage}
+              setStartPage={props.setStartPage}
+              count={props.count3}
             />
           </S.PaginationWrapper>
         </>

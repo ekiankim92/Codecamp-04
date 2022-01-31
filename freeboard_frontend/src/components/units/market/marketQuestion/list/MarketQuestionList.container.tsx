@@ -6,7 +6,6 @@ import {
   IQuery,
   IQueryFetchUseditemQuestionsArgs,
 } from "../../../../../commons/types/generated/types";
-import { withAuth } from "../../../../commons/hocs/withAuth";
 
 const MarketQuestionList = () => {
   const router = useRouter();
@@ -22,4 +21,4 @@ const MarketQuestionList = () => {
 
   return <MarketQuestionListUI data={data} />;
 };
-export default withAuth(MarketQuestionList);
+export default MarketQuestionList;

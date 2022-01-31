@@ -39,3 +39,23 @@ export const FETCH_ITEMS_BOUGHT_COUNT = gql`
     fetchUseditemsCountIBought
   }
 `;
+
+export const FETCH_USED_ITEMS_IPICKED = gql`
+  query fetchUseditemsIPicked($search: String, $page: Int) {
+    fetchUseditemsIPicked(search: $search, page: $page) {
+      name
+      price
+      images
+      createdAt
+      seller {
+        name
+      }
+    }
+  }
+`;
+
+export const FETCH_USED_ITEMS_COUNT = gql`
+  query fetchUseditemsCountIPicked {
+    fetchUseditemsCountIPicked
+  }
+`;

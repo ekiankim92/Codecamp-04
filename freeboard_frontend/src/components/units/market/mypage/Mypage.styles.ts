@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 1000px;
-  height: 1000px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -87,6 +86,7 @@ export const Reload = styled.div`
     background-color: ivory;
   }
   padding: 35px;
+  margin-bottom: 30px;
 `;
 
 export const ReloadInfo = styled.span`

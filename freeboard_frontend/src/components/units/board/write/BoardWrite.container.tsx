@@ -54,6 +54,12 @@ export default function BoardEdit(props) {
     fileRef.current?.click();
   }
 
+  // 주소 등록
+  const [isOpen, setIsOpen] = useState(false);
+  const [zipcode, setZipecode] = useState("");
+  const [address, setAddress] = useState("");
+  const [addressDetail, setAddressDetail] = useState("");
+
   function SetNames(event: ChangeEvent<HTMLInputElement>) {
     setName(event.target.value);
     if (event.target.value !== " ") {
@@ -212,12 +218,6 @@ export default function BoardEdit(props) {
       if (error instanceof Error) console.log(error.message);
     }
   }
-
-  // 주소 등록
-  const [isOpen, setIsOpen] = useState(false);
-  const [zipcode, setZipecode] = useState("");
-  const [address, setAddress] = useState("");
-  const [addressDetail, setAddressDetail] = useState("");
 
   // function ZipecodeInfo(event) {
   //   setZipecode(event.target.value);

@@ -11,9 +11,20 @@ export const FETCH_USER_LOGGED_IN = gql`
     fetchUserLoggedIn {
       _id
       name
+      picture
       userPoint {
         amount
       }
+    }
+  }
+`;
+
+export const UPDATE_USER = gql`
+  mutation updateUser($updateUserInput: UpdateUserInput!) {
+    updateUser(updateUserInput: $updateUserInput) {
+      _id
+      email
+      name
     }
   }
 `;

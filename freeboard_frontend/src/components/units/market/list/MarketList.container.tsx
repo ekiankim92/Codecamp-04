@@ -9,7 +9,6 @@ import {
   IMutationToggleUseditemPickArgs,
   IMutationCreatePointTransactionOfBuyingAndSellingArgs,
 } from "../../../../commons/types/generated/types";
-import { withAuth } from "../../../commons/hocs/withAuth";
 import MarketListUI from "./MarketList.presenter";
 import {
   FETCH_USED_ITEMS,
@@ -104,7 +103,6 @@ const MarketList = () => {
 
   const onClickItemsViewed = async (el) => {
     console.log(el);
-    alert("testing");
     const itemsViwed = await JSON.parse(localStorage.getItem("items") || "[]");
     // let isExists = false;
     // itemsViwed.forEach((itemsEl) => {
@@ -177,4 +175,4 @@ const MarketList = () => {
     />
   );
 };
-export default withAuth(MarketList);
+export default MarketList;

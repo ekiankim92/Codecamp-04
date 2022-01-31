@@ -13,7 +13,6 @@ import {
   IMutationCreateUseditemQuestionArgs,
   IMutationUpdateUseditemQuestionArgs,
 } from "../../../../../commons/types/generated/types";
-import { withAuth } from "../../../../commons/hocs/withAuth";
 import { IPropsMarketQuestionWrite } from "./MarketQuestionWrite.types";
 
 const MarketQuestionWrite = (props: IPropsMarketQuestionWrite) => {
@@ -108,4 +107,4 @@ const MarketQuestionWrite = (props: IPropsMarketQuestionWrite) => {
     />
   );
 };
-export default withAuth(MarketQuestionWrite);
+export default MarketQuestionWrite;

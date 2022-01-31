@@ -1,5 +1,7 @@
+import { withAuth } from "../../../src/components/commons/hocs/withAuth";
 import Reload from "../../../src/components/units/market/reload/Reload.container";
 
-export default function ReloadPage() {
+const ReloadPage = () => {
   return <Reload />;
-}
+};
+export default withAuth(ReloadPage);
