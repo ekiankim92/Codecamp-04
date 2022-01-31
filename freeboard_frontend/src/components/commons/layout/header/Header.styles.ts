@@ -7,7 +7,7 @@ export const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-  background-color: ivory;
+  background-color: #d1c9c7;
   position: fixed;
   z-index: 1;
   border-bottom: 1px solid lightgray;
@@ -21,12 +21,11 @@ export const Logo = styled.div`
   font-size: 20px;
   font-style: oblique;
   width: 330px;
-  /* height: 130px; */
-  /* background-color: crimson; */
 `;
 
 export const Logo_Img = styled.img`
-  margin-left: 14px;
+  width: 40px;
+  margin-right: 8px;
   :hover {
     cursor: pointer;
   }

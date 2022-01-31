@@ -61,8 +61,8 @@ export default function HeaderUI(props) {
           <S.testing>Welcome! {props.data?.fetchUserLoggedIn.name}</S.testing>
         ) : (
           <S.Logo>
-            Woof Woof!
             <S.Logo_Img src="images/pawn.png" />
+            Woof Shop!
           </S.Logo>
         )}
         <Breadcrumb>

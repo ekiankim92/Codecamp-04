@@ -14,7 +14,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 export const Carousel_Wrapper = styled.div`
   width: 100%;
-  height: 900px;
+  height: 600px;
   overflow: hidden;
   border-bottom: 2px solid lightgray;
 `;
@@ -84,13 +84,12 @@ export const Card_Four = styled.div`
 
 export const Img_Wrapper = styled.div`
   width: 100%;
-  height: 900px;
+  height: 600px;
 `;
 
 export const Img = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: fill;
 `;
 
 export const Img_2 = styled.img`

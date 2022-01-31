@@ -1,10 +1,17 @@
 import styled from "@emotion/styled";
 
+export const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+`;
+
 export const Footer = styled.div`
-  display: absolute;
-  z-index: 1;
-  height: 200px;
-  background-color: ivory;
+  /* display: absolute; */
+  /* z-index: 1; */
+  width: 100%;
+  height: 100%;
+  margin-bottom: 30px;
+  background-color: #d1c9c7;
 `;
 
 export const Footer_Icon1 = styled.img`

@@ -2,7 +2,7 @@ import * as S from "./Footer.styles";
 
 export default function FooterUI() {
   return (
-    <>
+    <S.Wrapper>
       <S.Footer>
         <S.Footer_Wrapper>
           <S.Footer_Images1 src="market_images/visa.png" alt="" />
@@ -29,6 +29,6 @@ export default function FooterUI() {
           <S.Frequent_Asked>Frequently Asked Questions</S.Frequent_Asked>
         </S.Inqueries>
       </S.Footer>
-    </>
+    </S.Wrapper>
   );
 }

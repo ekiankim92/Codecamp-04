@@ -15,3 +15,10 @@ export const Header = styled.h1`
   text-decoration: underline;
   padding: 15px;
 `;
+
+export const ProfileWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightblue;
+`;

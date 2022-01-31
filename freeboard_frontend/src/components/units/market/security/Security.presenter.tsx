@@ -6,22 +6,24 @@ export default function SecurityUI(props) {
     <S.Wrapper>
       <S.Header>Login & Security</S.Header>
       <div>Profile Picture:</div>
-      {props.isUpdate ? (
-        <Avatar
-          src={
-            <Image
-              src="https://joeschmoe.io/api/v1/random"
-              style={{ width: "40%", height: "40%", margin: "0 auto" }}
-            />
-          }
-          style={{ width: "40%", height: "40%" }}
-        />
-      ) : (
-        <div onClick={props.onChangeProfile}>
-          <img src="/market_images/profile.png" />
-        </div>
-      )}
-      <button onClick={props.onUpdateProfile}>Edit</button>
+      <S.ProfileWrapper>
+        {props.isUpdate ? (
+          <Avatar
+            src={
+              <Image
+                src="https://joeschmoe.io/api/v1/random"
+                style={{ width: "40%", height: "40%", margin: "0 auto" }}
+              />
+            }
+            style={{ width: "40%", height: "40%" }}
+          />
+        ) : (
+          <div onClick={props.onChangeProfile}>
+            <img src="/market_images/profile.png" />
+          </div>
+        )}
+        <button onClick={props.onUpdateProfile}>Edit</button>
+      </S.ProfileWrapper>
       ========================================
       <div>Name:</div>
       <div>{props.data?.fetchUserLoggedIn.name}</div>
