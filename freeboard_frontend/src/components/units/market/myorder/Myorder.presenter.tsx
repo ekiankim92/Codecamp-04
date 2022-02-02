@@ -18,7 +18,7 @@ export default function MyOrderUI(props: IPropsMyOrderUI) {
         </S.ItemsBought>
         <S.ItemsSold onClick={props.onClickItemsSold}>Items Sold</S.ItemsSold>
         <S.ItemsIPicked onClick={props.onClickItemsIPicked}>
-          Items I Picked
+          Items I Liked
         </S.ItemsIPicked>
       </S.NavigationWrapper>
       {props.itemsSold && (

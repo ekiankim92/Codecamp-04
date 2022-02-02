@@ -11,14 +11,14 @@ export const Wrapper = styled.div`
   margin: 150px;
   border: 1px solid lightgray;
   border-radius: 16px;
-  background-color: snow;
+  background-color: #eeee;
 `;
 
 export const HeaderWrapper = styled.div``;
 
 export const Header = styled.div`
-  font-size: 35px;
-  text-decoration: underline;
+  font-size: 28px;
+  font-weight: 700;
 `;
 
 export const PointWrapper = styled.div`
@@ -36,19 +36,27 @@ export const Description = styled.label`
 `;
 
 export const PointInput = styled.input`
-  width: 150px;
+  width: 260px;
   height: 40px;
-  padding: 15px;
-  border-radius: 12px;
-  margin-top: 10px;
+  margin-top: 30px;
+  border-radius: 3px;
+  padding: 10px;
+  border: none;
+  ::placeholder {
+    opacity: 0.5;
+  }
 `;
 
 export const SubmitButton = styled.button`
-  width: 120px;
-  height: 40px;
-  border-radius: 16px;
+  width: 260px;
+  height: 48px;
+  margin-top: 16px;
+  border-radius: 3px;
+  color: white;
+  background-color: #666666;
+  border: none;
   :hover {
     cursor: pointer;
-    background-color: ivory;
+    background-color: #333333;
   }
 `;

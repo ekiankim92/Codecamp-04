@@ -39,8 +39,6 @@ export const LogoImg = styled.img`
 `;
 
 export const EmailLog = styled.input`
-  /* width: 384px;
-  height: 64px; */
   width: 260px;
   height: 40px;
   margin-top: 70px;
@@ -55,7 +53,6 @@ export const EmailLog = styled.input`
 export const PasswordLog = styled.input`
   width: 260px;
   height: 40px;
-  /* margin-top: 70px; */
   margin-top: 10px;
   border-radius: 3px;
   padding: 10px;
@@ -66,8 +63,6 @@ export const PasswordLog = styled.input`
 `;
 
 export const SignButton = styled.button`
-  /* width: 300px;
-  height: 64px; */
   width: 260px;
   height: 48px;
   margin-top: 30px;
@@ -82,8 +77,6 @@ export const SignButton = styled.button`
 `;
 
 export const RegisterButton = styled.button`
-  /* width: 300px;
-  height: 64px; */
   width: 260px;
   height: 48px;
   margin-top: 10px;
@@ -100,8 +93,6 @@ export const RegisterButton = styled.button`
 export const LoginPicture = styled.div`
   width: 400px;
   height: 500px;
-  /* width: 1000px;
-  height: 500px; */
 `;
 
 export const Image = styled.img`

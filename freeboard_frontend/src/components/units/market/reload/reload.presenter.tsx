@@ -24,13 +24,9 @@ export default function ReloadUI(props: IPropsReloadUI) {
         </S.PointWrapper>
         <S.DescriptionWrapper>
           <S.Description>Points You Wished to Exchange:</S.Description>
-          <div>
-            <S.PointInput type="text" onChange={props.onChangeAmount} />
-          </div>
-        </S.DescriptionWrapper>
-        <div>
+          <S.PointInput type="text" onChange={props.onChangeAmount} />
           <S.SubmitButton onClick={props.onClickPayment}>Reload</S.SubmitButton>
-        </div>
+        </S.DescriptionWrapper>
       </S.Wrapper>
     </>
   );

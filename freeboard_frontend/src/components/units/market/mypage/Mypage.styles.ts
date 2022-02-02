@@ -1,20 +1,20 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 1000px;
+  width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   border-radius: 16px;
-  background-color: snow;
+  background-color: #eeee;
   margin: 150px;
 `;
 
 export const Header = styled.div`
-  font-size: 30px;
-  text-decoration: underline;
   padding: 15px;
+  font-size: 28px;
+  font-weight: 700;
 `;
 
 export const LoginSecurity = styled.div`

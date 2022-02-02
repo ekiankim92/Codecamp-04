@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   justify-content: space-around;
   align-items: center;
   border-radius: 16px;
-  background-color: snow;
+  background-color: #eeee;
   margin: 150px;
 `;
 

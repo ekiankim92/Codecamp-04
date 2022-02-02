@@ -9,13 +9,13 @@ export default function MyPageUI(props) {
           <span>
             <img src="/market_images/padlock.png" />
           </span>
-          <S.LoginSecurityInfo>Login & Security</S.LoginSecurityInfo>
+          <S.LoginSecurityInfo>Login & My Info</S.LoginSecurityInfo>
         </S.LoginSecurity>
         <S.YourOrder onClick={props.onClickMoveToMyOrder}>
           <span>
             <img src="/market_images/order.png" />
           </span>
-          <S.YourOrderInfo>Your Orders</S.YourOrderInfo>
+          <S.YourOrderInfo>Order History</S.YourOrderInfo>
         </S.YourOrder>
         <S.ArchivedOrder>
           <span>
