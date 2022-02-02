@@ -31,15 +31,16 @@ const Security = () => {
 
   const [password, setPassword] = useState<string>("");
   const [name, setName] = useState<string>("");
-  const [isUpdate, setIsUpdate] = useState(false);
+  const [isUpdate, setIsUpdate] = useState<boolean>(false);
+  const [isEdit, setisEdit] = useState<boolean>(false);
 
   const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
+    console.log(event.target.value);
   };
 
   const onChangeName = (event: ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
-    console.log(event.target.value);
   };
 
   const onChangeProfile = () => {
@@ -72,6 +73,14 @@ const Security = () => {
     }
   };
 
+  const onClickDone = () => {
+    if (!password || password.length <= 2) {
+      alert("Please Enter Your Current Password");
+      return;
+    }
+    setisEdit(true);
+  };
+
   const onClickUpdate = async () => {
     try {
       const result = await updateUser({
@@ -83,6 +92,7 @@ const Security = () => {
       });
       console.log(result);
       console.log(result.data?.updateUser.name);
+      router.reload();
     } catch (error) {
       if (error instanceof Error) console.log("updateUser:", error.message);
     }
@@ -92,9 +102,11 @@ const Security = () => {
     <SecurityUI
       data={data}
       isUpdate={isUpdate}
+      isEdit={isEdit}
       onChangePassword={onChangePassword}
       onClickChangePassword={onClickChangePassword}
       onClickUpdate={onClickUpdate}
+      onClickDone={onClickDone}
       onChangeName={onChangeName}
       onChangeProfile={onChangeProfile}
       onUpdateProfile={onUpdateProfile}
