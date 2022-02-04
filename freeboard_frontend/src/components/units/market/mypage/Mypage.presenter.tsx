@@ -1,6 +1,7 @@
 import * as S from "./Mypage.styles";
+import { IPropsMyPageUI } from "./Mypage.types";
 
-export default function MyPageUI(props) {
+export default function MyPageUI(props: IPropsMyPageUI) {
   return (
     <>
       <S.Wrapper>
@@ -17,7 +18,7 @@ export default function MyPageUI(props) {
           </span>
           <S.YourOrderInfo>Order History</S.YourOrderInfo>
         </S.YourOrder>
-        <S.ArchivedOrder>
+        <S.ArchivedOrder onClick={props.onClickMoveToArchived}>
           <span>
             <img src="/market_images/archive.png" />
           </span>

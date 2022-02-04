@@ -2,16 +2,20 @@ import MyPageUI from "./Mypage.presenter";
 import router from "next/router";
 
 export default function MyPage() {
+  const onClickMoveToSecurity = () => {
+    router.push("/market/security");
+  };
+
   const onClickMoveToMyOrder = () => {
     router.push("/market/myorder");
   };
 
-  const onClickMoveToReload = () => {
-    router.push("/market/reloadpage");
+  const onClickMoveToArchived = () => {
+    router.push("/market/basket");
   };
 
-  const onClickMoveToSecurity = () => {
-    router.push("/market/security");
+  const onClickMoveToReload = () => {
+    router.push("/market/reloadpage");
   };
 
   return (
@@ -20,6 +24,7 @@ export default function MyPage() {
         onClickMoveToMyOrder={onClickMoveToMyOrder}
         onClickMoveToReload={onClickMoveToReload}
         onClickMoveToSecurity={onClickMoveToSecurity}
+        onClickMoveToArchived={onClickMoveToArchived}
       />
     </>
   );

@@ -7,55 +7,75 @@ export const Cart_Title = styled.div`
 
 export const Outter_Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 `;
 
 export const Basket_Wrapper = styled.div`
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
   margin-bottom: 50px;
-  border: 2px solid black;
+  border: 1px solid lightgray;
   border-radius: 6px;
-  background-color: ivory;
-  overflow: scroll;
 `;
 
 export const Image_Wrapper = styled.div`
+  width: 100%;
+  height: 70%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-bottom: 1px solid lightgray;
 `;
 
 export const Image = styled.img`
-  width: 250px;
+  width: 100%;
+  height: 100%;
   padding: 8px;
-  object-fit: scale-down;
+  object-fit: fill;
 `;
 
-export const Seller_Name = styled.div`
-  font-size: 15px;
-`;
-
-export const Name = styled.div`
-  font-size: 15px;
+export const RemarkWrapper = styled.div`
+  padding: 10px;
+  /* background-color: lightblue; */
 `;
 
 export const Remark = styled.div`
-  font-size: 15px;
+  font-size: 20px;
 `;
 
-export const Tag = styled.div`
-  font-size: 15px;
+export const InfoWrapper = styled.div`
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  /* justify-content: space-around; */
+  /* background-color: gold; */
 `;
 
-export const Content = styled.div`
+export const Price = styled.div`
+  font-size: 20px;
+  font-weight: 700;
+`;
+
+export const TimeWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  /* background-color: yellow; */
+`;
+
+export const Time = styled.div`
   font-size: 15px;
+  opacity: 0.4;
+  text-align: right;
 `;
 
 export const Button_Wrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+  margin-top: 2px;
+  /* background-color: beige; */
 `;
 
 export const Delete_Button = styled.button`
