@@ -32,10 +32,10 @@ export default function BasketUI(props: IPropsBasketUI) {
                 <S.TimeWrapper>
                   <S.Time>{timeDisplay(el.createdAt)}</S.Time>
                 </S.TimeWrapper>
+                <S.Delete_Button onClick={props.onClickDelete(el._id)}>
+                  Delete
+                </S.Delete_Button>
               </S.InfoWrapper>
-              <S.Delete_Button onClick={props.onClickDelete(el._id)}>
-                Delete
-              </S.Delete_Button>
               {/* <S.Button_Wrapper>
                 <S.Delete_Button onClick={props.onClickDelete(el._id)}>
                   Delete
