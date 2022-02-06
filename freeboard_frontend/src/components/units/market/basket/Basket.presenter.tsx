@@ -11,19 +11,19 @@ export default function BasketUI(props: IPropsBasketUI) {
 
   return (
     <>
-      <S.Cart_Title>
+      <S.CartTitle>
         <h1>My Cart</h1>
-      </S.Cart_Title>
-      <S.Outter_Wrapper>
+      </S.CartTitle>
+      <S.OutterWrapper>
         {props.basketItems.map((el: any) => (
           <div key={uuidv4()}>
-            <S.Basket_Wrapper>
-              <S.Image_Wrapper>
+            <S.BasketWrapper>
+              <S.ImageWrapper>
                 <S.Image
                   src={`https://storage.googleapis.com/${el.images[0]}`}
                   onError={onError}
                 />
-              </S.Image_Wrapper>
+              </S.ImageWrapper>
               <S.RemarkWrapper>
                 <S.Remark> Remarks: {el.remarks}</S.Remark>
               </S.RemarkWrapper>
@@ -32,19 +32,16 @@ export default function BasketUI(props: IPropsBasketUI) {
                 <S.TimeWrapper>
                   <S.Time>{timeDisplay(el.createdAt)}</S.Time>
                 </S.TimeWrapper>
-                <S.Delete_Button onClick={props.onClickDelete(el._id)}>
-                  Delete
-                </S.Delete_Button>
               </S.InfoWrapper>
-              {/* <S.Button_Wrapper>
-                <S.Delete_Button onClick={props.onClickDelete(el._id)}>
+              <S.ButtonWrapper>
+                <S.DeleteButton onClick={props.onClickDelete(el._id)}>
                   Delete
-                </S.Delete_Button>
-              </S.Button_Wrapper> */}
-            </S.Basket_Wrapper>
+                </S.DeleteButton>
+              </S.ButtonWrapper>
+            </S.BasketWrapper>
           </div>
         ))}
-      </S.Outter_Wrapper>
+      </S.OutterWrapper>
     </>
   );
 }

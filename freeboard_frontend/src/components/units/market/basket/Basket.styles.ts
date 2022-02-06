@@ -1,17 +1,17 @@
 import styled from "@emotion/styled";
 
-export const Cart_Title = styled.div`
+export const CartTitle = styled.div`
   margin-top: 150px;
   text-align: center;
 `;
 
-export const Outter_Wrapper = styled.div`
+export const OutterWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
 `;
 
-export const Basket_Wrapper = styled.div`
+export const BasketWrapper = styled.div`
   width: 350px;
   height: 350px;
   margin-bottom: 50px;
@@ -19,7 +19,7 @@ export const Basket_Wrapper = styled.div`
   border-radius: 6px;
 `;
 
-export const Image_Wrapper = styled.div`
+export const ImageWrapper = styled.div`
   width: 100%;
   height: 70%;
   display: flex;
@@ -47,6 +47,7 @@ export const Remark = styled.div`
 
 export const InfoWrapper = styled.div`
   display: flex;
+  /* flex-direction: column; */
   padding: 10px;
   align-items: center;
   /* justify-content: space-around; */
@@ -71,14 +72,12 @@ export const Time = styled.div`
   text-align: right;
 `;
 
-export const Button_Wrapper = styled.div`
+export const ButtonWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
-  margin-top: 2px;
-  /* background-color: beige; */
+  flex-direction: column;
 `;
 
-export const Delete_Button = styled.button`
+export const DeleteButton = styled.button`
   :hover {
     cursor: pointer;
     background-color: lightgray;
