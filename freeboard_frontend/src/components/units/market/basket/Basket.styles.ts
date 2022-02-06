@@ -38,20 +38,18 @@ export const Image = styled.img`
 
 export const RemarkWrapper = styled.div`
   padding: 10px;
-  /* background-color: lightblue; */
 `;
 
 export const Remark = styled.div`
   font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const InfoWrapper = styled.div`
   display: flex;
-  /* flex-direction: column; */
   padding: 10px;
   align-items: center;
-  /* justify-content: space-around; */
-  /* background-color: gold; */
 `;
 
 export const Price = styled.div`
@@ -63,7 +61,6 @@ export const TimeWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  /* background-color: yellow; */
 `;
 
 export const Time = styled.div`
