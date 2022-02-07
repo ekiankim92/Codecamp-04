@@ -36,11 +36,11 @@ export const Image = styled.img`
   object-fit: fill;
 `;
 
-export const RemarkWrapper = styled.div`
+export const NameWrapper = styled.div`
   padding: 10px;
 `;
 
-export const Remark = styled.div`
+export const Name = styled.div`
   font-size: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -72,9 +72,11 @@ export const Time = styled.div`
 export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
 `;
 
 export const DeleteButton = styled.button`
+  border: none;
   :hover {
     cursor: pointer;
     background-color: lightgray;

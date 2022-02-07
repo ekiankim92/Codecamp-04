@@ -4,6 +4,7 @@ import {
   IQuery,
   IQueryFetchBoardsArgs,
   IQueryFetchBoardsCountArgs,
+  IQueryFetchUseditemsArgs,
 } from "../../../../commons/types/generated/types";
 
 export interface ISearch01Props {
@@ -16,4 +17,14 @@ export interface ISearch01Props {
   ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchBoardsCount">>>;
 
   onChangeSearch: (value: string) => void;
+
+  onChangeSearchbar: (event: ChangeEvent<HTMLInputElement>) => void;
+
+  refetchUsedItems: (
+    variables?: Partial<IQueryFetchUseditemsArgs> | undefined
+  ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchUseditems">>>;
+}
+
+export interface IPropsSearchUI {
+  onChangeSearchbar: (value: any) => void;
 }

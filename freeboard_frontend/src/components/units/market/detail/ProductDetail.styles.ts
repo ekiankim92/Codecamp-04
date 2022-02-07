@@ -66,27 +66,27 @@ export const Detail_Name = styled.div`
   width: 350px;
   height: 80px;
   font-size: 20px;
-  border: 1px solid black;
+  border: 1px solid lightgray;
   border-radius: 10px;
-  padding: 5px;
+  padding: 10px;
 `;
 
 export const Detail_Price = styled.div`
   width: 350px;
   height: 80px;
   font-size: 20px;
-  border: 1px solid black;
+  border: 1px solid lightgray;
   border-radius: 10px;
-  padding: 5px;
+  padding: 10px;
 `;
 
 export const Detail_Contents = styled.div`
   width: 350px;
   height: 200px;
   font-size: 15px;
-  border: 1px solid black;
+  border: 1px solid lightgray;
   border-radius: 10px;
-  padding: 5px;
+  padding: 10px;
   /* overflow: scroll; */
 `;
 
@@ -94,18 +94,18 @@ export const Detail_tags = styled.div`
   width: 350px;
   height: 80px;
   font-size: 20px;
-  border: 1px solid black;
+  border: 1px solid lightgray;
   border-radius: 10px;
-  padding: 5px;
+  padding: 10px;
 `;
 
 export const Detail_Remarks = styled.div`
   width: 350px;
   height: 200px;
   font-size: 20px;
-  border: 1px solid black;
+  border: 1px solid lightgray;
   border-radius: 10px;
-  padding: 5px;
+  padding: 10px;
   /* overflow: scroll; */
 `;
 

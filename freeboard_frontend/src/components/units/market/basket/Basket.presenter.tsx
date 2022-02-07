@@ -24,9 +24,9 @@ export default function BasketUI(props: IPropsBasketUI) {
                   onError={onError}
                 />
               </S.ImageWrapper>
-              <S.RemarkWrapper>
-                <S.Remark> Remarks: {el.remarks}</S.Remark>
-              </S.RemarkWrapper>
+              <S.NameWrapper>
+                <S.Name>{el.name}</S.Name>
+              </S.NameWrapper>
               <S.InfoWrapper>
                 <S.Price>${el.price}</S.Price>
                 <S.TimeWrapper>

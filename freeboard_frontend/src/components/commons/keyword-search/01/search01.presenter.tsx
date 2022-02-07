@@ -1,12 +1,13 @@
 import * as S from "./search01.style";
+import { IPropsSearchUI } from "./search01.types";
 
-export default function SearchUI(props) {
+export default function SearchUI(props: IPropsSearchUI) {
   return (
     <S.SearchSection>
       <div>
         <S.Search_Area
           type="text"
-          placeholder="제목을 검색해주세요"
+          placeholder="search by name"
           onChange={props.onChangeSearchbar}
         />
       </div>

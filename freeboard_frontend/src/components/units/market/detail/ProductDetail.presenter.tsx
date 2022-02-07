@@ -37,12 +37,8 @@ export default function ProductDetailUI(props: IPropsProductDetailUI) {
             </S.Images3>
           </S.Image_Wrapper>
           <S.Info_Wrapper>
-            <S.Detail_Name>
-              Name: {props.data?.fetchUseditem.name}
-            </S.Detail_Name>
-            <S.Detail_Price>
-              Price: {props.data?.fetchUseditem.price} USD
-            </S.Detail_Price>
+            <S.Detail_Name>{props.data?.fetchUseditem.name}</S.Detail_Name>
+            <S.Detail_Price>${props.data?.fetchUseditem.price}</S.Detail_Price>
             {process.browser ? (
               <S.Detail_Contents
                 dangerouslySetInnerHTML={{
@@ -56,9 +52,9 @@ export default function ProductDetailUI(props: IPropsProductDetailUI) {
             ) : (
               <div></div>
             )}
-            <S.Detail_tags>Tag: {props.data?.fetchUseditem.tags}</S.Detail_tags>
+            <S.Detail_tags>{props.data?.fetchUseditem.tags}</S.Detail_tags>
             <S.Detail_Remarks>
-              Remarks: {props.data?.fetchUseditem.remarks}
+              {props.data?.fetchUseditem.remarks}
             </S.Detail_Remarks>
           </S.Info_Wrapper>
           <S.Section_Wrapper>

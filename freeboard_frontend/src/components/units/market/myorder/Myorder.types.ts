@@ -1,4 +1,10 @@
-import { IQuery } from "../../../../commons/types/generated/types";
+import { ApolloQueryResult } from "@apollo/client";
+import {
+  IQuery,
+  IQueryFetchUseditemsIBoughtArgs,
+  IQueryFetchUseditemsIPickedArgs,
+  IQueryFetchUseditemsISoldArgs,
+} from "../../../../commons/types/generated/types";
 
 export interface IPropsMyOrderUI {
   startPage: number;
@@ -14,10 +20,16 @@ export interface IPropsMyOrderUI {
   onClickItemsBought: () => void;
   onClickItemsSold: () => void;
   onClickItemsIPicked: () => void;
-  refetch: any;
-  refetchBoughtItems: any;
+  refetch: (
+    varaiables?: Partial<IQueryFetchUseditemsISoldArgs> | undefined
+  ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchUseditemsISold">>>;
+  refetchBoughtItems: (
+    varaiables?: Partial<IQueryFetchUseditemsIBoughtArgs> | undefined
+  ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchUseditemsIBought">>>;
   setStartPage: any;
-  refetchItemsPicked: any;
+  refetchItemsPicked: (
+    variables?: Partial<IQueryFetchUseditemsIPickedArgs> | undefined
+  ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchUseditemsIPicked">>>;
   count: number | undefined;
   count2: number | undefined;
   count3: number | undefined;

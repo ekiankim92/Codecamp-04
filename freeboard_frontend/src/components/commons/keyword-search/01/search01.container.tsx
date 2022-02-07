@@ -12,9 +12,9 @@ export default function Search01(props: ISearch01Props) {
     props.onChangeSearch(data);
   }, 1000);
 
-  function onChangeSearchbar(event: ChangeEvent<HTMLInputElement>) {
+  const onChangeSearchbar = (event: ChangeEvent<HTMLInputElement>) => {
     getDebounce(event.target.value);
-  }
+  };
 
   return (
     <>

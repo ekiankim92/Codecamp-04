@@ -53,7 +53,7 @@ export default function MyOrderUI(props: IPropsMyOrderUI) {
                   </span>
                 </S.ProductInfo>
                 <S.PriceInfo>
-                  <span>{el.price}</span>
+                  <span>${el.price}</span>
                 </S.PriceInfo>
                 <S.DateInfo>
                   <span>{getDate(el.createdAt)}</span>
@@ -104,7 +104,7 @@ export default function MyOrderUI(props: IPropsMyOrderUI) {
                     </span>
                   </S.ProductInfo>
                   <S.PriceInfo>
-                    <span>{el.price}</span>
+                    <span>${el.price}</span>
                   </S.PriceInfo>
                   <S.DateInfo>
                     <span>{getDate(el.createdAt)}</span>
@@ -156,7 +156,7 @@ export default function MyOrderUI(props: IPropsMyOrderUI) {
                     </span>
                   </S.ProductInfo>
                   <S.PriceInfo>
-                    <span>{el.price}</span>
+                    <span>${el.price}</span>
                   </S.PriceInfo>
                   <S.DateInfo>
                     <span>{getDate(el.createdAt)}</span>
