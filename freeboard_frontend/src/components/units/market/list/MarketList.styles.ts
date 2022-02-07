@@ -1,13 +1,19 @@
 import styled from "@emotion/styled";
 
 export const SearchWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   margin: 100px;
+  /* background-color: lightblue; */
 `;
 
 export const Header = styled.div`
   font-size: 28px;
   font-weight: 700;
   text-align: center;
+  margin-top: -60px;
+  margin-bottom: 10px;
 `;
 
 export const Outter_Wrapper = styled.div`
