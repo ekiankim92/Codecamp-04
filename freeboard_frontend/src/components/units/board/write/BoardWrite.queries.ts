@@ -41,9 +41,3 @@ export const UPLOAD_FILE = gql`
     }
   }
 `;
-
-// export const CREATE_BOARD_ADDRESS = gql`
-//   mutation boardAddress($boardAddressInput: boardAddressInput) {
-//     boardAddress(boardAddressInput: $boardAddressInput)
-//   }
-// `;

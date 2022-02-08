@@ -9,11 +9,11 @@ import {
   IMutationUpdateBoardArgs,
   IMutationUploadFileArgs,
 } from "../../../../commons/types/generated/types";
+import { IPropsBoardEdit } from "./BoardWrite.types";
+import { Modal } from "antd";
 
-export default function BoardEdit(props) {
+export default function BoardEdit(props: IPropsBoardEdit) {
   const router = useRouter();
-
-  const [color, setColor] = useState<boolean>(false);
 
   const [createBoard] = useMutation<
     Pick<IMutation, "createBoard">,
@@ -30,37 +30,29 @@ export default function BoardEdit(props) {
     IMutationUploadFileArgs
   >(UPLOAD_FILE);
 
-  //게시물 내용
   const [name, setName] = useState<string>("");
   const [nameError, setNameError] = useState<string>("");
-
   const [password, setPassword] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
-
   const [title, setTitle] = useState<string>("");
   const [titleError, setTitleError] = useState<string>("");
-
   const [middleComment, setMiddleComment] = useState<string>("");
   const [middleBodyError, setMiddleBodyError] = useState<string>("");
-
-  // youtube
   const [youtubeUrl, setYoutubeUrl] = useState<string>("");
-
-  // uploading picture
   const [images, setImages] = useState([]);
-  const fileRef = useRef(null);
-
-  function onClickMyImages() {
-    fileRef.current?.click();
-  }
-
-  // 주소 등록
   const [isOpen, setIsOpen] = useState(false);
-  const [zipcode, setZipecode] = useState("");
-  const [address, setAddress] = useState("");
-  const [addressDetail, setAddressDetail] = useState("");
+  const [zipcode, setZipecode] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
+  const [addressDetail, setAddressDetail] = useState<string>("");
+  const [color, setColor] = useState<boolean>(false);
 
-  function SetNames(event: ChangeEvent<HTMLInputElement>) {
+  const fileRef = useRef<string[]>(null);
+
+  const onClickMyImages = () => {
+    fileRef.current?.click();
+  };
+
+  const SetNames = (event: ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
     if (event.target.value !== " ") {
       setNameError("");
@@ -75,9 +67,9 @@ export default function BoardEdit(props) {
     } else {
       setColor(false);
     }
-  }
+  };
 
-  function SetPassword(event: ChangeEvent<HTMLInputElement>) {
+  const SetPassword = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
     if (event.target.value !== "") {
       setPasswordError("");
@@ -92,9 +84,9 @@ export default function BoardEdit(props) {
     } else {
       setColor(false);
     }
-  }
+  };
 
-  function TitleName(event: ChangeEvent<HTMLInputElement>) {
+  const TitleName = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
     if (event.target.value !== "") {
       setTitleError("");
@@ -109,9 +101,9 @@ export default function BoardEdit(props) {
     } else {
       setColor(false);
     }
-  }
+  };
 
-  function BodyParagraph(event: ChangeEvent<HTMLInputElement>) {
+  const BodyParagraph = (event: ChangeEvent<HTMLInputElement>) => {
     setMiddleComment(event.target.value);
     if (event.target.value !== "") {
       setMiddleBodyError("");
@@ -126,10 +118,14 @@ export default function BoardEdit(props) {
     } else {
       setColor(false);
     }
-  }
+  };
 
-  // 게시판 등록
-  async function BackEndPush() {
+  const YoutubeVideo = (event: ChangeEvent<HTMLInputElement>) => {
+    setYoutubeUrl(event.target.value);
+    console.log(youtubeUrl);
+  };
+
+  const onClickSubmit = async () => {
     if (!name) {
       setNameError("이름을 등록해 주세요");
     }
@@ -146,7 +142,6 @@ export default function BoardEdit(props) {
       setMiddleBodyError("내용을 입력해 주세요");
     }
 
-    //   if (name !== "" && password !== "" && title !== "" && middleComment !== "") {
     if (name && password && title && middleComment) {
       try {
         const result = await createBoard({
@@ -168,68 +163,49 @@ export default function BoardEdit(props) {
         });
         console.log(result);
         router.push(`/board/${result.data?.createBoard._id}`);
-        alert("등록되었습니다");
+        Modal.success({ content: "등록되었습니다" });
       } catch (error) {
         if (error instanceof Error) console.log(error.message);
       }
     }
-  }
+  };
 
-  function YoutubeVideo(event: ChangeEvent<HTMLInputElement>) {
-    setYoutubeUrl(event.target.value);
-    console.log(youtubeUrl);
-  }
-
-  // 게시판 수정
-  async function BoardEdit() {
-    const MyVariables = {
-      boardId: router.query.content,
-      updateBoardInput: {},
-      password,
-    };
-
-    if (name !== "") {
-      MyVariables.writer = name;
+  const onClickEdit = async () => {
+    if (!name && !title && !middleComment) {
+      Modal.error({ content: "수정된 내용이 없습니다" });
+      return;
     }
-
-    // if (name) MyVariables.updateBoardInput.writer = name
-
-    if (middleComment !== "") {
-      MyVariables.updateBoardInput.contents = middleComment;
-    }
-
-    if (title !== "") {
-      MyVariables.updateBoardInput.title = title;
-    }
+    // const MyVariables = {
+    //   boardId: String(router.query.content),
+    //   updateBoardInput: {},
+    //   password,
+    // };
 
     try {
       const result = await updateBoard({
-        variables: MyVariables,
-        // updateBoardInput: {
-        //   title,
-        //   contents: middleComment
-        // },
-        //   password,
-        //   boardId: router.query.content
+        // variables: MyVariables,
+        variables: {
+          boardId: String(router.query.content),
+          password,
+          updateBoardInput: {
+            title,
+            contents: middleComment,
+            youtubeUrl,
+            boardAddress: {
+              zipcode,
+              address,
+              addressDetail,
+            },
+            images,
+          },
+        },
       });
       console.log(result);
       router.push(`/board/${router.query.content}`);
     } catch (error) {
       if (error instanceof Error) console.log(error.message);
     }
-  }
-
-  // function ZipecodeInfo(event) {
-  //   setZipecode(event.target.value);
-  // }
-
-  // function AddressInfo(event) {
-  //   setAddress(event.target.value);
-  // }
-
-  // function AddressDetail(event) {
-  //   setAddressDetail(event.target.value);
-  // }
+  };
 
   const onToggleModal = () => {
     setIsOpen((prev) => !prev);
@@ -243,8 +219,7 @@ export default function BoardEdit(props) {
     setIsOpen((prev) => !prev);
   };
 
-  //사진 등록
-  async function onChangeFile(event) {
+  const onChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {
     const myFile = event.target.files?.[0];
 
     if (!myFile?.size) {
@@ -267,8 +242,8 @@ export default function BoardEdit(props) {
         file: myFile,
       },
     });
-    setImages([result.data.uploadFile.url]);
-  }
+    setImages([result.data?.uploadFile.url]);
+  };
 
   return (
     <BoardEditUI
@@ -276,13 +251,13 @@ export default function BoardEdit(props) {
       SetPassword={SetPassword}
       TitleName={TitleName}
       BodyParagraph={BodyParagraph}
-      BackEndPush={BackEndPush}
+      onClickSubmit={onClickSubmit}
       nameError={nameError}
       passwordError={passwordError}
       titleError={titleError}
       middleBodyError={middleBodyError}
       color={color}
-      BoardEdit={BoardEdit}
+      onClickEdit={onClickEdit}
       isEdit={props.isEdit}
       data={props.data}
       onToggleModal={onToggleModal}

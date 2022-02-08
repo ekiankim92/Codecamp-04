@@ -33,6 +33,7 @@ const HIDDEN_RELOADPAGE = ["/market/reloadpage"];
 const HIDDEN_MYORDER = ["/market/myorder"];
 const HIDDEN_SECURITY = ["/market/security"];
 const HIDDEN_BoardList = ["/board/board_list"];
+const HIDDEN_BoardWrite = ["/mento"];
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
@@ -52,6 +53,7 @@ export default function Layout(props: ILayoutProps) {
   const isHiddenMyOrder = HIDDEN_MYORDER.includes(router.asPath);
   const isHiddenSecurity = HIDDEN_SECURITY.includes(router.asPath);
   const isHiddenBoardList = HIDDEN_BoardList.includes(router.asPath);
+  const isHiddenBoardWrite = HIDDEN_BoardWrite.includes(router.asPath);
 
   return (
     <Wrapper>
@@ -66,7 +68,8 @@ export default function Layout(props: ILayoutProps) {
         !isHiddenReloadPage &&
         !isHiddenMyOrder &&
         !isHiddenSecurity &&
-        !isHiddenBoardList && <Banner />}
+        !isHiddenBoardList &&
+        !isHiddenBoardWrite && <Banner />}
       {/* <Navigation /> */}
       <BodyWrapper>
         {/* {!isHiddenRegister &&

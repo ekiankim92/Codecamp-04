@@ -1,28 +1,26 @@
 import styled from "@emotion/styled";
 
+export const OutterWrapper = styled.div`
+  width: 100%
+  height: 100%;;
+`;
+
 export const Wrapper = styled.div`
-  width: 1200px;
-  /* height: 1847px; */
   border: 1px solid black;
   margin: 100px;
-  padding-top: 80px;
-  padding-bottom: 100px;
-  padding-left: 102px;
-  padding-right: 102px;
+  padding: 80px 100px 102px 102px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   border: none;
   box-shadow: 0px 0px 10px gray;
-  border-radius: 25px;
-  /* background-image: url(https://images.unsplash.com/photo-1531685250784-7569952593d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1548&q=80);
-  background-image: no-repeat; */
+  border-radius: 8px;
 `;
 
 export const Title = styled.div`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 36px;
   font-weight: bold;
+  text-align: center;
 `;
 
 export const WriterWrapper = styled.div`
@@ -38,6 +36,7 @@ export const Writer = styled.input`
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  border-radius: 6px;
 `;
 
 export const Password = styled.input`
@@ -45,6 +44,7 @@ export const Password = styled.input`
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  border-radius: 6px;
 `;
 
 export const Label = styled.div`
@@ -62,14 +62,16 @@ export const Subject = styled.input`
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  border-radius: 6px;
 `;
 
 export const Contents = styled.textarea`
   width: 996px;
-  height: 480px;
+  height: 160px;
   padding-left: 16px;
   padding: 14px;
   border: 1px solid #bdbdbd;
+  border-radius: 6px;
 `;
 
 export const ZipcodeWrapper = styled.div`
@@ -84,6 +86,7 @@ export const Zipcode = styled.input`
   border: 1px solid #bdbdbd;
   background-color: white;
   padding: 16px;
+  border-radius: 6px;
 `;
 
 export const SearchButton = styled.button`
@@ -103,6 +106,7 @@ export const Address_1 = styled.input`
   border: 1px solid #bdbdbd;
   background-color: white;
   padding: 15px;
+  border-radius: 6px;
 `;
 
 export const Address_2 = styled.input`
@@ -112,6 +116,7 @@ export const Address_2 = styled.input`
   padding-left: 16px;
   border: 1px solid #bdbdbd;
   background-color: white;
+  border-radius: 6px;
 `;
 
 export const Youtube = styled.input`
@@ -119,6 +124,7 @@ export const Youtube = styled.input`
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  border-radius: 6px;
 `;
 
 export const ImageWrapper = styled.div`
