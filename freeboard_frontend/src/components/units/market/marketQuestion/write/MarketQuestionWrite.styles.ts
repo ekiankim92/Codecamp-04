@@ -45,10 +45,15 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const Button = styled.button`
+  border: none;
   width: 100px;
   height: 40px;
+  border-radius: 3px;
+  color: white;
+  background-color: #666666;
+  border: none;
   :hover {
     cursor: pointer;
-    background-color: ivory;
+    background-color: #333333;
   }
 `;

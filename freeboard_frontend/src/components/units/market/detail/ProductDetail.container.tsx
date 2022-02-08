@@ -8,9 +8,8 @@ import {
   IQuery,
   IQueryFetchUseditemArgs,
 } from "../../../../commons/types/generated/types";
-import { IPropsProductDetail } from "./ProductDetail.types";
 
-export default function ProductDetail(props: IPropsProductDetail) {
+export default function ProductDetail() {
   const router = useRouter();
 
   const [deleteUseditem] = useMutation<

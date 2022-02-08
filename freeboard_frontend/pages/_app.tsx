@@ -1,4 +1,3 @@
-// import "../styles/globals.css";
 import * as Sentry from "@sentry/nextjs";
 import {
   ApolloClient,

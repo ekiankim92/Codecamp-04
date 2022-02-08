@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Header = styled.div`
+export const Wrapper = styled.div`
   width: 100%;
   height: 80px;
   display: flex;
@@ -13,17 +13,16 @@ export const Header = styled.div`
   border-bottom: 1px solid lightgray;
 `;
 
-export const testing = styled.div`
-  font-size: 20px; ;
-`;
-
 export const Logo = styled.div`
   font-size: 20px;
   font-style: oblique;
-  width: 330px;
+  :hover {
+    font-weight: bold;
+    cursor: pointer;
+  }
 `;
 
-export const Logo_Img = styled.img`
+export const LogoImg = styled.img`
   width: 40px;
   margin-right: 8px;
   :hover {
@@ -31,152 +30,69 @@ export const Logo_Img = styled.img`
   }
 `;
 
-export const Header_RoutingPage = styled.div`
-  height: 60px;
-  display: flex;
-  align-items: center;
-`;
-
-export const UsedMarket = styled.div`
-  margin-right: 20px;
-  color: black;
-  /* border: none;
-  background-color: white; */
+export const SignIn = styled.div`
   :hover {
     cursor: pointer;
     color: gray;
+    font-weight: bold;
+  }
+`;
+
+export const UsedMarket = styled.div`
+  :hover {
+    cursor: pointer;
+    color: gray;
+    font-weight: bold;
   }
 `;
 
 export const FreeBoard = styled.div`
-  margin-right: 20px;
-  border-left: 1px solid lightgray;
-  padding-left: 14px;
-  color: black;
   :hover {
     cursor: pointer;
     color: gray;
+    font-weight: bold;
   }
 `;
 
 export const MyCart = styled.div`
-  margin-right: 20px;
-  border-left: 1px solid lightgray;
-  padding-left: 14px;
-  color: black;
   :hover {
     cursor: pointer;
     color: gray;
+    font-weight: bold;
   }
 `;
 
 export const MyPage = styled.div`
-  margin-right: 20px;
-  border-left: 1px solid lightgray;
-  padding-left: 14px;
-  color: black;
   :hover {
     cursor: pointer;
     color: gray;
+    font-weight: bold;
   }
 `;
 
-export const Header_Anchor = styled.a`
-  font-size: 25px;
-  padding: 15px;
+export const LogOut = styled.div`
+  :hover {
+    cursor: pointer;
+    color: gray;
+    font-weight: bold;
+  }
+`;
+
+export const BreadWrapper = styled.div`
+  width: 240px;
+  display: flex;
+  justify-content: center;
+  justify-content: flex-end;
+`;
+
+export const UserName = styled.a`
+  font-size: 20px;
   font-weight: bold;
+  margin-right: 6px;
 `;
 
-export const Create_Account = styled.div`
-  margin-right: 20px;
-  border-left: 1px solid lightgray;
-  padding-left: 14px;
-  color: black;
-  :hover {
-    cursor: pointer;
-    color: gray;
-  }
+export const Login = styled.a`
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 6px;
 `;
-
-export const Sign_In = styled.div`
-  margin-right: 20px;
-  border-left: 1px solid lightgray;
-  padding-left: 14px;
-  color: black;
-  :hover {
-    cursor: pointer;
-    color: gray;
-  }
-`;
-
-// export const Wrapper = styled.div`
-//   width: 1200px;
-//   height: 800px;
-//   display: flex;
-//   justify-content: space-around;
-//   border-radius: 16px;
-//   background-color: #eeee;
-// `;
-
-// export const Log_In_Info = styled.div`
-//   width: 600px;
-//   height: 800px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `;
-
-// export const Email_Log = styled.input`
-//   width: 384px;
-//   height: 64px;
-//   margin-top: 70px;
-// `;
-
-// export const Password_Log = styled.input`
-//   width: 384px;
-//   height: 64px;
-//   margin-top: 30px;
-// `;
-
-// export const Sign_Log = styled.button`
-//   width: 300px;
-//   height: 64px;
-//   margin-top: 30px;
-//   :hover {
-//     cursor: pointer;
-//     background-color: lightgray;
-//   }
-// `;
-
-// export const Register_Log = styled.button`
-//   width: 300px;
-//   height: 64px;
-//   margin-top: 30px;
-//   :hover {
-//     cursor: pointer;
-//     background-color: lightgray;
-//   }
-// `;
-
-// export const Log_In_Picture = styled.div`
-//   width: 600px;
-//   height: 800px;
-//   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIIt3Ov961p3AmrxLYJy61L6pa-PWT94eRzg&usqp=CAU");
-//   background-repeat: round;
-//   background-size: 100%;
-//   background-position: 100%;
-//   opacity: 0.5;
-//   border-radius: 10px;
-// `;
-
-export const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 1300,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 5,
-};

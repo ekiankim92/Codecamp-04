@@ -10,6 +10,14 @@ export default function Header() {
 
   const [logoutUser] = useMutation<Pick<IMutation, "logoutUser">>(LOGOUT_USER);
 
+  const onClickLandingPage = () => {
+    router.push("/");
+  };
+
+  const onClickMyPage = () => {
+    router.push("/market/mypage");
+  };
+
   const onClickLoginPage = () => {
     router.push("/login");
   };
@@ -20,6 +28,10 @@ export default function Header() {
 
   const onClickProductList = () => {
     router.push("/market");
+  };
+
+  const onClickFreeBoard = () => {
+    router.push("/board/board_list");
   };
 
   const onClickLogout = () => {
@@ -33,10 +45,13 @@ export default function Header() {
 
   return (
     <HeaderUI
+      onClickLandingPage={onClickLandingPage}
       onClickLoginPage={onClickLoginPage}
       onClickCartPage={onClickCartPage}
       onClickProductList={onClickProductList}
       onClickLogout={onClickLogout}
+      onClickMyPage={onClickMyPage}
+      onClickFreeBoard={onClickFreeBoard}
       data={data}
     />
   );

@@ -1,13 +1,14 @@
-import { IPaginations01UIProps } from "./Paginations01.types";
+import { IPropsPaginations01UI } from "./Paginations01.types";
+import { Page } from "./Paginations01.styles";
 
-export default function Paginations01UI(props: IPaginations01UIProps) {
+export default function Paginations01UI(props: IPropsPaginations01UI) {
   return (
     <div>
-      <span onClick={props.onClickPrevPage}>Previous</span>
+      <Page onClick={props.onClickPrevPage}>Previous</Page>
       {new Array(10).fill(1).map(
         (_, index) =>
           props.startPage + index <= props.lastPage && (
-            <span
+            <Page
               key={props.startPage + index}
               onClick={props.onClickPage}
               id={String(props.startPage + index)}
@@ -15,10 +16,10 @@ export default function Paginations01UI(props: IPaginations01UIProps) {
               style={{ margin: "10px", cursor: "pointer" }}
             >
               {props.startPage + index}
-            </span>
+            </Page>
           )
       )}
-      <span onClick={props.onClickNextPage}>Next</span>
+      <Page onClick={props.onClickNextPage}>Next</Page>
     </div>
   );
 }

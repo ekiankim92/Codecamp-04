@@ -1,5 +1,4 @@
 import { ChangeEvent } from "react";
-import { IMutation } from "../../../../commons/types/generated/types";
 
 export interface IPropsAccountPageUI {
   onChangeInput: (event: ChangeEvent<HTMLInputElement>) => void;

@@ -6,12 +6,12 @@ export const OuterWrapper = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  width: 500px;
+  width: 900px;
   height: 150px;
   padding: 10px;
   border-top: 1px solid lightgray;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin: 35px;
 `;
@@ -48,19 +48,29 @@ export const InnerWrapper = styled.div`
 `;
 
 export const Button = styled.button`
+  border: none;
   width: 100px;
   height: 40px;
+  border-radius: 3px;
+  color: white;
+  background-color: #666666;
+  border: none;
   :hover {
     cursor: pointer;
-    background-color: ivory;
+    background-color: #333333;
   }
 `;
 
 export const ButtonInput = styled.input`
+  border: none;
   width: 100px;
   height: 40px;
+  border-radius: 3px;
+  color: white;
+  background-color: #666666;
+  border: none;
   :hover {
     cursor: pointer;
-    background-color: ivory;
+    background-color: #333333;
   }
 `;

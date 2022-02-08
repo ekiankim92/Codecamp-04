@@ -1,86 +1,52 @@
 import * as S from "./Header.styles";
 import { Breadcrumb, Menu } from "antd";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import { useState } from "react";
+import { IPropsHeaderUI } from "./Header.types";
+import { ChangeEvent } from "react";
 
-interface IPropsHeaderUI {}
-
-export default function HeaderUI(props) {
-  // Open Modal
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => setOpen(false);
-
+export default function HeaderUI(props: IPropsHeaderUI) {
   const menu = (
     <Menu>
       <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          // href="http://www.alipay.com/"
-        >
-          General
-        </a>
+        <S.MyPage onClick={props.onClickMyPage}>My Page</S.MyPage>
       </Menu.Item>
       <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          // href="http://www.taobao.com/"
-        >
-          Walk Your Dog
-        </a>
+        <S.UsedMarket onClick={props.onClickProductList}>Products</S.UsedMarket>
       </Menu.Item>
       <Menu.Item>
-        <a
-          target="_self"
-          rel="noopener noreferrer"
-          // href="http://localhost:3000/learnmore"
-        >
-          Tips & Goods
-        </a>
+        <S.FreeBoard onClick={props.onClickFreeBoard}>Boards</S.FreeBoard>
       </Menu.Item>
       <Menu.Item>
-        <a
-          target="_self"
-          rel="noopener noreferrer"
-          href="http://localhost:3000/learnmore"
-        >
-          Learn More
-        </a>
+        <S.MyCart onClick={props.onClickCartPage}>My Cart</S.MyCart>
+      </Menu.Item>
+      <Menu.Item>
+        <S.LogOut onClick={props.onClickLogout}>Log Out</S.LogOut>
       </Menu.Item>
     </Menu>
   );
+
+  const onError = (event: ChangeEvent<HTMLImageElement>) => {
+    event.target.src = "/market_images/image.png";
+  };
+
   return (
     <>
-      <S.Header>
-        {props.data?.fetchUserLoggedIn ? (
-          <S.testing>Welcome! {props.data?.fetchUserLoggedIn.name}</S.testing>
-        ) : (
-          <S.Logo>
-            <S.Logo_Img src="images/pawn.png" />
-            Woof Shop!
-          </S.Logo>
-        )}
-        <Breadcrumb>
-          <Breadcrumb.Item overlay={menu}>
-            <S.Header_Anchor href="">General</S.Header_Anchor>
-          </Breadcrumb.Item>
-        </Breadcrumb>
-        <S.Header_RoutingPage>
-          <S.UsedMarket onClick={props.onClickProductList}>
-            Products
-          </S.UsedMarket>
-          <S.MyCart onClick={props.onClickCartPage}>My Cart</S.MyCart>
-          <S.FreeBoard>Boards</S.FreeBoard>
-          <S.MyPage>My Page</S.MyPage>
-          <S.Sign_In onClick={props.onClickLoginPage}>Log In</S.Sign_In>
-          <div onClick={props.onClickLogout}>Log Out</div>
-        </S.Header_RoutingPage>
-      </S.Header>
+      <S.Wrapper>
+        <S.Logo onClick={props.onClickLandingPage}>
+          <S.LogoImg src="images/pawn.png" onError={onError} />
+          Woof Shop
+        </S.Logo>
+        <S.BreadWrapper>
+          <Breadcrumb>
+            <Breadcrumb.Item overlay={menu}>
+              {props.data?.fetchUserLoggedIn ? (
+                <S.UserName>{props.data?.fetchUserLoggedIn.name}</S.UserName>
+              ) : (
+                <S.Login onClick={props.onClickLoginPage}>Log In</S.Login>
+              )}
+            </Breadcrumb.Item>
+          </Breadcrumb>
+        </S.BreadWrapper>
+      </S.Wrapper>
     </>
   );
 }

@@ -5,7 +5,6 @@ export const SearchWrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
   margin: 100px;
-  /* background-color: lightblue; */
 `;
 
 export const Header = styled.div`

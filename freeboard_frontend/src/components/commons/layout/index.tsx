@@ -32,6 +32,7 @@ const HIDDEN_MYCART = ["/market/basket"];
 const HIDDEN_RELOADPAGE = ["/market/reloadpage"];
 const HIDDEN_MYORDER = ["/market/myorder"];
 const HIDDEN_SECURITY = ["/market/security"];
+const HIDDEN_BoardList = ["/board/board_list"];
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
@@ -50,6 +51,7 @@ export default function Layout(props: ILayoutProps) {
   const isHiddenReloadPage = HIDDEN_RELOADPAGE.includes(router.asPath);
   const isHiddenMyOrder = HIDDEN_MYORDER.includes(router.asPath);
   const isHiddenSecurity = HIDDEN_SECURITY.includes(router.asPath);
+  const isHiddenBoardList = HIDDEN_BoardList.includes(router.asPath);
 
   return (
     <Wrapper>
@@ -63,7 +65,8 @@ export default function Layout(props: ILayoutProps) {
         !isHiddenMyPage &&
         !isHiddenReloadPage &&
         !isHiddenMyOrder &&
-        !isHiddenSecurity && <Banner />}
+        !isHiddenSecurity &&
+        !isHiddenBoardList && <Banner />}
       {/* <Navigation /> */}
       <BodyWrapper>
         {/* {!isHiddenRegister &&

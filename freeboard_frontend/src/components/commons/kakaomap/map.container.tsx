@@ -1,19 +1,12 @@
 import { useEffect } from "react";
 import KakaoMapUI from "./map.presenter";
-import { useState } from "react";
+import { IPropsKakaoMap } from "./map.types";
 
 declare const window: typeof globalThis & {
   kakao: any;
 };
 
-export default function KakaoMap(props) {
-  // const [latitude, setLatitude] = useState("");
-  // const [longitude, setLongitude] = useState("");
-
-  // const onChangeLat = (event) => {
-  //   setLatitude(event.taget.value);
-  // };
-
+export default function KakaoMap(props: IPropsKakaoMap) {
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
@@ -31,45 +24,29 @@ export default function KakaoMap(props) {
 
         let geocoder = new window.kakao.maps.services.Geocoder();
 
-        geocoder.addressSearch(props.address, function (result, status) {
-          if (status === window.kakao.maps.services.Status.OK) {
-            let coords = new window.kakao.maps.LatLng(result[0].y, result[0].x);
-            let marker = new window.kakao.maps.Marker({
-              map: map,
-              position: coords,
-            });
-            let infowindow = new window.kakao.maps.InfoWindow({
-              content:
-                '<div style="width:150px;text-align:center;padding:6px 0;">Location</div>',
-            });
-            infowindow.open(map, marker);
-            map.setCenter(coords);
+        geocoder.addressSearch(
+          props.address,
+          function (result: any, status: any) {
+            if (status === window.kakao.maps.services.Status.OK) {
+              let coords = new window.kakao.maps.LatLng(
+                result[0].y,
+                result[0].x
+              );
+              let marker = new window.kakao.maps.Marker({
+                map: map,
+                position: coords,
+              });
+              let infowindow = new window.kakao.maps.InfoWindow({
+                content:
+                  '<div style="width:150px;text-align:center;padding:6px 0;">Location</div>',
+              });
+              infowindow.open(map, marker);
+              map.setCenter(coords);
+            }
           }
-        });
+        );
       });
     };
   }, [props.address]);
   return <KakaoMapUI />;
 }
-
-//     const marker = new window.kakao.maps.Marker({
-//       position: map.getCenter(),
-//     });
-
-//     marker.setMap(map);
-
-//     window.kakao.maps.event.addListener(
-//       map,
-//       "click",
-//       function (mouseEvent) {
-//         const latlng = mouseEvent.latLng;
-
-//         marker.setPosition(latlng);
-
-//         const message =
-//           "클릭한 위치의 위도는 " + latlng.getLat() + " 이고, ";
-//         message += "경도는 " + latlng.getLng() + " 입니다";
-//       }
-//     );
-//   });
-// };
