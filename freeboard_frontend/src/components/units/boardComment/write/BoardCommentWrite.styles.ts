@@ -2,96 +2,80 @@ import styled from "@emotion/styled";
 import { Rate } from "antd";
 
 export const Wrapper = styled.div`
-  /* width: 1200px; */
-  /* height: 500px; */
-  /* margin-left: 100px; */
-  /* padding-top: 20px; */
-  /* padding-bottom: 100px; */
-  /* padding-left: 102px; */
-  /* padding-right: 102px; */
   width: 80%;
   margin: 0 auto;
   border-top: 2px solid black;
-  /* background-color: blue; */
 `;
 
-export const Comment_Header = styled.div`
-  /* width: 1000px; */
-  /* height: 50px; */
-  padding-left: 10px;
-  padding-top: 35px;
-  background-color: yellow;
+export const CommentHeader = styled.div`
+  padding-top: 25px;
 `;
 
-export const Vector_Png = styled.img`
+export const VectorPng = styled.img`
   width: 20px;
   height: 20px;
 `;
 
-export const Comment_Word = styled.span`
-  width: 37px;
-  height: 27px;
-  font-size: 15px;
+export const CommentWord = styled.span`
+  font-size: 20px;
   margin-left: 10px;
 `;
 
-export const User_Interface = styled.div`
-  margin-top: 40px;
-  background-color: green;
+export const UserInterface = styled.div`
+  margin-top: 20px;
 `;
 
-export const User_Input = styled.input`
+export const UserInput = styled.input`
   width: 180px;
   height: 52px;
+  border-radius: 6px;
+  padding: 10px;
 `;
 
-export const Password_Input = styled.input`
+export const PasswordInput = styled.input`
   width: 180px;
   height: 52px;
+  border-radius: 6px;
   margin-left: 20px;
+  padding: 10px;
 `;
 
-export const Rating_Image = styled.img`
-  width: 20px;
-  height: 20px;
-  margin-left: 20px;
-  background-color: lightblue;
-`;
+export const TextAreaCommentWrapper = styled.div``;
 
-export const TextArea_Comment_Wrapper = styled.div`
-  background-color: crimson;
-`;
-
-export const TextArea_Comment = styled.textarea`
+export const TextAreaComment = styled.textarea`
   width: 100%;
   height: 161px;
   margin-top: 20px;
-  padding: 10px;
-  /* background-color: lightblue; */
+  padding: 15px;
+  border-radius: 6px;
 `;
 
-export const Comment_Wrapper = styled.div`
+export const CommentWrapper = styled.div`
   display: flex;
   justify-content: start;
   margin-top: -3px;
-  border: 1px solid black;
+  border: 1px solid lightgray;
   border-top: none;
-  background-color: blue;
+  border-radius: 6px;
 `;
 
-export const Comment_Count = styled.div`
+export const CommentCount = styled.div`
   padding: 12px;
 `;
 
-export const Comment_Submit_Button = styled.button`
+export const CommentSubmitButton = styled.button`
   width: 91px;
-  color: white;
-  background-color: black;
   margin-left: auto;
+  color: white;
+  border-radius: 6px;
+  background-color: #666666;
+  border: none;
   :hover {
     cursor: pointer;
-    color: yellow;
+    background-color: #333333;
   }
 `;
 
-export const Stars = styled(Rate)``;
+export const Stars = styled(Rate)`
+  margin-left: 10px;
+`;

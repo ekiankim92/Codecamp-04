@@ -1,6 +1,6 @@
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
-import { ChangeEvent, MouseEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import {
   CREATE_BOARD_COMMENT,
   UPDATE_BOARD_COMMENT,
@@ -12,8 +12,10 @@ import {
   IMutationCreateBoardCommentArgs,
   IMutationUpdateBoardCommentArgs,
 } from "../../../../commons/types/generated/types";
+import { Modal } from "antd";
+import { IPropsBoardCommentWrite } from "./BoardCommentWrite.types";
 
-export default function BoardCommentWrite(props) {
+export default function BoardCommentWrite(props: IPropsBoardCommentWrite) {
   const router = useRouter();
 
   const [writer, setWriter] = useState<string>("");
@@ -31,35 +33,35 @@ export default function BoardCommentWrite(props) {
     IMutationUpdateBoardCommentArgs
   >(UPDATE_BOARD_COMMENT);
 
-  function CommentWriter(event: ChangeEvent<HTMLInputElement>) {
+  const CommentWriter = (event: ChangeEvent<HTMLInputElement>) => {
     setWriter(event.target.value);
-  }
+  };
 
-  function CommentPassword(event: ChangeEvent<HTMLInputElement>) {
+  const CommentPassword = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
-  }
+  };
 
-  function CommentContents(event: ChangeEvent<HTMLInputElement>) {
+  const CommentContents = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setContents(event.target.value);
-  }
+  };
 
-  async function CreateCommentButton() {
+  const CreateCommentButton = async () => {
     if (!writer) {
-      alert("작성자가 등록되지 않았습니다");
+      Modal.error({ content: "작성자가 등록되지 않았습니다" });
       return;
     }
 
     if (!contents) {
-      alert("내용이 수정되지 않았습니다");
+      Modal.error({ content: "내용이 수정되지 않았습니다" });
       return;
     }
 
     if (!password) {
-      alert("비밀번호가 입력되지 않았습니다");
+      Modal.error({ content: "비밀번호가 입력되지 않았습니다" });
       return;
     }
 
-    if (writer !== "" && contents !== "" && password !== "") {
+    if (writer && contents && password) {
       try {
         const result = await createBoardComment({
           variables: {
@@ -78,23 +80,21 @@ export default function BoardCommentWrite(props) {
             },
           ],
         });
-        alert("댓글이 등록되었습니다!");
+        Modal.success({ content: "댓글이 등록되었습니다!" });
         console.log(result);
       } catch (error) {
         if (error instanceof Error) console.log(error.message);
       }
     }
-  }
+  };
 
-  function CountingStars(value) {
+  const CountingStars = (value: number) => {
     setRating(value);
-  }
+  };
 
-  async function onClickUpdate() {
+  const onClickUpdate = async () => {
     try {
-      alert(props.el?._id);
-      alert(contents);
-      alert(rating);
+      console.log(props.el?._id);
       await updateBoardComment({
         variables: {
           updateBoardCommentInput: {
@@ -102,7 +102,7 @@ export default function BoardCommentWrite(props) {
             rating,
           },
           password,
-          boardCommentId: props.el?._id,
+          boardCommentId: String(props.el?._id),
         },
         refetchQueries: [
           {
@@ -115,7 +115,7 @@ export default function BoardCommentWrite(props) {
     } catch (error) {
       error instanceof Error && console.log(error.message);
     }
-  }
+  };
 
   return (
     <BoardCommentWriteUI
