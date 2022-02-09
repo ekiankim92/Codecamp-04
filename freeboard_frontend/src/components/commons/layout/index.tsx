@@ -11,7 +11,7 @@ const Wrapper = styled.div``;
 const Body = styled.div``;
 
 const BodyWrapper = styled.div`
-  display: flex;
+  /* display: flex; */
 `;
 
 interface ILayoutProps {
@@ -72,14 +72,7 @@ export default function Layout(props: ILayoutProps) {
         !isHiddenBoardWrite && <Banner />}
       {/* <Navigation /> */}
       <BodyWrapper>
-        {/* {!isHiddenRegister &&
-          !isHiddenLogin &&
-          !isHiddenOpenApi &&
-          !isHiddenProductPost &&
-          !isHiddenProductDetail &&
-          !isHiddenBasket &&
-          !isHiddenMarketList &&
-          !isHiddenMyPage && <Sidebar />} */}
+        {/* <Sidebar /> */}
         <Body>{props.children}</Body>
       </BodyWrapper>
       {!isHiddenFooter && !isHiddenMarketList && !isHiddenMyCart && <Footer />}

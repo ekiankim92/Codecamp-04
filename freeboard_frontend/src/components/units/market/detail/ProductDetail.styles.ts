@@ -139,7 +139,7 @@ export const Address_Detail = styled.div`
   font-size: 20px;
 `;
 
-export const Outter_Wrapper = styled.div`
+export const OuterWrapper = styled.div`
   display: flex;
   margin: 10px;
 `;

@@ -1,62 +1,46 @@
 import styled from "@emotion/styled";
-import { faBlackberry } from "@fortawesome/free-brands-svg-icons";
 import { SmileOutlined, FrownOutlined, MehOutlined } from "@ant-design/icons";
 
+export const OuterWrapper = styled.div`
+  width: 75%;
+  margin: 50px auto 50px auto;
+`;
+
 export const Wrapper = styled.div`
-  width: 1200px;
-  height: auto;
-  border: 1px solid black;
-  margin: 100px;
-  padding-top: 80px;
-  padding-bottom: 100px;
-  padding-left: 102px;
-  padding-right: 102px;
+  border: 1px solid #000000;
+  padding: 80px 100px 102px 102px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: none;
-  box-shadow: 0px 0px 10px gray;
-  /* background-color: blue; */
+  box-shadow: 0px 0px 10px #808080;
 `;
 
 export const Header = styled.div`
-  width: 1200px;
-  height: 250px;
-  padding-top: 50px;
-  /* background-color: blue; */
+  width: 100%;
 `;
 
-export const Header_Image = styled.img`
+export const HeaderImage = styled.img`
   width: 45px;
-  height: 45px;
 `;
 
-export const Header_Date = styled.div`
+export const HeaderDate = styled.div`
   font-size: 15px;
-  padding-bottom: 15px;
 `;
 
-export const Header_Info = styled.div`
-  width: 150px;
-  height: 150px;
+export const HeaderInfo = styled.div`
   font-size: 20px;
-  display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
   padding-top: 5px;
-  border-radius: 60px;
-  /* background-color: pink;  */
 `;
 
 export const Navigation = styled.nav`
-  width: auto;
-  height: auto;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   padding: 10px;
   margin-top: 12px;
-  background-color: lightgray;
+  background-color: #d3d3d3;
 `;
 
 export const List = styled.a`
@@ -64,130 +48,117 @@ export const List = styled.a`
   font-weight: bolder;
   font-size: 20px;
   cursor: grab;
-
   :hover {
-    color: crimson;
+    color: #000000;
   }
 `;
 
-export const MyDiv = styled.div`
-  width: 580px;
-  height: 100px;
-  top: 937px;
-  left: 462px;
-  font-size: 35px;
+export const TitleWrapper = styled.section`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export const Title = styled.div`
+  font-size: 32px;
+  margin: 10px 0px 10px 0px;
+`;
+
+export const ImageContentWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 800px;
+`;
+
+export const ImageSection = styled.section`
+  cursor: pointer;
+  :hover {
+    transform: scale(1.5);
+  }
+`;
+
+export const ContentSection = styled.main`
+  width: 400px;
+  height: 150px;
+  padding: 10px;
+  font-weight: 600;
+  border: 1px solid #d3d3d3;
+  :hover {
+    border: none;
+  }
+`;
+
+export const VideoSection = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 24px;
+`;
+
+export const IconFooter = styled.div`
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  padding-right: 65px;
-  /* background-color: red; */
-`;
-
-export const Title = styled.section`
-  width: 1200px;
-  height: auto;
-  /* background-color: olive; */
-`;
-
-export const Image_Section = styled.section`
-  width: 996px;
-  height: 480px;
-  /* background-color: aqua; */
-`;
-
-export const Content_Section = styled.main`
-  width: 996px;
-  height: 180px;
-  margin-top: 40px;
-  /* background-color: beige;  */
-`;
-
-export const Video_Section = styled.div`
-  width: auto;
-  height: auto;
-  margin-top: 120px;
-  background-color: navy;
-`;
-
-export const Icon_Footer = styled.div`
-  width: 996px;
-  height: 96px;
-  margin-top: 40px;
-  /* background-color: gold; */
-`;
-
-export const Like_Dislike_Count = styled.div`
-  width: 996px;
+  width: 50%;
+  height: 70px;
 `;
 
 export const SmileyFace = styled(SmileOutlined)`
-  font-size: 80px;
+  font-size: 50px;
   color: blue;
-  margin-left: 332px;
   :hover {
-    font-size: 150px;
+    font-size: 60px;
   }
 `;
 
 export const FrownFace = styled(FrownOutlined)`
-  font-size: 80px;
+  font-size: 50px;
   color: red;
-  margin-left: 50px;
-    :hover {
-    font-size: 150px;
-`;
-
-export const NoFace = styled(MehOutlined)`
-  font-size: 80px;
-  color: orange;
-  margin-left: 50px;
-`;
-
-export const Like_DisLike_Wrapper = styled.div`
-  height: 100px;
-  /* position: relative; */
-  /* background-color: greenyellow; */
-`;
-
-export const Like_Count = styled.div`
-  width: 80px;
-  height: 80px;
-  font-size: 35px;
-  margin-left: 330px;
-  text-align: center;
-  /* background-color: lightskyblue; */
-`;
-
-export const Dislike_Count = styled.div`
-  width: 80px;
-  height: 80px;
-  font-size: 35px;
-  margin-left: 591px;
-  margin-top: -80px;
-  position: relative;
-  text-align: center;
-  /* background-color: lightslategrey; */
-`;
-
-export const Button = styled.button`
-  width: 179px;
-  height: 45px;
-  /* background-color: red; */
-
   :hover {
-    cursor: pointer;
-    background-color: lightgray;
+    font-size: 60px;
   }
 `;
 
-export const End_Buttons = styled.div`
-  width: 800px;
-  height: 100px;
+export const NoFace = styled(MehOutlined)`
+  font-size: 50px;
+  color: orange;
+`;
+
+export const LikeDisLikeWrapper = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  padding: 24px;
-  margin-left: 300px;
-  margin-top: -100px;
-  /* background-color: black; */
+  width: 30%;
+  height: 40px;
+`;
+export const LikeCount = styled.div`
+  font-size: 24px;
+`;
+
+export const MiddleFace = styled.div`
+  font-size: 24px;
+`;
+
+export const DislikeCount = styled.div`
+  font-size: 24px;
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const Button = styled.button`
+  width: 180px;
+  height: 45px;
+  border-radius: 6px;
+  margin: 6px;
+  color: white;
+  background-color: #666666;
+  border: none;
+  :hover {
+    cursor: pointer;
+    background-color: #333333;
+  }
 `;

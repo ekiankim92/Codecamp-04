@@ -15,7 +15,7 @@ export const Header = styled.div`
   margin-bottom: 10px;
 `;
 
-export const Outter_Wrapper = styled.div`
+export const OuterWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -47,8 +47,20 @@ export const Image = styled.img`
 `;
 
 export const PriceWrapper = styled.div`
+  display: flex;
   font-weight: bold;
   padding: 5px;
+`;
+
+export const TimerWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-right: 10px;
+`;
+
+export const Timer = styled.span`
+  opacity: 0.4;
 `;
 
 export const NameWrapper = styled.div`

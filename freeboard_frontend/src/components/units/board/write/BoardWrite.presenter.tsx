@@ -5,7 +5,7 @@ import { IPropsBoardEditUI } from "./BoardWrite.types";
 
 export default function BoardEditUI(props: IPropsBoardEditUI) {
   return (
-    <S.OutterWrapper>
+    <>
       <S.Wrapper>
         <S.Title>게시판 {props.isEdit ? "수정" : "등록"}</S.Title>
         <S.WriterWrapper>
@@ -100,23 +100,21 @@ export default function BoardEditUI(props: IPropsBoardEditUI) {
             <>Upload</>
           </S.UploadButton>
         </S.ImageWrapper>
-        <S.InputWrapper>
+        <S.ZipcodeWrapper>
           <S.Label>주소</S.Label>
-          <S.ZipcodeWrapper>
-            <S.Zipcode
-              placeholder="07250"
-              readOnly
-              value={
-                props.zipcode ||
-                props.data?.fetchBoard.boardAddress?.zipcode ||
-                ""
-              }
-            ></S.Zipcode>
-            <S.SearchButton onClick={props.onToggleModal}>
-              우편번호 검색
-            </S.SearchButton>
-          </S.ZipcodeWrapper>
-          <S.Address_1
+          <S.Zipcode
+            placeholder="07250"
+            readOnly
+            value={
+              props.zipcode ||
+              props.data?.fetchBoard.boardAddress?.zipcode ||
+              ""
+            }
+          ></S.Zipcode>
+          <S.SearchButton onClick={props.onToggleModal}>
+            우편번호 검색
+          </S.SearchButton>
+          <S.Address1
             readOnly
             value={
               props.address ||
@@ -124,7 +122,7 @@ export default function BoardEditUI(props: IPropsBoardEditUI) {
               ""
             }
           />
-          <S.Address_2
+          <S.Address2
             defaultValue={
               props.data?.fetchBoard.boardAddress?.addressDetail || ""
             }
@@ -138,7 +136,7 @@ export default function BoardEditUI(props: IPropsBoardEditUI) {
               <DaumPostcode onComplete={props.handleComplete} />
             </Modal>
           )}
-        </S.InputWrapper>
+        </S.ZipcodeWrapper>
         <S.ButtonWrapper>
           {!props.isEdit && (
             <S.SubmitButton onClick={props.onClickSubmit} color={props.color}>
@@ -152,6 +150,6 @@ export default function BoardEditUI(props: IPropsBoardEditUI) {
           )}
         </S.ButtonWrapper>
       </S.Wrapper>
-    </S.OutterWrapper>
+    </>
   );
 }

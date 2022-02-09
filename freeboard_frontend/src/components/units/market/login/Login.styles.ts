@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   align-items: center;
   border-radius: 16px;
   background-color: #eeee;
-  margin: 150px;
+  margin: 150px auto 50px auto;
 `;
 
 export const LoginInfo = styled.div`

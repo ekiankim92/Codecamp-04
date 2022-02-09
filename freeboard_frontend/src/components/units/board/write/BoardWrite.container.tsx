@@ -103,7 +103,7 @@ export default function BoardEdit(props: IPropsBoardEdit) {
     }
   };
 
-  const BodyParagraph = (event: ChangeEvent<HTMLInputElement>) => {
+  const BodyParagraph = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setMiddleComment(event.target.value);
     if (event.target.value !== "") {
       setMiddleBodyError("");

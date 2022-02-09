@@ -15,7 +15,7 @@ export default function ProductDetailUI(props: IPropsProductDetailUI) {
         <div>
           <h1>Product Details</h1>
         </div>
-        <S.Outter_Wrapper>
+        <S.OuterWrapper>
           <S.Image_Wrapper>
             <S.Images1>
               <S.Image
@@ -75,7 +75,7 @@ export default function ProductDetailUI(props: IPropsProductDetailUI) {
               </S.Address_Detail>
             </div>
           </S.Section_Wrapper>
-        </S.Outter_Wrapper>
+        </S.OuterWrapper>
         <S.Button_Wrapper>
           <S.Button onClick={props.onClickMoveToMarketList}>List</S.Button>
           <S.Button onClick={props.onClickMoveToEdit}>Edit</S.Button>

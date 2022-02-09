@@ -1,18 +1,15 @@
 import styled from "@emotion/styled";
 
-export const OutterWrapper = styled.div`
-  width: 100%
-  height: 100%;;
-`;
-
 export const Wrapper = styled.div`
-  border: 1px solid black;
-  margin: 100px;
+  width: 75%;
+  margin: 120px auto 50px auto;
+  border: 1px solid #000000;
   padding: 80px 100px 102px 102px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   border: none;
-  box-shadow: 0px 0px 10px gray;
+  box-shadow: 0px 0px 10px #808080;
   border-radius: 8px;
 `;
 
@@ -24,10 +21,6 @@ export const Title = styled.div`
 `;
 
 export const WriterWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   padding-top: 40px;
 `;
 
@@ -74,48 +67,43 @@ export const Contents = styled.textarea`
   border-radius: 6px;
 `;
 
-export const ZipcodeWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
 export const Zipcode = styled.input`
   width: 77px;
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
-  background-color: white;
-  padding: 16px;
   border-radius: 6px;
 `;
 
 export const SearchButton = styled.button`
   width: 124px;
   height: 52px;
-  margin-left: 16px;
+  margin-left: 8px;
+  border-radius: 6px;
   background-color: black;
   cursor: pointer;
   color: white;
 `;
 
-export const Address_1 = styled.input`
+export const ZipcodeWrapper = styled.div`
+  margin-top: 20px;
+`;
+
+export const Address1 = styled.input`
   width: 996px;
   height: 52px;
   margin-top: 16px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
-  background-color: white;
-  padding: 15px;
   border-radius: 6px;
 `;
 
-export const Address_2 = styled.input`
+export const Address2 = styled.input`
   width: 996px;
   height: 52px;
   margin-top: 16px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
-  background-color: white;
   border-radius: 6px;
 `;
 
@@ -135,10 +123,10 @@ export const ImageWrapper = styled.div`
 export const UploadButton = styled.button`
   width: 120px;
   height: 120px;
-  background-color: white;
+  background-color: #ffffff;
   margin-right: 24px;
   outline: none;
-  border: 1px dashed gray;
+  border: 1px dashed #808080;
   cursor: grab;
 `;
 
@@ -186,7 +174,7 @@ export const SubmitButton = styled.button`
   font-weight: 500;
   margin-left: 12px;
   margin-right: 12px;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
   background-color: ${(props) =>
     props.color === true ? "black" : "lightgray"};

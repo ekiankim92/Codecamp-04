@@ -3,6 +3,7 @@ import InfiniteScroll from "react-infinite-scroller";
 import Search01 from "../../../commons/keyword-search/01/search01.container";
 import { ChangeEvent } from "react";
 import { IPropsMarketListUI } from "./MarketList.types";
+import { timeDisplay } from "../../../../../src/commons/libraries/utils";
 
 export default function MarketListUI(props: IPropsMarketListUI) {
   const onError = (event: ChangeEvent<HTMLImageElement>) => {
@@ -26,7 +27,7 @@ export default function MarketListUI(props: IPropsMarketListUI) {
           useWindow={false}
         >
           <S.Header>Today's List</S.Header>
-          <S.Outter_Wrapper>
+          <S.OuterWrapper>
             {props.data?.fetchUseditems.map((el) => (
               <div key={el._id}>
                 <S.Wrapper>
@@ -38,6 +39,9 @@ export default function MarketListUI(props: IPropsMarketListUI) {
                   </S.ImageWrapper>
                   <S.PriceWrapper>
                     <div>${el.price}</div>
+                    <S.TimerWrapper>
+                      <S.Timer>{timeDisplay(el.createdAt)}</S.Timer>
+                    </S.TimerWrapper>
                   </S.PriceWrapper>
                   <S.NameWrapper>
                     <S.Name>
@@ -68,7 +72,7 @@ export default function MarketListUI(props: IPropsMarketListUI) {
                 </S.Wrapper>
               </div>
             ))}
-          </S.Outter_Wrapper>
+          </S.OuterWrapper>
         </InfiniteScroll>
         <S.LoadMore>
           <S.MoreButton onClick={props.onLoadMore}>

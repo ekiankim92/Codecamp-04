@@ -2,7 +2,7 @@ import * as S from "./BoardCommentWrite.styles";
 
 export default function BoardCommentWriteUI(props) {
   return (
-    <S.Second_Wrapper>
+    <S.Wrapper>
       {!props.isEdit && (
         <S.Comment_Header>
           <S.Vector_Png src="/images/Vector.png" />
@@ -43,6 +43,6 @@ export default function BoardCommentWriteUI(props) {
           </S.Comment_Submit_Button>
         </S.Comment_Wrapper>
       </S.TextArea_Comment_Wrapper>
-    </S.Second_Wrapper>
+    </S.Wrapper>
   );
 }

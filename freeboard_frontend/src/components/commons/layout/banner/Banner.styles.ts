@@ -12,7 +12,7 @@ import "slick-carousel/slick/slick-theme.css";
 // `;
 
 export const Carousel_Wrapper = styled.div`
-  width: 100%;
+  /* width: 100%; */
   height: 600px;
   overflow: hidden;
   border-bottom: 2px solid lightgray;

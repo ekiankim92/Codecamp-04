@@ -18,7 +18,7 @@ export interface IPropsBoardEditUI {
   SetNames: (event: ChangeEvent<HTMLInputElement>) => void;
   SetPassword: (event: ChangeEvent<HTMLInputElement>) => void;
   TitleName: (event: ChangeEvent<HTMLInputElement>) => void;
-  BodyParagraph: (event: ChangeEvent<HTMLInputElement>) => void;
+  BodyParagraph: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   YoutubeVideo: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
   onClickSubmit: () => void;

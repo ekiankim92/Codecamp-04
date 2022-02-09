@@ -14,15 +14,18 @@ import {
 } from "../../../../commons/types/generated/types";
 
 export default function BoardCommentWrite(props) {
-  //댓글등록
   const router = useRouter();
+
   const [writer, setWriter] = useState<string>("");
   const [contents, setContents] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [rating, setRating] = useState<number>(0);
+
   const [createBoardComment] = useMutation<
     Pick<IMutation, "createBoardComment">,
     IMutationCreateBoardCommentArgs
   >(CREATE_BOARD_COMMENT);
+
   const [updateBoardComment] = useMutation<
     Pick<IMutation, "updateBoardComment">,
     IMutationUpdateBoardCommentArgs
@@ -75,21 +78,18 @@ export default function BoardCommentWrite(props) {
             },
           ],
         });
+        alert("댓글이 등록되었습니다!");
         console.log(result);
       } catch (error) {
         if (error instanceof Error) console.log(error.message);
       }
     }
-    alert("댓글이 등록되었습니다!");
   }
 
-  //댓글 별 등록
-  const [rating, setRating] = useState<number>(0);
   function CountingStars(value) {
     setRating(value);
   }
 
-  //댓글 수정
   async function onClickUpdate() {
     try {
       alert(props.el?._id);
@@ -125,7 +125,6 @@ export default function BoardCommentWrite(props) {
       contents={contents}
       onClickUpdate={onClickUpdate}
       isEdit={props.isEdit}
-      // isEdit={true}
       CreateCommentButton={CreateCommentButton}
       CountingStars={CountingStars}
       rating={rating}

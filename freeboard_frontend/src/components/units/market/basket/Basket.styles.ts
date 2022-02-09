@@ -5,7 +5,7 @@ export const CartTitle = styled.div`
   text-align: center;
 `;
 
-export const OutterWrapper = styled.div`
+export const OuterWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
