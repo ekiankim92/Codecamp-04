@@ -1,4 +1,4 @@
-import { ReactChild } from "react";
+import { ReactChild, useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import Header from "./header/Header.container";
 import Banner from "./banner/Banner.container";
@@ -16,6 +16,7 @@ const BodyWrapper = styled.div`
 
 interface ILayoutProps {
   children: ReactChild;
+  hidden: boolean;
 }
 
 //  배열에 주소를 넣어서 해당하는것만 안보여주게끔
@@ -32,10 +33,12 @@ const HIDDEN_MYCART = ["/market/basket"];
 const HIDDEN_RELOADPAGE = ["/market/reloadpage"];
 const HIDDEN_MYORDER = ["/market/myorder"];
 const HIDDEN_SECURITY = ["/market/security"];
-const HIDDEN_BoardList = ["/board/board_list"];
-const HIDDEN_BoardWrite = ["/mento"];
+const HIDDEN_BOARDLIST = ["/board/board_list"];
+const HIDDEN_BOARDWRITE = ["/mento"];
 
 export default function Layout(props: ILayoutProps) {
+  const [hidden, setHidden] = useState<boolean>(false);
+
   const router = useRouter();
   console.log(router.asPath);
 
@@ -52,8 +55,14 @@ export default function Layout(props: ILayoutProps) {
   const isHiddenReloadPage = HIDDEN_RELOADPAGE.includes(router.asPath);
   const isHiddenMyOrder = HIDDEN_MYORDER.includes(router.asPath);
   const isHiddenSecurity = HIDDEN_SECURITY.includes(router.asPath);
-  const isHiddenBoardList = HIDDEN_BoardList.includes(router.asPath);
-  const isHiddenBoardWrite = HIDDEN_BoardWrite.includes(router.asPath);
+  const isHiddenBoardList = HIDDEN_BOARDLIST.includes(router.asPath);
+  const isHiddenBoardWrite = HIDDEN_BOARDWRITE.includes(router.asPath);
+
+  useEffect(() => {
+    if (router.asPath.includes("board/" && "market/")) {
+      setHidden(true);
+    }
+  }, [router.asPath]);
 
   return (
     <Wrapper>
@@ -69,7 +78,8 @@ export default function Layout(props: ILayoutProps) {
         !isHiddenMyOrder &&
         !isHiddenSecurity &&
         !isHiddenBoardList &&
-        !isHiddenBoardWrite && <Banner />}
+        !isHiddenBoardWrite &&
+        !hidden && <Banner />}
       {/* <Navigation /> */}
       <BodyWrapper>
         {/* <Sidebar /> */}

@@ -1,34 +1,24 @@
-import { useMutation, useQuery } from "@apollo/client";
-import { useState } from "react";
+import { useQuery } from "@apollo/client";
+import { MouseEvent, useState } from "react";
 import BoardListUI from "./BoardList.presenter";
 import {
   FETCH_BOARDS,
-  DELETE_BOARD,
   FETCH_BOARDS_OF_THE_BEST,
   FETCH_BOARDS_COUNT,
 } from "./BoardList.queries";
 import { useRouter } from "next/router";
 import {
-  IMutation,
-  IMutationDeleteBoardArgs,
   IQuery,
   IQueryFetchBoardsArgs,
 } from "../../../../commons/types/generated/types";
 
 export default function BoardList() {
-  // Delete board
-  const [deleteBoard] = useMutation<
-    Pick<IMutation, "deleteBoard">,
-    IMutationDeleteBoardArgs
-  >(DELETE_BOARD);
-  // Fetch best comment
-  const { data: data2 } = useQuery(FETCH_BOARDS_OF_THE_BEST);
   const router = useRouter();
-  // Pagination
-  const { data: dataBoardsCount, refetch: refetchBoardsCount } =
-    useQuery(FETCH_BOARDS_COUNT);
-  // Pagination startPage
+
   const [startPage, setStartPage] = useState(1);
+
+  const [keyword, setMyKeyword] = useState("");
+
   const { data, refetch } = useQuery<
     Pick<IQuery, "fetchBoards">,
     IQueryFetchBoardsArgs
@@ -36,52 +26,33 @@ export default function BoardList() {
     variables: { page: startPage },
   });
 
-  // Search Keyword
-  const [keyword, setMyKeyword] = useState("");
+  const { data: dataBestBoards } = useQuery(FETCH_BOARDS_OF_THE_BEST);
 
-  function onChangeSearch(value) {
+  const { data: dataBoardsCount, refetch: refetchBoardsCount } =
+    useQuery(FETCH_BOARDS_COUNT);
+
+  const onChangeSearch = (value: string) => {
     setMyKeyword(value);
     console.log(value);
-  }
+  };
 
-  function onClickMoveToBoard() {
+  const onClickMoveToBoard = () => {
     router.push(`/mento`);
-  }
+  };
 
-  function onClickMoveToBoardDetail(event) {
-    router.push(`/board/${event.target.id}`);
-  }
-
-  function onClickMoveToBestDetail(event) {
-    alert(event.target.id);
-    router.push(`/board/${event.target.id}`);
-  }
-
-  async function onClickDate(event) {
-    alert(event.target.id);
-    try {
-      await deleteBoard({
-        variables: { boardId: event.currentTarget.id },
-        refetchQueries: [{ query: FETCH_BOARDS }],
-      });
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message);
-    }
-  }
+  const onClickMoveToDetail = (event: MouseEvent<HTMLDivElement>) => {
+    if (event.target instanceof Element)
+      // router.push(`/board/${event.currentTarget.id}`);
+      console.log(event.target.id);
+  };
 
   return (
     <BoardListUI
-      onClickDate={onClickDate}
       data={data}
-      data2={data2}
+      dataBestBoards={dataBestBoards}
       onClickMoveToBoard={onClickMoveToBoard}
-      onClickMoveToBoardDetail={onClickMoveToBoardDetail}
-      onClickMoveToBestDetail={onClickMoveToBestDetail}
-      // onClickPage={onClickPage}
-      // onClickPrevPage={onClickPrevPage}
-      // onClickNextPage={onClickNextPage}
+      onClickMoveToDetail={onClickMoveToDetail}
       dataBoardsCount={dataBoardsCount}
-      // lastPage={lastPage}
       startPage={startPage}
       refetch={refetch}
       count={dataBoardsCount?.fetchBoardsCount}

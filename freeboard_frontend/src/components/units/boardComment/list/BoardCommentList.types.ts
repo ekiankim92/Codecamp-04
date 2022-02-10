@@ -3,10 +3,11 @@ import {
   IQuery,
 } from "../../../../commons/types/generated/types";
 
-export interface IProps {
+export interface IPropsBoardCommentListUI {
   data?: Pick<IQuery, "fetchBoardComments">;
+  onLoadMore: () => void;
 }
 
-export interface Iprops2 {
+export interface IPropsBoardCommentListUIItem {
   el: IBoardComment;
 }

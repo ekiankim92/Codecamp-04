@@ -7,27 +7,29 @@ import {
 } from "./BoardCommentList.queries";
 import * as S from "./BoardCommentList.styles";
 import { getDate } from "../../../../commons/libraries/utils";
-import { Modal } from "antd";
 import BoardCommentWrite from "../write/BoardCommentWrite.container";
-import { Iprops2 } from "./BoardCommentList.types";
+import {
+  IMutation,
+  IMutationDeleteBoardCommentArgs,
+} from "../../../../commons/types/generated/types";
+import { IPropsBoardCommentListUIItem } from "./BoardCommentList.types";
 
-export default function BoardCommentListUIItem(props: Iprops2) {
+export default function BoardCommentListUIItem(
+  props: IPropsBoardCommentListUIItem
+) {
   const router = useRouter();
-  //True for edit false for submit
-  const [isEdit, setIsEdit] = useState(false);
 
-  //Settings for Modal
-  const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
-  const [password, setMyPassword] = useState("");
+  const [isEdit, setIsEdit] = useState<boolean>(false);
 
-  //Comment Delete
-  const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT);
+  const [deleteBoardComment] = useMutation<
+    Pick<IMutation, "deleteBoardComment">,
+    IMutationDeleteBoardCommentArgs
+  >(DELETE_BOARD_COMMENT);
 
-  function onClickUpdate() {
+  const onClickUpdate = () => {
     setIsEdit(true);
-  }
+  };
 
-  //댓글 삭제
   async function onClickCommentDelete() {
     const password = prompt("비밀번호를 입력하세요");
     try {
@@ -45,38 +47,33 @@ export default function BoardCommentListUIItem(props: Iprops2) {
           },
         ],
       });
-      console.log(props.el.id);
     } catch (error) {
-      console.log(error.message);
+      if (error instanceof Error) console.log("commentDelete:", error.message);
     }
   }
 
   return (
     <>
       {!isEdit && (
-        <S.Comment_Section>
+        <S.CommentSection>
           <div>
-            <S.Front_Comment>
-              <S.Header_Image src="/images/user.png" />
-              <S.Comment_User>{props.el?.writer}</S.Comment_User>
+            <S.FrontComment>
+              <S.HeaderImage src="/images/user.png" />
+              <S.CommentUser>{props.el?.writer}</S.CommentUser>
               <S.Stars value={props.el?.rating}></S.Stars>
-            </S.Front_Comment>
-            <S.Comment_Content>{props.el?.contents}</S.Comment_Content>
-            <S.Created_At_Date>
-              {getDate(props.el?.createdAt)}
-            </S.Created_At_Date>
-            {/* <S.Comment_Icons src="/images/edit_pen.png" />
-            <S.Comment_Icons src="/images/x.png" /> */}
-            <S.Comment_Button>
-              <S.Comment_Icons onClick={onClickUpdate}>
+            </S.FrontComment>
+            <S.CommentContent>{props.el?.contents}</S.CommentContent>
+            <S.CreatedAtDate>{getDate(props.el?.createdAt)}</S.CreatedAtDate>
+            <S.CommentButton>
+              <S.CommentIcons onClick={onClickUpdate}>
                 <img src="/images/edit_pen.png" />
-              </S.Comment_Icons>
-              <S.Comment_Icons onClick={onClickCommentDelete}>
+              </S.CommentIcons>
+              <S.CommentIcons onClick={onClickCommentDelete}>
                 <img src="/images/x.png" />
-              </S.Comment_Icons>
-            </S.Comment_Button>
+              </S.CommentIcons>
+            </S.CommentButton>
           </div>
-        </S.Comment_Section>
+        </S.CommentSection>
       )}
       {isEdit && (
         <BoardCommentWrite

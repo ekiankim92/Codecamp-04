@@ -3,37 +3,66 @@ import { getDate } from "../../../../../src/commons/libraries/utils";
 import PaginationsPage01 from "../../../commons/paginations/01/Paginations01.container";
 import Search01 from "../../../commons/keyword-search/01/search01.container";
 import { v4 as uuid4 } from "uuid";
+import { ChangeEvent } from "react";
 
 export default function BoardListUI(props) {
-  return (
-    <S.Outer_Wrapper>
-      <S.Inner_Wrapper>
-        <S.Header>
-          <div>번호</div>
-          <div>제목</div>
-          <div>작성자</div>
-          <div>날짜</div>
-        </S.Header>
+  const onError = (event: ChangeEvent<HTMLImageElement>) => {
+    event.target.src = "/market_images/image.png";
+  };
 
-        <S.Best_List>
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
+  return (
+    <S.Wrapper>
+      <Search01
+        refetch={props.refetch}
+        refetchBoardsCount={props.refetchBoardsCount}
+        onChangeSearch={props.onChangeSearch}
+      />
+      <S.Inner_Wrapper>
+        <S.BestWrapper>
           <div>
-            {props.data2?.fetchBoardsOfTheBest.map((el: any, index: any) => (
-              <S.Row>
-                <S.Column>{index + 1}</S.Column>
-                <S.Column id={el._id} onClick={props.onClickMoveToBestDetail}>
-                  {el.title}
-                </S.Column>
-                <S.Column>{el.writer}</S.Column>
-                <S.Column>{getDate(el.createdAt)}</S.Column>
-              </S.Row>
-            ))}
+            {props.dataBestBoards?.fetchBoardsOfTheBest.map(
+              (el: any, index: number) => (
+                <S.Row key={uuid4()}>
+                  <S.Column>{index + 1}</S.Column>
+                  <S.Column id={el._id} onClick={props.onClickMoveToDetail}>
+                    {el.title}
+                  </S.Column>
+                  <S.Column>{el.writer}</S.Column>
+                  <S.Column>{getDate(el.createdAt)}</S.Column>
+                  <div>
+                    <img
+                      src={`https://storage.googleapis.com/${el.images?.[0]}`}
+                      style={{ width: "50px", height: "50px" }}
+                      onError={onError}
+                    />
+                  </div>
+                </S.Row>
+              )
+            )}
           </div>
-        </S.Best_List>
-        <Search01
-          refetch={props.refetch}
-          refetchBoardsCount={props.refetchBoardsCount}
-          onChangeSearch={props.onChangeSearch}
-        />
+          <S.Carousel {...settings}>
+            <div>
+              <img src="/market_images/cart.png" />
+            </div>
+            <div>
+              <img src="/market_images/cart.png" />
+            </div>
+            <div>
+              <img src="/market_images/cart.png" />
+            </div>
+            <div>
+              <img src="/market_images/cart.png" />
+            </div>
+          </S.Carousel>
+        </S.BestWrapper>
         <S.Header>
           <div>번호</div>
           <div>제목</div>
@@ -42,26 +71,20 @@ export default function BoardListUI(props) {
         </S.Header>
         <S.Lists>
           {props.data?.fetchBoards.map((el, index) => (
-            <S.Row key={el._id}>
-              <S.Column>{/* <input type="checkbox" /> */}</S.Column>
+            <S.Row key={uuid4()}>
               <S.Column>{index + 1}</S.Column>
-              <S.Column onClick={props.onClickMoveToBoardDetail} id={el._id}>
+              <div id={el._id} onClick={props.onClickMoveToDetail}>
                 {el.title
                   .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
                   .split("@#$%")
-                  .map((el: any) => (
+                  .map((el) => (
                     <S.SearchBar key={uuid4()} isMatched={props.keyword === el}>
                       {el}
                     </S.SearchBar>
                   ))}
-              </S.Column>
+              </div>
               <S.Column>{el.writer}</S.Column>
               <S.Column>{getDate(el.createdAt)}</S.Column>
-              <S.Column>
-                {/* <button id={el._id} onClick={props.onClickDate}>
-                  Delete Button
-                </button> */}
-              </S.Column>
             </S.Row>
           ))}
         </S.Lists>
@@ -76,6 +99,6 @@ export default function BoardListUI(props) {
         <img src="/images/edit_pen.png" />
         게시물 등록하기
       </S.Create_Board_Button>
-    </S.Outer_Wrapper>
+    </S.Wrapper>
   );
 }

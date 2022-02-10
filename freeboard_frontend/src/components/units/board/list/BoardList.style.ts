@@ -1,31 +1,26 @@
 import styled from "@emotion/styled";
+import Slider from "react-slick";
 
-export const Best_List = styled.div`
-  width: 1100px;
-  height: 250px;
-`;
-
-export const Outer_Wrapper = styled.div`
-  margin: 35px 45px;
-  width: 1100px;
-  height: auto;
-`;
-
-export const Inner_Wrapper = styled.div`
-  /* display: flex;
-    justify-content: space-around; */
-  border: 1px black solid;
-  width: 1100px;
-  height: auto;
+export const Wrapper = styled.div`
+  width: 80%;
+  /* margin: 100px auto 20px auto; */
+  margin: 120px auto 50px auto;
 `;
 
 export const Header = styled.div`
-  width: 1100px;
-  height: 60px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  border-bottom: 3px solid black;
+  border-bottom: 1px solid black;
+  background-color: lightcoral;
+`;
+
+export const BestWrapper = styled.div`
+  background-color: lightblue;
+`;
+
+export const Inner_Wrapper = styled.div`
+  border: 1px black solid;
 `;
 
 export const Lists = styled.div`
@@ -41,51 +36,17 @@ export const Column = styled.div`
   :hover {
     color: red;
     cursor: pointer;
-
+  }
 `;
 
 export const Row = styled.div`
-  width: 1100px;
-  height: 51px;
+  /* width: 1100px; */
+  /* height: 51px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
 `;
-
-// export const Best_List_Header = styled.div`
-
-//
-
-/* export const SearchSection = styled.div`
-  width: auto;
-  height: auto;
-  display: flex;
-  justify-content: space-around;
-  background-color: aqua;
-`; */
-
-/* export const Search_Area = styled.input`
-  width: 776px;
-  height: 52px;
-  background-color: red;
-`; */
-
-/* export const Search_Data = styled.input`
-  width: 224px;
-  height: 52px;
-`;
-
-export const Search_Button = styled.button`
-  width: 94px;
-  height: 52px;
-  cursor: pointer;
-
-  :hover {
-    color: white;
-    background-color: black;
-  }
-`; */
 
 export const Create_Board_Button = styled.button`
   width: 120px;
@@ -93,7 +54,6 @@ export const Create_Board_Button = styled.button`
   display: flex;
   align-items: center;
   padding: 3px;
-
   :hover {
     background-color: yellow;
     cursor: pointer;
@@ -102,4 +62,10 @@ export const Create_Board_Button = styled.button`
 
 export const SearchBar = styled.span`
   color: ${(props) => (props.isMatched ? "red" : "black")};
+`;
+
+export const Carousel = styled(Slider)`
+  width: 100%
+  height: 100%;
+  background-color: gold;
 `;

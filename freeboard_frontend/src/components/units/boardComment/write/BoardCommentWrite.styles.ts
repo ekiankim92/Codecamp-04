@@ -30,6 +30,7 @@ export const UserInput = styled.input`
   height: 52px;
   border-radius: 6px;
   padding: 10px;
+  border: 1px solid #d3d3d3;
 `;
 
 export const PasswordInput = styled.input`
@@ -38,6 +39,7 @@ export const PasswordInput = styled.input`
   border-radius: 6px;
   margin-left: 20px;
   padding: 10px;
+  border: 1px solid #d3d3d3;
 `;
 
 export const TextAreaCommentWrapper = styled.div``;
@@ -48,6 +50,7 @@ export const TextAreaComment = styled.textarea`
   margin-top: 20px;
   padding: 15px;
   border-radius: 6px;
+  border: 1px solid #d3d3d3;
 `;
 
 export const CommentWrapper = styled.div`

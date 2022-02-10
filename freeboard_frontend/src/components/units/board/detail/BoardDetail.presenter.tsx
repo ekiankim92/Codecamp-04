@@ -1,8 +1,13 @@
 import * as S from "./BoardDetail.styles";
 import ReactPlayer from "react-player/youtube";
 import { IPropsBoardDetailUI } from "./BoardDetail.types";
+import { ChangeEvent } from "react";
 
 export default function BoardDetailUI(props: IPropsBoardDetailUI) {
+  const onError = (event: ChangeEvent<HTMLImageElement>) => {
+    event.target.src = "/market_images/image.png";
+  };
+
   return (
     <S.OuterWrapper>
       <S.Wrapper>
@@ -32,6 +37,7 @@ export default function BoardDetailUI(props: IPropsBoardDetailUI) {
             <img
               src={`https://storage.googleapis.com/${props.data?.fetchBoard.images?.[0]}`}
               style={{ width: "250px", height: "250px" }}
+              onError={onError}
             ></img>
           </S.ImageSection>
           <S.ContentSection>

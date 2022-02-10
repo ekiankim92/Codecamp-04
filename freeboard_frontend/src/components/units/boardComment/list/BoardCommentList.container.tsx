@@ -8,8 +8,8 @@ import BoardCommentListUI from "./BoardCommentList.presenter";
 import { FETCH_BOARD_COMMENTS } from "./BoardCommentList.queries";
 
 export default function BoardCommentList() {
-  //댓글 조회
   const router = useRouter();
+
   const { data, fetchMore } = useQuery<
     Pick<IQuery, "fetchBoardComments">,
     IQueryFetchBoardCommentsArgs
@@ -19,7 +19,7 @@ export default function BoardCommentList() {
     },
   });
 
-  function onLoadMore() {
+  const onLoadMore = () => {
     if (!data) return;
 
     fetchMore({
@@ -35,7 +35,7 @@ export default function BoardCommentList() {
         };
       },
     });
-  }
+  };
 
   return <BoardCommentListUI data={data} onLoadMore={onLoadMore} />;
 }

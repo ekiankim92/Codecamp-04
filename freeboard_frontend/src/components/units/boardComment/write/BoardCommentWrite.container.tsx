@@ -93,6 +93,10 @@ export default function BoardCommentWrite(props: IPropsBoardCommentWrite) {
   };
 
   const onClickUpdate = async () => {
+    if (!password && !contents) {
+      Modal.error({ content: "비밀번호를 입력해주세요" });
+      return;
+    }
     try {
       console.log(props.el?._id);
       await updateBoardComment({

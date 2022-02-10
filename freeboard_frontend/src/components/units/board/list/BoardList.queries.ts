@@ -8,6 +8,10 @@ export const FETCH_BOARDS_OF_THE_BEST = gql`
       title
       contents
       createdAt
+      images
+      user {
+        name
+      }
     }
   }
 `;
@@ -23,12 +27,6 @@ export const FETCH_BOARDS = gql`
       likeCount
       dislikeCount
     }
-  }
-`;
-
-export const DELETE_BOARD = gql`
-  mutation deleteBoard($boardId: ID!) {
-    deleteBoard(boardId: $boardId)
   }
 `;
 

@@ -1,3 +1,4 @@
+import { ChangeEvent } from "react";
 import { IMutation, IQuery } from "../../../../commons/types/generated/types";
 
 export interface IPropsBoardDetailUI {
@@ -12,4 +13,5 @@ export interface IPropsBoardDetailUI {
   DislikeCount: () => void;
   onClickCount: () => void;
   onClickEdit: () => void;
+  onError: (event: ChangeEvent<HTMLImageElement>) => void;
 }

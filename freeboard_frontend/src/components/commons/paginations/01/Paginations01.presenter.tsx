@@ -4,7 +4,7 @@ import { Page } from "./Paginations01.styles";
 export default function Paginations01UI(props: IPropsPaginations01UI) {
   return (
     <div>
-      <Page onClick={props.onClickPrevPage}>Previous</Page>
+      <Page onClick={props.onClickPrevPage}>{`<`} Previous</Page>
       {new Array(10).fill(1).map(
         (_, index) =>
           props.startPage + index <= props.lastPage && (
@@ -19,7 +19,7 @@ export default function Paginations01UI(props: IPropsPaginations01UI) {
             </Page>
           )
       )}
-      <Page onClick={props.onClickNextPage}>Next</Page>
+      <Page onClick={props.onClickNextPage}>Next {`>`}</Page>
     </div>
   );
 }
