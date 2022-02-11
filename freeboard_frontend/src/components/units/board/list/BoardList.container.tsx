@@ -15,9 +15,9 @@ import {
 export default function BoardList() {
   const router = useRouter();
 
-  const [startPage, setStartPage] = useState(1);
+  const [startPage, setStartPage] = useState<number>(1);
 
-  const [keyword, setMyKeyword] = useState("");
+  const [keyword, setMyKeyword] = useState<string>("");
 
   const { data, refetch } = useQuery<
     Pick<IQuery, "fetchBoards">,
@@ -26,10 +26,12 @@ export default function BoardList() {
     variables: { page: startPage },
   });
 
-  const { data: dataBestBoards } = useQuery(FETCH_BOARDS_OF_THE_BEST);
+  const { data: dataBestBoards } = useQuery<
+    Pick<IQuery, "fetchBoardsOfTheBest">
+  >(FETCH_BOARDS_OF_THE_BEST);
 
   const { data: dataBoardsCount, refetch: refetchBoardsCount } =
-    useQuery(FETCH_BOARDS_COUNT);
+    useQuery<Pick<IQuery, "fetchBoardsCount">>(FETCH_BOARDS_COUNT);
 
   const onChangeSearch = (value: string) => {
     setMyKeyword(value);
@@ -42,8 +44,7 @@ export default function BoardList() {
 
   const onClickMoveToDetail = (event: MouseEvent<HTMLDivElement>) => {
     if (event.target instanceof Element)
-      // router.push(`/board/${event.currentTarget.id}`);
-      console.log(event.target.id);
+      router.push(`/board/${event.currentTarget.id}`);
   };
 
   return (

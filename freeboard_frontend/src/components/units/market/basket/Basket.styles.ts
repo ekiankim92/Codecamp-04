@@ -44,6 +44,7 @@ export const Name = styled.div`
   font-size: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const InfoWrapper = styled.div`

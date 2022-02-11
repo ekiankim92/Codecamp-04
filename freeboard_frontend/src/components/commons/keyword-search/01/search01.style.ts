@@ -20,6 +20,7 @@ export const SearchArea = styled.input`
   height: 44px;
   padding: 10px;
   border-radius: 4px;
+  border: 1px solid #d3d3d3;
 `;
 
 export const SearchData = styled.input`

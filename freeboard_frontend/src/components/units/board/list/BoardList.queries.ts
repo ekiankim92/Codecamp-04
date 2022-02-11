@@ -9,6 +9,7 @@ export const FETCH_BOARDS_OF_THE_BEST = gql`
       contents
       createdAt
       images
+      likeCount
       user {
         name
       }

@@ -3,7 +3,7 @@ import { SmileOutlined, FrownOutlined, MehOutlined } from "@ant-design/icons";
 
 export const OuterWrapper = styled.div`
   width: 75%;
-  margin: 50px auto 50px auto;
+  margin: 100px auto 50px auto;
 `;
 
 export const Wrapper = styled.div`

@@ -1,71 +1,176 @@
 import styled from "@emotion/styled";
-import Slider from "react-slick";
+import { SmileOutlined } from "@ant-design/icons";
+import { IPropsSearchBar } from "./BoardList.types";
 
 export const Wrapper = styled.div`
-  width: 80%;
-  /* margin: 100px auto 20px auto; */
+  width: 70%;
   margin: 120px auto 50px auto;
+`;
+
+export const SearchWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const Title = styled.div`
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin: 10px;
+`;
+
+export const InnerWrapper = styled.div``;
+
+export const BestWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 14px;
+`;
+
+export const BestRowWrapper = styled.div`
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid #d3d3d3; ;
+`;
+
+export const BestIconDateWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const IconWrapper = styled.div`
+  margin-left: 6px;
+  opacity: 0.6;
+`;
+
+export const SmileyFace = styled(SmileOutlined)`
+  font-size: 16px;
+  color: blue;
+`;
+
+export const SmilyFaceCount = styled.span`
+  margin: 6px;
+`;
+
+export const BestDate = styled.div`
+  font-size: 14px;
+  opacity: 0.5;
+  margin-right: 6px;
+`;
+
+export const ImageWrapper = styled.div`
+  border-bottom: 1px solid #d3d3d3;
+`;
+
+export const Image = styled.img`
+  width: 230px;
+  height: 200px;
+  object-fit: fill;
+  :hover {
+    cursor: pointer;
+    width: 220px;
+  }
+`;
+
+export const BestTitle = styled.div`
+  font-size: 20px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+export const BestWriter = styled.div`
+  font-size: 14px;
+  opacity: 0.6;
 `;
 
 export const Header = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
-  border-bottom: 1px solid black;
-  background-color: lightcoral;
-`;
-
-export const BestWrapper = styled.div`
-  background-color: lightblue;
-`;
-
-export const Inner_Wrapper = styled.div`
-  border: 1px black solid;
+  border-bottom: 1px solid #d3d3d3;
 `;
 
 export const Lists = styled.div`
-  /* border: 1px solid black */
-`;
-
-export const Column = styled.div`
-  width: 20%;
   display: flex;
-  justify-content: space-between;
-  padding: 30px;
-  /* border-bottom: 1px solid black; */
-  :hover {
-    color: red;
-    cursor: pointer;
-  }
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const Row = styled.div`
-  /* width: 1100px; */
-  /* height: 51px; */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  overflow: hidden;
+  margin: 4px;
+  justify-content: space-around;
+  border-bottom: 1px solid #d3d3d3;
 `;
 
-export const Create_Board_Button = styled.button`
-  width: 120px;
-  height: 50px;
+export const IndexNumber = styled.div`
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+`;
+
+export const BoardsTitle = styled.div`
+  width: 1000px;
+  text-align: center;
+  font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  :hover {
+    cursor: pointer;
+    font-size: 18px;
+  }
+`;
+
+export const BoardsWriter = styled.div`
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+`;
+
+export const BoardsDate = styled.div`
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+`;
+
+export const PaginationWrapper = styled.div`
+  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
+`;
+
+export const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
-  padding: 3px;
+  justify-content: center;
+  margin-top: 10px;
+`;
+
+export const EditPen = styled.img`
+  margin: 2px;
+`;
+
+export const CreateBoardButton = styled.button`
+  height: 48px;
+  border-radius: 3px;
+  color: white;
+  background-color: #666666;
+  border: none;
   :hover {
-    background-color: yellow;
     cursor: pointer;
+    background-color: #333333;
   }
 `;
 
 export const SearchBar = styled.span`
-  color: ${(props) => (props.isMatched ? "red" : "black")};
-`;
-
-export const Carousel = styled(Slider)`
-  width: 100%
-  height: 100%;
-  background-color: gold;
+  color: ${(props: IPropsSearchBar) => (props.isMatched ? "red" : "black")};
 `;

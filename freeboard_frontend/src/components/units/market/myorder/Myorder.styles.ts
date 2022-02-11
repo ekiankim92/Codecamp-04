@@ -115,7 +115,7 @@ export const SoldImages = styled.img`
   width: 50px;
   height: 50px;
   :hover {
-    transform: scale(2);
+    transform: scale(1.5);
   }
 `;
 
