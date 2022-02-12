@@ -12,11 +12,9 @@ export default function ProductDetailUI(props: IPropsProductDetailUI) {
   return (
     <>
       <S.Wrapper>
-        <div>
-          <h1>Product Details</h1>
-        </div>
+        <S.Title>Product Details</S.Title>
         <S.OuterWrapper>
-          <S.Image_Wrapper>
+          <S.ImageWrapper>
             <S.Images1>
               <S.Image
                 src={`https://storage.googleapis.com/${props.data?.fetchUseditem?.images?.[0]}`}
@@ -35,30 +33,28 @@ export default function ProductDetailUI(props: IPropsProductDetailUI) {
                 onError={onError}
               />
             </S.Images3>
-          </S.Image_Wrapper>
-          <S.Info_Wrapper>
-            <S.Detail_Name>{props.data?.fetchUseditem.name}</S.Detail_Name>
-            <S.Detail_Price>${props.data?.fetchUseditem.price}</S.Detail_Price>
+          </S.ImageWrapper>
+          <S.InfoWrapper>
+            <S.DetailName>{props.data?.fetchUseditem.name}</S.DetailName>
+            <S.DetailPrice>${props.data?.fetchUseditem.price}</S.DetailPrice>
             {process.browser ? (
-              <S.Detail_Contents
+              <S.DetailContents
                 dangerouslySetInnerHTML={{
                   __html: Dompurify.sanitize(
                     String(props.data?.fetchUseditem.contents)
                   ),
                 }}
-              >
-                {/* Contents: {props.data?.fetchUseditem.contents} */}
-              </S.Detail_Contents>
+              ></S.DetailContents>
             ) : (
               <div></div>
             )}
-            <S.Detail_tags>{props.data?.fetchUseditem.tags}</S.Detail_tags>
-            <S.Detail_Remarks>
+            <S.DetailTags>{props.data?.fetchUseditem.tags}</S.DetailTags>
+            <S.DetailRemarks>
               {props.data?.fetchUseditem.remarks}
-            </S.Detail_Remarks>
-          </S.Info_Wrapper>
-          <S.Section_Wrapper>
-            <S.Map_Label>Map</S.Map_Label>
+            </S.DetailRemarks>
+          </S.InfoWrapper>
+          <S.SectionWrapper>
+            <S.MapLabel>Map</S.MapLabel>
             <KakaoMap
               address={props.data?.fetchUseditem.useditemAddress?.address}
             />
@@ -69,18 +65,18 @@ export default function ProductDetailUI(props: IPropsProductDetailUI) {
               <S.Address>
                 Address: {props.data?.fetchUseditem.useditemAddress?.address}
               </S.Address>
-              <S.Address_Detail>
+              <S.AddressDetail>
                 Address Detail:{" "}
                 {props.data?.fetchUseditem.useditemAddress?.addressDetail}
-              </S.Address_Detail>
+              </S.AddressDetail>
             </div>
-          </S.Section_Wrapper>
+          </S.SectionWrapper>
         </S.OuterWrapper>
-        <S.Button_Wrapper>
+        <S.ButtonWrapper>
           <S.Button onClick={props.onClickMoveToMarketList}>List</S.Button>
           <S.Button onClick={props.onClickMoveToEdit}>Edit</S.Button>
           <S.Button onClick={props.onClickDeleteProduct}>Delete</S.Button>
-        </S.Button_Wrapper>
+        </S.ButtonWrapper>
       </S.Wrapper>
     </>
   );

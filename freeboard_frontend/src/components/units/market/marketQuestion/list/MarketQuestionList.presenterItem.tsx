@@ -8,7 +8,7 @@ import {
 import MarketQuestionWrite from "../write/MarketQuestionWrite.container";
 import { useState } from "react";
 import { IPropsMarketQuestionListUIItem } from "./MarketQuestionList.types";
-import { getDate } from "../../../../../commons/libraries/utils";
+import { timeDisplay } from "../../../../../commons/libraries/utils";
 import { Modal } from "antd";
 
 export default function MarketQuestionListUIItem(
@@ -52,38 +52,32 @@ export default function MarketQuestionListUIItem(
   };
 
   return (
-    <S.OuterWrapper>
-      <S.Wrapper>
-        <S.InnerWrapper>
-          {!isEdit && (
-            <div>
-              <S.UserInfoWrapper>
-                <S.UserName>
-                  {props.userData?.fetchUserLoggedIn.name}
-                </S.UserName>
-                <S.UserDate>
-                  {getDate(props.userData?.fetchUserLoggedIn.createdAt)}
-                </S.UserDate>
-              </S.UserInfoWrapper>
-              <S.ContentWrapper>
-                <S.Content>{props.el?.contents}</S.Content>
-              </S.ContentWrapper>
-              <S.Button onClick={onClickQuestionUpdate}>Edit</S.Button>
-              <S.Button onClick={onClickQuestionDelete(props.el?._id)}>
-                Delete
-              </S.Button>
-              <S.ButtonInput type="button" value="Reply" />
-            </div>
-          )}
-          {isEdit && (
-            <MarketQuestionWrite
-              isEdit={true}
-              setIsEdit={setIsEdit}
-              el={props.el}
-            />
-          )}
-        </S.InnerWrapper>
-      </S.Wrapper>
-    </S.OuterWrapper>
+    <S.Wrapper>
+      {!isEdit && (
+        <div>
+          <S.UserInfoWrapper>
+            <S.UserName>{props.userData?.fetchUserLoggedIn.name}</S.UserName>
+            <S.UserDate>
+              {timeDisplay(props.userData?.fetchUserLoggedIn.createdAt)}
+            </S.UserDate>
+          </S.UserInfoWrapper>
+          <S.ContentWrapper>
+            <S.Content>{props.el?.contents}</S.Content>
+          </S.ContentWrapper>
+          <S.Button onClick={onClickQuestionUpdate}>Edit</S.Button>
+          <S.Button onClick={onClickQuestionDelete(props.el?._id)}>
+            Delete
+          </S.Button>
+          <S.ButtonInput type="button" value="Reply" />
+        </div>
+      )}
+      {isEdit && (
+        <MarketQuestionWrite
+          isEdit={true}
+          setIsEdit={setIsEdit}
+          el={props.el}
+        />
+      )}
+    </S.Wrapper>
   );
 }

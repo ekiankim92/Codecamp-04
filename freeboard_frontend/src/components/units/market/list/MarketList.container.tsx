@@ -57,6 +57,10 @@ const MarketList = () => {
     });
   };
 
+  const onClickProductSubmit = () => {
+    router.push("/productsubmit");
+  };
+
   const onClickPurchase = (id: string) => async () => {
     const result = await createPointTransactionOfBuyingAndSelling({
       variables: {
@@ -134,6 +138,7 @@ const MarketList = () => {
       onClickTogglePick={onClickTogglePick}
       refetch={refetch}
       onChangeSearch={onChangeSearch}
+      onClickProductSubmit={onClickProductSubmit}
     />
   );
 };

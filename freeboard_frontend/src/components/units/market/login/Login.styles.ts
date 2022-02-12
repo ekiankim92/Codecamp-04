@@ -1,14 +1,14 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 1000px;
+  width: 70%;
   height: 500px;
+  margin: 120px auto 50px auto;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 16px;
   background-color: #eeee;
-  margin: 150px auto 50px auto;
 `;
 
 export const LoginInfo = styled.div`

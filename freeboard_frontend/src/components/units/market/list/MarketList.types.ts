@@ -27,4 +27,5 @@ export interface IPropsMarketListUI {
     variables?: Partial<IQueryFetchBoardsCountArgs>
   ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchBoardsCount">>>;
   onload?: any;
+  onClickProductSubmit: () => void;
 }

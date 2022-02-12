@@ -13,6 +13,7 @@ import {
 } from "../../../../commons/types/generated/types";
 import { withAuth } from "../../../commons/hocs/withAuth";
 import { IPropsProduct } from "./Product.types";
+import { Modal } from "antd";
 
 const Product = (props: IPropsProduct) => {
   const router = useRouter();
@@ -63,6 +64,7 @@ const Product = (props: IPropsProduct) => {
           },
         },
       });
+      Modal.success({ content: "Successfully Submitted" });
       console.log(result);
       router.push(`/market/${result.data?.createUseditem._id}`);
     } catch (error) {
@@ -92,6 +94,7 @@ const Product = (props: IPropsProduct) => {
           useditemId: String(router.query.marketId),
         },
       });
+      Modal.success({ content: "Successfully Edited" });
       console.log(result);
       router.push(`/market/${result.data?.updateUseditem._id}`);
     } catch (error) {

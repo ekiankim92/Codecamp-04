@@ -1,23 +1,18 @@
 import styled from "@emotion/styled";
 
-export const OuterWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
 export const Wrapper = styled.div`
-  width: 900px;
+  width: 70%;
+  margin: 20px auto;
   height: 150px;
-  padding: 10px;
   border-top: 1px solid lightgray;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin: 35px;
 `;
 
 export const UserInfoWrapper = styled.div`
   display: flex;
+  opacity: 0.5;
 `;
 
 export const UserName = styled.div`
@@ -35,16 +30,11 @@ export const UserDate = styled.div`
 export const ContentWrapper = styled.div`
   display: flex;
   padding: 15px;
-  border: 1px solid lightgray;
 `;
 
 export const Content = styled.div`
   font-size: 15px;
-`;
-
-export const InnerWrapper = styled.div`
-  display: flex;
-  justify-content: center;
+  font-weight: 600;
 `;
 
 export const Button = styled.button`

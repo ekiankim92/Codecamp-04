@@ -15,7 +15,8 @@ export const Header = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  width: 100%;
+  width: 80%;
+  margin: 0px auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,6 +43,7 @@ export const BottomWrapper = styled.div`
 export const ButtonWrapper = styled.div`
   width: 1000px;
   text-align: end;
+  margin-bottom: 20px;
 `;
 
 export const Button = styled.button`

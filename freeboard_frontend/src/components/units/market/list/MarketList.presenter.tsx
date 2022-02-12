@@ -4,6 +4,7 @@ import Search01 from "../../../commons/keyword-search/01/search01.container";
 import { ChangeEvent } from "react";
 import { IPropsMarketListUI } from "./MarketList.types";
 import { timeDisplay } from "../../../../../src/commons/libraries/utils";
+import { v4 as uuidv4 } from "uuid";
 
 export default function MarketListUI(props: IPropsMarketListUI) {
   const onError = (event: ChangeEvent<HTMLImageElement>) => {
@@ -27,9 +28,14 @@ export default function MarketListUI(props: IPropsMarketListUI) {
           useWindow={false}
         >
           <S.Header>Today's List</S.Header>
+          <S.ProductSubmitButtonWrapper>
+            <S.ProductSubmitButton onClick={props.onClickProductSubmit}>
+              Create Product
+            </S.ProductSubmitButton>
+          </S.ProductSubmitButtonWrapper>
           <S.OuterWrapper>
             {props.data?.fetchUseditems.map((el) => (
-              <div key={el._id}>
+              <div key={uuidv4()}>
                 <S.Wrapper>
                   <S.ImageWrapper onClick={props.onClickDetail(el._id)}>
                     <S.Image

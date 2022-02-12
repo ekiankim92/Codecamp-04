@@ -78,6 +78,7 @@ export default function ProductUI(props: IPropsProductUI) {
           <S.Description_Wrapper>
             <S.Description_Label>Product Description:</S.Description_Label>
           </S.Description_Wrapper>
+          {/* <S.DetailContents />; */}
           <ReactQuill
             onChange={handleChange}
             defaultValue={props.data?.fetchUseditem.contents}

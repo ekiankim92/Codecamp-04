@@ -1,17 +1,17 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 1200px;
+  width: 70%;
+  margin: 120px auto 50px auto;
   border: 1px solid black;
-  margin: 100px;
-  padding: 80px 102px 100px 102px;
+  padding: 80px 102px 100px 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: none;
   box-shadow: 0px 0px 10px gray;
   border-radius: 45px;
-  background-color: ivory;
+  background-color: #eeee;
 `;
 
 export const Header = styled.h1`
@@ -36,6 +36,15 @@ export const Product_Name = styled.input`
   margin: 5px;
   padding: 15px;
   border-radius: 16px;
+`;
+
+export const DetailContents = styled.textarea`
+  width: 350px;
+  height: 200px;
+  font-size: 15px;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  padding: 10px;
 `;
 
 export const Image_Wrapper = styled.div`

@@ -84,6 +84,8 @@ export const ContentSection = styled.main`
   height: 150px;
   padding: 10px;
   font-weight: 600;
+  overflow: scroll;
+  overflow-x: hidden;
   border: 1px solid #d3d3d3;
   :hover {
     border: none;
@@ -106,7 +108,7 @@ export const IconFooter = styled.div`
 
 export const SmileyFace = styled(SmileOutlined)`
   font-size: 50px;
-  color: blue;
+  color: #0000ff;
   :hover {
     font-size: 60px;
   }
@@ -114,7 +116,7 @@ export const SmileyFace = styled(SmileOutlined)`
 
 export const FrownFace = styled(FrownOutlined)`
   font-size: 50px;
-  color: red;
+  color: #ff0000;
   :hover {
     font-size: 60px;
   }
@@ -122,7 +124,7 @@ export const FrownFace = styled(FrownOutlined)`
 
 export const NoFace = styled(MehOutlined)`
   font-size: 50px;
-  color: orange;
+  color: #ffa500;
 `;
 
 export const LikeDisLikeWrapper = styled.div`
@@ -154,7 +156,7 @@ export const Button = styled.button`
   height: 45px;
   border-radius: 6px;
   margin: 6px;
-  color: white;
+  color: #ffffff;
   background-color: #666666;
   border: none;
   :hover {

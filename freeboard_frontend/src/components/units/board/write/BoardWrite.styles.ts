@@ -80,9 +80,10 @@ export const SearchButton = styled.button`
   height: 52px;
   margin-left: 8px;
   border-radius: 6px;
-  background-color: black;
+  background-color: #000000;
   cursor: pointer;
-  color: white;
+  color: #fff;
+  cursor: pointer;
 `;
 
 export const ZipcodeWrapper = styled.div`

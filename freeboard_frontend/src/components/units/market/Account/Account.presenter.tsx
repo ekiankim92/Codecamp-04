@@ -6,63 +6,63 @@ export default function AccountPageUI(props: IPropsAccountPageUI) {
     <>
       <S.Wrapper>
         <S.RegisterIntro>Create Account</S.RegisterIntro>
-        <S.Inner_Wrapper>
-          <S.Email_Wrapper>
-            <S.Email_Label>Email:</S.Email_Label>
+        <S.InnerWrapper>
+          <S.EmailWrapper>
+            <S.EmailLabel>Email:</S.EmailLabel>
             <S.Email
               type="text"
               placeholder="Enter your email"
               name="email"
               onChange={props.onChangeInput}
             />
-          </S.Email_Wrapper>
+          </S.EmailWrapper>
           {props.emailError && (
             <S.ErrorWrapper>
-              <S.Error_Message>*{props.emailError}*</S.Error_Message>
+              <S.ErrorMessage>*{props.emailError}*</S.ErrorMessage>
             </S.ErrorWrapper>
           )}
-          <S.Name_Wrapper>
-            <S.Name_Label>First Name:</S.Name_Label>
-            <S.First_Name type="text" placeholder="Enter your first name" />
-          </S.Name_Wrapper>
-          <S.Username_Wrapper>
-            <S.Username_Label>Username:</S.Username_Label>
+          <S.NameWrapper>
+            <S.NameLabel>First Name:</S.NameLabel>
+            <S.FirstName type="text" placeholder="Enter your first name" />
+          </S.NameWrapper>
+          <S.UsernameWrapper>
+            <S.UsernameLabel>Username:</S.UsernameLabel>
             <S.UserName
               type="text"
               placeholder="Enter your user name"
               onChange={props.onChangeInput}
               name="name"
             />
-          </S.Username_Wrapper>
+          </S.UsernameWrapper>
           {props.nameError && (
-            <S.Error_Message>*{props.nameError}*</S.Error_Message>
+            <S.ErrorMessage>*{props.nameError}*</S.ErrorMessage>
           )}
-          <S.Password_Wrapper>
-            <S.Password_Label>Password:</S.Password_Label>
+          <S.PasswordWrapper>
+            <S.PasswordLabel>Password:</S.PasswordLabel>
             <S.Password
               type="password"
               placeholder="Enter your password"
               name="password"
               onChange={props.onChangeInput}
             />
-          </S.Password_Wrapper>
+          </S.PasswordWrapper>
           {props.passwordError && (
-            <S.Error_Message>*{props.passwordError}*</S.Error_Message>
+            <S.ErrorMessage>*{props.passwordError}*</S.ErrorMessage>
           )}
-          <S.Pass_Confirm_Wrapper>
-            <S.Pass_Confirm_Label>Confirm Password:</S.Pass_Confirm_Label>
-            <S.Password_Confirm
+          <S.PassConfirmWrapper>
+            <S.PassConfirmLabel>Confirm Password:</S.PassConfirmLabel>
+            <S.PasswordConfirm
               type="password"
               placeholder="Confirm your password"
               name="confirmPassword"
               onChange={props.PasswordValidation}
             />
-          </S.Pass_Confirm_Wrapper>
+          </S.PassConfirmWrapper>
           {props.passwordConfirmError && (
-            <S.Error_Message>*{props.passwordConfirmError}*</S.Error_Message>
+            <S.ErrorMessage>*{props.passwordConfirmError}*</S.ErrorMessage>
           )}
-        </S.Inner_Wrapper>
-        <S.Submit_Button onClick={props.onClickSubmit}>Submit</S.Submit_Button>
+        </S.InnerWrapper>
+        <S.SubmitButton onClick={props.onClickSubmit}>Submit</S.SubmitButton>
       </S.Wrapper>
     </>
   );

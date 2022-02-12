@@ -1,19 +1,24 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 1200px;
+  width: 80%;
   border: 1px solid black;
-  margin: 100px 100px 60px 100px;
+  margin: 120px auto 50px auto;
   padding: 80px 102px 100px 102px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: none;
-  box-shadow: 0px 0px 10px gray;
+  box-shadow: 0px 0px 10px #d3d3d3;
   border-radius: 25px;
 `;
 
-export const Image_Wrapper = styled.div`
+export const Title = styled.div`
+  font-size: 28px;
+  font-weight: 700;
+`;
+
+export const ImageWrapper = styled.div`
   width: 250px;
   display: flex;
   flex-direction: column;
@@ -55,74 +60,71 @@ export const Image = styled.img`
   }
 `;
 
-export const Info_Wrapper = styled.div`
+export const InfoWrapper = styled.div`
   width: 350px;
   display: flex;
   align-items: center;
   flex-direction: column;
 `;
 
-export const Detail_Name = styled.div`
+export const DetailName = styled.div`
   width: 350px;
   height: 80px;
   font-size: 20px;
-  border: 1px solid lightgray;
+  border: 1px solid #d3d3d3;
   border-radius: 10px;
   padding: 10px;
 `;
 
-export const Detail_Price = styled.div`
+export const DetailPrice = styled.div`
   width: 350px;
   height: 80px;
   font-size: 20px;
-  border: 1px solid lightgray;
+  border: 1px solid #d3d3d3;
   border-radius: 10px;
   padding: 10px;
 `;
 
-export const Detail_Contents = styled.div`
+export const DetailContents = styled.div`
   width: 350px;
   height: 200px;
   font-size: 15px;
-  border: 1px solid lightgray;
+  border: 1px solid #d3d3d3;
   border-radius: 10px;
   padding: 10px;
-  /* overflow: scroll; */
 `;
 
-export const Detail_tags = styled.div`
+export const DetailTags = styled.div`
   width: 350px;
   height: 80px;
   font-size: 20px;
-  border: 1px solid lightgray;
+  border: 1px solid #d3d3d3;
   border-radius: 10px;
   padding: 10px;
 `;
 
-export const Detail_Remarks = styled.div`
+export const DetailRemarks = styled.div`
   width: 350px;
   height: 200px;
   font-size: 20px;
-  border: 1px solid lightgray;
+  border: 1px solid #d3d3d3;
   border-radius: 10px;
   padding: 10px;
-  /* overflow: scroll; */
 `;
 
-export const Section_Wrapper = styled.div`
-  width: 550px;
+export const SectionWrapper = styled.div`
   border: 1px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: none;
-  box-shadow: 0px 0px 10px gray;
+  box-shadow: 0px 0px 10px #808080;
   border-radius: 25px;
   margin-left: 10px;
   background-color: ivory;
 `;
 
-export const Map_Label = styled.label`
+export const MapLabel = styled.label`
   font-size: 25px;
   font-weight: bold;
 `;
@@ -135,7 +137,7 @@ export const Address = styled.div`
   font-size: 20px;
 `;
 
-export const Address_Detail = styled.div`
+export const AddressDetail = styled.div`
   font-size: 20px;
 `;
 
@@ -144,7 +146,7 @@ export const OuterWrapper = styled.div`
   margin: 10px;
 `;
 
-export const Button_Wrapper = styled.div`
+export const ButtonWrapper = styled.div`
   margin-top: 15px;
 `;
 
@@ -154,8 +156,11 @@ export const Button = styled.button`
   margin: 5px;
   border-radius: 16px;
   background-color: white;
+  color: white;
+  background-color: #666666;
+  border: none;
   :hover {
     cursor: pointer;
-    background-color: ivory;
+    background-color: #333333;
   }
 `;

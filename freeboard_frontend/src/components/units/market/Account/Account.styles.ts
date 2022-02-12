@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  margin: 150px;
-  padding: 40px 102px 100px 102px;
+  width: 40%;
+  margin: 120px auto 50px auto;
+  padding: 40px 102px 100px 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +18,7 @@ export const RegisterIntro = styled.div`
   margin-bottom: 40px;
 `;
 
-export const Inner_Wrapper = styled.div`
+export const InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -25,14 +26,14 @@ export const Inner_Wrapper = styled.div`
   border-radius: 45px;
 `;
 
-export const Email_Wrapper = styled.div`
+export const EmailWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 12px;
 `;
 
-export const Email_Label = styled.label`
+export const EmailLabel = styled.label`
   font-weight: 700px;
   margin-bottom: 4px;
 `;
@@ -48,19 +49,19 @@ export const Email = styled.input`
   }
 `;
 
-export const Name_Wrapper = styled.div`
+export const NameWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 12px;
   align-items: flex-start;
 `;
 
-export const Name_Label = styled.label`
+export const NameLabel = styled.label`
   font-weight: 700px;
   margin-bottom: 4px;
 `;
 
-export const First_Name = styled.input`
+export const FirstName = styled.input`
   width: 260px;
   height: 40px;
   border-radius: 3px;
@@ -71,7 +72,7 @@ export const First_Name = styled.input`
   }
 `;
 
-export const Username_Wrapper = styled.div`
+export const UsernameWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,7 +80,7 @@ export const Username_Wrapper = styled.div`
   align-items: flex-start;
 `;
 
-export const Username_Label = styled.label`
+export const UsernameLabel = styled.label`
   font-weight: 700px;
   margin-bottom: 4px;
 `;
@@ -95,7 +96,7 @@ export const UserName = styled.input`
   }
 `;
 
-export const Password_Wrapper = styled.div`
+export const PasswordWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -103,7 +104,7 @@ export const Password_Wrapper = styled.div`
   align-items: flex-start;
 `;
 
-export const Password_Label = styled.label`
+export const PasswordLabel = styled.label`
   font-weight: 700px;
   margin-bottom: 4px;
 `;
@@ -119,7 +120,7 @@ export const Password = styled.input`
   }
 `;
 
-export const Pass_Confirm_Wrapper = styled.div`
+export const PassConfirmWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -127,12 +128,12 @@ export const Pass_Confirm_Wrapper = styled.div`
   align-items: flex-start;
 `;
 
-export const Pass_Confirm_Label = styled.label`
+export const PassConfirmLabel = styled.label`
   font-weight: 700px;
   margin-bottom: 4px;
 `;
 
-export const Password_Confirm = styled.input`
+export const PasswordConfirm = styled.input`
   width: 260px;
   height: 40px;
   border-radius: 3px;
@@ -143,7 +144,7 @@ export const Password_Confirm = styled.input`
   }
 `;
 
-export const Submit_Button = styled.button`
+export const SubmitButton = styled.button`
   width: 260px;
   height: 48px;
   margin-top: 30px;
@@ -164,7 +165,7 @@ export const ErrorWrapper = styled.div`
   width: 260px;
 `;
 
-export const Error_Message = styled.div`
+export const ErrorMessage = styled.div`
   color: red;
   font-size: 12px;
 `;

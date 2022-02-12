@@ -4,7 +4,7 @@ import { Rate } from "antd";
 export const Wrapper = styled.div`
   width: 80%;
   margin: 0 auto;
-  border-top: 2px solid black;
+  border-top: 2px solid #000;
 `;
 
 export const CommentHeader = styled.div`
@@ -57,7 +57,7 @@ export const CommentWrapper = styled.div`
   display: flex;
   justify-content: start;
   margin-top: -3px;
-  border: 1px solid lightgray;
+  border: 1px solid #d3d3d3;
   border-top: none;
   border-radius: 6px;
 `;
@@ -69,7 +69,7 @@ export const CommentCount = styled.div`
 export const CommentSubmitButton = styled.button`
   width: 91px;
   margin-left: auto;
-  color: white;
+  color: #eee;
   border-radius: 6px;
   background-color: #666666;
   border: none;

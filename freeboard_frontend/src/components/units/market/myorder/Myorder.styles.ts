@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 1000px;
+  width: 80%;
+  margin: 120px auto 50px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 16px;
   background-color: #eeee;
-  margin: 150px;
 `;
 
 export const NavigationWrapper = styled.div`

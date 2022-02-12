@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const CartTitle = styled.div`
-  margin-top: 150px;
+  margin-top: 120px;
   text-align: center;
 `;
 

@@ -4,15 +4,31 @@ export const SearchWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin: 100px;
+  margin: 120px 20px 40px 0px;
 `;
 
 export const Header = styled.div`
   font-size: 28px;
   font-weight: 700;
-  text-align: center;
-  margin-top: -60px;
   margin-bottom: 10px;
+  text-align: center;
+`;
+
+export const ProductSubmitButtonWrapper = styled.div`
+  margin: 0px auto 10px;
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const ProductSubmitButton = styled.button`
+  border: none;
+  width: 200px;
+  height: 48px;
+  :hover {
+    cursor: pointer;
+    border: 1px solid #d3d3d3;
+  }
 `;
 
 export const OuterWrapper = styled.div`
@@ -37,6 +53,9 @@ export const ImageWrapper = styled.div`
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #d3d3d3;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export const Image = styled.img`
@@ -44,6 +63,9 @@ export const Image = styled.img`
   height: 100%;
   padding: 8px;
   object-fit: fill;
+  :hover {
+    width: 98%;
+  }
 `;
 
 export const PriceWrapper = styled.div`
@@ -128,4 +150,6 @@ export const MoreButton = styled.button`
   opacity: 0.5;
   width: 200px;
   height: 60px;
+  border: none;
+  cursor: pointer;
 `;

@@ -51,7 +51,7 @@ export const IconWrapper = styled.div`
 
 export const SmileyFace = styled(SmileOutlined)`
   font-size: 16px;
-  color: blue;
+  color: #0000ff;
 `;
 
 export const SmilyFaceCount = styled.span`
@@ -162,7 +162,7 @@ export const EditPen = styled.img`
 export const CreateBoardButton = styled.button`
   height: 48px;
   border-radius: 3px;
-  color: white;
+  color: #ffffff;
   background-color: #666666;
   border: none;
   :hover {
