@@ -22,11 +22,11 @@ export const LoginSecurity = styled.div`
   height: 150px;
   display: flex;
   align-items: center;
-  border: 2px solid lightgray;
+  border: 2px solid #d3d3d3;
   border-radius: 16px;
   :hover {
     cursor: pointer;
-    background-color: ivory;
+    background-color: #fffff0;
   }
   padding: 35px;
 `;
@@ -41,11 +41,11 @@ export const YourOrder = styled.div`
   height: 150px;
   display: flex;
   align-items: center;
-  border: 2px solid lightgray;
+  border: 2px solid #d3d3d3;
   border-radius: 16px;
   :hover {
     cursor: pointer;
-    background-color: ivory;
+    background-color: #fffff0;
   }
   padding: 35px;
 `;
@@ -60,11 +60,11 @@ export const ArchivedOrder = styled.div`
   height: 150px;
   display: flex;
   align-items: center;
-  border: 2px solid lightgray;
+  border: 2px solid #d3d3d3;
   border-radius: 16px;
   :hover {
     cursor: pointer;
-    background-color: ivory;
+    background-color: #fffff0;
   }
   padding: 35px;
 `;
@@ -79,11 +79,11 @@ export const Reload = styled.div`
   height: 150px;
   display: flex;
   align-items: center;
-  border: 2px solid lightgray;
+  border: 2px solid #d3d3d3;
   border-radius: 16px;
   :hover {
     cursor: pointer;
-    background-color: ivory;
+    background-color: #fffff0;
   }
   padding: 35px;
   margin-bottom: 30px;

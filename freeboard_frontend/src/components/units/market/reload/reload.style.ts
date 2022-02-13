@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border: 1px solid lightgray;
+  border: 1px solid #d3d3d3;
   border-radius: 16px;
   background-color: #eeee;
 `;
@@ -51,7 +51,7 @@ export const SubmitButton = styled.button`
   height: 48px;
   margin-top: 16px;
   border-radius: 3px;
-  color: white;
+  color: #eee;
   background-color: #666666;
   border: none;
   :hover {

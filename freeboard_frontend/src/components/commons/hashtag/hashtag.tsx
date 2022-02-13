@@ -26,7 +26,7 @@ export default function Hashtag(props: IPropsHashtag) {
           <input
             type="text"
             onKeyUp={onKeyUp}
-            placeholder="Press Spacebar for Hashtags"
+            placeholder="hashtags"
             style={{
               width: "350px",
               height: "52px",

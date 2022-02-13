@@ -25,6 +25,7 @@ export const ProductSubmitButton = styled.button`
   border: none;
   width: 200px;
   height: 48px;
+  border-radius: 6px;
   :hover {
     cursor: pointer;
     border: 1px solid #d3d3d3;
@@ -92,6 +93,8 @@ export const NameWrapper = styled.div`
 `;
 
 export const Name = styled.div`
+  width: 120px;
+  padding: 2px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -109,7 +112,7 @@ export const CartIcon = styled.button`
   border-right: 1px solid #d3d3d3;
   background-color: #fff;
   :hover {
-    border: 1px solid black;
+    border: 1px solid #000000;
     cursor: pointer;
     background-color: #d3d3d3;
   }
@@ -121,7 +124,7 @@ export const PickIcon = styled.button`
   border-radius: 0px 4px 4px 0px;
   background-color: #fff;
   :hover {
-    border: 1px solid black;
+    border: 1px solid #000000;
     cursor: pointer;
     background-color: #d3d3d3;
   }

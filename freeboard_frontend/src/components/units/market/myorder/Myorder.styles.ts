@@ -18,21 +18,21 @@ export const NavigationWrapper = styled.div`
 `;
 
 export const ItemsBought = styled.h1`
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #000;
   :hover {
     cursor: pointer;
   }
 `;
 
 export const ItemsSold = styled.h1`
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #000;
   :hover {
     cursor: pointer;
   }
 `;
 
 export const ItemsIPicked = styled.h1`
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #000;
   :hover {
     cursor: pointer;
   }
@@ -42,8 +42,7 @@ export const HeaderWrapper = styled.div`
   width: 900px;
   display: flex;
   align-items: center;
-  border-top: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid #d3d3d3;
   margin-bottom: 15px;
 `;
 
@@ -80,7 +79,7 @@ export const InfoWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid #d3d3d3;
 `;
 
 export const NumberInfo = styled.div`

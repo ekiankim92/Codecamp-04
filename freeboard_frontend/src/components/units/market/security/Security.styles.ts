@@ -23,7 +23,7 @@ export const ProfileWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid lightgray;
+  border: 1px solid #d3d3d3;
 `;
 
 export const Image = styled.img`
@@ -35,7 +35,7 @@ export const Image = styled.img`
 export const NameWrapper = styled.div`
   width: 500px;
   display: flex;
-  border: 1px solid lightgray;
+  border: 1px solid #d3d3d3;
 `;
 
 export const NameInnerWrapper = styled.div`
@@ -75,7 +75,7 @@ export const PasswordWrapper = styled.div`
   width: 500px;
   height: 100px;
   padding: 10px;
-  border: 1px solid lightgray;
+  border: 1px solid #d3d3d3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,7 +111,7 @@ export const EditButton = styled.button`
   width: 52px;
   height: 28px;
   border-radius: 3px;
-  color: white;
+  color: #eee;
   background-color: #666666;
   border: none;
   :hover {

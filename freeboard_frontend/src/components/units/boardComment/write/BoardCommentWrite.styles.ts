@@ -31,6 +31,9 @@ export const UserInput = styled.input`
   border-radius: 6px;
   padding: 10px;
   border: 1px solid #d3d3d3;
+  ::placeholder {
+    opacity: 0.5;
+  }
 `;
 
 export const PasswordInput = styled.input`
@@ -40,6 +43,9 @@ export const PasswordInput = styled.input`
   margin-left: 20px;
   padding: 10px;
   border: 1px solid #d3d3d3;
+  ::placeholder {
+    opacity: 0.5;
+  }
 `;
 
 export const TextAreaCommentWrapper = styled.div``;
@@ -51,6 +57,9 @@ export const TextAreaComment = styled.textarea`
   padding: 15px;
   border-radius: 6px;
   border: 1px solid #d3d3d3;
+  ::placeholder {
+    opacity: 0.5;
+  }
 `;
 
 export const CommentWrapper = styled.div`

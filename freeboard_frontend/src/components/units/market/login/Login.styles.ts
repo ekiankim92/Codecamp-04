@@ -67,7 +67,7 @@ export const SignButton = styled.button`
   height: 48px;
   margin-top: 30px;
   border-radius: 3px;
-  color: white;
+  color: #eee;
   background-color: #666666;
   border: none;
   :hover {
@@ -81,7 +81,7 @@ export const RegisterButton = styled.button`
   height: 48px;
   margin-top: 10px;
   border-radius: 3px;
-  color: white;
+  color: #eee;
   background-color: #666666;
   border: none;
   :hover {

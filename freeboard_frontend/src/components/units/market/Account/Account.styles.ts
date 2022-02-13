@@ -149,7 +149,7 @@ export const SubmitButton = styled.button`
   height: 48px;
   margin-top: 30px;
   border-radius: 3px;
-  color: white;
+  color: #ffffff;
   background-color: #666666;
   border: none;
   :hover {
@@ -166,6 +166,6 @@ export const ErrorWrapper = styled.div`
 `;
 
 export const ErrorMessage = styled.div`
-  color: red;
+  color: #ff0000;
   font-size: 12px;
 `;

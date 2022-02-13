@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   width: 70%;
   margin: 20px auto;
   height: 150px;
-  border-top: 1px solid lightgray;
+  border-top: 1px solid #d3d3d3;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -42,7 +42,7 @@ export const Button = styled.button`
   width: 100px;
   height: 40px;
   border-radius: 3px;
-  color: white;
+  color: #eee;
   background-color: #666666;
   border: none;
   :hover {
@@ -56,7 +56,7 @@ export const ButtonInput = styled.input`
   width: 100px;
   height: 40px;
   border-radius: 3px;
-  color: white;
+  color: #eee;
   background-color: #666666;
   border: none;
   :hover {

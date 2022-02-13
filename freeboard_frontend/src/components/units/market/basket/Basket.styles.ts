@@ -5,7 +5,7 @@ export const CartTitle = styled.div`
   text-align: center;
 `;
 
-export const OuterWrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -15,7 +15,7 @@ export const BasketWrapper = styled.div`
   width: 350px;
   height: 350px;
   margin-bottom: 50px;
-  border: 1px solid lightgray;
+  border: 1px solid #d3d3d3;
   border-radius: 6px;
 `;
 
@@ -26,7 +26,7 @@ export const ImageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid #d3d3d3;
 `;
 
 export const Image = styled.img`

@@ -33,6 +33,9 @@ export const QuestionInput = styled.input`
   height: 150px;
   padding: 15px;
   border-radius: 10px;
+  ::placeholder {
+    opacity: 0.5;
+  }
 `;
 
 export const BottomWrapper = styled.div`
@@ -51,7 +54,7 @@ export const Button = styled.button`
   width: 100px;
   height: 40px;
   border-radius: 3px;
-  color: white;
+  color: #eee;
   background-color: #666666;
   border: none;
   :hover {

@@ -14,7 +14,7 @@ export default function BasketUI(props: IPropsBasketUI) {
       <S.CartTitle>
         <h1>My Cart</h1>
       </S.CartTitle>
-      <S.OuterWrapper>
+      <S.Wrapper>
         {props.basketItems.map((el: any) => (
           <div key={uuidv4()}>
             <S.BasketWrapper>
@@ -41,7 +41,7 @@ export default function BasketUI(props: IPropsBasketUI) {
             </S.BasketWrapper>
           </div>
         ))}
-      </S.OuterWrapper>
+      </S.Wrapper>
     </>
   );
 }

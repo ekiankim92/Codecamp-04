@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 80%;
-  border: 1px solid black;
+  border: 1px solid #000000;
   margin: 120px auto 50px auto;
   padding: 80px 102px 100px 102px;
   display: flex;
@@ -113,7 +113,7 @@ export const DetailRemarks = styled.div`
 `;
 
 export const SectionWrapper = styled.div`
-  border: 1px solid black;
+  border: 1px solid #000000;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -121,7 +121,7 @@ export const SectionWrapper = styled.div`
   box-shadow: 0px 0px 10px #808080;
   border-radius: 25px;
   margin-left: 10px;
-  background-color: ivory;
+  background-color: #fffff0;
 `;
 
 export const MapLabel = styled.label`
@@ -155,8 +155,8 @@ export const Button = styled.button`
   height: 40px;
   margin: 5px;
   border-radius: 16px;
-  background-color: white;
-  color: white;
+  background-color: #ffffff;
+  color: #ffffff;
   background-color: #666666;
   border: none;
   :hover {

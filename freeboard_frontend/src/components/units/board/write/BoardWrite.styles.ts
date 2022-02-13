@@ -30,6 +30,9 @@ export const Writer = styled.input`
   padding-left: 16px;
   border: 1px solid #bdbdbd;
   border-radius: 6px;
+  ::placeholder {
+    opacity: 0.5;
+  }
 `;
 
 export const Password = styled.input`
@@ -38,6 +41,9 @@ export const Password = styled.input`
   padding-left: 16px;
   border: 1px solid #bdbdbd;
   border-radius: 6px;
+  ::placeholder {
+    opacity: 0.5;
+  }
 `;
 
 export const Label = styled.div`
@@ -56,6 +62,9 @@ export const Subject = styled.input`
   padding-left: 16px;
   border: 1px solid #bdbdbd;
   border-radius: 6px;
+  ::placeholder {
+    opacity: 0.5;
+  }
 `;
 
 export const Contents = styled.textarea`
@@ -65,6 +74,9 @@ export const Contents = styled.textarea`
   padding: 14px;
   border: 1px solid #bdbdbd;
   border-radius: 6px;
+  ::placeholder {
+    opacity: 0.5;
+  }
 `;
 
 export const Zipcode = styled.input`
@@ -182,7 +194,7 @@ export const SubmitButton = styled.button`
 `;
 
 export const ErrorNotification = styled.div`
-  color: red;
+  color: #ff0000;
   font-size: 15px;
   margin-top: 4px;
   margin-left: 2px;

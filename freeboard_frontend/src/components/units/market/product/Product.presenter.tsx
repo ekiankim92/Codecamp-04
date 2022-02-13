@@ -1,7 +1,7 @@
 import * as S from "./Product.styles";
 import { useForm } from "react-hook-form";
 // import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
-import { schema } from "./Product.validations";
+// import { schema } from "./Product.validations";
 import React, { useContext } from "react";
 import { MyContext } from "../../../../../pages/market/[marketId]/edit";
 import "react-quill/dist/quill.snow.css";
@@ -41,19 +41,19 @@ export default function ProductUI(props: IPropsProductUI) {
       >
         <S.Wrapper>
           <S.Header>{isEdit ? "Product Edit" : "Product Posting"}</S.Header>
-          <S.Product_Wrapper>
-            <S.Product_Label>Product:</S.Product_Label>
-          </S.Product_Wrapper>
-          <S.Product_Name
+          <S.ProductWrapper>
+            <S.ProductLabel>Product:</S.ProductLabel>
+          </S.ProductWrapper>
+          <S.ProductName
             type="text"
             placeholder="Please Enter the Product's Name"
             {...register("name")}
             defaultValue={props.data?.fetchUseditem.name}
           />
-          <S.Error_Message>{formState.errors.name?.message}</S.Error_Message>
-          <S.Image_Wrapper>
+          <S.ErrorMessage>{formState.errors.name?.message}</S.ErrorMessage>
+          <S.ImageWrapper>
             {props.images.map((el: any, index: number) => (
-              <S.Inner_Image>
+              <S.InnerImage>
                 <Uploads01
                   key={uuidv4()}
                   index={index}
@@ -61,13 +61,13 @@ export default function ProductUI(props: IPropsProductUI) {
                   defaultFileUrl={props.data?.fetchUseditem.images?.[index]}
                   onChangeFileUrls={props.onChangeFileUrls}
                 />
-              </S.Inner_Image>
+              </S.InnerImage>
             ))}
-          </S.Image_Wrapper>
+          </S.ImageWrapper>
           <div>{formState.errors.images?.message}</div>
-          <S.Price_Wrapper>
-            <S.Price_Label>Price:</S.Price_Label>
-          </S.Price_Wrapper>
+          <S.PriceWrapper>
+            <S.PriceLabel>Price:</S.PriceLabel>
+          </S.PriceWrapper>
           <S.Price
             type="text"
             placeholder="Selling Price"
@@ -75,9 +75,9 @@ export default function ProductUI(props: IPropsProductUI) {
             defaultValue={props.data?.fetchUseditem.price}
           />
           <div>{formState.errors.price?.message}</div>
-          <S.Description_Wrapper>
-            <S.Description_Label>Product Description:</S.Description_Label>
-          </S.Description_Wrapper>
+          <S.DescriptionWrapper>
+            <S.DescriptionLabel>Product Description:</S.DescriptionLabel>
+          </S.DescriptionWrapper>
           {/* <S.DetailContents />; */}
           <ReactQuill
             onChange={handleChange}
@@ -89,30 +89,27 @@ export default function ProductUI(props: IPropsProductUI) {
               margin: "5px",
               backgroundColor: "white",
             }}
-            // value={
-            //   getValues("contents") || props.data?.fetchUseditem.contents || ""
-            // }
           />
           <div>{formState.errors.contents?.message}</div>
-          <S.Tag_Wrapper>
-            <S.Tag_Label>Tags:</S.Tag_Label>
-          </S.Tag_Wrapper>
+          <S.TagWrapper>
+            <S.TagLabel>Tags:</S.TagLabel>
+          </S.TagWrapper>
           <Hashtag
             hashtag={props.hashtag}
             setHashtag={props.setHashtag}
             defaultValue={props.data?.fetchUseditem.tags}
           />
-          <S.Map_Title>Map:</S.Map_Title>
-          <S.Map_Wrapper>
+          <S.MapTitle>Map:</S.MapTitle>
+          <S.MapWrapper>
             <KakaoMap
               address={props.address}
               defaultValue={props.data?.fetchUseditem.useditemAddress?.address}
             />
-            <S.Address_Wrapper>
-              <S.Address_Header>Seach Address:</S.Address_Header>
-              <S.Address_Button onClick={props.onClickSearchAddress}>
+            <S.AddressWrapper>
+              <S.AddressHeader>Seach Address:</S.AddressHeader>
+              <S.AddressButton onClick={props.onClickSearchAddress}>
                 Search
-              </S.Address_Button>
+              </S.AddressButton>
               {props.addressOpen && (
                 <Modal
                   visible={true}
@@ -122,7 +119,7 @@ export default function ProductUI(props: IPropsProductUI) {
                   <DaumPostcode onComplete={props.onCompleteAddressSearch} />
                 </Modal>
               )}
-              <S.Zipcode_Label>Zipcode:</S.Zipcode_Label>
+              <S.ZipcodeLabel>Zipcode:</S.ZipcodeLabel>
               <S.Zipcode
                 type="text"
                 placeholder="91105"
@@ -133,7 +130,7 @@ export default function ProductUI(props: IPropsProductUI) {
                 }
                 readOnly
               />
-              <S.Address_Label>Addres:</S.Address_Label>
+              <S.AddressLabel>Addres:</S.AddressLabel>
               <S.Address
                 type="text"
                 placeholder="Address"
@@ -144,17 +141,17 @@ export default function ProductUI(props: IPropsProductUI) {
                 }
                 readOnly
               />
-              <S.Detail_Label>AddressDetail:</S.Detail_Label>
-              <S.Detail_Address
+              <S.DetailLabel>AddressDetail:</S.DetailLabel>
+              <S.DetailAddress
                 type="text"
                 placeholder="Address Detail"
                 {...register("addressDetail")}
               />
-            </S.Address_Wrapper>
-          </S.Map_Wrapper>
-          <S.Remark_Wrapper>
-            <S.Remark_Label>Remark:</S.Remark_Label>
-          </S.Remark_Wrapper>
+            </S.AddressWrapper>
+          </S.MapWrapper>
+          <S.RemarkWrapper>
+            <S.RemarkLabel>Remark:</S.RemarkLabel>
+          </S.RemarkWrapper>
           <S.Remark
             placeholder="Remarks"
             type="text"
@@ -162,9 +159,9 @@ export default function ProductUI(props: IPropsProductUI) {
             defaultValue={props.data?.fetchUseditem.remarks}
           />
           <div>{formState.errors.remarks?.message}</div>
-          <S.Button_Wrapper>
-            <S.Submit_Button>{isEdit ? "Edit" : "Submit"}</S.Submit_Button>
-          </S.Button_Wrapper>
+          <S.ButtonWrapper>
+            <S.SubmitButton>{isEdit ? "Edit" : "Submit"}</S.SubmitButton>
+          </S.ButtonWrapper>
         </S.Wrapper>
       </form>
     </>
