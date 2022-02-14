@@ -11,7 +11,7 @@ export default function AccountPageUI(props: IPropsAccountPageUI) {
             <S.EmailLabel>Email:</S.EmailLabel>
             <S.Email
               type="text"
-              placeholder="Enter your email"
+              placeholder="enter your email"
               name="email"
               onChange={props.onChangeInput}
             />
@@ -23,13 +23,13 @@ export default function AccountPageUI(props: IPropsAccountPageUI) {
           )}
           <S.NameWrapper>
             <S.NameLabel>First Name:</S.NameLabel>
-            <S.FirstName type="text" placeholder="Enter your first name" />
+            <S.FirstName type="text" placeholder="enter your first name" />
           </S.NameWrapper>
           <S.UsernameWrapper>
             <S.UsernameLabel>Username:</S.UsernameLabel>
             <S.UserName
               type="text"
-              placeholder="Enter your user name"
+              placeholder="enter your user name"
               onChange={props.onChangeInput}
               name="name"
             />
@@ -41,7 +41,7 @@ export default function AccountPageUI(props: IPropsAccountPageUI) {
             <S.PasswordLabel>Password:</S.PasswordLabel>
             <S.Password
               type="password"
-              placeholder="Enter your password"
+              placeholder="enter your password"
               name="password"
               onChange={props.onChangeInput}
             />
@@ -53,7 +53,7 @@ export default function AccountPageUI(props: IPropsAccountPageUI) {
             <S.PassConfirmLabel>Confirm Password:</S.PassConfirmLabel>
             <S.PasswordConfirm
               type="password"
-              placeholder="Confirm your password"
+              placeholder="confirm your password"
               name="confirmPassword"
               onChange={props.PasswordValidation}
             />

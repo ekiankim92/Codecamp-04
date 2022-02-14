@@ -1,9 +1,7 @@
 import MyPage from "../../../src/components/units/market/mypage/Mypage.container";
+import { withAuth } from "../../../src/components/commons/hocs/withAuth";
 
-export default function MyPages() {
-  return (
-    <>
-      <MyPage />
-    </>
-  );
-}
+const MyPages = () => {
+  return <MyPage />;
+};
+export default withAuth(MyPages);

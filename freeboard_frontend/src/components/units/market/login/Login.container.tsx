@@ -28,8 +28,8 @@ export default function LogIn() {
     useQuery<Pick<IQuery, "fetchUserLoggedIn">>(FETCH_USER_LOGGED_IN);
 
   const [myInputs, setMyInputs] = useState({
-    email: "",
-    password: "",
+    email: "admin@gmail.com",
+    password: "1234",
   });
 
   const onChangeInputs = (event: ChangeEvent<HTMLInputElement>) => {

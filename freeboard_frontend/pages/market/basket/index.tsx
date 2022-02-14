@@ -1,5 +1,7 @@
 import Basket from "../../../src/components/units/market/basket/Basket.container";
+import { withAuth } from "../../../src/components/commons/hocs/withAuth";
 
-export default function BasketPage() {
+const BasketPage = () => {
   return <Basket />;
-}
+};
+export default withAuth(BasketPage);

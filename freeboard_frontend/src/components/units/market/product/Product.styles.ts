@@ -154,6 +154,9 @@ export const Zipcode = styled.input`
   margin: 5px;
   padding: 15px;
   border-radius: 5px;
+  ::placeholder {
+    opacity: 0.5;
+  }
 `;
 
 export const AddressLabel = styled.label`
@@ -166,6 +169,9 @@ export const Address = styled.input`
   margin: 5px;
   padding: 15px;
   border-radius: 5px;
+  ::placeholder {
+    opacity: 0.5;
+  }
 `;
 
 export const DetailLabel = styled.label`
@@ -178,6 +184,9 @@ export const DetailAddress = styled.input`
   margin: 5px;
   padding: 15px;
   border-radius: 5px;
+  ::placeholder {
+    opacity: 0.5;
+  }
 `;
 
 export const RemarkWrapper = styled.div`
@@ -197,6 +206,9 @@ export const Remark = styled.input`
   margin: 5px;
   padding: 15px;
   border-radius: 16px;
+  ::placeholder {
+    opacity: 0.5;
+  }
 `;
 
 export const ButtonWrapper = styled.div`

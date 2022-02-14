@@ -1,5 +1,7 @@
 import Product from "../../src/components/units/market/product/Product.container";
+import { withAuth } from "../../src/components/commons/hocs/withAuth";
 
-export default function MarketPage() {
+const MarketPage = () => {
   return <Product />;
-}
+};
+export default withAuth(MarketPage);

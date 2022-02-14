@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   position: fixed;
   top: 0px;
   z-index: 1;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid #d3d3d3;
 `;
 
 export const Logo = styled.div`
@@ -34,7 +34,7 @@ export const LogoImg = styled.img`
 export const SignIn = styled.div`
   :hover {
     cursor: pointer;
-    color: gray;
+    color: #808080;
     font-weight: bold;
   }
 `;
@@ -42,7 +42,7 @@ export const SignIn = styled.div`
 export const UsedMarket = styled.div`
   :hover {
     cursor: pointer;
-    color: gray;
+    color: #808080;
     font-weight: bold;
   }
 `;
@@ -50,7 +50,7 @@ export const UsedMarket = styled.div`
 export const FreeBoard = styled.div`
   :hover {
     cursor: pointer;
-    color: gray;
+    color: #808080;
     font-weight: bold;
   }
 `;
@@ -58,7 +58,7 @@ export const FreeBoard = styled.div`
 export const MyCart = styled.div`
   :hover {
     cursor: pointer;
-    color: gray;
+    color: #808080;
     font-weight: bold;
   }
 `;
@@ -66,7 +66,7 @@ export const MyCart = styled.div`
 export const MyPage = styled.div`
   :hover {
     cursor: pointer;
-    color: gray;
+    color: #808080;
     font-weight: bold;
   }
 `;
@@ -74,7 +74,7 @@ export const MyPage = styled.div`
 export const LogOut = styled.div`
   :hover {
     cursor: pointer;
-    color: gray;
+    color: #808080;
     font-weight: bold;
   }
 `;

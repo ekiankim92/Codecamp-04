@@ -45,9 +45,6 @@ export const EmailLog = styled.input`
   border-radius: 3px;
   padding: 10px;
   border: none;
-  ::placeholder {
-    opacity: 0.5;
-  }
 `;
 
 export const PasswordLog = styled.input`
@@ -57,9 +54,6 @@ export const PasswordLog = styled.input`
   border-radius: 3px;
   padding: 10px;
   border: none;
-  ::placeholder {
-    opacity: 0.5;
-  }
 `;
 
 export const SignButton = styled.button`

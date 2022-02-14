@@ -1,5 +1,8 @@
-import { Address } from "react-daum-postcode/lib/loadPostcode";
-import { IMutation, IQuery } from "../../../../commons/types/generated/types";
+import {
+  IMutation,
+  IQuery,
+  Maybe,
+} from "../../../../commons/types/generated/types";
 
 export interface FormValues {
   name: string;

@@ -46,7 +46,7 @@ export default function ProductUI(props: IPropsProductUI) {
           </S.ProductWrapper>
           <S.ProductName
             type="text"
-            placeholder="Please Enter the Product's Name"
+            placeholder="please enter the product's name"
             {...register("name")}
             defaultValue={props.data?.fetchUseditem.name}
           />
@@ -70,7 +70,7 @@ export default function ProductUI(props: IPropsProductUI) {
           </S.PriceWrapper>
           <S.Price
             type="text"
-            placeholder="Selling Price"
+            placeholder="selling price"
             {...register("price")}
             defaultValue={props.data?.fetchUseditem.price}
           />
@@ -133,7 +133,7 @@ export default function ProductUI(props: IPropsProductUI) {
               <S.AddressLabel>Addres:</S.AddressLabel>
               <S.Address
                 type="text"
-                placeholder="Address"
+                placeholder="address"
                 {...register("address")}
                 value={
                   props.address ||
@@ -144,7 +144,7 @@ export default function ProductUI(props: IPropsProductUI) {
               <S.DetailLabel>AddressDetail:</S.DetailLabel>
               <S.DetailAddress
                 type="text"
-                placeholder="Address Detail"
+                placeholder="address detail"
                 {...register("addressDetail")}
               />
             </S.AddressWrapper>
@@ -153,7 +153,7 @@ export default function ProductUI(props: IPropsProductUI) {
             <S.RemarkLabel>Remark:</S.RemarkLabel>
           </S.RemarkWrapper>
           <S.Remark
-            placeholder="Remarks"
+            placeholder="remarks"
             type="text"
             {...register("remarks")}
             defaultValue={props.data?.fetchUseditem.remarks}

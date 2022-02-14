@@ -1,5 +1,11 @@
+import router from "next/router";
 import BannerUI from "./Banner.presenter";
 
 export default function Banner() {
-  return <BannerUI />;
+  const onClickLogin = () => {
+    alert("Please login first");
+    router.push("/login");
+  };
+
+  return <BannerUI onClickLogin={onClickLogin} />;
 }

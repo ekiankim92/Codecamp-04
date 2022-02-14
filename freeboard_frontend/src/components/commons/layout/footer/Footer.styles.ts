@@ -59,7 +59,7 @@ export const Notice = styled.div`
   :hover {
     cursor: pointer;
     color: gray;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000;
   }
 `;
 
@@ -71,7 +71,7 @@ export const OneToChat = styled.div`
   :hover {
     cursor: pointer;
     color: gray;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000;
   }
 `;
 
@@ -84,7 +84,7 @@ export const FrequentAsked = styled.div`
   :hover {
     cursor: pointer;
     color: gray;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000;
   }
 `;
 

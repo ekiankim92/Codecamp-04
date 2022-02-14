@@ -11,14 +11,16 @@ export default function LogInUI(props: IPropsLogInUI) {
             <S.EmailLog
               type="text"
               name="email"
-              placeholder="Enter your e-mail"
+              placeholder="admin@gmail.com"
               onChange={props.onChangeInputs}
+              defaultValue="admin@gmail.com"
             />
             <S.PasswordLog
               type="password"
               name="password"
-              placeholder="Enter your password"
+              placeholder="****"
               onChange={props.onChangeInputs}
+              defaultValue="1234"
             />
             <S.SignButton onClick={props.onClickLogin}>Sign-In</S.SignButton>
             <S.RegisterButton onClick={props.onClickRegister}>
