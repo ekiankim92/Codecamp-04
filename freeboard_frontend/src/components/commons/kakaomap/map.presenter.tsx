@@ -1,7 +1,9 @@
+import * as S from "./map.styles";
+
 export default function KakaoMapUI() {
   return (
     <>
-      <div id="map" style={{ width: "500px", height: "400px" }}></div>
+      <S.Map id="map"></S.Map>
     </>
   );
 }

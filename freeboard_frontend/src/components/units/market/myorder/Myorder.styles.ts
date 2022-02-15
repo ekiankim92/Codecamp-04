@@ -15,6 +15,9 @@ export const NavigationWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   margin: 20px 0px 20px 0px;
+  @media only screen and (max-width: 600px) {
+    width: 500px;
+  }
 `;
 
 export const ItemsBought = styled.h1`
@@ -44,6 +47,12 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   border-bottom: 1px solid #d3d3d3;
   margin-bottom: 15px;
+  @media only screen and (max-width: 1000px) {
+    width: 700px;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 500px;
+  }
 `;
 
 export const NumberWrapper = styled.div`
@@ -80,6 +89,9 @@ export const InfoWrapper = styled.div`
   justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid #d3d3d3;
+  @media only screen and (max-width: 800px) {
+    width: 500px;
+  }
 `;
 
 export const NumberInfo = styled.div`
@@ -94,6 +106,12 @@ export const ProductInfo = styled.span`
   justify-content: space-around;
   align-items: center;
   width: 450px;
+  @media only screen and (max-width: 800px) {
+    width: 250px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 60px;
+  }
 `;
 
 export const PriceInfo = styled.div`
@@ -116,6 +134,14 @@ export const SoldImages = styled.img`
   :hover {
     transform: scale(1.5);
   }
+  @media only screen and (max-width: 800px) {
+    width: 40px;
+    height: 40px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 export const BoughtImages = styled.img`
@@ -123,6 +149,14 @@ export const BoughtImages = styled.img`
   height: 50px;
   :hover {
     transform: scale(2);
+  }
+  @media only screen and (max-width: 800px) {
+    width: 40px;
+    height: 40px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 20px;
+    height: 20px;
   }
 `;
 

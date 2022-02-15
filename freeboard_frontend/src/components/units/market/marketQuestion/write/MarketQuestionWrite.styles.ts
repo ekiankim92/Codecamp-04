@@ -12,6 +12,12 @@ export const Header = styled.div`
   font-size: 30px;
   font-family: italic;
   margin-left: 15px;
+  @media only screen and (max-width: 860px) {
+    font-size: 20px;
+  }
+  @media only screen and (max-width: 860px) {
+    font-size: 14px;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -47,6 +53,15 @@ export const ButtonWrapper = styled.div`
   width: 1000px;
   text-align: end;
   margin-bottom: 20px;
+  @media only screen and (max-width: 1100px) {
+    width: 880px;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 720px;
+  }
+  @media only screen and (max-width: 700px) {
+    width: 560px;
+  }
 `;
 
 export const Button = styled.button`

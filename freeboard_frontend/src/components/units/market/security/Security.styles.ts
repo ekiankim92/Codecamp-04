@@ -24,6 +24,12 @@ export const ProfileWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   border: 1px solid #d3d3d3;
+  @media only screen and (max-width: 800px) {
+    width: 380px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 260px;
+  }
 `;
 
 export const Image = styled.img`
@@ -36,6 +42,12 @@ export const NameWrapper = styled.div`
   width: 500px;
   display: flex;
   border: 1px solid #d3d3d3;
+  @media only screen and (max-width: 800px) {
+    width: 380px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 260px;
+  }
 `;
 
 export const NameInnerWrapper = styled.div`
@@ -69,6 +81,9 @@ export const NameInput = styled.input`
   ::placeholder {
     opacity: 0.5;
   }
+  @media only screen and (max-width: 600px) {
+    width: 80px;
+  }
 `;
 
 export const PasswordWrapper = styled.div`
@@ -79,6 +94,12 @@ export const PasswordWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 800px) {
+    width: 380px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 260px;
+  }
 `;
 
 export const PasswordLabel = styled.label`
@@ -97,8 +118,8 @@ export const OldPassworld = styled.input`
 `;
 
 export const NewPassworld = styled.input`
-  width: 260px;
-  height: 40px;
+  width: 160px;
+  height: 30px;
   border-radius: 3px;
   padding: 10px;
   border: none;

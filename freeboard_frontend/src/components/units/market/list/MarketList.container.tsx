@@ -121,6 +121,7 @@ const MarketList = () => {
         });
       },
     });
+    alert("You Have Added An Item To The Like List");
     console.log(result);
   };
 

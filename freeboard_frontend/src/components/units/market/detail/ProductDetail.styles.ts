@@ -24,6 +24,12 @@ export const ImageWrapper = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  @media only screen and (max-width: 1100px) {
+    width: 150px;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 130px;
+  }
 `;
 
 export const Images1 = styled.div`
@@ -58,6 +64,14 @@ export const Image = styled.img`
     cursor: pointer;
     transform: scale(1.5);
   }
+  @media only screen and (max-width: 1100px) {
+    width: 100px;
+    height: 100px;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 60px;
+    height: 60px;
+  }
 `;
 
 export const InfoWrapper = styled.div`
@@ -65,6 +79,12 @@ export const InfoWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  @media only screen and (max-width: 1100px) {
+    width: 150px;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 200px;
+  }
 `;
 
 export const DetailName = styled.div`
@@ -74,6 +94,12 @@ export const DetailName = styled.div`
   border: 1px solid #d3d3d3;
   border-radius: 10px;
   padding: 10px;
+  @media only screen and (max-width: 1100px) {
+    width: 150px;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 130px;
+  }
 `;
 
 export const DetailPrice = styled.div`
@@ -83,6 +109,12 @@ export const DetailPrice = styled.div`
   border: 1px solid #d3d3d3;
   border-radius: 10px;
   padding: 10px;
+  @media only screen and (max-width: 1100px) {
+    width: 150px;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 130px;
+  }
 `;
 
 export const DetailContents = styled.div`
@@ -92,6 +124,12 @@ export const DetailContents = styled.div`
   border: 1px solid #d3d3d3;
   border-radius: 10px;
   padding: 10px;
+  @media only screen and (max-width: 1100px) {
+    width: 150px;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 130px;
+  }
 `;
 
 export const DetailTags = styled.div`
@@ -101,6 +139,12 @@ export const DetailTags = styled.div`
   border: 1px solid #d3d3d3;
   border-radius: 10px;
   padding: 10px;
+  @media only screen and (max-width: 1100px) {
+    width: 150px;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 130px;
+  }
 `;
 
 export const DetailRemarks = styled.div`
@@ -110,6 +154,12 @@ export const DetailRemarks = styled.div`
   border: 1px solid #d3d3d3;
   border-radius: 10px;
   padding: 10px;
+  @media only screen and (max-width: 1100px) {
+    width: 150px;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 130px;
+  }
 `;
 
 export const SectionWrapper = styled.div`
@@ -122,6 +172,15 @@ export const SectionWrapper = styled.div`
   border-radius: 25px;
   margin-left: 10px;
   background-color: #fffff0;
+  @media only screen and (max-width: 1100px) {
+    width: 400px;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 340px;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 280px;
+  }
 `;
 
 export const MapLabel = styled.label`
@@ -148,6 +207,10 @@ export const OuterWrapper = styled.div`
 
 export const ButtonWrapper = styled.div`
   margin-top: 15px;
+  @media only screen and (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Button = styled.button`

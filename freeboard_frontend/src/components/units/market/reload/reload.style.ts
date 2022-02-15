@@ -18,10 +18,16 @@ export const HeaderWrapper = styled.div``;
 export const Header = styled.div`
   font-size: 28px;
   font-weight: 700;
+  @media only screen and (max-width: 600px) {
+    font-size: 22px;
+  }
 `;
 
 export const PointWrapper = styled.div`
   font-size: 20px;
+  @media only screen and (max-width: 600px) {
+    font-size: 16px;
+  }
 `;
 
 export const DescriptionWrapper = styled.div`
@@ -32,6 +38,12 @@ export const DescriptionWrapper = styled.div`
 
 export const Description = styled.label`
   font-size: 20px;
+  @media only screen and (max-width: 900px) {
+    font-size: 14px;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 10px;
+  }
 `;
 
 export const PointInput = styled.input`
@@ -43,6 +55,12 @@ export const PointInput = styled.input`
   border: none;
   ::placeholder {
     opacity: 0.5;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 180px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 140px;
   }
 `;
 
@@ -57,5 +75,11 @@ export const SubmitButton = styled.button`
   :hover {
     cursor: pointer;
     background-color: #333333;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 180px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 140px;
   }
 `;

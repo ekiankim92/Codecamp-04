@@ -56,10 +56,26 @@ export const ImageWrapper = styled.div`
   margin: 25px;
   display: flex;
   align-items: center;
+  @media only screen and (max-width: 1000px) {
+    width: 700px;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 80px;
+  }
 `;
 
 export const InnerImage = styled.div`
   margin-left: 30px;
+  @media only screen and (max-width: 1000px) {
+    width: 200px;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 60px;
+    margin-right: 100px;
+  }
 `;
 
 export const PriceWrapper = styled.div`
@@ -112,6 +128,7 @@ export const MapWrapper = styled.div`
   display: flex;
   align-items: center;
   border: 1px solid #d3d3d3;
+  border-radius: 6px;
 `;
 
 export const MapTitle = styled.div`
@@ -142,6 +159,9 @@ export const AddressButton = styled.button`
     cursor: pointer;
     background-color: #eee;
   }
+  @media only screen and (max-width: 600px) {
+    width: 120px;
+  }
 `;
 
 export const ZipcodeLabel = styled.label`
@@ -156,6 +176,9 @@ export const Zipcode = styled.input`
   border-radius: 5px;
   ::placeholder {
     opacity: 0.5;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 120px;
   }
 `;
 
@@ -172,6 +195,9 @@ export const Address = styled.input`
   ::placeholder {
     opacity: 0.5;
   }
+  @media only screen and (max-width: 600px) {
+    width: 120px;
+  }
 `;
 
 export const DetailLabel = styled.label`
@@ -186,6 +212,9 @@ export const DetailAddress = styled.input`
   border-radius: 5px;
   ::placeholder {
     opacity: 0.5;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 120px;
   }
 `;
 
@@ -227,7 +256,7 @@ export const SubmitButton = styled.button`
   :hover {
     cursor: pointer;
     background-color: #000;
-    color: #000;
+    color: #eee;
   }
 `;
 
