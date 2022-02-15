@@ -16,6 +16,10 @@ export const RegisterIntro = styled.div`
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 40px;
+  @media only screen and (max-width: 800px) {
+    width: 160px;
+    font-size: 20px;
+  }
 `;
 
 export const InnerWrapper = styled.div`
@@ -47,6 +51,9 @@ export const Email = styled.input`
   ::placeholder {
     opacity: 0.5;
   }
+  @media only screen and (max-width: 800px) {
+    width: 220px;
+  }
 `;
 
 export const NameWrapper = styled.div`
@@ -69,6 +76,9 @@ export const FirstName = styled.input`
   border: none;
   ::placeholder {
     opacity: 0.5;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 220px;
   }
 `;
 
@@ -94,6 +104,9 @@ export const UserName = styled.input`
   ::placeholder {
     opacity: 0.5;
   }
+  @media only screen and (max-width: 800px) {
+    width: 220px;
+  }
 `;
 
 export const PasswordWrapper = styled.div`
@@ -117,6 +130,9 @@ export const Password = styled.input`
   border: none;
   ::placeholder {
     opacity: 0.5;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 220px;
   }
 `;
 
@@ -142,6 +158,9 @@ export const PasswordConfirm = styled.input`
   ::placeholder {
     opacity: 0.5;
   }
+  @media only screen and (max-width: 800px) {
+    width: 220px;
+  }
 `;
 
 export const SubmitButton = styled.button`
@@ -155,6 +174,9 @@ export const SubmitButton = styled.button`
   :hover {
     cursor: pointer;
     background-color: #333333;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 220px;
   }
 `;
 

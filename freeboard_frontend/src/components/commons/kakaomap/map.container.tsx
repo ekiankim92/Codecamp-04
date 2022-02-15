@@ -22,21 +22,21 @@ export default function KakaoMap(props: IPropsKakaoMap) {
         };
         const map = new window.kakao.maps.Map(container, options);
 
-        let geocoder = new window.kakao.maps.services.Geocoder();
+        const geocoder = new window.kakao.maps.services.Geocoder();
 
         geocoder.addressSearch(
           props.address,
           function (result: any, status: any) {
             if (status === window.kakao.maps.services.Status.OK) {
-              let coords = new window.kakao.maps.LatLng(
+              const coords = new window.kakao.maps.LatLng(
                 result[0].y,
                 result[0].x
               );
-              let marker = new window.kakao.maps.Marker({
+              const marker = new window.kakao.maps.Marker({
                 map: map,
                 position: coords,
               });
-              let infowindow = new window.kakao.maps.InfoWindow({
+              const infowindow = new window.kakao.maps.InfoWindow({
                 content:
                   '<div style="width:150px;text-align:center;padding:6px 0;">Location</div>',
               });

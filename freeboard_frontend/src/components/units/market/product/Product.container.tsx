@@ -1,5 +1,5 @@
 import ProductUI from "./Product.presenter";
-import { FormValues } from "./Product.types";
+import { FormValues, IPropsProduct } from "./Product.types";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useMutation, useQuery } from "@apollo/client";
@@ -12,7 +12,6 @@ import {
   IQuery,
 } from "../../../../commons/types/generated/types";
 import { withAuth } from "../../../commons/hocs/withAuth";
-import { IPropsProduct } from "./Product.types";
 import { Modal } from "antd";
 
 const Product = (props: IPropsProduct) => {
@@ -73,7 +72,7 @@ const Product = (props: IPropsProduct) => {
     }
   }
 
-  //update product posting
+  // update product posting
   const onClickProductUpdate = async (data: FormValues) => {
     try {
       const result = await updateUseditem({

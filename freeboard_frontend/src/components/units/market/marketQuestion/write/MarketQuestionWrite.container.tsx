@@ -1,5 +1,8 @@
 import MarketQuestionWriteUI from "./MarketQuestionWrite.presenter";
-import { FormValues } from "./MarketQuestionWrite.types";
+import {
+  FormValues,
+  IPropsMarketQuestionWrite,
+} from "./MarketQuestionWrite.types";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import { ChangeEvent, useState } from "react";
@@ -13,7 +16,6 @@ import {
   IMutationCreateUseditemQuestionArgs,
   IMutationUpdateUseditemQuestionArgs,
 } from "../../../../../commons/types/generated/types";
-import { IPropsMarketQuestionWrite } from "./MarketQuestionWrite.types";
 
 const MarketQuestionWrite = (props: IPropsMarketQuestionWrite) => {
   const router = useRouter();

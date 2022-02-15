@@ -40,6 +40,12 @@ export const FooterAddress = styled.div`
   float: right;
   margin-top: -95px;
   align-items: center;
+  @media only screen and (max-width: 830px) {
+    font-size: 15px;
+  }
+  @media only screen and (max-width: 770px) {
+    font-size: 10px;
+  }
 `;
 
 export const Inqueries = styled.div`
@@ -48,6 +54,12 @@ export const Inqueries = styled.div`
   align-items: center;
   float: left;
   margin: 10px;
+  @media only screen and (max-width: 830px) {
+    font-size: 15px;
+  }
+  @media only screen and (max-width: 770px) {
+    font-size: 10px;
+  }
 `;
 
 export const Notice = styled.div`
@@ -86,6 +98,9 @@ export const FrequentAsked = styled.div`
     color: gray;
     border-bottom: 1px solid #000;
   }
+  @media only screen and (max-width: 770px) {
+    margin-top: 20px;
+  }
 `;
 
 export const FooterName = styled.div`
@@ -104,6 +119,12 @@ export const FooterComment = styled.div`
   font-weight: bold;
   font-size: 16px;
   margin-left: 15px;
+  @media only screen and (max-width: 830px) {
+    font-size: 15px;
+  }
+  @media only screen and (max-width: 770px) {
+    font-size: 10px;
+  }
 `;
 
 export const FooterImages1 = styled.img`

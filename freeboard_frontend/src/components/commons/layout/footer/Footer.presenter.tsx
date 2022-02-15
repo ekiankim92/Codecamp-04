@@ -23,7 +23,7 @@ export default function FooterUI() {
           <S.FooterImages5 src="market_images/paypal.png" onError={onError} />
         </S.FooterWrapper>
         <S.FooterComment>
-          Please don't forget to vist us and to subscribe!
+          Please don&apos;t forget to vist us and to subscribe!
         </S.FooterComment>
         <S.FooterAddress>
           <div>서울 구로구, 구로동, 디지털로 300 패스트파이브 구로점</div>

@@ -26,6 +26,15 @@ export const BestWrapper = styled.div`
   justify-content: space-evenly;
   align-items: center;
   padding: 14px;
+  @media only screen and (max-width: 900px) {
+    width: 700px;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 600px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 440px;
+  }
 `;
 
 export const BestRowWrapper = styled.div`
@@ -35,7 +44,7 @@ export const BestRowWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
-  border: 1px solid #d3d3d3; ;
+  border: 1px solid #d3d3d3;
 `;
 
 export const BestIconDateWrapper = styled.div`
@@ -76,11 +85,17 @@ export const Image = styled.img`
     cursor: pointer;
     width: 220px;
   }
+  @media only screen and (max-width: 900px) {
+    width: 160px;
+    object-fit: fill;
+  }
 `;
 
 export const BestTitle = styled.div`
+  width: 150px;
   font-size: 20px;
   font-weight: 700;
+  text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -128,6 +143,9 @@ export const BoardsTitle = styled.div`
     cursor: pointer;
     font-size: 18px;
   }
+  @media only screen and (max-width: 600px) {
+    width: 200px;
+  }
 `;
 
 export const BoardsWriter = styled.div`
@@ -140,6 +158,9 @@ export const BoardsDate = styled.div`
   width: 100%;
   text-align: center;
   font-size: 20px;
+  @media only screen and (max-width: 600px) {
+    width: 40%;
+  }
 `;
 
 export const PaginationWrapper = styled.div`

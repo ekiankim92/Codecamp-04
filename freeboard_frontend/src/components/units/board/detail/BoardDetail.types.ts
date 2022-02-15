@@ -13,5 +13,5 @@ export interface IPropsBoardDetailUI {
   DislikeCount: () => void;
   onClickCount: () => void;
   onClickEdit: () => void;
-  onError: (event: ChangeEvent<HTMLImageElement>) => void;
+  onError?: (event: ChangeEvent<HTMLImageElement>) => void;
 }

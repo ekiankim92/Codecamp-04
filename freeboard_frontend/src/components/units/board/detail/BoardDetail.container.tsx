@@ -16,7 +16,7 @@ import {
 import { useState } from "react";
 import { Modal } from "antd";
 
-//splice, slice 는 데이터를 일일히 가져오기 때문에 runtime error 가 생길수있음
+// splice, slice 는 데이터를 일일히 가져오기 때문에 runtime error 가 생길수있음
 export default function ContainerDetailPage() {
   const router = useRouter();
 

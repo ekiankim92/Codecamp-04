@@ -41,10 +41,16 @@ export const Navigation = styled.nav`
   padding: 10px;
   margin-top: 12px;
   background-color: #d3d3d3;
+  @media only screen and (max-width: 930px) {
+    width: 500px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 300px;
+  }
 `;
 
 export const List = styled.a`
-  color: white;
+  color: #eee;
   font-weight: bolder;
   font-size: 20px;
   cursor: grab;
@@ -77,6 +83,9 @@ export const ImageSection = styled.section`
   :hover {
     transform: scale(1.5);
   }
+  @media only screen and (max-width: 600px) {
+    width: 100px;
+  }
 `;
 
 export const ContentSection = styled.main`
@@ -90,12 +99,22 @@ export const ContentSection = styled.main`
   :hover {
     border: none;
   }
+  @media only screen and (max-width: 930px) {
+    width: 200px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 150px;
+  }
 `;
 
 export const VideoSection = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 24px;
+  @media only screen and (max-width: 930px) {
+    width: 400px;
+    height: 400px;
+  }
 `;
 
 export const IconFooter = styled.div`
@@ -149,6 +168,9 @@ export const DislikeCount = styled.div`
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
+  @media only screen and (max-width: 780px) {
+    flex-direction: column;
+  }
 `;
 
 export const Button = styled.button`

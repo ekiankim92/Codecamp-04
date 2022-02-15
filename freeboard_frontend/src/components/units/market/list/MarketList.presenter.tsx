@@ -27,7 +27,7 @@ export default function MarketListUI(props: IPropsMarketListUI) {
           hasMore={true}
           useWindow={false}
         >
-          <S.Header>Today's List</S.Header>
+          <S.Header>Today&apos;s List</S.Header>
           <S.ProductSubmitButtonWrapper>
             <S.ProductSubmitButton onClick={props.onClickProductSubmit}>
               Create Product

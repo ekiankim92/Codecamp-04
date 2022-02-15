@@ -1,4 +1,4 @@
-import React, { MouseEvent, useState } from "react";
+import { MouseEvent, useState } from "react";
 import Paginations01UI from "./Paginations01.presenter";
 import { IPropsPaginationsPage01 } from "./Paginations01.types";
 

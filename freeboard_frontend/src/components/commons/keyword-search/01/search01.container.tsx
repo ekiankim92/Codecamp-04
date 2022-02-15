@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import SearchUI from "./search01.presenter";
 import _ from "lodash";
 import { ISearch01Props } from "./search01.types";

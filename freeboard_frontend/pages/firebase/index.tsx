@@ -7,7 +7,7 @@ import {
   doc,
 } from "firebase/firestore/lite";
 import { firebaseApp } from "../_app";
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import styled from "@emotion/styled";
 const MyInput = styled.div`
   width: 150px;
@@ -15,19 +15,19 @@ const MyInput = styled.div`
   background-color: #ebeb8d;
 `;
 
-const MyInput_writer = styled.div`
+const MyInputWriter = styled.div`
   width: 50px;
   height: 50px;
   background-color: #5d5d8b;
 `;
 
-const MyInput_title = styled.div`
+const MyInputTitle = styled.div`
   width: 50px;
   height: 50px;
   background-color: #429442;
 `;
 
-const MyInput_contents = styled.div`
+const MyInputContents = styled.div`
   width: 50px;
   height: 50px;
   background-color: #4e4e0c;
@@ -38,7 +38,7 @@ export default function FirebasePage() {
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
   const [myData, setMyData] = useState([]);
-  const [deleteData, setDeleteData] = useState([]);
+  const [deleteData] = useState([]);
 
   //   spread 연산자
 
@@ -48,7 +48,7 @@ export default function FirebasePage() {
   //     contents: "",
   //   });
 
-  //게시글 등록
+  // 게시글 등록
   async function onClickSubmit() {
     const board = collection(getFirestore(firebaseApp), "board");
     await addDoc(board, {
@@ -58,7 +58,7 @@ export default function FirebasePage() {
     });
   }
 
-  //게시글 조회
+  // 게시글 조회
   async function onClickFetch() {
     const board = collection(getFirestore(firebaseApp), "board");
     const result = await getDocs(board);
@@ -70,7 +70,7 @@ export default function FirebasePage() {
     console.log(result.docs);
   }
 
-  //게시글 삭제
+  // 게시글 삭제
   async function onClickDelete(event) {
     const result = await doc(
       getFirestore(firebaseApp),
@@ -130,9 +130,9 @@ export default function FirebasePage() {
       <br />
       {myData.map((el, index) => (
         <MyInput key={el.id}>
-          <MyInput_writer id={el.id}>{el.myWriter}</MyInput_writer>
-          <MyInput_title id={el.id}>{el.title}</MyInput_title>
-          <MyInput_contents id={el.id}>{el.contents}</MyInput_contents>
+          <MyInputWriter id={el.id}>{el.myWriter}</MyInputWriter>
+          <MyInputTitle id={el.id}>{el.title}</MyInputTitle>
+          <MyInputContents id={el.id}>{el.contents}</MyInputContents>
           <button id={deleteData[index]} onClick={onClickDelete}>
             Delete
           </button>

@@ -33,6 +33,15 @@ export const Writer = styled.input`
   ::placeholder {
     opacity: 0.5;
   }
+  @media only screen and (max-width: 1000px) {
+    width: 660px;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 460px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 260px;
+  }
 `;
 
 export const Password = styled.input`
@@ -44,6 +53,15 @@ export const Password = styled.input`
   ::placeholder {
     opacity: 0.5;
   }
+  @media only screen and (max-width: 1000px) {
+    width: 660px;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 460px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 260px;
+  }
 `;
 
 export const Label = styled.div`
@@ -54,6 +72,15 @@ export const Label = styled.div`
 
 export const InputWrapper = styled.div`
   padding-top: 40px;
+  @media only screen and (max-width: 1000px) {
+    width: 660px;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 460px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 260px;
+  }
 `;
 
 export const Subject = styled.input`
@@ -64,6 +91,15 @@ export const Subject = styled.input`
   border-radius: 6px;
   ::placeholder {
     opacity: 0.5;
+  }
+  @media only screen and (max-width: 1000px) {
+    width: 660px;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 460px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 260px;
   }
 `;
 
@@ -76,6 +112,15 @@ export const Contents = styled.textarea`
   border-radius: 6px;
   ::placeholder {
     opacity: 0.5;
+  }
+  @media only screen and (max-width: 1000px) {
+    width: 660px;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 460px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 260px;
   }
 `;
 
@@ -100,6 +145,15 @@ export const SearchButton = styled.button`
 
 export const ZipcodeWrapper = styled.div`
   margin-top: 20px;
+  @media only screen and (max-width: 1000px) {
+    width: 660px;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 460px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 260px;
+  }
 `;
 
 export const Address1 = styled.input`
@@ -109,6 +163,15 @@ export const Address1 = styled.input`
   padding-left: 16px;
   border: 1px solid #bdbdbd;
   border-radius: 6px;
+  @media only screen and (max-width: 1000px) {
+    width: 660px;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 460px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 260px;
+  }
 `;
 
 export const Address2 = styled.input`
@@ -118,6 +181,15 @@ export const Address2 = styled.input`
   padding-left: 16px;
   border: 1px solid #bdbdbd;
   border-radius: 6px;
+  @media only screen and (max-width: 1000px) {
+    width: 660px;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 460px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 260px;
+  }
 `;
 
 export const Youtube = styled.input`
@@ -126,11 +198,30 @@ export const Youtube = styled.input`
   padding-left: 16px;
   border: 1px solid #bdbdbd;
   border-radius: 6px;
+  @media only screen and (max-width: 1000px) {
+    width: 660px;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 460px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 260px;
+  }
 `;
 
 export const ImageWrapper = styled.div`
   width: 996px;
   padding-top: 40px;
+  @media only screen and (max-width: 1000px) {
+    width: 660px;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 460px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 360px;
+    display: flex;
+  }
 `;
 
 export const UploadButton = styled.button`
@@ -146,6 +237,15 @@ export const UploadButton = styled.button`
 export const OptionWrapper = styled.div`
   width: 996px;
   padding-top: 40px;
+  @media only screen and (max-width: 1000px) {
+    width: 660px;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 460px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 260px;
+  }
 `;
 
 export const RadioButton = styled.input`

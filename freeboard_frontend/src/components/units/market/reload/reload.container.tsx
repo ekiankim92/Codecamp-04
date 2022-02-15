@@ -67,7 +67,6 @@ const Reload = () => {
             },
           });
           console.log(result);
-        } else {
         }
       }
     );

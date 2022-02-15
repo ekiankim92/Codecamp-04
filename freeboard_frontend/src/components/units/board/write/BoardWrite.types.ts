@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ChangeEvent } from "react";
 import { IQuery } from "../../../../commons/types/generated/types";
 
 export interface IPropsBoardEdit {
@@ -7,6 +7,7 @@ export interface IPropsBoardEdit {
 }
 
 export interface IPropsBoardEditUI {
+  color: string | undefined;
   isEdit: boolean;
   nameError: string;
   passwordError: string;
@@ -23,7 +24,6 @@ export interface IPropsBoardEditUI {
   onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
   onClickSubmit: () => void;
   onClickEdit: () => void;
-  color?: color;
   onToggleModal: () => void;
   handleComplete: (data: any) => void;
   zipcode: string;

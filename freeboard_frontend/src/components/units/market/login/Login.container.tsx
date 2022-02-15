@@ -9,9 +9,8 @@ import {
   IMutationLoginUserArgs,
   IQuery,
 } from "../../../../commons/types/generated/types";
-import { ChangeEvent, useContext } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import { GlobalConText } from "../../../../../pages/_app";
-import { useState } from "react";
 
 export default function LogIn() {
   const router = useRouter();

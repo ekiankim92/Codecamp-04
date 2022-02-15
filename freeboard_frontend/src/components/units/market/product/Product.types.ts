@@ -1,8 +1,4 @@
-import {
-  IMutation,
-  IQuery,
-  Maybe,
-} from "../../../../commons/types/generated/types";
+import { IMutation, IQuery } from "../../../../commons/types/generated/types";
 
 export interface FormValues {
   name: string;

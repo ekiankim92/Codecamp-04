@@ -31,13 +31,6 @@ export const InfoWrapper = styled.div`
   margin-bottom: 10px;
 `;
 
-export const LogoImg = styled.img`
-  margin-left: 14px;
-  :hover {
-    cursor: pointer;
-  }
-`;
-
 export const EmailLog = styled.input`
   width: 260px;
   height: 40px;
@@ -45,6 +38,9 @@ export const EmailLog = styled.input`
   border-radius: 3px;
   padding: 10px;
   border: none;
+  @media only screen and (max-width: 700px) {
+    width: 200px;
+  }
 `;
 
 export const PasswordLog = styled.input`
@@ -54,6 +50,9 @@ export const PasswordLog = styled.input`
   border-radius: 3px;
   padding: 10px;
   border: none;
+  @media only screen and (max-width: 700px) {
+    width: 200px;
+  }
 `;
 
 export const SignButton = styled.button`
@@ -67,6 +66,9 @@ export const SignButton = styled.button`
   :hover {
     cursor: pointer;
     background-color: #333333;
+  }
+  @media only screen and (max-width: 700px) {
+    width: 200px;
   }
 `;
 
@@ -82,6 +84,9 @@ export const RegisterButton = styled.button`
     cursor: pointer;
     background-color: #333333;
   }
+  @media only screen and (max-width: 700px) {
+    width: 200px;
+  }
 `;
 
 export const LoginPicture = styled.div`
@@ -93,4 +98,11 @@ export const Image = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 0px 16px 16px 0px;
+  object-fit: fill;
+  @media only screen and (max-width: 700px) {
+    object-fit: cover;
+  }
+  @media only screen and (max-width: 600px) {
+    object-fit: cover;
+  }
 `;

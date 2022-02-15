@@ -2,7 +2,7 @@ import * as S from "./Product.styles";
 import { useForm } from "react-hook-form";
 // import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 // import { schema } from "./Product.validations";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { MyContext } from "../../../../../pages/market/[marketId]/edit";
 import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
@@ -15,11 +15,10 @@ import { v4 as uuidv4 } from "uuid";
 import { IPropsProductUI } from "./Product.types";
 
 export default function ProductUI(props: IPropsProductUI) {
-  const { handleSubmit, register, setValue, trigger, getValues, formState } =
-    useForm({
-      mode: "onChange",
-      // resolver: yupResolver(schema),
-    });
+  const { handleSubmit, register, setValue, trigger, formState } = useForm({
+    mode: "onChange",
+    // resolver: yupResolver(schema),
+  });
 
   const { isEdit }: any = useContext(MyContext);
 
@@ -53,7 +52,7 @@ export default function ProductUI(props: IPropsProductUI) {
           <S.ErrorMessage>{formState.errors.name?.message}</S.ErrorMessage>
           <S.ImageWrapper>
             {props.images.map((el: any, index: number) => (
-              <S.InnerImage>
+              <S.InnerImage key={uuidv4()}>
                 <Uploads01
                   key={uuidv4()}
                   index={index}
