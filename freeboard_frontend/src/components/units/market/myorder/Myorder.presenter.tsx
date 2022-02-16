@@ -63,6 +63,7 @@ export default function MyOrderUI(props: IPropsMyOrderUI) {
           </div>
           <S.PaginationWrapper>
             <PaginationsPage01
+              // @ts-ignore:next-line
               refetch={props.refetch}
               startPage={props.startPage}
               setStartPage={props.setStartPage}

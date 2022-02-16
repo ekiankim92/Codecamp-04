@@ -49,6 +49,7 @@ export default function BoardEdit(props: IPropsBoardEdit) {
   const fileRef = useRef<string[]>(null);
 
   const onClickMyImages = () => {
+    // @ts-ignore:next-line
     fileRef.current?.click();
   };
 
@@ -242,6 +243,7 @@ export default function BoardEdit(props: IPropsBoardEdit) {
         file: myFile,
       },
     });
+    // @ts-ignore:next-line
     setImages([result.data?.uploadFile.url]);
   };
 

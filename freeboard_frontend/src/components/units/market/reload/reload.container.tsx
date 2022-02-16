@@ -5,12 +5,12 @@ import {
   IQuery,
   IQueryFetchUseditemArgs,
 } from "../../../../commons/types/generated/types";
-import ReloadUI from "./Reload.presenter";
+import ReloadUI from "./reload.presenter";
 import {
   RELOAD_POINT,
   FETCH_USER_LOGGED_IN,
   FETCH_USED_ITEM,
-} from "./Reload.queries";
+} from "./reload.queries";
 import { ChangeEvent, useState } from "react";
 import { withAuth } from "../../../commons/hocs/withAuth";
 

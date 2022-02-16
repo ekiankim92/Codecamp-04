@@ -1,6 +1,6 @@
-import * as S from "./Reload.style";
+import * as S from "./reload.style";
 import Head from "next/head";
-import { IPropsReloadUI } from "./Reload.types";
+import { IPropsReloadUI } from "./reload.types";
 
 export default function ReloadUI(props: IPropsReloadUI) {
   return (

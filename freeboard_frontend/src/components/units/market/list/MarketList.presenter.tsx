@@ -55,6 +55,7 @@ export default function MarketListUI(props: IPropsMarketListUI) {
                         .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
                         .split("@#$%")
                         .map((el) => (
+                          // @ts-ignore:next-line
                           <span key={el._id} isMatched={props.keyword === el}>
                             {el}
                           </span>

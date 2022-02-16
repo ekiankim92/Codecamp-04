@@ -6,18 +6,18 @@ export interface FormValues {
 }
 
 export interface IPropsMarketQuestionWrite {
+  isEdit?: boolean | undefined;
   contents?: string;
   isSubmitting?: boolean;
   el?: any;
-  isEdit: boolean;
-  setIsEdit: any;
+  setIsEdit?: any;
   createUseditemQuestion?: Pick<IMutation, "createUseditemQuestion">;
   updateUseditemQuestion?: Pick<IMutation, "updateUseditemQuestion">;
 }
 
 export interface IPropsMarketQuestionWriteUI {
-  isEdit: boolean;
   contents: string;
+  isEdit?: boolean | undefined;
   el: any;
   isSubmitting: boolean;
   onClickWriteQuestion: (data: FormValues) => void;

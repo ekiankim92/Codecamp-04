@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build:ssg": "next build && next export",
+    "build:ssr": "next build",
     "start": "next start",
     "lint": "next lint",
     "generate": "graphql-codegen"
@@ -62,6 +63,7 @@
     "@typescript-eslint/parser": "^5.3.1",
     "eslint": "^7.32.0",
     "eslint-config-next": "12.0.2",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",

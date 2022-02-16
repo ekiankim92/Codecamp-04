@@ -71,6 +71,7 @@ export default function ProductUI(props: IPropsProductUI) {
             type="text"
             placeholder="selling price"
             {...register("price")}
+            // @ts-ignore:next-line
             defaultValue={props.data?.fetchUseditem.price}
           />
           <div>{formState.errors.price?.message}</div>
@@ -123,6 +124,7 @@ export default function ProductUI(props: IPropsProductUI) {
                 type="text"
                 placeholder="91105"
                 {...register("zipcode")}
+                // @ts-ignore:next-line
                 value={
                   props.zipcode ||
                   props.data?.fetchUseditem.useditemAddress?.zipcode
@@ -134,6 +136,7 @@ export default function ProductUI(props: IPropsProductUI) {
                 type="text"
                 placeholder="address"
                 {...register("address")}
+                // @ts-ignore:next-line
                 value={
                   props.address ||
                   props.data?.fetchUseditem.useditemAddress?.address

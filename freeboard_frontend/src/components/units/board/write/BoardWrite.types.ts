@@ -6,8 +6,11 @@ export interface IPropsBoardEdit {
   data?: Pick<IQuery, "fetchBoard">;
 }
 
+export interface ISubmitButtonProps {
+  color: any;
+}
+
 export interface IPropsBoardEditUI {
-  color: string | undefined;
   isEdit: boolean;
   nameError: string;
   passwordError: string;
@@ -21,7 +24,7 @@ export interface IPropsBoardEditUI {
   TitleName: (event: ChangeEvent<HTMLInputElement>) => void;
   BodyParagraph: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   YoutubeVideo: (event: ChangeEvent<HTMLInputElement>) => void;
-  onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeFile: any;
   onClickSubmit: () => void;
   onClickEdit: () => void;
   onToggleModal: () => void;
@@ -32,4 +35,5 @@ export interface IPropsBoardEditUI {
   isOpen: boolean;
   youtubeUrl: string;
   fileRef: any;
+  color: any;
 }

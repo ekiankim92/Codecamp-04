@@ -22,7 +22,6 @@
     "firebase": "^9.5.0",
     "graphql": "^15.7.2",
     "graphql-request": "^3.7.0",
-    "husky": "4",
     "lodash": "^4.17.21",
     "next": "12.0.2",
     "react": "17.0.2",

@@ -8,6 +8,7 @@ import {
   IMutation,
   IMutationToggleUseditemPickArgs,
   IMutationCreatePointTransactionOfBuyingAndSellingArgs,
+  IUseditem,
 } from "../../../../commons/types/generated/types";
 import MarketListUI from "./MarketList.presenter";
 import {
@@ -72,7 +73,7 @@ const MarketList = () => {
     alert("Purchase Complete");
   };
 
-  const onClickBasket = (el: IBoard) => () => {
+  const onClickBasket = (el: IUseditem) => () => {
     console.log(el);
     const baskets = JSON.parse(localStorage.getItem("basket") || "[]");
 
@@ -103,6 +104,7 @@ const MarketList = () => {
         useditemId: id,
       },
       optimisticResponse: {
+        // @ts-ignore:next-line
         toggleUseditemPick: (data?.fetchUseditems.pickedCount || 0) + 1,
       },
       update(cache, { data }) {

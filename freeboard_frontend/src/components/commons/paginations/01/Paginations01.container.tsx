@@ -10,6 +10,7 @@ export default function PaginationsPage01(props: IPropsPaginationsPage01) {
     if (!(event.target instanceof Element)) return;
     const activedPage = Number(event.target.id);
     setActivedPage(activedPage);
+    // @ts-ignore:next-line
     props.refetch({ page: activedPage });
   };
 

@@ -16,7 +16,7 @@ const BodyWrapper = styled.div`
 
 interface ILayoutProps {
   children: ReactChild;
-  hidden: boolean;
+  hidden?: boolean;
 }
 
 //  배열에 주소를 넣어서 해당하는것만 안보여주게끔
@@ -24,7 +24,7 @@ const HIDDEN_HEADERS = ["/12-05-modal-address-state-prev"];
 const HIDDEN_FOOTER = ["/12-02-modal-basic"];
 const HIDDEN_REGISTER = ["/registration"];
 const HIDDEN_LOGIN = ["/login"];
-const HIDDEN_OPENAPI = ["/learnmore"];
+const HIDDEN_OPENAPI = ["/learnmore/"];
 const HIDDEN_PRODUCT_POST = ["/productsubmit"];
 const HIDDEN_BASKET = ["/market/basket"];
 const HIDDEN_MARKET_LIST = ["/market"];

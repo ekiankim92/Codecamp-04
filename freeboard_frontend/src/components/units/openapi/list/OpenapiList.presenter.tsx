@@ -1,23 +1,20 @@
-import * as S from "./OpenapiList.styles";
-import { IPropsOpenAPIPageUI } from "./OpenapiList.types";
+import { DogImg, Wrapper, Title } from "./OpenapiList.styles";
+import { IOpenapiListUIProps } from "./OpenapiList.types";
 
-export default function OpenAPIPageUI(props: IPropsOpenAPIPageUI) {
+export default function OpenapiListUI(props: IOpenapiListUIProps) {
   return (
     <>
-      <S.Wrapper>
-        <div>강아지!</div>
+      <Wrapper>
+        <Title>Sponsor a dog!</Title>
         <div>
-          <img src={props.dogUrl} width={450} height={310} />
+          {props.imgUrls.map((el, index) => (
+            <>
+              <DogImg key={el} src={el} />
+              {(index + 1) % 3 === 0 && <br />}
+            </>
+          ))}
         </div>
-        <div>
-          <img src={props.serviceDog} width={450} height={310} />
-        </div>
-        <div>
-          <img src={props.doggies} width={450} height={310} />
-          {/* <div>{props.breeds}</div> */}
-        </div>
-        <div>멍멍이!</div>
-      </S.Wrapper>
+      </Wrapper>
     </>
   );
 }

@@ -21,7 +21,7 @@ export interface IPropsMyOrderUI {
   onClickItemsSold: () => void;
   onClickItemsIPicked: () => void;
   refetch: (
-    varaiables?: Partial<IQueryFetchUseditemsISoldArgs> | undefined
+    varaibles?: Partial<IQueryFetchUseditemsISoldArgs> | undefined
   ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchUseditemsISold">>>;
   refetchBoughtItems: (
     varaiables?: Partial<IQueryFetchUseditemsIBoughtArgs> | undefined
