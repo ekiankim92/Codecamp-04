@@ -32,7 +32,7 @@ export default function BannerUI(props: IPropsBannerUI) {
         </S.Carousel1>
       </S.CarouselWrapper>
       <S.CardHeader>
-        Hottest Items! Testing 1
+        Hottest Items!
         <span>
           <S.FireEmoji src="https://emojiguide.org/images/emoji/u/1ka998yekfseu.png" />
         </span>
@@ -42,18 +42,21 @@ export default function BannerUI(props: IPropsBannerUI) {
           <Card title="BOGO" bordered={false} style={{ width: 300 }}>
             <p>1+1</p>
             <p>Place Your Order Now!</p>
+            <p>Testing Testing Testing Testing Testing</p>
           </Card>
         </S.CardOne>
         <S.CardTwo className="site-card-border-less-wrapper">
           <Card title="TOYS" bordered={false} style={{ width: 300 }}>
             <p>Get new toys for your pet</p>
             <p>Spring Sale</p>
+            <p>Testing Testing Testing Testing Testing</p>
           </Card>
         </S.CardTwo>
         <S.CardThree className="site-card-border-less-wrapper">
           <Card title="NEW ARRIVAL" bordered={false} style={{ width: 300 }}>
             <p>New items coming soon</p>
             <p>New arrival every Monday</p>
+            <p>Testing Testing Testing Testing Testing</p>
           </Card>
         </S.CardThree>
       </S.CardWrapper>
