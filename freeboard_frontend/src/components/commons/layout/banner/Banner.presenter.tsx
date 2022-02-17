@@ -32,7 +32,7 @@ export default function BannerUI(props: IPropsBannerUI) {
         </S.Carousel1>
       </S.CarouselWrapper>
       <S.CardHeader>
-        Hottest Items!
+        Hottest Items! Testing 1
         <span>
           <S.FireEmoji src="https://emojiguide.org/images/emoji/u/1ka998yekfseu.png" />
         </span>
