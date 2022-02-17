@@ -1,4 +1,4 @@
-import { ReactChild, useEffect, useState } from "react";
+import { ReactChild } from "react";
 import styled from "@emotion/styled";
 import Header from "./header/Header.container";
 import Banner from "./banner/Banner.container";
@@ -37,7 +37,7 @@ const HIDDEN_BOARDLIST = ["/board/board_list"];
 const HIDDEN_BOARDWRITE = ["/mento"];
 
 export default function Layout(props: ILayoutProps) {
-  const [hidden, setHidden] = useState<boolean>(false);
+  // const [hidden, setHidden] = useState<boolean>(false);
 
   const router = useRouter();
   console.log(router.asPath);
@@ -58,11 +58,11 @@ export default function Layout(props: ILayoutProps) {
   const isHiddenBoardList = HIDDEN_BOARDLIST.includes(router.asPath);
   const isHiddenBoardWrite = HIDDEN_BOARDWRITE.includes(router.asPath);
 
-  useEffect(() => {
-    if (router.asPath.includes("board/" && "market/")) {
-      setHidden(true);
-    }
-  }, [router.asPath]);
+  // useEffect(() => {
+  //   if (router.asPath.includes("board/" && "market/")) {
+  //     setHidden(true);
+  //   }
+  // }, [router.asPath]);
 
   return (
     <Wrapper>
@@ -78,8 +78,7 @@ export default function Layout(props: ILayoutProps) {
         !isHiddenMyOrder &&
         !isHiddenSecurity &&
         !isHiddenBoardList &&
-        !isHiddenBoardWrite &&
-        !hidden && <Banner />}
+        !isHiddenBoardWrite && <Banner />}
       {/* <Navigation /> */}
       <BodyWrapper>
         {/* <Sidebar /> */}

@@ -63,6 +63,9 @@ export default function LogIn() {
       } else if (!result) {
         router.push("/market");
       }
+    } else if (!baskets.length) {
+      alert("Welcome!");
+      router.push("/market");
     }
   };
 

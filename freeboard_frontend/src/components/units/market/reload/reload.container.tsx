@@ -13,6 +13,7 @@ import {
 } from "./reload.queries";
 import { ChangeEvent, useState } from "react";
 import { withAuth } from "../../../commons/hocs/withAuth";
+import router from "next/router";
 
 declare const window: Window &
   typeof globalThis & {
@@ -67,6 +68,7 @@ const Reload = () => {
             },
           });
           console.log(result);
+          router.reload();
         }
       }
     );

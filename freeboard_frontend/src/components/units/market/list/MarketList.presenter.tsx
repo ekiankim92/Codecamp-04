@@ -11,6 +11,14 @@ export default function MarketListUI(props: IPropsMarketListUI) {
     event.target.src = "/market_images/image.png";
   };
 
+  const onErrorCart = (event: ChangeEvent<HTMLImageElement>) => {
+    event.target.src = "/market_images/cart.png";
+  };
+
+  const onErrorLike = (event: ChangeEvent<HTMLImageElement>) => {
+    event.target.src = "/market_images/tag.png";
+  };
+
   return (
     <>
       <S.SearchWrapper>
@@ -64,12 +72,11 @@ export default function MarketListUI(props: IPropsMarketListUI) {
                   </S.NameWrapper>
                   <S.IconWrapper>
                     <S.CartIcon onClick={props.onClickBasket(el)}>
-                      <img src="market_images/cart.png" />
+                      <img src="market_images/cart.png" onError={onErrorCart} />
                     </S.CartIcon>
                     <S.PickIcon onClick={props.onClickTogglePick(el._id)}>
-                      <img src="market_images/tag.png" />
+                      <img src="market_images/tag.png" onError={onErrorLike} />
                     </S.PickIcon>
-                    {/* <div>{el.pickedCount}</div> */}
                   </S.IconWrapper>
                   <S.ButtonWrapper>
                     <S.BuyButton onClick={props.onClickPurchase(el._id)}>

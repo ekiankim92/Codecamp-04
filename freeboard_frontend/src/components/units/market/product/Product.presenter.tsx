@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { MyContext } from "../../../../../pages/market/[marketId]/edit";
 import "react-quill/dist/quill.snow.css";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import KakaoMap from "../../../commons/kakaomap/map.container";
 import Hashtag from "../../../commons/hashtag/hashtag";
 import DaumPostcode from "react-daum-postcode";
@@ -15,7 +15,7 @@ import { v4 as uuidv4 } from "uuid";
 import { IPropsProductUI } from "./Product.types";
 
 export default function ProductUI(props: IPropsProductUI) {
-  const { handleSubmit, register, setValue, trigger, formState } = useForm({
+  const { handleSubmit, register, formState } = useForm({
     mode: "onChange",
     // resolver: yupResolver(schema),
   });
@@ -23,13 +23,13 @@ export default function ProductUI(props: IPropsProductUI) {
   const { isEdit }: any = useContext(MyContext);
 
   // React Quill textarea
-  const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+  // const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
-  const handleChange = (value: string) => {
-    console.log(value);
-    setValue("contents", value === "<p><br></p>" ? "" : value);
-    trigger("contents");
-  };
+  // const handleChange = (value: string) => {
+  //   console.log(value);
+  //   setValue("contents", value === "<p><br></p>" ? "" : value);
+  //   trigger("contents");
+  // };
 
   return (
     <>
@@ -78,18 +78,23 @@ export default function ProductUI(props: IPropsProductUI) {
           <S.DescriptionWrapper>
             <S.DescriptionLabel>Product Description:</S.DescriptionLabel>
           </S.DescriptionWrapper>
-          {/* <S.DetailContents />; */}
-          <ReactQuill
+          <S.DetailContents
+            placeholder="contents"
+            {...register("contents")}
+            defaultValue={props.data?.fetchUseditem.contents}
+          />
+          ;
+          {/* <ReactQuill
             onChange={handleChange}
             defaultValue={props.data?.fetchUseditem.contents}
-            // setValue={props.data?.fetchUseditem.contents}
+            setValue={props.data?.fetchUseditem.contents}
             style={{
               width: "450px",
               height: "10em",
               margin: "5px",
               backgroundColor: "white",
             }}
-          />
+          /> */}
           <div>{formState.errors.contents?.message}</div>
           <S.TagWrapper>
             <S.TagLabel>Tags:</S.TagLabel>

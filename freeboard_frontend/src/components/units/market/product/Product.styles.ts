@@ -45,9 +45,12 @@ export const DetailContents = styled.textarea`
   width: 350px;
   height: 200px;
   font-size: 15px;
-  border: 1px solid #d3d3d3;
   border-radius: 10px;
   padding: 10px;
+  margin: 5px;
+  ::placeholder {
+    opacity: 0.5;
+  }
 `;
 
 export const ImageWrapper = styled.div`
@@ -117,7 +120,7 @@ export const TagWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 20px;
 `;
 
 export const TagLabel = styled.label`
@@ -223,6 +226,7 @@ export const RemarkWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-top: 20px;
 `;
 
 export const RemarkLabel = styled.label`

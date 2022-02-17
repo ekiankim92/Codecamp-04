@@ -52,8 +52,8 @@ export default function BannerUI(props: IPropsBannerUI) {
         </S.CardTwo>
         <S.CardThree className="site-card-border-less-wrapper">
           <Card title="NEW ARRIVAL" bordered={false} style={{ width: 300 }}>
-            <p>Card content</p>
-            <p>Card content</p>
+            <p>New items coming soon</p>
+            <p>New arrival every Monday</p>
           </Card>
         </S.CardThree>
       </S.CardWrapper>
