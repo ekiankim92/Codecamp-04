@@ -25,7 +25,7 @@ export default function HeaderUI(props: IPropsHeaderUI) {
   );
 
   const onError = (event: ChangeEvent<HTMLImageElement>) => {
-    event.target.src = "/market_images/image.png";
+    event.target.src = "/images/pawn.png";
   };
 
   return (
