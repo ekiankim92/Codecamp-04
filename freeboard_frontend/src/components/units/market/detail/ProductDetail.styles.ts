@@ -120,7 +120,7 @@ export const DetailPrice = styled.div`
 export const DetailContents = styled.div`
   width: 350px;
   height: 200px;
-  font-size: 15px;
+  font-size: 20px;
   border: 1px solid #d3d3d3;
   border-radius: 10px;
   padding: 10px;

@@ -49,7 +49,6 @@ const Security = () => {
 
   const onUpdateProfile = () => {
     setIsUpdate(false);
-    router.reload();
   };
 
   const onClickChangePassword = async () => {
@@ -92,7 +91,7 @@ const Security = () => {
       });
       console.log(result);
       console.log(result.data?.updateUser.name);
-      router.reload();
+      router.push("/market/security");
     } catch (error) {
       if (error instanceof Error) console.log("updateUser:", error.message);
     }

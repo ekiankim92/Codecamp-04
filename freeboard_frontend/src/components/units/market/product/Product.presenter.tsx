@@ -83,7 +83,6 @@ export default function ProductUI(props: IPropsProductUI) {
             {...register("contents")}
             defaultValue={props.data?.fetchUseditem.contents}
           />
-          ;
           {/* <ReactQuill
             onChange={handleChange}
             defaultValue={props.data?.fetchUseditem.contents}

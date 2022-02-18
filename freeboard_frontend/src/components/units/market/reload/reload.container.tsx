@@ -68,7 +68,7 @@ const Reload = () => {
             },
           });
           console.log(result);
-          router.reload();
+          router.push("/market");
         }
       }
     );

@@ -39,8 +39,7 @@ export default function Header() {
     const result = logoutUser();
     console.log(result);
     alert("You Have Logged Out");
-    router.push("/");
-    router.reload();
+    router.push("/board/board_list");
   };
 
   return (
