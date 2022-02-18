@@ -1,4 +1,4 @@
-# sookheewoof
+# 모두의 반려동물을 위한
 
 <p align="center">
 <img width="1000" src="./public/images/logo.png">
