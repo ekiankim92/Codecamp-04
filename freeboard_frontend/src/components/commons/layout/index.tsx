@@ -20,21 +20,19 @@ interface ILayoutProps {
 }
 
 //  배열에 주소를 넣어서 해당하는것만 안보여주게끔
-const HIDDEN_HEADERS = ["/12-05-modal-address-state-prev"];
-const HIDDEN_FOOTER = ["/12-02-modal-basic"];
 const HIDDEN_REGISTER = ["/registration/"];
-const HIDDEN_LOGIN = ["//sookheewoof.shop/login"];
+const HIDDEN_LOGIN = ["/login/"];
 const HIDDEN_OPENAPI = ["/learnmore/"];
-const HIDDEN_PRODUCT_POST = ["/productsubmit"];
-const HIDDEN_BASKET = ["/market/basket"];
-const HIDDEN_MARKET_LIST = ["/market"];
-const HIDDEN_MYPAGE = ["/market/mypage"];
-const HIDDEN_MYCART = ["/market/basket"];
-const HIDDEN_RELOADPAGE = ["/market/reloadpage"];
-const HIDDEN_MYORDER = ["/market/myorder"];
-const HIDDEN_SECURITY = ["/market/security"];
-const HIDDEN_BOARDLIST = ["/board/board_list"];
-const HIDDEN_BOARDWRITE = ["/mento"];
+const HIDDEN_PRODUCT_POST = ["/productsubmit/"];
+const HIDDEN_BASKET = ["/market/basket/"];
+const HIDDEN_MARKET_LIST = ["/market/"];
+const HIDDEN_MYPAGE = ["/market/mypage/"];
+const HIDDEN_MYCART = ["/market/basket/"];
+const HIDDEN_RELOADPAGE = ["/market/reloadpage/"];
+const HIDDEN_MYORDER = ["/market/myorder/"];
+const HIDDEN_SECURITY = ["/market/security/"];
+const HIDDEN_BOARDLIST = ["/board/board_list/"];
+const HIDDEN_BOARDWRITE = ["/mento/"];
 
 export default function Layout(props: ILayoutProps) {
   // const [hidden, setHidden] = useState<boolean>(false);
@@ -42,8 +40,6 @@ export default function Layout(props: ILayoutProps) {
   const router = useRouter();
   console.log(router.asPath);
 
-  const isHiddenHeader = HIDDEN_HEADERS.includes(router.asPath);
-  const isHiddenFooter = HIDDEN_FOOTER.includes(router.asPath);
   const isHiddenRegister = HIDDEN_REGISTER.includes(router.asPath);
   const isHiddenLogin = HIDDEN_LOGIN.includes(router.asPath);
   const isHiddenOpenApi = HIDDEN_OPENAPI.includes(router.asPath);
@@ -66,7 +62,7 @@ export default function Layout(props: ILayoutProps) {
 
   return (
     <Wrapper>
-      {!isHiddenHeader && <Header />}
+      <Header />
       {!isHiddenRegister &&
         !isHiddenLogin &&
         !isHiddenOpenApi &&
@@ -84,7 +80,7 @@ export default function Layout(props: ILayoutProps) {
         {/* <Sidebar /> */}
         <Body>{props.children}</Body>
       </BodyWrapper>
-      {!isHiddenFooter && !isHiddenMarketList && !isHiddenMyCart && <Footer />}
+      {!isHiddenMarketList && !isHiddenMyCart && <Footer />}
     </Wrapper>
   );
 }
