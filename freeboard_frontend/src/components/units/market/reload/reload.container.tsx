@@ -14,6 +14,7 @@ import {
 import { ChangeEvent, useState } from "react";
 import { withAuth } from "../../../commons/hocs/withAuth";
 import router from "next/router";
+import { Modal } from "antd";
 
 declare const window: Window &
   typeof globalThis & {
@@ -68,7 +69,8 @@ const Reload = () => {
             },
           });
           console.log(result);
-          router.push("/market");
+          Modal.success({ content: "Reload Successful" });
+          router.push("/market/reloadpage");
         }
       }
     );
