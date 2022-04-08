@@ -14,8 +14,7 @@ export default function Luggage() {
   const onClickMidSizePlusCount = () => {
     console.log("midsize luggage:", midSizeCount);
     console.log("total number:", totalSum);
-    // setMidSizeCount((prev) => prev + 1);
-    setMidSizeCount(midSizeCount + 1);
+    setMidSizeCount((prev) => prev + 1);
     if (midSizeCount >= 0) {
       setDisableMinus(false);
     }

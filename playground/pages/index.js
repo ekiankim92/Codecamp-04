@@ -1,5 +1,8 @@
-import LuggagePage from "./luggage/index.tsx";
-
 export default function Home() {
-  return <LuggagePage />;
+  return (
+    <>
+      <div>This is my playground</div>
+      <div>Please divert to the pages</div>
+    </>
+  );
 }
