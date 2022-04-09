@@ -5,6 +5,7 @@ export default function OpenapiListUI(props) {
     <>
       <Wrapper>
         <Title>Sponsor a dog!</Title>
+
         <div>
           {props.imgUrls.map((el, index) => (
             <>
