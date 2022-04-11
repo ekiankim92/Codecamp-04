@@ -91,7 +91,7 @@ const LuggageExceed = styled.div`
   font-size: 15px;
 `;
 
-export default function TableUI() {
+export default function TableUI(props) {
   return (
     <Wrapper>
       <div>

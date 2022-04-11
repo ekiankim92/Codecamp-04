@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   border: 1px solid black;
 `;
 
-const DogOpenAPIPage = () => {
+export default function DogOpenAPIPage() {
   const [dogImg, setDogImg] = useState([]);
 
   useEffect(() => {
@@ -43,5 +43,5 @@ const DogOpenAPIPage = () => {
       </div>
     </Wrapper>
   );
-};
-export default DogOpenAPIPage;
+}
+// export default DogOpenAPIPage;
